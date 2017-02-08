@@ -62,6 +62,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f040004
 			public const int eagleBlue = 2130968580;
 			
+			// aapt resource value: 0x7f040006
+			public const int grey = 2130968582;
+			
 			static Color()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -94,17 +97,23 @@ namespace EaglesNestMobileApp.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060003
-			public const int LogInButton = 2131099651;
+			// aapt resource value: 0x7f070005
+			public const int LogInButton = 2131165189;
 			
-			// aapt resource value: 0x7f060001
-			public const int inputUserId = 2131099649;
+			// aapt resource value: 0x7f070000
+			public const int MyButton = 2131165184;
 			
-			// aapt resource value: 0x7f060002
-			public const int inputUserPassword = 2131099650;
+			// aapt resource value: 0x7f070003
+			public const int inputUserId = 2131165187;
 			
-			// aapt resource value: 0x7f060000
-			public const int logInImage = 2131099648;
+			// aapt resource value: 0x7f070004
+			public const int inputUserPassword = 2131165188;
+			
+			// aapt resource value: 0x7f070002
+			public const int logInImage = 2131165186;
+			
+			// aapt resource value: 0x7f070001
+			public const int toolbar = 2131165185;
 			
 			static Id()
 			{
@@ -120,7 +129,13 @@ namespace EaglesNestMobileApp.Android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int announcements1 = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int toolbar = 2130903042;
 			
 			static Layout()
 			{
@@ -147,6 +162,22 @@ namespace EaglesNestMobileApp.Android
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int MyTheme = 2131099648;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
