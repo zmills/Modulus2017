@@ -3,7 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/eagleBlue">
-
     <ImageView
         android:id="@+id/logInImage"
         android:layout_width="fill_parent"
@@ -16,8 +15,8 @@
         android:hint="Username"
         android:layout_marginTop="100dp"
         android:inputType="number"
-        android:layout_below="@+id/logInImage" 
-        android:background="#c3c5d9"/>
+        android:layout_below="@+id/logInImage"
+        android:background="#c3c5d9" />
     <EditText
         android:id="@+id/inputUserPassword"
         android:layout_width="fill_parent"
