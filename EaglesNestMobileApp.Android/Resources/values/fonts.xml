@@ -18,11 +18,11 @@
     <string name="roboto_medium">sans-serif-medium</string>
 
     <!-- FONT SIZE -->
-    <!--<List Component>-->
+    <!-- <List Component> -->
     <string name="font_size_list_single_line">16sp</string>
     <string name="font_size_list_single_line_dense">13sp</string>
     <string name="font_size_list_primary">16sp</string>
     <string name="font_size_list_secondary">14sp</string>
 
-    <!--<Card Component>-->
+    <!-- <Card Component> -->
 </resources>

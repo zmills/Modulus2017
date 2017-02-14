@@ -6,9 +6,9 @@
 * Tabs: 4 (replace with spaces)
 *
 * Block headers will be displayed as such:
-*   <<HEADER>> (with one space above and below)
+*   HEADER
 * Sub-headers:
-*   <<Sub Header>> (with one space above; no space below)
+*   <Sub Header>
 *
 ****************************************************************************-->
 
@@ -44,9 +44,8 @@
              colorControlHighlight, and colorSwitchThumbNormal -->
     </style>
 
-    <!--<<FONT STYLES>>-->
-    
-    <!--<<List Component>>-->
+    <!-- FONT STYLES -->
+    <!-- <List Component> -->
     <style name="ModListItemSingleLineText">
         <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">16sp</item>
