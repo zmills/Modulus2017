@@ -1,3 +1,8 @@
+/***************************************************************************************/
+/* This class is the "homepage" of the fragments inside the account tab. It holds a    */
+/* viewpager and is loaded everytime the academics menu item is selected.              */
+/***************************************************************************************/
+
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
@@ -13,6 +18,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
     {
         TabLayout tabLayout;
 
+        // Fragments to be used as tabs for the viewpager
         Fragment[] accountFragments =
         {
             new personalInfoFragment(),
@@ -20,6 +26,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             new scheduleFragment()
         };
 
+        // Titles of the tabs
         ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Personal Info",
@@ -33,12 +40,13 @@ namespace EaglesNestMobileApp.Android.Views.Account
             base.OnCreate(savedInstanceState);
         }
 
+        // Sets up the viewpager and the tabs along with their titles
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         { 
 
             View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
 
-           ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
 
             currentPager.Adapter = new navigationAdapter(ChildFragmentManager, accountFragments, titles);
 
