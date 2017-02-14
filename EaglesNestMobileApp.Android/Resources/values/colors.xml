@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* CODING STANDARDS
+* colors.xml
+* 
+* All color name attributes will be lowercased words separated by
+*   underscores.
+*
+* Comments indicating what color is being used may be adjacent/on the same line
+*   as the color value declaration
+****************************************************************************-->
+
 <resources>
+  <!--
   <color name="colorPrimary">#3F51B5</color>
   <color name="colorPrimaryDark">#303F9F</color>
   <color name="colorAccent">#FF4081</color>
@@ -7,4 +19,16 @@
   <color name="eagleBlue">#0070B8</color>
   <color name="black">#000000</color>
   <color name="grey">#c3c5d9</color>
+  -->
+    
+  <!--<<COLOR PALETTE THEME>>-->
+    <color name="primary">#3F51B5</color>           <!-- Blue -->
+    <color name="primary_dark">#303F9F</color>      <!-- Dark Blue-->
+    <color name="primary_light">#C5CAE9</color>     <!-- Light Blue -->
+    <color name="accent">#FFEB3B</color>            <!-- Yellow -->
+    <color name="primary_text">#212121</color>      <!-- Black -->
+    <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
+    <color name="icons">#FFFFFF</color>             <!-- White -->
+    <color name="divider">#BDBDBD</color>           <!-- Light Grey -->
+    <color name="window_background">#F5F5F5</color> <!-- -->
 </resources>
