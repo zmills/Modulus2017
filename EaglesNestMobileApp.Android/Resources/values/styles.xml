@@ -56,7 +56,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:fontFamily">@string/roboto_medium</item>
         <!-- android:textSize
-             This MUST be a value. It cannot be @string/... -->
+             This MUST contain a hard-coded value. It cannot be @string/... -->
         <item name="android:textSize">16sp</item>
     </style>
     <style name="ModListItemSecondaryText">
