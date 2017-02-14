@@ -21,7 +21,7 @@
   <color name="grey">#c3c5d9</color>
   -->
     
-  <!--<<COLOR THEME PALETTE>>-->
+  <!--<<COLOR PALETTE THEME>>-->
     <color name="primary">#3F51B5</color>           <!-- Blue -->
     <color name="primary_dark">#303F9F</color>      <!-- Dark Blue-->
     <color name="primary_light">#C5CAE9</color>     <!-- Light Blue -->
