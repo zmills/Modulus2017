@@ -56,19 +56,19 @@ namespace EaglesNestMobileApp.Android.Views
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
             {
-                case Resource.Id.tab_home:
+                case Resource.Id.BottomNavIconHome:
                     Transaction.Replace(Resource.Id.mainframe, homePage, "Home");
                     break;
-                case Resource.Id.tab_academics:
+                case Resource.Id.BottomNavIconGrades:
                     Transaction.Replace(Resource.Id.mainframe, academicsPage, "Academics");
                     break;
-                case Resource.Id.tab_campus_life:
+                case Resource.Id.BottomNavIconCampus:
                     Transaction.Replace(Resource.Id.mainframe, campusLifePage, "Campus Life");
                     break;
-                case Resource.Id.tab_dining:
+                case Resource.Id.BottomNavIconDining:
                     Transaction.Replace(Resource.Id.mainframe, diningPage, "Dining");
                     break;
-                case Resource.Id.tab_account:
+                case Resource.Id.BottomNavIconAccount:
                     Transaction.Replace(Resource.Id.mainframe, accountPage, "Account");
                     break;
             }
