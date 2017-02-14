@@ -26,7 +26,7 @@
 
 <resources>
     <!-- THEME -->
-    <style name="MyTheme" parent="@android:style/Theme.AppCompat.Light.NoActionBar">
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="android:windownotitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
         
