@@ -16,10 +16,10 @@ namespace EaglesNestMobileApp.Android.Views.Account
 {
     public class accountFragment : Fragment
     {
-        TabLayout tabLayout;
+        TabLayout _tabLayout;
 
         // Fragments to be used as tabs for the viewpager
-        Fragment[] accountFragments =
+        Fragment[] _accountFragments =
         {
             new personalInfoFragment(),
             new attendanceFragment(),
@@ -27,7 +27,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         };
 
         // Titles of the tabs
-        ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
+        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Personal Info",
             "Class Attendance",
@@ -44,17 +44,17 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         { 
 
-            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View _currentView = inflater.Inflate(Resource.Layout.Home, container, false);
 
-            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, accountFragments, titles);
+            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
 
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
 
-            tabLayout.SetupWithViewPager(currentPager);
+            _tabLayout.SetupWithViewPager(_currentPager);
 
-            return currentView;
+            return _currentView;
         }
     }
 }

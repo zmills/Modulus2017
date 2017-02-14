@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Widget;
 using EaglesNestMobileApp.Android.Resources;
 using EaglesNestMobileApp.Android.Views;
@@ -8,7 +9,7 @@ using System;
 namespace EaglesNestMobileApp.Android
 {
     [Activity(Label = "Eaglesnest", MainLauncher = true, Icon = "@drawable/logo")]
-    public class loginActivity : Activity
+    public class loginActivity : AppCompatActivity
     {
         private EditText username;
                          //password;
