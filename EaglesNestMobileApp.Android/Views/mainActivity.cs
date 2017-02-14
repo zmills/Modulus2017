@@ -33,6 +33,9 @@ namespace EaglesNestMobileApp.Android.Views
         {
             base.OnCreate(savedInstanceState);
 
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.BottomNavLayout);
+
             // Load the home page by default
             InitializeNavigation();
         }
@@ -44,7 +47,7 @@ namespace EaglesNestMobileApp.Android.Views
             Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
 
             // Set up the event handler for the bottom navigation menu
-            bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Layout.design_navigation_menu);
+            bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
         }
 

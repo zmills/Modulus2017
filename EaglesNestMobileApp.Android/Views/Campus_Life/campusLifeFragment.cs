@@ -16,10 +16,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
     public class campusLifeFragment : Fragment
     {
-        TabLayout tabLayout;
+        TabLayout _tabLayout;
 
         // Fragments for the viewpager use as tabs
-        Fragment[] campusLifeFragments =
+        Fragment[] _campusLifeFragments =
         {
             new studentCourtFragment(),
             new facilitiesFragment(),
@@ -27,7 +27,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         };
         
         // Titles for the three tabs
-        ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
+        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Student Court",
             "Facilities",
@@ -43,13 +43,13 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         // Sets up the viewpager, tabs, and the titles of the tabs when the campus life item is selected
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, campusLifeFragments, titles);
-            
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _campusLifeFragments, _titles);
+
+            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             tabLayout.SetupWithViewPager(currentPager);
 

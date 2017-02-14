@@ -44,13 +44,13 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         { 
 
-            View _currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
             _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             _tabLayout.SetupWithViewPager(_currentPager);
 

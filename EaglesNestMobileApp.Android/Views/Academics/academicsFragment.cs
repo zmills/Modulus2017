@@ -43,14 +43,13 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // The layout is set first so when finding the view by id we look specifically in the elements in this layout
-            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            // Create an instance of the viewpager adapter using tabs
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, academicsFragments, titles);
+            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
 
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             tabLayout.SetupWithViewPager(currentPager);
 
