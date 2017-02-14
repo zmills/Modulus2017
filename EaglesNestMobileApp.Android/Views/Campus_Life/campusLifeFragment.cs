@@ -1,33 +1,51 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
-using Android.Widget;
+using Android.Support.V4.App;
+using Android.Runtime;
+using Android.Support.Design.Widget;
+using Java.Lang;
+using Android.Support.V4.View;
+using EaglesNestMobileApp.Android.Adapters;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
     public class campusLifeFragment : Fragment
     {
+        TabLayout tabLayout;
+
+        Fragment[] campusLifeFragments =
+        {
+            new studentCourtFragment(),
+            new facilitiesFragment(),
+            new requestsFragment()
+        };
+
+        ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
+        {
+            "Student Court",
+            "Facilities",
+            "Requests"
+        });
+
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, campusLifeFragments, titles);
+            
+            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+
+            tabLayout.SetupWithViewPager(currentPager);
+
+            return currentView;
         }
     }
 }

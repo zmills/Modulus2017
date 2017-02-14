@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Widget;
 using EaglesNestMobileApp.Android.Resources;
+using EaglesNestMobileApp.Android.Views;
 using System;
 
 namespace EaglesNestMobileApp.Android
@@ -39,7 +40,8 @@ namespace EaglesNestMobileApp.Android
         void attempt_logIn(object sender, EventArgs e)
         {
             Toast.MakeText(this, "No internet Baldy", ToastLength.Long).Show();
-            StartActivity(typeof(announcements));
+            StartActivity(typeof(mainActivity));
+            Finish();
         }
     }
 }
