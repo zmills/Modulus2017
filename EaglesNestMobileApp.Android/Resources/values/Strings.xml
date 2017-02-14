@@ -4,7 +4,10 @@
 * strings.xml              
 *
 * All string name attributes will be lowercased words separated by
-* underscores.       
+* underscores.
+*
+* For example:
+*   name="my_string"
 ****************************************************************************-->
 
 <resources>
