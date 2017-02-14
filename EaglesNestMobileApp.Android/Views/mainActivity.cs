@@ -41,7 +41,7 @@ namespace EaglesNestMobileApp.Android.Views
         {
             // Load the first page to be displayed
             FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
-            Transaction.Replace(Resource.Id.mainfraime, homePage, "Home");
+            Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
 
             // Set up the event handler for the bottom navigation menu
             bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Layout.design_navigation_menu);
