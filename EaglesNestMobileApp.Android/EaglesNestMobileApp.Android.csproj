@@ -155,7 +155,7 @@
     <AndroidResource Include="Resources\layout\TabLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\MainNavLayout.xml">
+    <AndroidResource Include="Resources\layout\BottomNavLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CalendaraFragmentLayout.xml">

@@ -25,13 +25,12 @@
 ****************************************************************************-->
 
 <resources>
-    <!--<<THEME>>-->
-    
+    <!-- THEME -->
     <style name="MyTheme" parent="@android:style/Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="android:windownotitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
         
-        <!--<<Colors>>-->
+        <!-- <Colors> -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>

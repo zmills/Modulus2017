@@ -10,21 +10,19 @@
 ****************************************************************************-->
 
 <resources>
-    <!--<<FONT FAMILY & WEIGHT>>-->
-    
+    <!-- FONT FAMILY & WEIGHT -->
     <string name="roboto_regular">sans-serif</string>
     <string name="roboto_light">sans-serif-light</string>
     <string name="roboto_condensed">sans-serif-condensed</string>
     <string name="roboto_thin">sans-serif-thin</string>
     <string name="roboto_medium">sans-serif-medium</string>
 
-    <!--<<FONT SIZE>>-->
-    
-    <!--<<List Component>>-->
+    <!-- FONT SIZE -->
+    <!--<List Component>-->
     <string name="font_size_list_single_line">16sp</string>
     <string name="font_size_list_single_line_dense">13sp</string>
     <string name="font_size_list_primary">16sp</string>
     <string name="font_size_list_secondary">14sp</string>
 
-    <!--<<Card Component>>-->
+    <!--<Card Component>-->
 </resources>
