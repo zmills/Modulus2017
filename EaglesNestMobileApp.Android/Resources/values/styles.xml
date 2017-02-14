@@ -1,8 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--***************************************************************************
+* CODING STANDARDS
+* styles.xml
+* 
+* Tabs: 4 (replace with spaces)
+*
+* Block headers will be displayed as such:
+*   <<HEADER>>
+*
+****************************************************************************-->
+
+<!--***************************************************************************
+* HELP
+* styles.xml
+*
+* android:textSize must contain a value. An error will be thrown if contains
+* @string/...
+*
+* Example:
+*   CORRECT:    <item name="android:textSize">16sp</item>
+*   INCORRECT:  <item name="android:textSize">@string/my_font_size</item>
+****************************************************************************-->
+
 <resources>
-  <style name="MyTheme" parent="@android:style/Theme.Material.Light">
-    <item name="android:windowNoTitle">true</item>
-    <item name="android:windowActionBar">false</item>
-    <item name="android:colorPrimary">#5A8622</item>
-  </style>
+    <!--<<THEME>>-->
+    <style name="MyTheme" parent="@android:style/Theme.AppCompat.Light.NoActionBar">
+        <!-- <item name="android:windownotitle">true</item> -->
+        <!-- <item name="android:windowActionBar">false</item> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="windowActionModeOverlay">true</item>
+        <!-- <item name="statusBarColor">####</item> -->
+        <!-- <item name="navigationBarColor">####</item> -->
+      
+        <!-- You can also set colorControlNormal, colorControlActivated,
+             colorControlHighlight, and colorSwitchThumbNormal -->
+    </style>
 </resources>
