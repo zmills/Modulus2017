@@ -10,7 +10,7 @@
       android:orientation="vertical">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/ToolbarLayout" />
     <android.support.design.widget.TabLayout
         android:id="@+id/MainTabLayout"
         android:layout_width="match_parent"
