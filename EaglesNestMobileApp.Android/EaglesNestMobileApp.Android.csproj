@@ -180,9 +180,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="butt\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_account.xml" />
   </ItemGroup>
@@ -199,7 +197,7 @@
     <AndroidResource Include="Resources\drawable\ic_home.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\nav_menu.xml" />
+    <AndroidResource Include="Resources\menu\bottom_nav_menu.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\sample_home_menu.xml" />
