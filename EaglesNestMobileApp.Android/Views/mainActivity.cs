@@ -14,10 +14,12 @@ using EaglesNestMobileApp.Android.Views.Academics;
 using EaglesNestMobileApp.Android.Views.Home;
 using System;
 using static Android.Support.Design.Widget.BottomNavigationView;
+//using Android.App;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    public class mainActivity : AppCompatActivity
+   [Activity(Label = "EaglesNestMobileApp", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+   public class mainActivity : AppCompatActivity
     {
         // Fragments corresponding to each navigation menu item
         private homeFragment       homePage = new homeFragment();
@@ -42,8 +44,8 @@ namespace EaglesNestMobileApp.Android.Views
 
         private void InitializeNavigation()
         {
-            // Load the first page to be displayed
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+         // Load the first page to be displayed
+         FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
             Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
 
             // Set up the event handler for the bottom navigation menu
@@ -60,19 +62,19 @@ namespace EaglesNestMobileApp.Android.Views
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    Transaction.Replace(Resource.Id.mainframe, homePage, "Home");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    Transaction.Replace(Resource.Id.mainframe, academicsPage, "Academics");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, academicsPage, "Academics");
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    Transaction.Replace(Resource.Id.mainframe, campusLifePage, "Campus Life");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, campusLifePage, "Campus Life");
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    Transaction.Replace(Resource.Id.mainframe, diningPage, "Dining");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, diningPage, "Dining");
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    Transaction.Replace(Resource.Id.mainframe, accountPage, "Account");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, accountPage, "Account");
                     break;
             }
 

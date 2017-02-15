@@ -16,10 +16,10 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 {
     public class academicsFragment : Fragment
     {
-        TabLayout tabLayout;
+        TabLayout _tabLayout;
 
         // Fragments to be used in the view pager as tabs
-        Fragment[] academicsFragments =
+        Fragment[] _academicsFragments =
         {
             new gradesFragment(),
             new gradeReportFragment(),
@@ -27,7 +27,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         };
 
         // Titles for the tabs
-        ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
+        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Class Grades",
             "Grade Reports",
@@ -47,13 +47,13 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
             ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
+            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _academicsFragments, _titles);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            tabLayout.SetupWithViewPager(currentPager);
+            _tabLayout.SetupWithViewPager(_currentPager);
 
-            return currentView;
+            return _currentView;
         }
     }
 }

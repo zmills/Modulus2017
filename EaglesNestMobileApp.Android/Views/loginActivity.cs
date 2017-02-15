@@ -8,7 +8,7 @@ using System;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", MainLauncher = true, Icon = "@drawable/logo")]
+    [Activity(Label = "Eaglesnest", /*MainLauncher = true,*/ Icon = "@drawable/logo")]
     public class loginActivity : AppCompatActivity
     {
         private EditText username;
@@ -20,7 +20,7 @@ namespace EaglesNestMobileApp.Android
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.LoginLayout);
             username = (EditText)FindViewById(Resource.Id.inputUserId);
 
             //Hide action bar

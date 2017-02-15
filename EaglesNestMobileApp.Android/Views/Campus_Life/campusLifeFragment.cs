@@ -47,13 +47,13 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _campusLifeFragments, _titles);
+            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _campusLifeFragments, _titles);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            tabLayout.SetupWithViewPager(currentPager);
+            _tabLayout.SetupWithViewPager(_currentPager);
 
-            return currentView;
+            return _currentView;
         }
     }
 }
