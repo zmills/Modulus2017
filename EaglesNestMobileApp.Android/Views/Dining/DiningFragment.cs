@@ -11,9 +11,9 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class diningFragment : Fragment
     {
-        TabLayout tabLayout;
+        TabLayout _tabLayout;
 
-        Fragment[] diningFragments =
+        Fragment[] _diningFragments =
         {
             new fourWindsFragment(),
             new varsityFragment(),
@@ -38,11 +38,11 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             // Use this to return your custom view for this Fragment
             View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
 
-            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+            ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, diningFragments, titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, _titles);
            
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             tabLayout.SetupWithViewPager(currentPager);
 

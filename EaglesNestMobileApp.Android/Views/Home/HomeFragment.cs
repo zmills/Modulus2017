@@ -11,16 +11,16 @@ namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class homeFragment : Fragment
     {
-        TabLayout tabLayout;
+        TabLayout _tabLayout;
 
-        Fragment[] homeFragments = 
+        Fragment[] _homeFragments = 
         {
             new announcementsFragment(),
             new eventsFragment(),
             new calendarFragment()
         };
 
-        ICharSequence[] titles = CharSequence.ArrayFromStringArray( new[] 
+        ICharSequence[] _titles = CharSequence.ArrayFromStringArray( new[] 
         {
             "Announcements",
             "Events Signup",
@@ -35,13 +35,13 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-           ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.homeViewPager);
+           ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, homeFragments, titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, _titles);
 
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.home_tabs);
+            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             tabLayout.SetupWithViewPager(currentPager);
 
