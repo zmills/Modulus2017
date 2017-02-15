@@ -18,9 +18,9 @@ using static Android.Support.Design.Widget.BottomNavigationView;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
-   public class mainActivity : AppCompatActivity
-    {
+   //[Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
+   public class mainActivity : global::Android.Support.V7.App.AppCompatActivity
+   {
         // Fragments corresponding to each navigation menu item
         private homeFragment       homePage = new homeFragment();
         private academicsFragment  academicsPage = new academicsFragment();
