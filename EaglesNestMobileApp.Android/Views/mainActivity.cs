@@ -6,7 +6,6 @@
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
 using EaglesNestMobileApp.Android.Views.Account;
 using EaglesNestMobileApp.Android.Views.Campus_Life;
 using EaglesNestMobileApp.Android.Views.Dining;
@@ -14,12 +13,14 @@ using EaglesNestMobileApp.Android.Views.Academics;
 using EaglesNestMobileApp.Android.Views.Home;
 using System;
 using static Android.Support.Design.Widget.BottomNavigationView;
-//using Android.App;
+using Android.App;
+using SupportFragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using FragmentActivity = Android.Support.V4.App.FragmentActivity;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   //[Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
-   public class mainActivity : global::Android.Support.V7.App.AppCompatActivity
+   [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
+   public class mainActivity : FragmentActivity
    {
         // Fragments corresponding to each navigation menu item
         private homeFragment       homePage = new homeFragment();
@@ -39,24 +40,24 @@ namespace EaglesNestMobileApp.Android.Views
             SetContentView(Resource.Layout.BottomNavLayout);
 
             // Load the home page by default
-            InitializeNavigation();
-        }
-
-        private void InitializeNavigation()
-        {
-         // Load the first page to be displayed
-         FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            // Load the first page to be displayed
+            SupportFragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
             Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
 
             // Set up the event handler for the bottom navigation menu
             bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
+         }
+
+        private void InitializeNavigation()
+        {
+         
         }
 
         // Event handler for menu item selection
         private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
         {
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            SupportFragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
 
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
