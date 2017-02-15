@@ -1,13 +1,15 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Widget;
 using EaglesNestMobileApp.Android.Resources;
+using EaglesNestMobileApp.Android.Views;
 using System;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", MainLauncher = true, Icon = "@drawable/logo")]
-    public class loginActivity : Activity
+    [Activity(Label = "Eaglesnest", /*MainLauncher = true,*/ Icon = "@drawable/logo")]
+    public class loginActivity : AppCompatActivity
     {
         private EditText username;
                          //password;
@@ -18,7 +20,7 @@ namespace EaglesNestMobileApp.Android
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.LoginLayout);
             username = (EditText)FindViewById(Resource.Id.inputUserId);
 
             //Hide action bar
@@ -39,7 +41,8 @@ namespace EaglesNestMobileApp.Android
         void attempt_logIn(object sender, EventArgs e)
         {
             Toast.MakeText(this, "No internet Baldy", ToastLength.Long).Show();
-            StartActivity(typeof(announcements));
+            StartActivity(typeof(mainActivity));
+            Finish();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace EaglesNestMobileApp.Android.Resources
             
 
             // Create your application here
-            SetContentView(Resource.Layout.announcements1);
+            // SetContentView(Resource.Layout.announcements1);
             
 
         }

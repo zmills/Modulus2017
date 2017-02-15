@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--***************************************************************************
+* CODING STANDARDS
+* fonts.xml
+* 
+* All font name attributes will be lowercased words separated by underscores.
+*
+* For example:
+*   name="font_name"
+****************************************************************************-->
+
+<resources>
+    <!-- FONT FAMILY & WEIGHT -->
+    <string name="roboto_regular">sans-serif</string>
+    <string name="roboto_light">sans-serif-light</string>
+    <string name="roboto_condensed">sans-serif-condensed</string>
+    <string name="roboto_thin">sans-serif-thin</string>
+    <string name="roboto_medium">sans-serif-medium</string>
+
+    <!-- FONT SIZE -->
+    <!-- <List Component> -->
+    <string name="font_size_list_single_line">16sp</string>
+    <string name="font_size_list_single_line_dense">13sp</string>
+    <string name="font_size_list_primary">16sp</string>
+    <string name="font_size_list_secondary">14sp</string>
+
+    <!-- <Card Component> -->
+</resources>
