@@ -2231,9 +2231,6 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00a4
 			public const int BottomNavIconHome = 2131361956;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int EaglesNestToolbar = 2131361953;
-			
 			// aapt resource value: 0x7f0a0086
 			public const int LogInButton = 2131361926;
 			
@@ -2248,6 +2245,9 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f0a0073
 			public const int MyButton = 2131361907;
+			
+			// aapt resource value: 0x7f0a00a1
+			public const int Toolbar = 2131361953;
 			
 			// aapt resource value: 0x7f0a008a
 			public const int action0 = 2131361930;

@@ -6,20 +6,22 @@
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
 using EaglesNestMobileApp.Android.Views.Account;
 using EaglesNestMobileApp.Android.Views.Campus_Life;
 using EaglesNestMobileApp.Android.Views.Dining;
 using EaglesNestMobileApp.Android.Views.Academics;
 using EaglesNestMobileApp.Android.Views.Home;
 using System;
+using static Android.Support.Design.Widget.BottomNavigationView;
 using Android.App;
+using SupportFragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using FragmentActivity = Android.Support.V4.App.FragmentActivity;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "FragmentSample", MainLauncher = true, Icon = "@drawable/icon")]
-    public class mainActivity : AppCompatActivity
-    {
+   [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
+   public class mainActivity : FragmentActivity
+   {
         // Fragments corresponding to each navigation menu item
         private homeFragment       homePage = new homeFragment();
         private academicsFragment  academicsPage = new academicsFragment();
@@ -38,24 +40,24 @@ namespace EaglesNestMobileApp.Android.Views
             SetContentView(Resource.Layout.BottomNavLayout);
 
             // Load the home page by default
-            InitializeNavigation();
-        }
-
-        private void InitializeNavigation()
-        {
             // Load the first page to be displayed
-            Android.Support.V4.App.FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            SupportFragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
             Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
 
             // Set up the event handler for the bottom navigation menu
             bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
+         }
+
+        private void InitializeNavigation()
+        {
+         
         }
 
         // Event handler for menu item selection
         private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
         {
-            Android.Support.V4.App.FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            SupportFragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
 
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
@@ -67,13 +69,13 @@ namespace EaglesNestMobileApp.Android.Views
                     Transaction.Replace(Resource.Id.MainFrameLayout, academicsPage, "Academics");
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    Transaction.Replace(Resource.Id.mainframe, campusLifePage, "Campus Life");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, campusLifePage, "Campus Life");
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    Transaction.Replace(Resource.Id.mainframe, diningPage, "Dining");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, diningPage, "Dining");
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    Transaction.Replace(Resource.Id.mainframe, accountPage, "Account");
+                    Transaction.Replace(Resource.Id.MainFrameLayout, accountPage, "Account");
                     break;
             }
 

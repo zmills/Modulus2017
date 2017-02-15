@@ -20,7 +20,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             new grabNGoFragment()
         };
 
-        ICharSequence[] titles = CharSequence.ArrayFromStringArray(new[]
+        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Four Winds",
             "Varsity",
@@ -36,15 +36,15 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            View currentView = inflater.Inflate(Resource.Layout.Home, container, false);
+            View currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
             ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
             currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, _titles);
            
-            tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            _tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            tabLayout.SetupWithViewPager(currentPager);
+            _tabLayout.SetupWithViewPager(currentPager);
 
             return currentView;
         }
