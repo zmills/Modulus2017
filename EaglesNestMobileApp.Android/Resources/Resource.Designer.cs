@@ -2481,7 +2481,7 @@ namespace EaglesNestMobileApp.Android
 			public const int list_item = 2131361864;
 			
 			// aapt resource value: 0x7f0a0083
-			public const int logInImage = 2131361923;
+			public const int loginLogo = 2131361923;
 			
 			// aapt resource value: 0x7f0a00a3
 			public const int masked = 2131361955;
@@ -2870,7 +2870,7 @@ namespace EaglesNestMobileApp.Android
 			public const int BottomNavLayout = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int CalendaraFragmentLayout = 2130903070;
+			public const int CalendarFragmentLayout = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
 			public const int design_bottom_navigation_item = 2130903071;
