@@ -2481,7 +2481,7 @@ namespace EaglesNestMobileApp.Android
 			public const int list_item = 2131361864;
 			
 			// aapt resource value: 0x7f0a0083
-			public const int logInImage = 2131361923;
+			public const int loginLogo = 2131361923;
 			
 			// aapt resource value: 0x7f0a00a3
 			public const int masked = 2131361955;
