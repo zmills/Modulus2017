@@ -14,6 +14,7 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -30,16 +31,18 @@ namespace EaglesNestMobileApp.Android.Views
         // References the bottom navigation menu in this activity's layout
         private BottomNavigationView bottomNavigationMenu;
 
-        private static string BACK_STACK_ROOT_TAG = "root_fragment";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.BottomNavLayout);
+
             FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
             Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
+            Transaction.AddToBackStack(null);
             Transaction.Commit();
+
 
             InitializeNavigation();
          }
@@ -51,14 +54,17 @@ namespace EaglesNestMobileApp.Android.Views
             bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
         }
 
-        //public override void OnBackPressed()
-        //{ }
+        public override void OnBackPressed()
+        {
+            if (SupportFragmentManager.BackStackEntryCount > 1)
+                base.OnBackPressed();
+        }
 
         // Event handler for menu item selection
         private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
         {
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
 
+            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
 
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
@@ -83,6 +89,15 @@ namespace EaglesNestMobileApp.Android.Views
             // Add the fragment to the backstack so that it can be retrieve using the back button
             Transaction.AddToBackStack(null);
             Transaction.Commit();
+
+            if(SupportFragmentManager.BackStackEntryCount == 5)
+            PopStack();
+        }
+
+        private void PopStack()
+        {
+            SupportFragmentManager.Fragments.RemoveAt(SupportFragmentManager.BackStackEntryCount - 1);
+            
         }
     }
 }
