@@ -125,7 +125,7 @@
     <Compile Include="Views\Academics\gradesFragment.cs" />
     <Compile Include="Views\Account\accountFragment.cs" />
     <Compile Include="Views\Account\attendanceFragment.cs" />
-    <Compile Include="Views\Account\personalInfoFragment.cs" />
+    <Compile Include="Views\Account\studentInfoFragment.cs" />
     <Compile Include="Views\Account\scheduleFragment.cs" />
     <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
     <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
@@ -198,7 +198,7 @@
     <AndroidResource Include="Resources\layout\GrabNGoFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PersonalInfoFragmentLayout.xml">
+    <AndroidResource Include="Resources\layout\StudentInfoFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AttendanceFragmentLayout.xml">

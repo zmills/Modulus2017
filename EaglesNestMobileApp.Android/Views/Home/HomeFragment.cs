@@ -24,7 +24,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             "Announcements",
             "Events Signup",
-            "Calendar"
+            "Calendar of Events"
         });
 
 

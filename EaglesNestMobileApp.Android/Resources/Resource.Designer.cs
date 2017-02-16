@@ -2987,25 +2987,25 @@ namespace EaglesNestMobileApp.Android
 			public const int notification_template_part_time = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int PersonalInfoFragmentLayout = 2130903109;
+			public const int RequestsFragmentLayout = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int RequestsFragmentLayout = 2130903110;
+			public const int ScheduleFragmentLayout = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int ScheduleFragmentLayout = 2130903111;
+			public const int select_dialog_item_material = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int select_dialog_item_material = 2130903112;
+			public const int select_dialog_multichoice_material = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int select_dialog_multichoice_material = 2130903113;
+			public const int select_dialog_singlechoice_material = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int select_dialog_singlechoice_material = 2130903114;
+			public const int StudentCourtFragmentLayout = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int StudentCourtFragmentLayout = 2130903115;
+			public const int StudentInfoFragmentLayout = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
 			public const int support_simple_spinner_dropdown_item = 2130903116;

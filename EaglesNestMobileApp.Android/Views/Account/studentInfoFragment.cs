@@ -4,7 +4,7 @@ using Android.Support.V4.App;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
-    public class personalInfoFragment : Fragment
+    public class studentInfoFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
