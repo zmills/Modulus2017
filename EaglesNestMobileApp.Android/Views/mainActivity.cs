@@ -14,7 +14,6 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
-using System;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -38,12 +37,6 @@ namespace EaglesNestMobileApp.Android.Views
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.BottomNavLayout);
 
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
-            Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
-            Transaction.AddToBackStack(null);
-            Transaction.Commit();
-
-
             InitializeNavigation();
          }
 
@@ -52,12 +45,11 @@ namespace EaglesNestMobileApp.Android.Views
             // Set up the event handler for the bottom navigation menu
             bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
-        }
 
-        public override void OnBackPressed()
-        {
-            if (SupportFragmentManager.BackStackEntryCount > 1)
-                base.OnBackPressed();
+            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
+            Transaction.AddToBackStack(null);
+            Transaction.Commit();
         }
 
         // Event handler for menu item selection
@@ -89,15 +81,6 @@ namespace EaglesNestMobileApp.Android.Views
             // Add the fragment to the backstack so that it can be retrieve using the back button
             Transaction.AddToBackStack(null);
             Transaction.Commit();
-
-            if(SupportFragmentManager.BackStackEntryCount == 5)
-            PopStack();
-        }
-
-        private void PopStack()
-        {
-            SupportFragmentManager.Fragments.RemoveAt(SupportFragmentManager.BackStackEntryCount - 1);
-            
         }
     }
 }
