@@ -35,17 +35,21 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-           ViewPager currentPager = currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+           ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
             currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, _titles);
 
-            _tabLayout = currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+
+            // Set the tablayout to fixed so that the titles aren't smashed together
+            if (_tabLayout.Width < _currentView.Width)
+                _tabLayout.TabMode = TabLayout.ModeFixed;
 
             _tabLayout.SetupWithViewPager(currentPager);
 
-            return currentView;
+            return _currentView;
         }
     }
 }

@@ -15,6 +15,7 @@
         android:id="@+id/MainTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="74dp"
         android:background="@color/white"
         android:elevation="4dp"
         app:tabMode="scrollable"
