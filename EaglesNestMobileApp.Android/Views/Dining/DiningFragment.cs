@@ -45,6 +45,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             // Set the tablayout to fixed so that the titles aren't smashed together
+            // REMINDER: BACKLIST: get width of tabLayout and set Fixed or Scrollable depending on the width
             _tabLayout.TabMode = TabLayout.ModeFixed;
             _tabLayout.SetupWithViewPager(currentPager);
             
