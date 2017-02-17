@@ -21,17 +21,17 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         // Fragments for the viewpager use as tabs
         Fragment[] _campusLifeFragments =
         {
-            new studentCourtFragment(),
             new facilitiesFragment(),
-            new requestsFragment()
+            new requestsFragment(),
+            new studentCourtFragment(),
         };
         
-        // Titles for the three tabs
+        // Titles for the three tabs THESE SHOULD PROBABLY BE IN THE VIEWMODEL
         ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
-            "Student Court",
-            "Facilities",
-            "Requests"
+            "Facility Times",
+            "Pass Requests",
+            "Student Court"
         });
 
 

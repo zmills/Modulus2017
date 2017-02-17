@@ -30,8 +30,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
             "Class Grades",
-            "Grade Reports",
-            "Exam Schedules"
+            "Grade Report",
+            "Exam Schedule"
         });
 
 

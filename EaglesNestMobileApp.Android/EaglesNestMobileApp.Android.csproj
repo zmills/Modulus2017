@@ -119,13 +119,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\navigationAdapter.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
     <Compile Include="Views\Academics\gradeReportFragment.cs" />
     <Compile Include="Views\Academics\gradesFragment.cs" />
     <Compile Include="Views\Account\accountFragment.cs" />
     <Compile Include="Views\Account\attendanceFragment.cs" />
-    <Compile Include="Views\Account\personalInfoFragment.cs" />
+    <Compile Include="Views\Account\studentInfoFragment.cs" />
     <Compile Include="Views\Account\scheduleFragment.cs" />
     <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
     <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
@@ -159,7 +160,7 @@
     <AndroidResource Include="Resources\layout\TabLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\BottomNavLayout.axml">
+    <AndroidResource Include="Resources\layout\BottomNavLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CalendarFragmentLayout.xml">
@@ -198,7 +199,7 @@
     <AndroidResource Include="Resources\layout\GrabNGoFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PersonalInfoFragmentLayout.xml">
+    <AndroidResource Include="Resources\layout\StudentInfoFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AttendanceFragmentLayout.xml">
@@ -222,13 +223,17 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml">

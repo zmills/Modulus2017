@@ -21,14 +21,24 @@ namespace EaglesNestMobileApp.Android.Views
    public class mainActivity : AppCompatActivity
    {
         // Fragments corresponding to each navigation menu item
-        private homeFragment       homePage = new homeFragment();
-        private academicsFragment  academicsPage = new academicsFragment();
-        private accountFragment    accountPage = new accountFragment();
-        private diningFragment     diningPage = new diningFragment();
-        private campusLifeFragment campusLifePage = new campusLifeFragment();
+        private homeFragment             _homePage = new homeFragment();
+        private academicsFragment   _academicsPage = new academicsFragment();
+        private campusLifeFragment _campusLifePage = new campusLifeFragment();
+        private diningFragment         _diningPage = new diningFragment();
+        private accountFragment       _accountPage = new accountFragment();
 
         // References the bottom navigation menu in this activity's layout
-        private BottomNavigationView bottomNavigationMenu;
+        private BottomNavigationView _bottomNavigationMenu;
+        
+
+        // Public accessors for member variables
+        public homeFragment             HomePage => _homePage;
+        public academicsFragment   AcademicsPage => _academicsPage;
+        public campusLifeFragment CampusLifePage => _campusLifePage;
+        public diningFragment         DiningPage => _diningPage;
+        public accountFragment       AccountPage => _accountPage;
+        public BottomNavigationView BottomNavigationMenu => _bottomNavigationMenu;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,44 +53,45 @@ namespace EaglesNestMobileApp.Android.Views
         private void InitializeNavigation()
         {
             // Set up the event handler for the bottom navigation menu
-            bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            bottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
+            _bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
+            BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
 
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
-            Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
-            Transaction.AddToBackStack(null);
-            Transaction.Commit();
+            // Set up the first page to show up once the application loads
+            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
+            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
+            _transaction.AddToBackStack(null);
+            _transaction.Commit();
         }
 
         // Event handler for menu item selection
         private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
         {
 
-            FragmentTransaction Transaction = SupportFragmentManager.BeginTransaction();
+            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
 
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    Transaction.Replace(Resource.Id.MainFrameLayout, homePage, "Home");
+                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    Transaction.Replace(Resource.Id.MainFrameLayout, academicsPage, "Academics");
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Constants.AcademicsPageKey);
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    Transaction.Replace(Resource.Id.MainFrameLayout, campusLifePage, "Campus Life");
+                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Constants.CampusLifePageKey);
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    Transaction.Replace(Resource.Id.MainFrameLayout, diningPage, "Dining");
+                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Constants.DiningPageKey);
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    Transaction.Replace(Resource.Id.MainFrameLayout, accountPage, "Account");
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Constants.AccountPageKey);
                     break;
             }
 
             // Add the fragment to the backstack so that it can be retrieve using the back button
-            Transaction.AddToBackStack(null);
-            Transaction.Commit();
+            _transaction.AddToBackStack(null);
+            _transaction.Commit();
         }
     }
 }

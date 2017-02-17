@@ -4,7 +4,7 @@ using Android.Support.V4.App;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
-    public class personalInfoFragment : Fragment
+    public class studentInfoFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -16,7 +16,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            return inflater.Inflate(Resource.Layout.PersonalInfoFragmentLayout, container, false);
+            return inflater.Inflate(Resource.Layout.StudentInfoFragmentLayout, container, false);
         }
     }
 }

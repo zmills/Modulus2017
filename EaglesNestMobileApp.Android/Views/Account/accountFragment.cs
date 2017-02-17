@@ -21,7 +21,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         // Fragments to be used as tabs for the viewpager
         Fragment[] _accountFragments =
         {
-            new personalInfoFragment(),
+            new studentInfoFragment(),
             new attendanceFragment(),
             new scheduleFragment()
         };
@@ -29,8 +29,8 @@ namespace EaglesNestMobileApp.Android.Views.Account
         // Titles of the tabs
         ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
         {
-            "Personal Info",
-            "Class Attendance",
+            "Student Info",
+            "Attendance",
             "Student Schedule"
         });
 
