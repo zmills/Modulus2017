@@ -43,10 +43,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            // Set the tablayout to fixed so that the titles aren't smashed together
-            if (_tabLayout.Width < _currentView.Resources.DisplayMetrics.WidthPixels)
-                _tabLayout.TabMode = TabLayout.ModeFixed;
-
             _tabLayout.SetupWithViewPager(currentPager);
 
             return _currentView;
