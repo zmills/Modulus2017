@@ -20,6 +20,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             new calendarFragment()
         };
 
+        // THESE NEED TO BE MOVED TO THE VIEWMODEL
         ICharSequence[] _titles = CharSequence.ArrayFromStringArray( new[] 
         {
             "Announcements",
@@ -37,7 +38,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-           ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
             currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, _titles);
 

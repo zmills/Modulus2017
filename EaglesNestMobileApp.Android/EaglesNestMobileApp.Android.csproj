@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\navigationAdapter.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
     <Compile Include="Views\Academics\gradeReportFragment.cs" />

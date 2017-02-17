@@ -3,15 +3,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/primary">
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:orientation="vertical">
-      
-      
           <ImageView
             android:id="@+id/loginLogo"
             android:layout_width="wrap_content"
@@ -19,8 +16,6 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:src="@drawable/logo" />
-      
-      
            <EditText
             android:id="@+id/inputUserId"
             android:layout_width="fill_parent"
@@ -29,12 +24,10 @@
             android:layout_marginTop="100dp"
             android:inputType="number"
             android:layout_below="@+id/loginLogo"/>
-      
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
             android:background="#f7f7f7" />
-
        <EditText
         android:id="@+id/inputUserPassword"
         android:layout_width="fill_parent"
@@ -43,8 +36,6 @@
         android:hint="Password"
         android:inputType="number"
         android:password="true"   />
-      
-        
     <Button
         android:id="@+id/LogInButton"
         android:layout_width="fill_parent"
@@ -54,7 +45,5 @@
         android:layout_marginTop="10dp"
         android:text="Log In"
         android:onClick="attempt_logIn" />
-      
     </LinearLayout>
-
 </RelativeLayout>
