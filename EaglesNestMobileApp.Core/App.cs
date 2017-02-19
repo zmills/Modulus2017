@@ -1,16 +1,21 @@
-﻿using Android.Runtime;
+﻿//*************************************************************************/
+//*                                  App                                  */
+//* This static class contains a reference to MVVMLight's viewmodel       */
+//* locator IoC container. All the services are registered in the PCL's   */
+//* ViewModelLocator class. Also, constants, such as page keys and titles */
+//* are also stored here for convenience.                                 */
+//*                                                                       */
+//*************************************************************************/
+
+using Android.Runtime;
 using EaglesNestMobileApp.Core.ViewModel;
 using Java.Lang;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core
 {
     public static class App
     {
+        // This locator can be used in the PCL
         private static ViewModelLocator _locator;
         public static ViewModelLocator Locator => _locator ?? (_locator = new ViewModelLocator());
 
@@ -26,7 +31,7 @@ namespace EaglesNestMobileApp.Core
             public const string AccountPageKey    = "Account";
         }
 
-        // The titles for each page
+        // The titles for each tab in the pages
         public static class Tabs
         {
             public static ICharSequence[] HomePage = CharSequence.ArrayFromStringArray(new[]

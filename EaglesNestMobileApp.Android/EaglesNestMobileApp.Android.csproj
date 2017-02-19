@@ -169,7 +169,6 @@
   <ItemGroup>
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="AndroidApp.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Helpers\CreateActivity.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />

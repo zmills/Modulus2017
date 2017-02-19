@@ -1,7 +1,9 @@
-/***************************************************************************************/
-/* This activity is started after the user has successfully logged in. It handles all  */
-/* the navigation and the selected item events of the bottom navigation view           */
-/***************************************************************************************/
+//***************************************************************************************/
+//*                                   mainActivity                                      */
+//* This activity is started after the user has successfully logged in. It handles all  */
+//* the navigation and the selected item events of the bottom navigation view           */
+//*                                                                                     */
+//***************************************************************************************/
 
 using Android.OS;
 using Android.Support.Design.Widget;
@@ -19,7 +21,7 @@ using EaglesNestMobileApp.Core;
 namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/MyTheme")]
-   public class mainActivity : AppCompatActivityBase
+   public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
     {
         // Fragments corresponding to each navigation menu item
         private homeFragment             _homePage = new homeFragment();
@@ -48,6 +50,7 @@ namespace EaglesNestMobileApp.Android.Views
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.BottomNavLayout);
 
+            // Show the navigation menu with the first page
             InitializeNavigation();
          }
 
@@ -59,7 +62,7 @@ namespace EaglesNestMobileApp.Android.Views
 
             // Set up the first page to show up once the application loads
             FragmentTransaction _transaction =  SupportFragmentManager.BeginTransaction();
-            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
+            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, App.PageKeys.HomePageKey);
             _transaction.AddToBackStack(null);
             _transaction.Commit();
         }

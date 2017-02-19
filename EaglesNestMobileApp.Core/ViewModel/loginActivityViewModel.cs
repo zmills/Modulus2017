@@ -1,4 +1,11 @@
-﻿using EaglesNestMobileApp.Core.Model;
+﻿//*************************************************************************/
+//*                      LoginActivityViewModel                           */
+//* This ViewModel handles all the logic for the login activity. Event    */
+//* handlers and data from that activity are also in here.                */
+//*                                                                       */
+//*************************************************************************/
+
+using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -15,6 +22,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
         // This command handles the login event
         private RelayCommand _loginCommand;
 
+        // This could be stored in the database and be used for determining whether the 
+        // user logged out on startup.
         private LocalToken _currentUser = new LocalToken();
 
         public LocalToken CurrentUser
@@ -46,6 +55,10 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     if (Authenticator.VerifyPassword(CurrentUser.Password, remote.Passwordhash, remote.Salt))
                     {
                         CurrentUser.LoggedIn = true;
+
+                        // Set the password to empty so that no sensitive information is actually stored on the
+                        // phone. Then, add the token to the database.
+                        CurrentUser.Password = string.Empty;
                         NavigateToMainPage();
                     }
                 }
@@ -73,6 +86,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             return Tokens.ToArray()[0];
         }
 
+        // Starts the mainActivity
         private void NavigateToMainPage()
         {
             App.Locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
