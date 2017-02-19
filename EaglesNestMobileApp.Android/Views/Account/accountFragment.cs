@@ -11,6 +11,7 @@ using Android.Support.Design.Widget;
 using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -26,15 +27,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
             new scheduleFragment()
         };
 
-        // Titles of the tabs
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Student Info",
-            "Attendance",
-            "Student Schedule"
-        });
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,7 +40,8 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
             ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
+            _currentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, _accountFragments, App.Tabs.AccountPage);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 

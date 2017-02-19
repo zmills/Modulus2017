@@ -11,6 +11,7 @@ using Java.Lang;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -26,15 +27,6 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             new examScheduleFragment()
         };
 
-        // Titles for the tabs
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Class Grades",
-            "Grade Report",
-            "Exam Schedule"
-        });
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -47,7 +39,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
             ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _academicsFragments, _titles);
+            _currentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, _academicsFragments, App.Tabs.AcademicsPage);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 

@@ -1,19 +1,5 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:EaglesNestMobileApp.Core"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 
 namespace EaglesNestMobileApp.Core.ViewModel
@@ -24,35 +10,34 @@ namespace EaglesNestMobileApp.Core.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
+            ////  REMEMBER THAT THE DIALOG SERVICE IS REGISTERED ALREADY
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<LoginActivityViewModel>(true);
         }
 
-        public MainViewModel Main
+        public static void RegisterNavigationService(INavigationService navigationService)
         {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
+            SimpleIoc.Default.Register(() => navigationService);
         }
-        
+
+        public static void RegisterDialogService(IDialogService dialogService)
+        {
+            SimpleIoc.Default.Register(() => dialogService);
+        }
+
+
+        // the following returns the current instance
+        public LoginActivityViewModel Login => ServiceLocator.Current.GetInstance<LoginActivityViewModel>();
+        public INavigationService Navigator => ServiceLocator.Current.GetInstance<INavigationService>();
+        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+      
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

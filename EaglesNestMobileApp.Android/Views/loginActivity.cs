@@ -1,19 +1,21 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Widget;
-using EaglesNestMobileApp.Android.Resources;
-using EaglesNestMobileApp.Android.Views;
-using System;
+using EaglesNestMobileApp.Core;
+using EaglesNestMobileApp.Core.ViewModel;
+using GalaSoft.MvvmLight.Helpers;
+using GalaSoft.MvvmLight.Views;
+using JimBobBennett.MvvmLight.AppCompat;
+using Microsoft.Practices.ServiceLocation;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", /*MainLauncher = true,*/ Icon = "@drawable/logo")]
-    public class loginActivity : AppCompatActivity
+    // This base class is a mashup of AppCompativity and Laurent's ActivityBase
+    [Activity(Label = "Eaglesnest", MainLauncher = true, Icon = "@drawable/logo")]
+    public class loginActivity : AppCompatActivityBase
     {
-        private EditText username;
-                         //password;
-        private Button button;
+        // This locator MUST be called first so that navigation and dialog can be initialized
+        public LoginActivityViewModel LoginviewModel => AndroidApp.Locator.Login;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,28 +23,20 @@ namespace EaglesNestMobileApp.Android
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginLayout);
-            username = (EditText)FindViewById(Resource.Id.inputUserId);
 
-            //Hide action bar
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            // Bind views to the viewmodel
+            EditText  _username = FindViewById<EditText>(Resource.Id.UserId);
+            EditText  _password = FindViewById<EditText>(Resource.Id.Password);
+            Button _loginButton = FindViewById<Button>(Resource.Id.LogInButton);
 
-            //Toolbar will now take on default actionbar characteristics
-            SetActionBar(toolbar);
+            LoginviewModel.CurrentUser.SetBinding(() => LoginviewModel.CurrentUser.Id, _username,
+                                 () => _username.Text, BindingMode.TwoWay);
 
-            ActionBar.Title = "Hello from Toolbar";
-            ActionBar.Hide();
+            LoginviewModel.CurrentUser.SetBinding(() => LoginviewModel.CurrentUser.Password, _password,
+                                 () => _password.Text, BindingMode.TwoWay);
 
-            button = (Button)FindViewById(Resource.Id.LogInButton);
-
-            button.Click += attempt_logIn;
-        }
-
-        /* Temporary method to show another layout                          */
-        void attempt_logIn(object sender, EventArgs e)
-        {
-            Toast.MakeText(this, "No internet Baldy", ToastLength.Long).Show();
-            StartActivity(typeof(mainActivity));
-            Finish();
+            // This command in the login viewmodel handles all the login logic
+            _loginButton.SetCommand("Click", LoginviewModel.LoginCommand);
         }
     }
 }
