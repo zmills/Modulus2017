@@ -24,4 +24,6 @@
     
     <!-- OTHER COLORS -->
     <color name="white">#FFFFFF</color>
+    <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->
+    <color name="navigation_bar">#10154C</color>    <!-- Darker Blue than primary_dark_900 -->
 </resources>
