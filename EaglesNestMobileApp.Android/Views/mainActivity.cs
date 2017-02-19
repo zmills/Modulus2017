@@ -17,7 +17,7 @@ using Android.App;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
+    [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")] //"Theme" sets the theme
    public class mainActivity : AppCompatActivity
    {
         // Fragments corresponding to each navigation menu item

@@ -3244,6 +3244,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f060002
 			public const int Animation_Design_BottomSheetDialog = 2131099650;
 			
+			// aapt resource value: 0x7f06017a
+			public const int AppCompatLightTheme = 2131100026;
+			
 			// aapt resource value: 0x7f0600be
 			public const int Base_AlertDialog_AppCompat = 2131099838;
 			
@@ -3714,9 +3717,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f06017b
 			public const int ModListItemSingleLineText = 2131100027;
-			
-			// aapt resource value: 0x7f06017a
-			public const int MyTheme = 2131100026;
 			
 			// aapt resource value: 0x7f060039
 			public const int Platform_AppCompat = 2131099705;

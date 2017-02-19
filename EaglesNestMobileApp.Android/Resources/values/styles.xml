@@ -26,7 +26,7 @@
 
 <resources>
     <!-- THEME -->
-    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="android:windownotitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
         
@@ -34,10 +34,11 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
-        <!-- <item name="statusBarColor">####</item> -->
-        <!-- <item name="navigationBarColor">####</item> -->
+        <item name="textColorPrimary">@color/primary_text</item>
+        <item name="statusBarColor">@color/primary_dark</item>
+        <item name="navigationBarColor">@color/primary_dark</item>
         
-        <item name="android:windowBackground">@color/window_background</item>
+        <item name="windowBackground">@color/window_background</item>
         <item name="windowActionModeOverlay">true</item>
       
         <!-- You can also set colorControlNormal, colorControlActivated,
