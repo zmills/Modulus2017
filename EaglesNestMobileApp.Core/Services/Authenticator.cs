@@ -9,7 +9,7 @@ namespace EaglesNestMobileApp.Core.Services
         // This method compares a plain password with a salted hashed password
         public static bool VerifyPassword(string plainPassword, string hashedPassword, string salt)
         {
-            return HashPassword(plainPassword, salt) == plainPassword;
+            return HashPassword(plainPassword, salt) == hashedPassword;
         }
 
         // This method creates a hash of a plain string password concatenated with a salt value
@@ -21,8 +21,9 @@ namespace EaglesNestMobileApp.Core.Services
 
             IHashAlgorithmProvider hasher = WinRTCrypto.HashAlgorithmProvider.OpenAlgorithm(HashAlgorithm.Sha512);
 
-            byte[] _hashPassword = hasher.HashData(_saltedPassword);
-            return Convert.ToBase64String(_hashPassword);
+            byte[] _hashPassword  = hasher.HashData(_saltedPassword);
+            string _finalPassword = Convert.ToBase64String(_hashPassword);
+            return _finalPassword;
         }
 
         // Appends two byte arrays. To be used for concatenating a plain password with its salt

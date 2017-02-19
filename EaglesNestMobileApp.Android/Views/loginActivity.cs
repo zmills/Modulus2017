@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Views;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace EaglesNestMobileApp.Android
 {
@@ -20,6 +21,7 @@ namespace EaglesNestMobileApp.Android
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            CurrentPlatform.Init();
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginLayout);
