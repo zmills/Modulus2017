@@ -6,6 +6,7 @@ using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Runtime;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -20,14 +21,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             new grabNGoFragment()
         };
 
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Four Winds",
-            "Varsity",
-            "Grab N Go"
-        });
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,7 +33,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, _titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, App.Tabs.DiningPage);
            
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 

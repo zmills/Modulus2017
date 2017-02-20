@@ -11,6 +11,7 @@ using Android.Support.Design.Widget;
 using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -25,15 +26,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             new requestsFragment(),
             new studentCourtFragment(),
         };
-        
-        // Titles for the three tabs THESE SHOULD PROBABLY BE IN THE VIEWMODEL
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Facility Times",
-            "Pass Requests",
-            "Student Court"
-        });
-
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,7 +39,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _campusLifeFragments, _titles);
+            _currentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, _campusLifeFragments, App.Tabs.CampusLifePage);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 

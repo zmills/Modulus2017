@@ -6,6 +6,7 @@ using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Runtime;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -20,15 +21,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
             new calendarFragment()
         };
 
-        // THESE NEED TO BE MOVED TO THE VIEWMODEL
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray( new[] 
-        {
-            "Announcements",
-            "Events Signup",
-            "Calendar of Events"
-        });
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,7 +32,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, _titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, App.Tabs.HomePage);
 
             _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 

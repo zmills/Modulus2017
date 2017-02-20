@@ -1,10 +1,11 @@
-/***************************************************************************************/
-/* This activity is started after the user has successfully logged in. It handles all  */
-/* the navigation and the selected item events of the bottom navigation view           */
-/***************************************************************************************/
+//***************************************************************************************/
+//*                                   mainActivity                                      */
+//* This activity is started after the user has successfully logged in. It handles all  */
+//* the navigation and the selected item events of the bottom navigation view           */
+//*                                                                                     */
+//***************************************************************************************/
 
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Android.Views.Account;
 using EaglesNestMobileApp.Android.Views.Campus_Life;
@@ -14,12 +15,14 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
+using JimBobBennett.MvvmLight.AppCompat;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/MyTheme")] //"Theme" sets the theme
-   public class mainActivity : AppCompatActivity
-   {
+    [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+   public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
+    {
         // Fragments corresponding to each navigation menu item
         private homeFragment             _homePage = new homeFragment();
         private academicsFragment   _academicsPage = new academicsFragment();
@@ -47,6 +50,7 @@ namespace EaglesNestMobileApp.Android.Views
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.BottomNavLayout);
 
+            // Show the navigation menu with the first page
             InitializeNavigation();
          }
 
@@ -57,8 +61,8 @@ namespace EaglesNestMobileApp.Android.Views
             BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
 
             // Set up the first page to show up once the application loads
-            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
-            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
+            FragmentTransaction _transaction =  SupportFragmentManager.BeginTransaction();
+            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, App.PageKeys.HomePageKey);
             _transaction.AddToBackStack(null);
             _transaction.Commit();
         }
@@ -73,19 +77,19 @@ namespace EaglesNestMobileApp.Android.Views
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
+                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, App.PageKeys.HomePageKey);
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Constants.AcademicsPageKey);
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, App.PageKeys.AcademicsPageKey);
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Constants.CampusLifePageKey);
+                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, App.PageKeys.CampusLifePageKey);
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Constants.DiningPageKey);
+                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, App.PageKeys.DiningPageKey);
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Constants.AccountPageKey);
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, App.PageKeys.AccountPageKey);
                     break;
             }
 
