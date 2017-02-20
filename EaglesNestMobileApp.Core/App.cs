@@ -22,8 +22,8 @@ namespace EaglesNestMobileApp.Core
         // Keys for the various activities and fragments
         public static class PageKeys
         {
-            public const string MainPageKey       = "MainPage";     // mainActivity key
-            public const string LoginPageKey      = "LoginPage";    // loginActivity key
+            public const string MainPageKey       = "MainPage";    // mainActivity key
+            public const string LoginPageKey      = "LoginPage";   // loginActivity key
             public const string HomePageKey       = "Home";
             public const string AcademicsPageKey  = "Academics";
             public const string CampusLifePageKey = "Campus Life";

@@ -91,6 +91,5 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             App.Locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
         }
-
     }
 }
