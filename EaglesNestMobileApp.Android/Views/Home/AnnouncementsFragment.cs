@@ -2,6 +2,7 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
+using Android.Support.V7.Content;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -24,7 +25,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             announceRecyclerView = announcementsView.FindViewById<RecyclerView>(Resource.Id.AnnouncementsRecyclerView);
 
-            announceLayoutManager = new RecyclerView.LayoutManager(this);
+            announceLayoutManager = new LinearLayoutManager(Activity);
+
+            announceRecyclerView.SetLayoutManager(announceLayoutManager);
 
             // Use this to return your custom view for this Fragment
             return announcementsView;
