@@ -22,8 +22,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             View announcementsView = inflater.Inflate(Resource.Layout.AnnouncementsFragmentLayout, container, false);
 
+            announceRecyclerView = announcementsView.FindViewById<RecyclerView>(Resource.Id.AnnouncementsRecyclerView);
+
+            announceLayoutManager = new RecyclerView.LayoutManager(this);
+
             // Use this to return your custom view for this Fragment
-            return inflater.Inflate(Resource.Layout.AnnouncementsFragmentLayout, container, false);
+            return announcementsView;
         }
     }
 }
