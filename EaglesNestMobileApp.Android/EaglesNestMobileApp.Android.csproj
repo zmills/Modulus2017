@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -119,9 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\navigationAdapter.cs" />
-    <Compile Include="Adapters\recyclerViewAdapter.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Resources\classGrades.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
     <Compile Include="Views\Academics\gradeReportFragment.cs" />
@@ -268,9 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\gradeScores.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -11,11 +11,6 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
-            RecyclerView recList = (RecyclerView)findViewById(R.id.cardList);
-            recList.setHasFixedSize(true);
-            LinearLayoutManager llm = new LinearLayoutManager(this);
-            llm.setOrientation(LinearLayoutManager.VERTICAL);
-            recList.setLayoutManager(llm);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

@@ -14,7 +14,6 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
-using classGradesNameSpace;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -39,12 +38,6 @@ namespace EaglesNestMobileApp.Android.Views
         public diningFragment         DiningPage => _diningPage;
         public accountFragment       AccountPage => _accountPage;
         public BottomNavigationView BottomNavigationMenu => _bottomNavigationMenu;
-
-        // RecyclerView set up
-        RecyclerView mRecyclerView;
-        RecyclerView.LayoutManager mLayoutManager;
-        RecyclerViewAdapter mAdapter;
-        AssignmentList mAssignmentList;
         
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -55,18 +48,7 @@ namespace EaglesNestMobileApp.Android.Views
             SetContentView(Resource.Layout.BottomNavLayout);
 
             InitializeNavigation();
-            InitializeGradeView();
          }
-
-        // Initialize the recycler view for grades
-        private void initializeGradeView()
-        {
-            mAssignmentList = new AssignmentList();
-
-            mAdapter = new RecyclerViewAdapter();
-
-            mRecyclerView.SetAdapter(mAdapter);
-        }
 
         private void InitializeNavigation()
         {
