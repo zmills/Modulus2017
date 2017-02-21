@@ -27,9 +27,18 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             announcements = new List<Card>();
 
+            int[] card_images = new int[5];
+            card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
+            card_images[1] = Resource.Drawable.CLEvent1;
+            card_images[2] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
+            card_images[3] = Resource.Drawable.Nov28MissionPrayerBand1;
+            card_images[4] = Resource.Drawable.SubmitStudentPhotosFall2;
+
             for (int i = 0; i < 40; i++)
             {
-                Card x = new Card("item" + i, Resource.Drawable.logo);
+                int y = i % 5;
+
+                Card x = new Card("item" + i, card_images[y]);
                 announcements.Add(x);
             }
         }
