@@ -13,6 +13,15 @@ using Android.Widget;
 namespace EaglesNestMobileApp.Android.Cards
 {
     public class Card
-    {
+    { 
+        public Card(string title, int image)
+        {
+            Title = title;
+            Image = image;
+        }
+
+        public string Title { get; set; }
+
+        public int Image { get; set; }
     }
 }
