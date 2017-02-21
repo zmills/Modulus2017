@@ -28,6 +28,7 @@
                 android:id="@+id/CardImage"
                 android:adjustViewBounds="true"
                 />
+                <!-- adjustViewBounds gets rid of unnecessary top/bottom padding -->
             
             <TextView
                 android:layout_width="wrap_content"
