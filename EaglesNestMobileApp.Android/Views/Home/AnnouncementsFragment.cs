@@ -2,6 +2,9 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
+using System.Collections.Generic;
+using EaglesNestMobileApp.Android.Cards;
+using EaglesNestMobileApp.Android.Adapters;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -10,12 +13,13 @@ namespace EaglesNestMobileApp.Android.Views.Home
         private RecyclerView announceRecyclerView;
         private RecyclerView.Adapter announceAdapter;
         private RecyclerView.LayoutManager announceLayoutManager;
+        private List<Card> announcements;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your fragment here
+            // announcements would be set to the cards in the viewmodel here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -24,9 +28,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             announceRecyclerView = announcementsView.FindViewById<RecyclerView>(Resource.Id.AnnouncementsRecyclerView);
 
-            announceLayoutManager = new RecyclerView.LayoutManager(this);
+            announceLayoutManager = new LinearLayoutManager(Activity);
 
-            // Use this to return your custom view for this Fragment
+            announceAdapter = new announcementsRecyclerViewAdapter();
+
+            announceRecyclerView.SetAdapter(announceAdapter);
+            
             return announcementsView;
         }
     }
