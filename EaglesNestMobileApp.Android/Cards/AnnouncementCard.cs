@@ -12,9 +12,9 @@ using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Cards
 {
-    public class Card
+    public class AnnouncementCard
     { 
-        public Card(string title, int image)
+        public AnnouncementCard(string title, int image)
         {
             Title = title;
             Image = image;

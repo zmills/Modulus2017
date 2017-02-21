@@ -14,7 +14,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         private RecyclerView announceRecyclerView;
         private RecyclerView.Adapter announceAdapter;
         private RecyclerView.LayoutManager announceLayoutManager;
-        private List<Card> announcements = new List<Card>();
+        private List<AnnouncementCard> announcements = new List<AnnouncementCard>();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,13 +23,14 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // announcements would be set to the cards in the viewmodel here
         }
 
+        // These announcements are to be gotten from the viewmodel
         private void InitializeAnnouncements()
         {
-            announcements = new List<Card>();
+            announcements = new List<AnnouncementCard>();
 
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i <= 40; i++)
             {
-                Card x = new Card("item" + i, Resource.Drawable.logo);
+                AnnouncementCard x = new AnnouncementCard("item" + i, Resource.Drawable.logo);
                 announcements.Add(x);
             }
         }
@@ -45,6 +46,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             announceAdapter = new announcementsRecyclerViewAdapter(announcements);
 
             announceRecyclerView.SetLayoutManager(announceLayoutManager);
+
             announceRecyclerView.SetAdapter(announceAdapter);
             
             return announcementsView;

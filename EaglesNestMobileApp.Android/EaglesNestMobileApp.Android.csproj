@@ -125,7 +125,7 @@
     <Compile Include="Adapters\announcementsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\announcementViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
-    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\AnnouncementCard.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
@@ -166,7 +166,7 @@
     <AndroidResource Include="Resources\layout\TabLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\BottomNavLayout.xml">
+    <AndroidResource Include="Resources\layout\BottomNavLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CalendarFragmentLayout.xml">

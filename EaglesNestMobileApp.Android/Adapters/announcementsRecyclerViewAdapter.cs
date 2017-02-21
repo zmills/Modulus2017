@@ -8,9 +8,9 @@ namespace EaglesNestMobileApp.Android.Adapters
 {
     public class announcementsRecyclerViewAdapter : RecyclerView.Adapter
     {
-        private List<Card> _announcements;
+        private List<AnnouncementCard> _announcements;
 
-        public announcementsRecyclerViewAdapter(List<Card> announcements)
+        public announcementsRecyclerViewAdapter(List<AnnouncementCard> announcements)
         {
             _announcements = announcements;
         }
@@ -20,10 +20,11 @@ namespace EaglesNestMobileApp.Android.Adapters
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            Card card = _announcements.ToArray()[position];
+            AnnouncementCard card = _announcements.ToArray()[position];
             announcementViewHolder currentHolder = holder as announcementViewHolder;
-            currentHolder._title.Text = card.Title;
-            currentHolder._image.SetImageResource(card.Image);
+            currentHolder.GetCard(card);
+            //currentHolder._title.Text = card.Title;
+            //currentHolder._image.SetImageResource(card.Image);
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

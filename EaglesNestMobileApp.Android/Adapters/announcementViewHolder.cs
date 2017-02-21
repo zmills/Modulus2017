@@ -16,7 +16,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             _image = view.FindViewById<ImageView>(Resource.Id.CardImage);
         }
 
-        public void GetCard(Card announcement)
+        public void GetCard(AnnouncementCard announcement)
         {
             _title.Text = announcement.Title;
             _image.SetImageResource(announcement.Image);
