@@ -125,7 +125,7 @@
     <Compile Include="Adapters\announcementsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\announcementViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
-    <Compile Include="Cards\AnnouncementCard.cs" />
+    <Compile Include="Cards\Card.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />

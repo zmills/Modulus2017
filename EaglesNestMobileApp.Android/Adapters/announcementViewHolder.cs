@@ -7,19 +7,22 @@ namespace EaglesNestMobileApp.Android.Adapters
 {
     public class announcementViewHolder : RecyclerView.ViewHolder
     {
-        public TextView _title;
-        public ImageView _image;
+        // Public accessors
+        public TextView Title { get; set; }
+        public ImageView Image { get; set; }
 
         public announcementViewHolder(View view) : base(view)
-        {
-            _title = view.FindViewById<TextView>(Resource.Id.CardText);
-            _image = view.FindViewById<ImageView>(Resource.Id.CardImage);
+        {   
+            // Set the textview and the imageview to those in the cardviewlayout
+            Title = view.FindViewById<TextView>(Resource.Id.CardText);
+            Image = view.FindViewById<ImageView>(Resource.Id.CardImage);
         }
 
-        public void GetCard(AnnouncementCard announcement)
+        // This takes in a card and does the assignment to the textview and imageview
+        public void GetCard(Card announcement)
         {
-            _title.Text = announcement.Title;
-            _image.SetImageResource(announcement.Image);
+            Title.Text = announcement.Title;
+            Image.SetImageResource(announcement.Image);
         }
     }
 }
