@@ -7,6 +7,6 @@
     android:paddingTop="4dp"
     android:paddingRight="4dp"
     android:paddingLeft="4dp"
-    android:paddingBottom="64dp"/>
+    android:paddingBottom="56dp"/>
 
 <!-- We need to add a view/element here so that the last item is not hidden by the bottomnavigation view -->
