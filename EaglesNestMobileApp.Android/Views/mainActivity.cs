@@ -14,6 +14,7 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
+using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -56,41 +57,72 @@ namespace EaglesNestMobileApp.Android.Views
             _bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
 
-            // Set up the first page to show up once the application loads
-            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
-            _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
-            _transaction.AddToBackStack(null);
-            _transaction.Commit();
+            LoadFragment(Constants.HomePageKey);
+        }
+
+        public override void OnBackPressed()
+        {
+            // If the entry on top of the backstack is the home page, close the application
+            // else load the homepage and show the user a warning toast 
+            if (SupportFragmentManager.GetBackStackEntryAt
+                (SupportFragmentManager.BackStackEntryCount - 1).Name == Constants.HomePageKey)
+                System.Environment.Exit(0);
+            else
+            {
+                LoadFragment(Constants.HomePageKey);
+                Toast.MakeText(this, "Press back again to close application.", ToastLength.Short).Show();
+                _bottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+            }
         }
 
         // Event handler for menu item selection
         private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
         {
-
-            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
-
             // Load the appropriate page based off of the id of the menu item selected
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Constants.HomePageKey);
+                    LoadFragment(Constants.HomePageKey);
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Constants.AcademicsPageKey);
+                    LoadFragment(Constants.AcademicsPageKey);
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Constants.CampusLifePageKey);
+                    LoadFragment(Constants.CampusLifePageKey);
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Constants.DiningPageKey);
+                    LoadFragment(Constants.DiningPageKey);
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Constants.AccountPageKey);
+                    LoadFragment(Constants.AccountPageKey);
                     break;
             }
+        }
 
-            // Add the fragment to the backstack so that it can be retrieve using the back button
-            _transaction.AddToBackStack(null);
+        // Loads the appropriate fragment and adds it to the backstack
+        private void LoadFragment(string Tag)
+        {
+            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
+
+            switch (Tag)
+            {
+                case Constants.HomePageKey:
+                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Tag);
+                    break;
+                case Constants.AcademicsPageKey:
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Tag);
+                    break;
+                case Constants.CampusLifePageKey:
+                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Tag);
+                    break;
+                case Constants.DiningPageKey:
+                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Tag);
+                    break;
+                case Constants.AccountPageKey:
+                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Tag);
+                    break;
+            }
+            _transaction.AddToBackStack(Tag);
             _transaction.Commit();
         }
     }
