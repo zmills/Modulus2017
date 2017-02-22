@@ -14,9 +14,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
         // Public accessors
         public List<Card> Announcements { get; set; } // This will bind to the list in the viewmodel
         public RecyclerView AnnouncementRecyclerView { get; set; }
-        public RecyclerView.Adapter AnnouncementAdapter { get; set; }
+        public announcementsRecyclerViewAdapter AnnouncementAdapter { get; set; }
         public RecyclerView.LayoutManager AnnouncementLayoutManager { get; set; }
-        
+        public View AnnouncementsView { get; set; }
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -28,14 +28,14 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Inflate the layout for the fragment
-            View _announcementsView  = inflater.Inflate(Resource.Layout.AnnouncementsFragmentLayout, container, false);
+            AnnouncementsView  = inflater.Inflate(Resource.Layout.AnnouncementsFragmentLayout, container, false);
 
             // Get the view pager
-            AnnouncementRecyclerView = _announcementsView.FindViewById<RecyclerView>(Resource.Id.AnnouncementsRecyclerView);
+            AnnouncementRecyclerView = AnnouncementsView.FindViewById<RecyclerView>(Resource.Id.AnnouncementsRecyclerView);
 
             // Create a new layout manager using the activity containing this fragment as the context
             AnnouncementLayoutManager = new LinearLayoutManager(Activity);
-
+            
             // Create a custom adapter and pass it the data that it will be recycling through
             AnnouncementAdapter = new announcementsRecyclerViewAdapter(Announcements);
 
@@ -46,14 +46,18 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
-            return _announcementsView;
+            return AnnouncementsView;
         }
 
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
-            // Scroll to the top of the list
+            // Scroll to a set section of the list before smoothly scrolling to the top
+            System.Diagnostics.Debug.WriteLine(AnnouncementAdapter.ViewPosition);
+            if (AnnouncementAdapter.ViewPosition >= 10)
+                AnnouncementRecyclerView.ScrollToPosition(10);
             AnnouncementRecyclerView.SmoothScrollToPosition(0);
         }
+        
 
         // THIS NEEDS TO BE MOVED TO THE VIEWMODEL
         private void InitializeAnnouncements()

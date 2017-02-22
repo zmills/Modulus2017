@@ -10,6 +10,7 @@ namespace EaglesNestMobileApp.Android.Adapters
     {
         // List of annoucements to be displayed as cards
         public List<Card> Announcements { get; set; }
+        public announcementViewHolder CurrentHolder { get; set; }
 
         public announcementsRecyclerViewAdapter(List<Card> announcements)
         {
@@ -19,14 +20,14 @@ namespace EaglesNestMobileApp.Android.Adapters
 
         // Returns the number of cards in the list
         public override int ItemCount => Announcements.Count;
-       
 
+        public int ViewPosition => CurrentHolder.AdapterPosition;
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             // Find the correct card based off of its position in the recycler view and set its title and image
             Card card = Announcements[position];
-            announcementViewHolder currentHolder = holder as announcementViewHolder;
-            currentHolder.GetCard(card);
+            CurrentHolder = holder as announcementViewHolder;
+            CurrentHolder.GetCard(card);
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
