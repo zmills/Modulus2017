@@ -5,6 +5,7 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Android.Adapters;
+using Android.Support.Design.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -38,10 +39,20 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Create a custom adapter and pass it the data that it will be recycling through
             AnnouncementAdapter = new announcementsRecyclerViewAdapter(Announcements);
 
+            // Selecting the tab will automatically scroll back to the top of the list
+            TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            _tabLayout.TabReselected += TabReselected;
+
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
             return _announcementsView;
+        }
+
+        private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
+        {
+            // Scroll to the top of the list
+            AnnouncementRecyclerView.SmoothScrollToPosition(0);
         }
 
         // THIS NEEDS TO BE MOVED TO THE VIEWMODEL
