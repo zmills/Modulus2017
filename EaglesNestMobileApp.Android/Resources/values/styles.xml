@@ -60,6 +60,12 @@
         <!--<item name="colorControlHighlight">####</item>-->
         <!--<item name="colorSwitchThumbNormal">####</item>-->
     </style>
+    
+    <!-- BUTTON STYLES -->
+    <!--<style name="ModBorderlessButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>-->
 
     <!-- FONT STYLES -->
     <!-- <List Component> -->

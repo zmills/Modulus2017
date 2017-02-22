@@ -31,43 +31,48 @@
             />
             <!-- adjustViewBounds gets rid of unnecessary top/bottom padding -->
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:padding="8dp"
             >
                 
             <TextView
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:id="@+id/CardText"
                 android:layout_below="@+id/CardImage"
-                android:textSize="20sp"
-                android:paddingTop="8dp"
-                android:paddingRight="4dp"
-                android:paddingLeft="8dp"
-                android:paddingBottom="8dp"
+                android:textSize="14sp"
+                android:padding="8dp"
                 />
                 <!-- android:layout_width has to be set to 0dp in order
                      for android:layout_width to work properly -->
-
-            <TextView
-                android:layout_width="0dp"
+                <!-- CHANGE THESE TEXTVIEWS TO ACTION BUTTONS WITH 14pt FONT -->
+            
+            <Button
+                android:id="@+id/SignUpButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/CardText2"
-                android:textSize="20sp"
-                android:paddingTop="8dp"
-                android:paddingRight="8dp"
-                android:paddingLeft="4dp"
-                android:paddingBottom="8dp"
-                android:gravity="right"
-                android:text="SHARE"
+                android:layout_toLeftOf="@+id/ShareButton"
+                android:textColor="@color/primary"
+                android:text="SIGNUP"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 />
-                <!-- MD padding for ACTIONS is 8dp -->
+                <!-- FIGURE OUT LATER HOW TO CHANGE BUTTON PADDING -->
+            
+            <Button
+                android:id="@+id/ShareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/primary"
+                android:text="SHARE"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                />
+                <!-- MD padding for ACTION buttons is 8dp internal padding
+                     and 8dp external padding -->
                 
-        </LinearLayout>        
+        </RelativeLayout>        
                 
     </LinearLayout>
     
