@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/AnnouncementsRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-                  >
-  <!--<include
-    android:id="@+id/toolbar"
-    layout="@layout/toolbar" />-->
- 
-  <Button
-      android:id="@+id/MyButton"
-      android:layout_below="@+id/toolbar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/Hello" />
-</RelativeLayout>
+    android:paddingTop="4dp"
+    android:paddingRight="0dp"
+    android:paddingLeft="0dp"
+    android:paddingBottom="56dp"/>
+
+<!-- We need to add a view/element here so that the last item is not hidden by the bottomnavigation view -->
