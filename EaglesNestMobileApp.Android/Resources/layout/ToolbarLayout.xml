@@ -9,6 +9,9 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways" />
+        app:layout_scrollFlags="scroll|enterAlways"
+        />
+        <!-- popupTheme is used when inflating popup menus inside the toolbar -->
+        <!-- Hello -->
 
         
