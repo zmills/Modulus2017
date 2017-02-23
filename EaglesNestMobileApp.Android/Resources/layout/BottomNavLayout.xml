@@ -27,6 +27,5 @@
         app:menu="@menu/bottom_nav_menu"
         android:background="@color/white"
         android:elevation="8dp"
-        android:layout_below="@+id/MainFrameLayout"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>

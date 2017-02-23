@@ -11,7 +11,17 @@
 ****************************************************************************-->
 
 <resources>
-    <!-- COLOR PALETTE THEME -->
+  <!--
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
+  <color name="beige">#e3e3e3</color>
+  <color name="eagleBlue">#0070B8</color>
+  <color name="black">#000000</color>
+  <color name="grey">#c3c5d9</color>
+  -->
+    
+    <!--<<COLOR PALETTE THEME>>-->
     <color name="primary">#3F51B5</color>           <!-- Blue -->
     <color name="primary_dark">#303F9F</color>      <!-- Dark Blue-->
     <color name="primary_light">#C5CAE9</color>     <!-- Light Blue -->
@@ -20,10 +30,8 @@
     <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
     <color name="icons">#FFFFFF</color>             <!-- White -->
     <color name="divider">#BDBDBD</color>           <!-- Light Grey -->
-    <color name="window_background">#F5F5F5</color> <!-- Off White -->
+    <color name="window_background">#F5F5F5</color> <!-- -->
     
-    <!-- OTHER COLORS -->
+    <!--<<OTHER COLORS>>-->
     <color name="white">#FFFFFF</color>
-    <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->
-    <color name="navigation_bar">#10154C</color>    <!-- Darker Blue than primary_dark_900 -->
 </resources>
