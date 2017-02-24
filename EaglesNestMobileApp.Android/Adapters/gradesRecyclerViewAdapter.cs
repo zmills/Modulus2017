@@ -9,29 +9,31 @@ namespace EaglesNestMobileApp.Android.Adapters
     public class gradesRecyclerViewAdapter : RecyclerView.Adapter
     {
         // List of grades to be displayed as cards
-        public List<Card> Grades { get; set; }
-        public gradesViewHolder CurrentHolder { get; set; }
+        public List<Card> GradesCardList { get; set; }
+        public gradesViewHolder GradesViewHolder { get; set; }
 
         public gradesRecyclerViewAdapter(List<Card> grades)
         {
-            // Set the local list to whatever was passed in
-            Grades = grades;
+            // Set the local list to the list passed in
+            GradesCardList = grades;
         }
 
         // Returns the number of cards in the list
-        public override int ItemCount => Grades.Count;
+        public override int ItemCount => GradesCardList.Count;
 
-        public int ViewPosition = CurrentHolder.
-
+        public int ViewPosition => GradesViewHolder.AdapterPosition;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            throw new NotImplementedException();
+            Card _currentGradesCard = GradesCardList[position];
+            GradesViewHolder = (gradesViewHolder)holder;
+            GradesViewHolder.GetGradesCard(_currentGradesCard);
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            throw new NotImplementedException();
+            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.GradesCardLayout, parent, false);
+            return new gradesViewHolder(view);
         }
     }
 }

@@ -8,18 +8,19 @@ namespace EaglesNestMobileApp.Android.Adapters
     public class gradesViewHolder : RecyclerView.ViewHolder
     {
         // Public accessors
-        public TextView Title { get; set; }
+        // Instantiate a viewholder TextView to be set with a class name
+        public TextView GradesClassName { get; set; }
 
         public gradesViewHolder(View view) : base(view)
         {
-            // Set the textview and the imageview to those in the cardviewlayout
-            Title = view.FindViewById<TextView>(Resource.Id.CardText);
+            // Set the GradesClassName TextView to the GradesCardClassName textview in the layout
+            GradesClassName = view.FindViewById<TextView>(Resource.Id.GradesCardClassName);
         }
 
-        // This takes in a card and does the assignment to the textview and imageview
-        public void GetCard(Card grades)
+        // Take in a gradesCard and assign its data to the viewholder's views
+        public void GetGradesCard(Card gradesCard)
         {
-            Title.Text = grades.Title;
+            GradesClassName.Text = gradesCard.Title;
         }
     }
 }
