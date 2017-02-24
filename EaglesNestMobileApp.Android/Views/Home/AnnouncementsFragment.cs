@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
+using Android.Support.V4.Widget;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -44,10 +46,41 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
             _tabLayout.TabReselected += TabReselected;
 
+            SwipeRefreshLayout _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.AnouncementsRefresh);
+            _refreshLayout.Refresh += RefreshLayoutRefresh;
+            
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
             return AnnouncementsView;
+        }
+
+        private void RefreshLayoutRefresh(object sender, System.EventArgs e)
+        {
+            //THIS NEEDS TO BE REMOVED
+            InitializeAnnouncementsTEST();
+        }
+
+        private void InitializeAnnouncementsTEST()
+        {
+            Announcements = new List<Card>();
+
+            // Create an array of images
+            int[] _card_images = new int[5];
+            _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[1] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[2] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[3] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[4] = Resource.Drawable.BroomHockeyAllStarCons1;
+
+            // Loop through inserting cards in the announcements list after titling them and providing an image
+            for (int counter = 0; counter < 40; counter++)
+            {
+                int index = counter % 5;
+
+                Card current = new Card("Item " + counter, _card_images[index]);
+                Announcements.Add(current);
+            }
         }
 
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
