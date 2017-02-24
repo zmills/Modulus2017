@@ -26,7 +26,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CardImage"
+            android:id="@+id/AnnouncementsCardImage"
             android:adjustViewBounds="true"
             />
             <!-- adjustViewBounds gets rid of unnecessary top/bottom padding -->
@@ -40,8 +40,8 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:id="@+id/CardText"
-                android:layout_below="@+id/CardImage"
+                android:id="@+id/AnnouncementsCardText"
+                android:layout_below="@+id/AnnouncementsCardImage"
                 android:textSize="14sp"
                 android:padding="8dp"
                 />

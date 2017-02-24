@@ -10,5 +10,10 @@ namespace EaglesNestMobileApp.Android.Cards
             Title = title;
             Image = image;
         }
+
+        public Card(string title)
+        {
+            Title = title;
+        }
     }
 }

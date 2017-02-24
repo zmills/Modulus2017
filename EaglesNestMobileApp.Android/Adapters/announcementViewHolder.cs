@@ -14,8 +14,8 @@ namespace EaglesNestMobileApp.Android.Adapters
         public announcementViewHolder(View view) : base(view)
         {   
             // Set the textview and the imageview to those in the cardviewlayout
-            Title = view.FindViewById<TextView>(Resource.Id.CardText);
-            Image = view.FindViewById<ImageView>(Resource.Id.CardImage);
+            Title = view.FindViewById<TextView>(Resource.Id.AnnouncementsCardText);
+            Image = view.FindViewById<ImageView>(Resource.Id.AnnouncementsCardImage);
         }
 
         // This takes in a card and does the assignment to the textview and imageview
