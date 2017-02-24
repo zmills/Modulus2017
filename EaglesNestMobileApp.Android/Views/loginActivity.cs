@@ -33,8 +33,8 @@ namespace EaglesNestMobileApp.Android
          // Set our view from the "main" layout resource
          SetContentView(Resource.Layout.LoginLayout);
          // Bind views to the viewmodel
-         EditText _username = FindViewById<EditText>(Resource.Id.UserId);
-         EditText _password = FindViewById<EditText>(Resource.Id.Password);
+         EditText _username  = FindViewById<EditText>(Resource.Id.UserId);
+         EditText _password  = FindViewById<EditText>(Resource.Id.Password);
          Button _loginButton = FindViewById<Button>(Resource.Id.LogInButton);
          // This binds the input from the user to the token in the login viewmodel
          LoginViewModel.CurrentUser.SetBinding(() => LoginViewModel.CurrentUser.Id, _username,
