@@ -6,6 +6,8 @@
     android:paddingTop="4dp"
     android:paddingRight="0dp"
     android:paddingLeft="0dp"
-    android:paddingBottom="56dp"/>
-
-<!-- We need to add a view/element here so that the last item is not hidden by the bottomnavigation view -->
+    android:paddingBottom="56dp"
+    />
+    <!-- android:paddingBottom allows the last card to be visible and not be cut
+         off by the bottom navigation bar -->
+    <!-- tools:context=".mainActivity" //We can also set the context here -->
