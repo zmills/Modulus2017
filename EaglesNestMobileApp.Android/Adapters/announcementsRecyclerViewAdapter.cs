@@ -22,6 +22,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         public override int ItemCount => Announcements.Count;
 
         public int ViewPosition => CurrentHolder.AdapterPosition;
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             // Find the correct card based off of its position in the recycler view and set its title and image
