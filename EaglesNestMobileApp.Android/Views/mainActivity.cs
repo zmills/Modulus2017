@@ -1,10 +1,10 @@
-/***************************************************************************************/
-/* This activity is started after the user has successfully logged in. It handles all  */
-/* the navigation and the selected item events of the bottom navigation view           */
-/***************************************************************************************/
-
+//***************************************************************************************/
+//*                                   mainActivity                                      */
+//* This activity is started after the user has successfully logged in. It handles all  */
+//* the navigation and the selected item events of the bottom navigation view           */
+//*                                                                                     */
+//***************************************************************************************/
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Android.Views.Account;
 using EaglesNestMobileApp.Android.Views.Campus_Life;
@@ -14,15 +14,17 @@ using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Android.App;
+using JimBobBennett.MvvmLight.AppCompat;
+using EaglesNestMobileApp.Core;
 using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "EaglesNestMobileApp.Android", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")] //"Theme" sets the theme
-   public class mainActivity : AppCompatActivity
+   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")]
+   public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
    {
-        // Fragments corresponding to each navigation menu item
-        private homeFragment             _homePage = new homeFragment();
+      // Fragments corresponding to each navigation menu item
+      private homeFragment             _homePage = new homeFragment();
         private academicsFragment   _academicsPage = new academicsFragment();
         private campusLifeFragment _campusLifePage = new campusLifeFragment();
         private diningFragment         _diningPage = new diningFragment();
