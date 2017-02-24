@@ -261,7 +261,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\LoginLayout.xml">
+    <AndroidResource Include="Resources\layout\LoginLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
