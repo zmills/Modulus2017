@@ -54,7 +54,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             for (int counter = 0; counter < 10; counter++)
             {
 
-                Card current = new Card("CS 451 Software Engineering Project2" + counter);
+                Card current = new Card("CS 451 Software Engineering Project2");
                 GradesCardList.Add(current);
             }
 

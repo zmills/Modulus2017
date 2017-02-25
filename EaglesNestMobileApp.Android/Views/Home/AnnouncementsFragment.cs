@@ -19,6 +19,8 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public announcementsRecyclerViewAdapter AnnouncementAdapter { get; set; }
         public RecyclerView.LayoutManager AnnouncementLayoutManager { get; set; }
         public View AnnouncementsView { get; set; }
+        SwipeRefreshLayout refresher;
+
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -52,8 +54,24 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
+
+            // Swipe to refresh code
+            refresher = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
+            refresher.SetColorSchemeResources(Resource.Color.primary,
+                                      Resource.Color.accent,
+                                      Resource.Color.primary_text,
+                                      Resource.Color.secondary_text);
+            refresher.Refresh += handleRefresh;
+
             return AnnouncementsView;
         }
+
+        private void handleRefresh(object sender, EventArgs e)
+        {
+            InitializeAnnouncements();
+            refresher.Refreshing = false;
+        }
+          
 
         private void RefreshLayoutRefresh(object sender, System.EventArgs e)
         {
