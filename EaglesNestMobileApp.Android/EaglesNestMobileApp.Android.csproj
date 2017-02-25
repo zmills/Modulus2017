@@ -177,6 +177,8 @@
   <ItemGroup>
     <Compile Include="Adapters\announcementsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\announcementViewHolder.cs" />
+    <Compile Include="Adapters\eventSignUpRecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\eventSignUpViewHolder.cs" />
     <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\gradesViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />

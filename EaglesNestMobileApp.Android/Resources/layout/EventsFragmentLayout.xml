@@ -1,7 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/EventSignUpRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:paddingTop="4dp"
+    android:paddingRight="0dp"
+    android:paddingLeft="0dp"
+    android:paddingBottom="56dp">
 
-</RelativeLayout>
+  <RelativeLayout>
+    <TextView
+      android:id="@+id/eventSignUpTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:textStyle="bold"
+      android:textSize="18dp"/>
+
+    <TextView
+     android:id="@+id/eventSignUpDescription"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:padding="10dp"
+     android:textSize="14dp"/>
+    
+    <Button
+      android:id="@+id/eventSignUpButton"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/eventSignUpDescription"
+      android:layout_toRightOf="@id/eventSignUpDescription"
+      style="@style/Widget.AppCompat.Button.Borderless"
+    />
+
+
+
+  </RelativeLayout>
+
+
+
+
+
+
+</android.support.v7.widget.RecyclerView>
+
+
+
+
