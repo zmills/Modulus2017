@@ -177,6 +177,8 @@
   <ItemGroup>
     <Compile Include="Adapters\announcementsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\announcementViewHolder.cs" />
+    <Compile Include="Adapters\eventSignUpRecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\eventSignUpViewHolder.cs" />
     <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\gradesViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
@@ -356,6 +358,9 @@
       <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
       <Name>EaglesNestMobileApp.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EventCardLayout.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

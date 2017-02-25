@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    >
+  <RelativeLayout>
+    <TextView
+      android:id="@+id/eventSignUpTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:textStyle="bold"
+      android:textSize="18dp"/>
+
+    <TextView
+     android:id="@+id/eventSignUpDescription"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:padding="10dp"
+     android:textSize="14dp"/>
+
+    <Button
+      android:id="@+id/eventSignUpButton"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/eventSignUpDescription"
+      android:layout_toRightOf="@id/eventSignUpDescription"
+      
+    />
+
+
+
+  </RelativeLayout>
+  </android.support.v7.widget.CardView>
