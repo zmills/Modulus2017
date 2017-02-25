@@ -18,6 +18,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public RecyclerView EventSignUpRecyclerView { get; set; }
         public RecyclerView.Adapter eventSignUpAdapter { get; set; }
         public RecyclerView.LayoutManager eventSignUpLayoutManager { get; set; }
+        public View _eventSignUpView { get; set; }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +32,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Inflate the layout for the fragment
-            View _eventSignUpView = inflater.Inflate(Resource.Layout.EventsFragmentLayout, container, false);
+            _eventSignUpView = inflater.Inflate(Resource.Layout.EventsFragmentLayout, container, false);
 
             // Get the view pager
             EventSignUpRecyclerView = _eventSignUpView.FindViewById<RecyclerView>(Resource.Id.EventSignUpRecyclerView);

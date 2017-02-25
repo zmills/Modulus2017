@@ -2362,8 +2362,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00b7
 			public const int BottomNavIconHome = 2131361975;
 			
-			// aapt resource value: 0x7f0a008c
-			public const int EventSignUpRecyclerView = 2131361932;
+			// aapt resource value: 0x7f0a008f
+			public const int EventSignUpRecyclerView = 2131361935;
 			
 			// aapt resource value: 0x7f0a0091
 			public const int GradesCardClassName = 2131361937;
@@ -2566,14 +2566,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0022
 			public const int enterAlwaysCollapsed = 2131361826;
 			
-			// aapt resource value: 0x7f0a008f
-			public const int eventSignUpButton = 2131361935;
-			
 			// aapt resource value: 0x7f0a008e
-			public const int eventSignUpDescription = 2131361934;
+			public const int eventSignUpButton = 2131361934;
 			
 			// aapt resource value: 0x7f0a008d
-			public const int eventSignUpTitle = 2131361933;
+			public const int eventSignUpDescription = 2131361933;
+			
+			// aapt resource value: 0x7f0a008c
+			public const int eventSignUpTitle = 2131361932;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int exitUntilCollapsed = 2131361827;
@@ -3097,112 +3097,115 @@ namespace EaglesNestMobileApp.Android
 			public const int design_text_input_password_icon = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int EventsFragmentLayout = 2130903086;
+			public const int EventCardLayout = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int ExamScheduleFragmentLayout = 2130903087;
+			public const int EventsFragmentLayout = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int FacilitiesFragmentLayout = 2130903088;
+			public const int ExamScheduleFragmentLayout = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int FourWindsFragment = 2130903089;
+			public const int FacilitiesFragmentLayout = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int GrabNGoFragmentLayout = 2130903090;
+			public const int FourWindsFragment = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int GradeReportFragmentLayout = 2130903091;
+			public const int GrabNGoFragmentLayout = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int GradesCardLayout = 2130903092;
+			public const int GradeReportFragmentLayout = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int GradesFragmentLayout = 2130903093;
+			public const int GradesCardLayout = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int HomeFragmentLayout = 2130903094;
+			public const int GradesFragmentLayout = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int LoginLayout = 2130903095;
+			public const int HomeFragmentLayout = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int notification_action = 2130903096;
+			public const int LoginLayout = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int notification_action_tombstone = 2130903097;
+			public const int notification_action = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int notification_media_action = 2130903098;
+			public const int notification_action_tombstone = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int notification_media_cancel_action = 2130903099;
+			public const int notification_media_action = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_template_big_media = 2130903100;
+			public const int notification_media_cancel_action = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_template_big_media_custom = 2130903101;
+			public const int notification_template_big_media = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_template_big_media_narrow = 2130903102;
+			public const int notification_template_big_media_custom = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_template_big_media_narrow_custom = 2130903103;
+			public const int notification_template_big_media_narrow = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_custom_big = 2130903104;
+			public const int notification_template_big_media_narrow_custom = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_icon_group = 2130903105;
+			public const int notification_template_custom_big = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_lines_media = 2130903106;
+			public const int notification_template_icon_group = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int notification_template_media = 2130903107;
+			public const int notification_template_lines_media = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int notification_template_media_custom = 2130903108;
+			public const int notification_template_media = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int notification_template_part_chronometer = 2130903109;
+			public const int notification_template_media_custom = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int notification_template_part_time = 2130903110;
+			public const int notification_template_part_chronometer = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int RequestsFragmentLayout = 2130903111;
+			public const int notification_template_part_time = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int ScheduleFragmentLayout = 2130903112;
+			public const int RequestsFragmentLayout = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int select_dialog_item_material = 2130903113;
+			public const int ScheduleFragmentLayout = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int select_dialog_multichoice_material = 2130903114;
+			public const int select_dialog_item_material = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int select_dialog_singlechoice_material = 2130903115;
+			public const int select_dialog_multichoice_material = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int StudentCourtFragmentLayout = 2130903116;
+			public const int select_dialog_singlechoice_material = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int StudentInfoFragmentLayout = 2130903117;
+			public const int StudentCourtFragmentLayout = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int support_simple_spinner_dropdown_item = 2130903118;
+			public const int StudentInfoFragmentLayout = 2130903118;
 			
 			// aapt resource value: 0x7f03004f
-			public const int TabLayout = 2130903119;
+			public const int support_simple_spinner_dropdown_item = 2130903119;
 			
 			// aapt resource value: 0x7f030050
-			public const int ToolbarLayout = 2130903120;
+			public const int TabLayout = 2130903120;
 			
 			// aapt resource value: 0x7f030051
-			public const int VarsityFragmentLayout = 2130903121;
+			public const int ToolbarLayout = 2130903121;
+			
+			// aapt resource value: 0x7f030052
+			public const int VarsityFragmentLayout = 2130903122;
 			
 			static Layout()
 			{

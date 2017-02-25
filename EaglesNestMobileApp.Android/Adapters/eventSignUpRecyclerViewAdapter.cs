@@ -37,7 +37,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             // Return the layout of the card to the view holder so it can access the textview and the imageview
-            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.EventsFragmentLayout, parent, false);
+            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.EventCardLayout, parent, false);
             return new eventSignUpHolder(view);
         }
     }
