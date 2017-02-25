@@ -214,7 +214,7 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\AnnouncementsFragmentLayout.xml">
+    <AndroidResource Include="Resources\layout\AnnouncementsFragmentLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ToolbarLayout.xml">

@@ -30,6 +30,8 @@ namespace EaglesNestMobileApp.Android.Adapters
             GradesViewHolder.GetGradesCard(_currentGradesCard);
         }
 
+        
+
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.GradesCardLayout, parent, false);
