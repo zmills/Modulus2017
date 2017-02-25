@@ -4,6 +4,7 @@ using Android.Views;
 using EaglesNestMobileApp.Android.Cards;
 using System.Collections.Generic;
 using Android.OS;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {

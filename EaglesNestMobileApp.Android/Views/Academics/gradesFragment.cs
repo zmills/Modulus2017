@@ -7,6 +7,7 @@ using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using System;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {

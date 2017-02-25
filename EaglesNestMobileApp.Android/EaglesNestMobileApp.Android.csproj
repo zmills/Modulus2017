@@ -181,7 +181,7 @@
     <Compile Include="Adapters\gradesViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="AndroidApp.cs" />
-    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
