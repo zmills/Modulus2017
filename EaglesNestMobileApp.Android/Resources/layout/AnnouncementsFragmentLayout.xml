@@ -1,8 +1,8 @@
-<android.support.v4.widget.SwipeRefreshLayout>
+<!--android.support.v4.widget.SwipeRefreshLayout>
     android:id="@+id/AnouncementsRefresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"-->
     <android.support.v7.widget.RecyclerView
       xmlns:android="http://schemas.android.com/apk/res/android"
       android:id="@+id/AnnouncementsRecyclerView"
@@ -13,7 +13,7 @@
       android:paddingLeft="0dp"
       android:paddingBottom="56dp"
     />
-  </android.support.v4.widget.SwipeRefreshLayout>
+  <!--/android.support.v4.widget.SwipeRefreshLayout-->
   <!-- android:paddingBottom allows the last card to be visible and not be cut
          off by the bottom navigation bar -->
     <!-- tools:context=".mainActivity" //We can also set the context here -->

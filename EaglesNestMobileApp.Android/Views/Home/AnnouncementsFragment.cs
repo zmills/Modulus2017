@@ -8,6 +8,7 @@ using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using System;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -48,20 +49,20 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
             _tabLayout.TabReselected += TabReselected;
 
-            SwipeRefreshLayout _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.AnouncementsRefresh);
-            _refreshLayout.Refresh += RefreshLayoutRefresh;
+            //SwipeRefreshLayout _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.AnouncementsRefresh);
+            //_refreshLayout.Refresh += RefreshLayoutRefresh;
             
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
 
             // Swipe to refresh code
-            refresher = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
-            refresher.SetColorSchemeResources(Resource.Color.primary,
-                                      Resource.Color.accent,
-                                      Resource.Color.primary_text,
-                                      Resource.Color.secondary_text);
-            refresher.Refresh += handleRefresh;
+            //refresher = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_refresh_layout);
+            //refresher.SetColorSchemeResources(Resource.Color.primary,
+            //                          Resource.Color.accent,
+            //                          Resource.Color.primary_text,
+            //                          Resource.Color.secondary_text);
+            //refresher.Refresh += handleRefresh;
 
             return AnnouncementsView;
         }
