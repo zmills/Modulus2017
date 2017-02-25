@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
+using Android.Support.V4.Widget;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -43,6 +45,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Selecting the tab will automatically scroll back to the top of the list
             TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
             _tabLayout.TabReselected += TabReselected;
+
+            SwipeRefreshLayout _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.AnouncementsRefresh);
+            _refreshLayout.Refresh += RefreshLayoutRefresh;
             
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
