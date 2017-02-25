@@ -8,6 +8,7 @@ using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using System;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
