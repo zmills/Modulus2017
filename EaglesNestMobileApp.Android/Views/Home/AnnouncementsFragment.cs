@@ -8,6 +8,8 @@ using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using System;
+using EaglesNestMobileApp.Core.Model;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -49,10 +51,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             _tabLayout.TabReselected += TabReselected;
 
             _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_to_refresh_announcements);
-            _refreshLayout.SetColorSchemeResources(Resource.Color.primary,
-                                      Resource.Color.accent,
-                                      Resource.Color.primary_text,
-                                      Resource.Color.secondary_text);
+            _refreshLayout.SetColorSchemeResources(Resource.Color.primary, Resource.Color.accent, Resource.Color.primary_text, Resource.Color.secondary_text);
             _refreshLayout.Refresh += RefreshLayoutRefresh;
             
             // Setup the recyclerview with the created adapter and layout manager
@@ -61,18 +60,20 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             return AnnouncementsView;
         }
-        
+
 
         private void RefreshLayoutRefresh(object sender, System.EventArgs e)
         {
             //THIS NEEDS TO BE REMOVED
             InitializeAnnouncementsTEST();
             _refreshLayout.Refreshing = false;
+            //AnnouncementAdapter.NotifyDataSetChanged();
         }
 
         private void InitializeAnnouncementsTEST()
         {
-            Announcements = new List<Card>();
+            Announcements.Clear();
+            
 
             // Create an array of images
             int[] _card_images = new int[5];
@@ -90,6 +91,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 Card current = new Card("Item " + counter, _card_images[index]);
                 Announcements.Add(current);
             }
+            AnnouncementAdapter.NotifyDataSetChanged();
         }
 
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
