@@ -19,7 +19,8 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public announcementsRecyclerViewAdapter AnnouncementAdapter { get; set; }
         public RecyclerView.LayoutManager AnnouncementLayoutManager { get; set; }
         public View AnnouncementsView { get; set; }
-        
+        SwipeRefreshLayout refresher;
+
 
         public override void OnCreate(Bundle savedInstanceState)
         {
