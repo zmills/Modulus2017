@@ -349,13 +349,13 @@
     <AndroidResource Include="Resources\drawable\SubmitStudentPhotosFall2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
-      <Project>{53513A67-A02D-44C1-B6E2-B21175A5D11F}</Project>
-      <Name>EaglesNestMobileApp.Core</Name>
-    </ProjectReference>
+    <AndroidResource Include="Resources\layout\GradesCardLayout.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\GradesCardLayout.xml" />
+    <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
+      <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
+      <Name>EaglesNestMobileApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

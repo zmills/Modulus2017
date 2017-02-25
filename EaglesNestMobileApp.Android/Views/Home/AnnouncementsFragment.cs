@@ -48,7 +48,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
             _tabLayout.TabReselected += TabReselected;
 
-            _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>);
+            _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_to_refresh_announcements);
             _refreshLayout.SetColorSchemeResources(Resource.Color.primary,
                                       Resource.Color.accent,
                                       Resource.Color.primary_text,
