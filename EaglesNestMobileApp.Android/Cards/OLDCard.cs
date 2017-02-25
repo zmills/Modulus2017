@@ -1,17 +1,17 @@
 namespace EaglesNestMobileApp.Android.Cards
 {
-    public class Card
+    public class OLDCard
     {
         public string Title { get; set; }
         public int Image { get; set; }
 
-        public Card(string title, int image)
+        public OLDCard(string title, int image)
         {
             Title = title;
             Image = image;
         }
 
-        public Card(string title)
+        public OLDCard(string title)
         {
             Title = title;
         }

@@ -3,6 +3,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using EaglesNestMobileApp.Android.Cards;
 using System.Collections.Generic;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -21,6 +22,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         // Returns the number of cards in the list
         public override int ItemCount => Announcements.Count;
 
+        // Returns the current card
         public int ViewPosition => CurrentHolder.AdapterPosition;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
