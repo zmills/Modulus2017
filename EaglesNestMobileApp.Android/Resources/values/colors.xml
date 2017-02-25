@@ -12,10 +12,10 @@
 
 <resources>
     <!-- COLOR PALETTE THEME -->
-    <color name="primary">#3F51B5</color>           <!-- Blue -->
-    <color name="primary_dark">#303F9F</color>      <!-- Dark Blue-->
-    <color name="primary_light">#C5CAE9</color>     <!-- Light Blue -->
-    <color name="accent">#FFEB3B</color>            <!-- Yellow -->
+    <color name="primary">#1C53A3</color>           <!-- Blue -->
+    <color name="primary_dark">#12355E</color>      <!-- Dark Blue-->
+    <color name="primary_light">#4B90E2</color>     <!-- Light Blue -->
+    <color name="accent">#FFC200</color>            <!-- Yellow -->
     <color name="primary_text">#212121</color>      <!-- Black -->
     <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
     <color name="icons">#FFFFFF</color>             <!-- White -->
