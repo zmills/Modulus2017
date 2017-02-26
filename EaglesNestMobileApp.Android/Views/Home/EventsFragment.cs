@@ -16,7 +16,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
     {
         public List<Card> Events { get; set; } // This will bind to the list in the viewmodel
         public RecyclerView EventSignUpRecyclerView { get; set; }
-        public RecyclerView.Adapter eventSignUpAdapter { get; set; }
+        public eventSignUpRecyclerViewAdapter eventSignUpAdapter { get; set; }
         public RecyclerView.LayoutManager eventSignUpLayoutManager { get; set; }
         public View _eventSignUpView { get; set; }
 
@@ -41,7 +41,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             eventSignUpLayoutManager = new LinearLayoutManager(Activity);
 
             // Create a custom adapter and pass it the data that it will be recycling through
-            eventSignUpAdapter = new announcementsRecyclerViewAdapter(Events);
+            eventSignUpAdapter = new eventSignUpRecyclerViewAdapter(Events);
 
             // Selecting the tab will automatically scroll back to the top of the list
             TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
@@ -55,7 +55,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.Tab.Text == "Events Signup")
+            {
+                if (eventSignUpAdapter.ViewPosition >= 10)
+                    EventSignUpRecyclerView.ScrollToPosition(10);
+                EventSignUpRecyclerView.SmoothScrollToPosition(0);
+            }
         }
 
         private void InitializeEvents()
@@ -63,11 +68,11 @@ namespace EaglesNestMobileApp.Android.Views.Home
             Events = new List<Card>();
 
             // Create an array of Events
-            int[] _card_events = new int[2];
+            //int[] _card_events = new int[2];
 
 
             // Loop through inserting cards in the announcements list after titling them and providing an image
-            for (int counter = 0; counter < 1; counter++)
+            for (int counter = 0; counter < 20; counter++)
             {
                 Card current = new Card("Event " + counter + "event text");
                Events.Add(current);

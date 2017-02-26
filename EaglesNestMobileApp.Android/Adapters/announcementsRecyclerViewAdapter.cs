@@ -1,7 +1,5 @@
-using System;
 using Android.Support.V7.Widget;
 using Android.Views;
-using EaglesNestMobileApp.Android.Cards;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Core.Model;
 

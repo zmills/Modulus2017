@@ -1,12 +1,6 @@
-using Android.OS;
 using Android.Views;
-using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using System.Collections.Generic;
-using EaglesNestMobileApp.Android.Adapters;
-using Android.Support.Design.Widget;
-using Android.Support.V4.Widget;
-using System;
 using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Adapters
@@ -15,6 +9,7 @@ namespace EaglesNestMobileApp.Android.Adapters
     {
         // List of annoucements to be displayed as cards
         public List<Card> Events { get; set; }
+        eventSignUpHolder currentHolder { get; set; }
 
         public eventSignUpRecyclerViewAdapter(List<Card> events)
         {
@@ -25,12 +20,14 @@ namespace EaglesNestMobileApp.Android.Adapters
         // Returns the number of cards in the list
         public override int ItemCount => Events.Count;
 
+        // Returns the current card
+        public int ViewPosition => currentHolder.AdapterPosition;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             // Find the correct card based off of its position in the recycler view and set its title and image
             Card card = Events[position];
-            eventSignUpHolder currentHolder = holder as eventSignUpHolder;
+            currentHolder = holder as eventSignUpHolder;
             currentHolder.GetCard(card);
         }
 

@@ -3,13 +3,11 @@ using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using System.Collections.Generic;
-using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using System;
 using EaglesNestMobileApp.Core.Model;
-using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -21,7 +19,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public announcementsRecyclerViewAdapter AnnouncementAdapter { get; set; }
         public RecyclerView.LayoutManager AnnouncementLayoutManager { get; set; }
         public View AnnouncementsView { get; set; }
-        SwipeRefreshLayout _refreshLayout;
+
+        public SwipeRefreshLayout _refreshLayout;
+        
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -51,7 +51,10 @@ namespace EaglesNestMobileApp.Android.Views.Home
             _tabLayout.TabReselected += TabReselected;
 
             _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_to_refresh_announcements);
-            _refreshLayout.SetColorSchemeResources(Resource.Color.primary, Resource.Color.accent, Resource.Color.primary_text, Resource.Color.secondary_text);
+            _refreshLayout.SetColorSchemeResources(Resource.Color.primary, 
+                                                   Resource.Color.accent, 
+                                                   Resource.Color.primary_text, 
+                                                   Resource.Color.secondary_text);
             _refreshLayout.Refresh += RefreshLayoutRefresh;
             
             // Setup the recyclerview with the created adapter and layout manager
@@ -62,7 +65,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         }
 
 
-        private void RefreshLayoutRefresh(object sender, System.EventArgs e)
+        private void RefreshLayoutRefresh(object sender, EventArgs e)
         {
             //THIS NEEDS TO BE REMOVED
             InitializeAnnouncementsTEST();
@@ -96,13 +99,13 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
-            // Scroll to a set section of the list before smoothly scrolling to the top
-            System.Diagnostics.Debug.WriteLine(AnnouncementAdapter.ViewPosition);
-            if (AnnouncementAdapter.ViewPosition >= 10)
-                AnnouncementRecyclerView.ScrollToPosition(10);
-            AnnouncementRecyclerView.SmoothScrollToPosition(0);
+            if (e.Tab.Text == "Announcements")
+            {
+                if (AnnouncementAdapter.ViewPosition >= 10)
+                    AnnouncementRecyclerView.ScrollToPosition(10);
+                AnnouncementRecyclerView.SmoothScrollToPosition(0);
+            }
         }
-        
 
         // THIS NEEDS TO BE MOVED TO THE VIEWMODEL
         private void InitializeAnnouncements()

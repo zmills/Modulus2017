@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
+    android:id="@+id/event_card_view"
     android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,32 +12,32 @@
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     >
-  <RelativeLayout>
+  <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
     <TextView
       android:id="@+id/eventSignUpTitle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:padding="10dp"
       android:textStyle="bold"
-      android:textSize="18dp"/>
+      android:textSize="18dp"
+      />
 
     <TextView
      android:id="@+id/eventSignUpDescription"
-     android:layout_width="match_parent"
+     android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:padding="10dp"
-     android:textSize="14dp"/>
+     android:textSize="14dp"
+     android:layout_below="@+id/eventSignUpTitle"/>
 
     <Button
       android:id="@+id/eventSignUpButton"
-      android:layout_width="fill_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_below="@id/eventSignUpDescription"
+      android:layout_below="@+id/eventSignUpTitle"
       android:layout_toRightOf="@id/eventSignUpDescription"
-      
-    />
-
-
-
-  </RelativeLayout>
+      style="@style/Widget.AppCompat.Button.Borderless"/>
+    </RelativeLayout>
   </android.support.v7.widget.CardView>

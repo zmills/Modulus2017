@@ -1,7 +1,6 @@
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using EaglesNestMobileApp.Android.Cards;
 using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Adapters
@@ -24,9 +23,9 @@ namespace EaglesNestMobileApp.Android.Adapters
         // This takes in a card and does the assignment to the textview and imageview
         public void GetCard(Card eventSignUp)
         {
-            Title.Text = "Event 1";  //eventSignUp.Title;
-            Description.Text = "description for evnt 1"; //eventSignUp.Description;
-            SignUp.Text = "Sign Up";
+            Title.Text =  eventSignUp.Title;
+            Description.Text = eventSignUp.Title; //eventSignUp.Description;
+            SignUp.Text = eventSignUp.Title;
         }
     }
 }

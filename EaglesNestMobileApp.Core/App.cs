@@ -33,7 +33,7 @@ namespace EaglesNestMobileApp.Core
          public static ICharSequence[] HomePage = CharSequence.ArrayFromStringArray(new[]
          {
                 "Announcements",
-                "Events Signup",
+                "Event Signup",
                 "Calendar of Events"
             });
          public static ICharSequence[] DiningPage = CharSequence.ArrayFromStringArray(new[]
