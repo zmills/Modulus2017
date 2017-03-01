@@ -19,9 +19,8 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public announcementsRecyclerViewAdapter AnnouncementAdapter { get; set; }
         public RecyclerView.LayoutManager AnnouncementLayoutManager { get; set; }
         public View AnnouncementsView { get; set; }
-
-        public SwipeRefreshLayout _refreshLayout;
-        
+        public SwipeRefreshLayout RefreshLayout { get; set; }
+        public TabLayout TabLayout { get; set; }
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -47,15 +46,16 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementAdapter = new announcementsRecyclerViewAdapter(Announcements);
 
             // Selecting the tab will automatically scroll back to the top of the list
-            TabLayout _tabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
-            _tabLayout.TabReselected += TabReselected;
+            TabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout.TabReselected += TabReselected;
 
-            _refreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_to_refresh_announcements);
-            _refreshLayout.SetColorSchemeResources(Resource.Color.primary, 
+            // "Pulling" down on the page will refresh the view
+            RefreshLayout = AnnouncementsView.FindViewById<SwipeRefreshLayout>(Resource.Id.SwipeRefreshAnnouncements);
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary, 
                                                    Resource.Color.accent, 
                                                    Resource.Color.primary_text, 
                                                    Resource.Color.secondary_text);
-            _refreshLayout.Refresh += RefreshLayoutRefresh;
+            RefreshLayout.Refresh += RefreshLayoutRefresh;
             
             // Setup the recyclerview with the created adapter and layout manager
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
@@ -69,8 +69,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             //THIS NEEDS TO BE REMOVED
             InitializeAnnouncementsTEST();
-            _refreshLayout.Refreshing = false;
-            //AnnouncementAdapter.NotifyDataSetChanged();
+            RefreshLayout.Refreshing = false;
         }
 
         private void InitializeAnnouncementsTEST()
@@ -81,9 +80,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Create an array of images
             int[] _card_images = new int[5];
             _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[1] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[1] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
             _card_images[2] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[3] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[3] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
             _card_images[4] = Resource.Drawable.BroomHockeyAllStarCons1;
 
             // Loop through inserting cards in the announcements list after titling them and providing an image
@@ -97,6 +96,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementAdapter.NotifyDataSetChanged();
         }
 
+        // Scroll up to the top of the page if the "Announcements Tab is selected"
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
             if (e.Tab.Text == "Announcements")
