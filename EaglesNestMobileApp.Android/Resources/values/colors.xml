@@ -30,4 +30,7 @@
     <color name="bright_green">#39e600</color>      <!--- super bright green-->
   <color name="soft_green"> #4dff4d</color>         <!-- a cloudy green-->
   <color name="lighter_grey">#e0e0d1</color>        <!-- the lightest gray...so far-->
+  <color name="red_screen"> #8a7c58</color>        <!-- UGLY RED-->
+  <color name="red_screenaaa">#e62c2c</color>
+  <!-- UGLY RED-->
 </resources>
