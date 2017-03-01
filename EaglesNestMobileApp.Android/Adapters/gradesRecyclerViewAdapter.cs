@@ -33,9 +33,9 @@ namespace EaglesNestMobileApp.Android.Adapters
             GradesViewHolder.GetGradesCard(_currentGradesCard);
 
             if (position == expandedPosition)
-                GradesViewHolder.llExpandArea.Visibility = ViewStates.Visible;
+                GradesViewHolder.ExpandCard.Visibility = ViewStates.Visible;
             else
-                GradesViewHolder.llExpandArea.Visibility = ViewStates.Gone;        
+                GradesViewHolder.ExpandCard.Visibility = ViewStates.Gone;        
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
