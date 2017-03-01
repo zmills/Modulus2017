@@ -11,8 +11,9 @@
       android:layout_height="fill_parent"
       android:layout_gravity="center_horizontal"
       cardview:cardElevation="4dp"
-      cardview:cardCornerRadius="5dp">
-    <LinearLayout
+      cardview:cardCornerRadius="5dp"
+      cardview:cardBackgroundColor="#a0ff5c">
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="240dp"
         android:orientation="vertical"
@@ -22,10 +23,10 @@
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:textColor="#333333"
-          android:text="Photo Title"
+          android:text="Student Court Status"
           android:id="@+id/studentcourtlayout"
-          android:layout_gravity="center_horizontal"
+          android:gravity="center_horizontal"
           android:layout_marginLeft="5dp" />
-    </LinearLayout>
+    </RelativeLayout>
   </android.support.v7.widget.CardView>
 </LinearLayout>
