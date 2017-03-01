@@ -24,7 +24,7 @@ namespace EaglesNestMobileApp.Android.Views
    public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
    {
       // Fragments corresponding to each navigation menu item
-      private homeFragment             _homePage = new homeFragment();
+        private homeFragment             _homePage = new homeFragment();
         private academicsFragment   _academicsPage = new academicsFragment();
         private campusLifeFragment _campusLifePage = new campusLifeFragment();
         private diningFragment         _diningPage = new diningFragment();
@@ -59,7 +59,7 @@ namespace EaglesNestMobileApp.Android.Views
             _bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
             BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
 
-            LoadFragment(Constants.HomePageKey);
+            LoadFragment(App.PageKeys.HomePageKey);
         }
 
         public override void OnBackPressed()
@@ -67,11 +67,11 @@ namespace EaglesNestMobileApp.Android.Views
             // If the entry on top of the backstack is the home page, close the application
             // else load the homepage and show the user a warning toast 
             if (SupportFragmentManager.GetBackStackEntryAt
-                (SupportFragmentManager.BackStackEntryCount - 1).Name == Constants.HomePageKey)
+                (SupportFragmentManager.BackStackEntryCount - 1).Name == App.PageKeys.HomePageKey)
                 System.Environment.Exit(0);
             else
             {
-                LoadFragment(Constants.HomePageKey);
+                LoadFragment(App.PageKeys.HomePageKey);
                 Toast.MakeText(this, "Press back again to close application.", ToastLength.Short).Show();
                 _bottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
             }
@@ -84,19 +84,19 @@ namespace EaglesNestMobileApp.Android.Views
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    LoadFragment(Constants.HomePageKey);
+                    LoadFragment(App.PageKeys.HomePageKey);
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    LoadFragment(Constants.AcademicsPageKey);
+                    LoadFragment(App.PageKeys.AcademicsPageKey);
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    LoadFragment(Constants.CampusLifePageKey);
+                    LoadFragment(App.PageKeys.CampusLifePageKey);
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    LoadFragment(Constants.DiningPageKey);
+                    LoadFragment(App.PageKeys.DiningPageKey);
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    LoadFragment(Constants.AccountPageKey);
+                    LoadFragment(App.PageKeys.AccountPageKey);
                     break;
             }
         }
@@ -108,19 +108,19 @@ namespace EaglesNestMobileApp.Android.Views
 
             switch (Tag)
             {
-                case Constants.HomePageKey:
+                case App.PageKeys.HomePageKey:
                     _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Tag);
                     break;
-                case Constants.AcademicsPageKey:
+                case App.PageKeys.AcademicsPageKey:
                     _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Tag);
                     break;
-                case Constants.CampusLifePageKey:
+                case App.PageKeys.CampusLifePageKey:
                     _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Tag);
                     break;
-                case Constants.DiningPageKey:
+                case App.PageKeys.DiningPageKey:
                     _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Tag);
                     break;
-                case Constants.AccountPageKey:
+                case App.PageKeys.AccountPageKey:
                     _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Tag);
                     break;
             }

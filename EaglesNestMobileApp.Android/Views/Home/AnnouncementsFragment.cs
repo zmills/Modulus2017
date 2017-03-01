@@ -80,9 +80,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
             // Create an array of images
             int[] _card_images = new int[5];
             _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[1] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[1] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
             _card_images[2] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[3] = Resource.Drawable.BroomHockeyAllStarCons1;
+            _card_images[3] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
             _card_images[4] = Resource.Drawable.BroomHockeyAllStarCons1;
 
             // Loop through inserting cards in the announcements list after titling them and providing an image
@@ -96,6 +96,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementAdapter.NotifyDataSetChanged();
         }
 
+        // Scroll up to the top of the page if the "Announcements Tab is selected"
         private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
             if (e.Tab.Text == "Announcements")
