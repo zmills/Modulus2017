@@ -2374,6 +2374,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a007a
 			public const int SignUpButton = 2131361914;
 			
+			// aapt resource value: 0x7f0a007c
+			public const int SwipeRefreshAnnouncements = 2131361916;
+			
 			// aapt resource value: 0x7f0a00b6
 			public const int Toolbar = 2131361974;
 			
@@ -2814,9 +2817,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f0a0073
 			public const int submit_area = 2131361907;
-			
-			// aapt resource value: 0x7f0a007c
-			public const int swipe_to_refresh_announcements = 2131361916;
 			
 			// aapt resource value: 0x7f0a0035
 			public const int tabMode = 2131361845;
@@ -3897,14 +3897,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070003
 			public const int CardView_Light = 2131165187;
 			
-			// aapt resource value: 0x7f070180
-			public const int ModListItemPrimaryText = 2131165568;
+			// aapt resource value: 0x7f07017f
+			public const int ModBorderlessButton = 2131165567;
 			
 			// aapt resource value: 0x7f070181
-			public const int ModListItemSecondaryText = 2131165569;
+			public const int ModListItemPrimaryText = 2131165569;
 			
-			// aapt resource value: 0x7f07017f
-			public const int ModListItemSingleLineText = 2131165567;
+			// aapt resource value: 0x7f070182
+			public const int ModListItemSecondaryText = 2131165570;
+			
+			// aapt resource value: 0x7f070180
+			public const int ModListItemSingleLineText = 2131165568;
 			
 			// aapt resource value: 0x7f07003d
 			public const int Platform_AppCompat = 2131165245;

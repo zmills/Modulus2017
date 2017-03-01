@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* NOTES
+* AnnouncementCardLayout.xml
+* 
+* Any container's/layout's top, left, and right padding should be set to size
+* desired.
+* Adjust the container's bottom padding based on its views' bottom padding.
+* Views within the container should match_parent in width and will set its own
+* bottom margin to separate content.
+*
+****************************************************************************-->
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="@color/white"
     card_view:cardElevation="2dp"
-    card_view:cardUseCompatPadding="true"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    card_view:cardUseCompatPadding="false"
+    android:layout_marginBottom="8dp"
     >
     <!-- card_view:cardUseCompatPadding="true" //Took this out because it
             would not allow card to expand completely to edges of screen -->
@@ -34,7 +43,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="0dp"
             >
                 
             <TextView
@@ -53,10 +62,13 @@
                 android:id="@+id/SignUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="16dp"
+                android:minHeight="16dp"
                 android:layout_toLeftOf="@+id/ShareButton"
                 android:textColor="@color/primary"
                 android:text="SIGNUP"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/ModBorderlessButton"
+                android:padding="0dp"
                 />
                 <!-- FIGURE OUT LATER HOW TO CHANGE BUTTON PADDING -->
             

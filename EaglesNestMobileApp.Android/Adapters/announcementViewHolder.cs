@@ -21,7 +21,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         // This takes in a card and does the assignment to the textview and imageview
         public void GetCard(Card announcement)
         {
-            Title.Text = announcement.Title;
+            /*Title.Text = announcement.Title;*/
             Image.SetImageResource(announcement.Image);
         }
     }

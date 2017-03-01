@@ -11,29 +11,22 @@ using Android.Support.Design.Widget;
 using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
     public class campusLifeFragment : Fragment
     {
-        TabLayout _tabLayout;
+        TabLayout TabLayout { get; set; }
+        View CurrentView { get; set; }
 
         // Fragments for the viewpager use as tabs
-        Fragment[] _campusLifeFragments =
+        Fragment[] CampusLifeFragments =
         {
             new facilitiesFragment(),
             new requestsFragment(),
             new studentCourtFragment(),
         };
-        
-        // Titles for the three tabs THESE SHOULD PROBABLY BE IN THE VIEWMODEL
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Facility Times",
-            "Pass Requests",
-            "Student Court"
-        });
-
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,17 +36,17 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         // Sets up the viewpager, tabs, and the titles of the tabs when the campus life item is selected
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            ViewPager currentPager = CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _campusLifeFragments, _titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, CampusLifeFragments, App.Tabs.CampusLifePage);
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            _tabLayout.SetupWithViewPager(_currentPager);
+            TabLayout.SetupWithViewPager(currentPager);
 
-            return _currentView;
+            return CurrentView;
         }
     }
 }

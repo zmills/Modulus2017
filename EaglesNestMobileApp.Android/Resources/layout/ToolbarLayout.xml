@@ -12,6 +12,5 @@
         app:layout_scrollFlags="scroll|enterAlways"
         />
         <!-- popupTheme is used when inflating popup menus inside the toolbar -->
-        <!-- Hello -->
 
         

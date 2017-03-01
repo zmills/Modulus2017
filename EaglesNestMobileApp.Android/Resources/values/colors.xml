@@ -20,7 +20,7 @@
     <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
     <color name="icons">#FFFFFF</color>             <!-- White -->
     <color name="divider">#BDBDBD</color>           <!-- Light Grey -->
-    <color name="window_background">#F5F5F5</color> <!-- Off White -->
+    <color name="window_background">#E2E2E2</color> <!-- Off White -->
     
     <!-- OTHER COLORS -->
     <color name="white">#FFFFFF</color>
