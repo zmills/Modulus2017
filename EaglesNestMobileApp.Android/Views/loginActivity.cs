@@ -1,11 +1,11 @@
-﻿//****************************************************************************/
-//*                              loginActivity                               */
-//* This activity determines whether a user needs to login and refers him to */
-//* the viewmodel associated with the login if he does need to login. All    */
-//* logic and errors associated with logging in are handled in the viewmodel */
-//* (loginActivityViewModel.cs) in the PCL.                                  */
-//*                                                                          */
-//****************************************************************************/
+﻿/*****************************************************************************/
+/*                              loginActivity                                */
+/* This activity determines whether a user needs to login and refers him to  */
+/* the viewmodel associated with the login if he does need to login. All     */
+/* logic and errors associated with logging in are handled in the viewmodel  */
+/* (loginActivityViewModel.cs) in the PCL.                                   */
+/*                                                                           */
+/*****************************************************************************/
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -13,6 +13,7 @@ using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
+
 namespace EaglesNestMobileApp.Android
 {
    [Activity(Label = "Eaglesnest", /*MainLauncher = true,*/
