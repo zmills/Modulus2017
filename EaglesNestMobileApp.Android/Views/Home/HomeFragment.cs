@@ -6,28 +6,21 @@ using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using Android.Runtime;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class homeFragment : Fragment
     {
-        TabLayout _tabLayout;
+        public TabLayout TabLayout { get; set; }
+        public View CurrentView { get; set; }
 
-        Fragment[] _homeFragments = 
+        Fragment[] HomeFragments = 
         {
             new announcementsFragment(),
             new eventsFragment(),
             new calendarFragment()
         };
-
-        // THESE NEED TO BE MOVED TO THE VIEWMODEL
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray( new[] 
-        {
-            "Announcements",
-            "Events Signup",
-            "Calendar of Events"
-        });
-
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,17 +29,17 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            ViewPager currentPager = CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, _titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, HomeFragments, App.Tabs.HomePage);
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            _tabLayout.SetupWithViewPager(currentPager);
+            TabLayout.SetupWithViewPager(currentPager);
 
-            return _currentView;
+            return CurrentView;
         }
     }
 }

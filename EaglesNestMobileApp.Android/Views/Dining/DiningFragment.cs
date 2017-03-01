@@ -2,30 +2,23 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.Design.Widget;
-using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
-using Android.Runtime;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class diningFragment : Fragment
     {
-        TabLayout _tabLayout;
+        TabLayout TabLayout { get; set; }
+        View CurrentView { get; set; }
 
-        Fragment[] _diningFragments =
+        Fragment[] DiningFragments =
         {
             new fourWindsFragment(),
             new varsityFragment(),
             new grabNGoFragment()
         };
-
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Four Winds",
-            "Varsity",
-            "Grab N Go"
-        });
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -36,20 +29,20 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            ViewPager currentPager = CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, _titles);
+            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, DiningFragments, App.Tabs.DiningPage);
            
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             // Set the tablayout to fixed so that the titles aren't smashed together
             // REMINDER: BACKLIST: get width of tabLayout and set Fixed or Scrollable depending on the width
-            _tabLayout.TabMode = TabLayout.ModeFixed;
-            _tabLayout.SetupWithViewPager(currentPager);
+            TabLayout.TabMode = TabLayout.ModeFixed;
+            TabLayout.SetupWithViewPager(currentPager);
             
-            return _currentView;
+            return CurrentView;
         }
     }
 }
