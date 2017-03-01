@@ -10,13 +10,14 @@ using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Model.Home;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class eventsFragment : Fragment
     {
         /* This will bind to the list in the viewmodel                       */
-        public List<Card> Events { get; set; }
+        public List<EventsSignUpCard> Events { get; set; }
         public RecyclerView EventSignUpRecyclerView { get; set; }
         public eventSignUpRecyclerViewAdapter EventSignUpAdapter { get; set; }
         public RecyclerView.LayoutManager EventSignUpLayoutManager { get; set; }
@@ -80,13 +81,15 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         private void InitializeEvents()
         {
-            Events = new List<Card>();
+            Events = new List<EventsSignUpCard>();
 
             /* Loop through inserting cards in the announcements list after  */
             /* titling them and providing an image                           */
             for (int counter = 0; counter < 20; counter++)
             {
-                Card current = new Card("Event " + counter + "event text");
+                EventsSignUpCard current = 
+                    new EventsSignUpCard("Event " + counter,
+                                            "Event Description", "SIGNUP");
                Events.Add(current);
             }
         }
