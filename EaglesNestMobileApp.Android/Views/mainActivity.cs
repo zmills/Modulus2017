@@ -1,5 +1,5 @@
 /*****************************************************************************/
-/*                                   mainActivity                            */
+/*                                 mainActivity                              */
 /* This activity is started after the user has successfully logged in. It    */       
 /* handles all the navigation and the selected item events of the bottom     */
 /* navigation view                                                           */
@@ -44,8 +44,8 @@ namespace EaglesNestMobileApp.Android.Views
         public campusLifeFragment CampusLifePage => _campusLifePage;
         public diningFragment         DiningPage => _diningPage;
         public accountFragment       AccountPage => _accountPage;
-        public BottomNavigationView BottomNavigationMenu => _bottomNavigationMenu;
-        
+        public BottomNavigationView BottomNavigationMenu => 
+                                      _bottomNavigationMenu;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -147,4 +147,3 @@ namespace EaglesNestMobileApp.Android.Views
         }
     }
 }
- 
