@@ -65,12 +65,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TabLayout.TabReselected += TabReselected;
 
             /* "Pulling" down on the page will refresh the view              */
-            RefreshLayout = 
+            RefreshLayout =
                 AnnouncementsView.FindViewById<SwipeRefreshLayout>(
                     Resource.Id.SwipeRefreshAnnouncements);
 
-            RefreshLayout.SetColorSchemeResources(Resource.Color.primary, 
-                Resource.Color.accent, Resource.Color.primary_text, 
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+                Resource.Color.accent, Resource.Color.primary_text,
                     Resource.Color.secondary_text);
             RefreshLayout.Refresh += RefreshLayoutRefresh;
 
