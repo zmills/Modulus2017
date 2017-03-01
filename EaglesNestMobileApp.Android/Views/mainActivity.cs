@@ -22,7 +22,7 @@ using Android.Widget;
 namespace EaglesNestMobileApp.Android.Views
 {
    [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon",
-             Theme = "@style/AppCompatLightTheme", MainLauncher = true)]
+             Theme = "@style/AppCompatLightTheme")]
    
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase 
