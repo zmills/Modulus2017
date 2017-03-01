@@ -47,6 +47,7 @@
     <Compile Include="Model\AzureToken.cs" />
     <Compile Include="Model\Campus\Facility.cs" />
     <Compile Include="Model\Home\Card.cs" />
+    <Compile Include="Model\Home\EventsSignUpCard.cs" />
     <Compile Include="Model\LocalToken.cs" />
     <Compile Include="Model\Personal\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
