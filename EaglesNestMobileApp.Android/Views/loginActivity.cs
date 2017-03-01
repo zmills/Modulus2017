@@ -15,7 +15,7 @@ using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
 namespace EaglesNestMobileApp.Android
 {
-   [Activity(Label = "Eaglesnest", MainLauncher = true, Icon = "@drawable/logo")]
+   [Activity(Label = "Eaglesnest", /*MainLauncher = true,*/ Icon = "@drawable/logo")]
    // This base class is a mashup of AppCompativity and Laurent's ActivityBase. It was taken from
    // Jim Bob Bennett's Nuget package.
    public class loginActivity : AppCompatActivityBase
