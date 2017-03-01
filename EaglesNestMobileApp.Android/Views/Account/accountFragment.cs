@@ -1,11 +1,7 @@
 /*****************************************************************************/
-/*                             attendanceFragment                            */
-/*                                                                           */
-/* This class is the "homepage" of the fragments inside the account tab. It  */
-/* holds a viewpager and is loaded everytime the academics menu item is      */
-/* selected.                                                                 */
+/*                               accountFragment                             */
+/*                                                                           */                                                             */
 /*****************************************************************************/
-
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
