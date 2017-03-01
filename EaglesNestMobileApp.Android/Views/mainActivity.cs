@@ -1,9 +1,9 @@
-//***************************************************************************************/
-//*                                   mainActivity                                      */
-//* This activity is started after the user has successfully logged in. It handles all  */
-//* the navigation and the selected item events of the bottom navigation view           */
-//*                                                                                     */
-//***************************************************************************************/
+//**************************************************************************************/
+//*                                   mainActivity                                     */
+//* This activity is started after the user has successfully logged in. It handles all */
+//* the navigation and the selected item events of the bottom navigation view          */
+//*                                                                                    */
+//**************************************************************************************/
 using Android.OS;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Android.Views.Account;
@@ -20,21 +20,24 @@ using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")]
-   public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
-   {
-      // Fragments corresponding to each navigation menu item
+   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon",
+             Theme = "@style/AppCompatLightTheme", MainLauncher = true)]
+   
+    /* See loginActivity for base class explanation                                    */
+    public class mainActivity : AppCompatActivityBase 
+    {
+      /* Fragments corresponding to each navigation menu item                          */
         private homeFragment             _homePage = new homeFragment();
         private academicsFragment   _academicsPage = new academicsFragment();
         private campusLifeFragment _campusLifePage = new campusLifeFragment();
         private diningFragment         _diningPage = new diningFragment();
         private accountFragment       _accountPage = new accountFragment();
 
-        // References the bottom navigation menu in this activity's layout
+        /* References the bottom navigation menu in this activity's layout             */
         private BottomNavigationView _bottomNavigationMenu;
         
 
-        // Public accessors for member variables
+        /* Public accessors for member variables                                       */
         public homeFragment             HomePage => _homePage;
         public academicsFragment   AcademicsPage => _academicsPage;
         public campusLifeFragment CampusLifePage => _campusLifePage;
@@ -47,7 +50,7 @@ namespace EaglesNestMobileApp.Android.Views
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
+            /*( Set our view from the "main" layout resource                           */
             SetContentView(Resource.Layout.BottomNavLayout);
 
             InitializeNavigation();
@@ -55,19 +58,21 @@ namespace EaglesNestMobileApp.Android.Views
 
         private void InitializeNavigation()
         {
-            // Set up the event handler for the bottom navigation menu
-            _bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
+            /* Set up the event handler for the bottom navigation menu                 */
+            _bottomNavigationMenu = 
+                FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
+            BottomNavigationMenu.NavigationItemSelected += 
+                BottomNavigationMenu_NavigationItemSelected;
 
             LoadFragment(App.PageKeys.HomePageKey);
         }
 
         public override void OnBackPressed()
         {
-            // If the entry on top of the backstack is the home page, close the application
-            // else load the homepage and show the user a warning toast 
-            if (SupportFragmentManager.GetBackStackEntryAt
-                (SupportFragmentManager.BackStackEntryCount - 1).Name == App.PageKeys.HomePageKey)
+            /* If the entry on top of the backstack is the home page, close the        */
+            /* application else load the homepage and show the user a warning toast    */
+            if (SupportFragmentManager.GetBackStackEntryAt(
+                SupportFragmentManager.BackStackEntryCount - 1).Name == App.PageKeys.HomePageKey)
                 System.Environment.Exit(0);
             else
             {
@@ -129,3 +134,4 @@ namespace EaglesNestMobileApp.Android.Views
         }
     }
 }
+ 
