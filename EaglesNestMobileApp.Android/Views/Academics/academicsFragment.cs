@@ -1,59 +1,58 @@
-/***************************************************************************************/
-/* This class is the "homepage" of the fragments inside the academics tab. It holds a  */
-/* view pager and is loaded everytime the academics menu item is selected.             */
-/***************************************************************************************/
-
+/*****************************************************************************/
+/*                              academicsFragment                            */
+/*                                                                           */
+/* This class is the "homepage" of the fragments inside the academics tab.   */
+/* It holds a view pager and is loaded everytime the academics menu item is  */
+/* selected.                                                                 */
+/*****************************************************************************/
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Support.Design.Widget;
-using Java.Lang;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
     public class academicsFragment : Fragment
     {
-        TabLayout _tabLayout;
+        public TabLayout TabLayout { get; set; }
+        public ViewPager CurrentPager { get; set; }
+        public View CurrentView { get; set; }
 
-        // Fragments to be used in the view pager as tabs
-        Fragment[] _academicsFragments =
+        /* Fragments to be used in the view pager as tabs                    */
+        Fragment[] AcademicsFragments =
         {
             new gradesFragment(),
             new gradeReportFragment(),
             new examScheduleFragment()
         };
 
-        // Titles for the tabs
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Class Grades",
-            "Grade Report",
-            "Exam Schedule"
-        });
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, 
+            ViewGroup container, Bundle savedInstanceState)
         {
-            // The layout is set first so when finding the view by id we look specifically in the elements in this layout
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            /* The layout is set first so when finding the view by id we     */
+            /* look specifically in the elements in this layout              */
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
+                                              container, false);
 
-            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            CurrentPager = 
+                CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _academicsFragments, _titles);
+            CurrentPager.Adapter = new navigationAdapter(ChildFragmentManager, 
+                AcademicsFragments, App.Tabs.AcademicsPage );
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            _tabLayout.SetupWithViewPager(_currentPager);
-
-            return _currentView;
+            TabLayout.SetupWithViewPager(CurrentPager);
+            return CurrentView;
         }
     }
 }

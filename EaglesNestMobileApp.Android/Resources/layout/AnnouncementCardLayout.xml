@@ -43,7 +43,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="0dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="0dp"
             >
                 
             <TextView
@@ -54,35 +57,28 @@
                 android:textSize="14sp"
                 android:padding="8dp"
                 />
-                <!-- android:layout_width has to be set to 0dp in order
-                     for android:layout_width to work properly -->
-                <!-- CHANGE THESE TEXTVIEWS TO ACTION BUTTONS WITH 14pt FONT -->
             
             <Button
                 android:id="@+id/SignUpButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="16dp"
-                android:minHeight="16dp"
+                android:layout_height="36dp"
                 android:layout_toLeftOf="@+id/ShareButton"
                 android:textColor="@color/primary"
                 android:text="SIGNUP"
                 style="@style/ModBorderlessButton"
-                android:padding="0dp"
+                android:layout_marginLeft="8dp"
                 />
-                <!-- FIGURE OUT LATER HOW TO CHANGE BUTTON PADDING -->
             
             <Button
                 android:id="@+id/ShareButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/primary"
                 android:text="SHARE"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/ModBorderlessButton"
+                android:layout_marginLeft="8dp"
                 />
-                <!-- MD padding for ACTION buttons is 8dp internal padding
-                     and 8dp external padding -->
                 
         </RelativeLayout>        
                 

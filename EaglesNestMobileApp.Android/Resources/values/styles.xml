@@ -62,10 +62,19 @@
     </style>
     
     <!-- BUTTON STYLES -->
-    <style name="ModBorderlessButton" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:minHeight">16dp</item>
-        <item name="android:minWidth">16dp</item>
+    <style name="ModBorderlessButton">
+        <item name="android:padding">8dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:background">@drawable/borderless_button</item>
     </style>
+    
+    <!-- To use the default Borderless Button Widget, set
+         parent="Widget.AppCompat.Button.Borderless" in the button style -->
+    <!-- Other attributes can be set for modification:
+         name="colorControlHighlight">?android:colorControlHighlight
+         name="android:background">?android:attr/selectableItemBackground -->
 
     <!-- FONT STYLES -->
     <!-- <List Component> -->
