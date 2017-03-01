@@ -12,19 +12,22 @@
         android:layout_height="wrap_content"
         >
     
+        <!-- TOOLBAR -->
         <include
             android:id="@+id/toolbar"
             layout="@layout/ToolbarLayout"
             />
         
+        <!-- TABLAYOUT -->
         <android.support.design.widget.TabLayout
             android:id="@+id/MainTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:elevation="4dp"
+            android:elevation="0dp"
             app:tabMode="scrollable"
             />
+            <!--android:elevation="4dp"-->
             <!-- can also set app:tabTextColor, app:tabSelectedTextColor,
                  app:tabIndicatorColor, and app:tabIndicatorHeight -->
     
