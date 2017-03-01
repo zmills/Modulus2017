@@ -1,3 +1,7 @@
+/*****************************************************************************/
+/*                              diningFragment                               */
+/*                                                                           */
+/*****************************************************************************/
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
@@ -12,6 +16,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
     {
         TabLayout TabLayout { get; set; }
         View CurrentView { get; set; }
+        ViewPager CurrentPager { get; set; }
 
         Fragment[] DiningFragments =
         {
@@ -26,21 +31,28 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, 
+            ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            /* Use this to return your custom view for this Fragment         */
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
+                container, false);
 
-            ViewPager currentPager = CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            CurrentPager = 
+                CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, DiningFragments, App.Tabs.DiningPage);
+            CurrentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, DiningFragments, 
+                                         App.Tabs.DiningPage);
            
-            TabLayout = CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            // Set the tablayout to fixed so that the titles aren't smashed together
-            // REMINDER: BACKLIST: get width of tabLayout and set Fixed or Scrollable depending on the width
+            /* Set the tablayout to fixed so that the titles aren't smashed  */
+            /* together. REMINDER: BACKLIST: get width of tabLayout and set  */
+            /* Fixed or Scrollable depending on the width                    */
             TabLayout.TabMode = TabLayout.ModeFixed;
-            TabLayout.SetupWithViewPager(currentPager);
+            TabLayout.SetupWithViewPager(CurrentPager);
             
             return CurrentView;
         }
