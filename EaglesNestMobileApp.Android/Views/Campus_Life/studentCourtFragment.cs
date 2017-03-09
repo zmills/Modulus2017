@@ -44,7 +44,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             StatusCard = StudentCourtView.FindViewById<CardView>(Resource.Id.StudentCourtCard);
             Infraction = StudentCourtView.FindViewById<TextView>(Resource.Id.infraction1);
-            InfractionCard = StudentCourtView.FindViewById<CardView>(Resource.Id.infraction1Card);
+            InfractionCard = StudentCourtView.FindViewById<CardView>(Resource.Id.infractionCard);
             InfractionCard.Visibility = ViewStates.Invisible;
 
 
