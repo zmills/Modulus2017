@@ -86,6 +86,8 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             /* Notifies Adapter that the data set has changed (Important)    */
             AnnouncementAdapter.NotifyDataSetChanged();
+            /* (Important)                                                   */
+            AnnouncementRecyclerView.Post(() => AnnouncementAdapter.NotifyDataSetChanged());
            
             return AnnouncementsView;
         }
