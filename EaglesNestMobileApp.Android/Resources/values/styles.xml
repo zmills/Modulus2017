@@ -63,10 +63,11 @@
     
     <!-- BUTTON STYLES -->
     <style name="ModBorderlessButton">
+        <!--<item name="android:padding">8dp</item>-->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">56dp</item>
         <item name="android:padding">8dp</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:minHeight">36dp</item>
-        <item name="android:elevation">0dp</item>
         <item name="android:background">@drawable/borderless_button</item>
     </style>
     
@@ -76,8 +77,8 @@
          name="colorControlHighlight">?android:colorControlHighlight
          name="android:background">?android:attr/selectableItemBackground -->
 
-    <style name="LoginStyle">
-        <item name="colorControlNormal">@color/divider</item>
+    <!-- TEXT INPUT STYLES -->
+    <style name="ModLoginTextInput">
         <item name="colorControlActivated">@color/primary</item>
         <item name="colorControlHighlight">@color/primary</item>
     </style>

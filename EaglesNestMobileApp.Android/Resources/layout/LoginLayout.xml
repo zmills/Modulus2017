@@ -1,79 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/window_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/window_background"
+    android:paddingTop="100dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="24dp"  
+    android:orientation="vertical"
     >
     
-    <LinearLayout
+    <!-- USERNAME TEXT INPUT-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/StudentIdLoginText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="100dp"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
+        android:theme="@style/ModLoginTextInput"
         >
-        
-        <!--<ImageView
-            android:id="@+id/loginLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />-->
-        
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
+            
+        <EditText
+            android:id="@+id/UserId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/LoginStyle"
-            >
-            
-            <EditText
-                android:id="@+id/UserId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Student ID"
-                style="@style/LoginStyle"
-                
-                android:inputType="number"
-                
-                />
-                <!--android:layout_marginTop="100dp"-->
-                <!--android:layout_below="@+id/loginLogo"-->    
-            
-        </android.support.design.widget.TextInputLayout>
+            android:hint="Student ID"
+            android:inputType="number"
+            />            
+    </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            style="@style/LoginStyle"
-            android:id="@+id/input_layout_password"
+    <!-- PASSWORD TEXT INPUT -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/PasswordLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ModLoginTextInput"
+        >
+            
+        <EditText
+            android:id="@+id/Password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            
-            <EditText
-                android:id="@+id/Password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                
-                android:hint="Password"
-                android:password="true"
-                />
-                <!--
-                android:padding="5dp"-->
-            
-        </android.support.design.widget.TextInputLayout>
-        
-        <Button
-            android:id="@+id/LogInButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_below="@id/Password"
-            android:layout_centerHorizontal="true"
-            
-            android:text="Log In"
+            android:layout_height="wrap_content"  
+            android:hint="Password"
+            android:password="true"
             />
-            <!--android:layout_marginTop="10dp"-->
+            <!-- android:password="true" replaces text with black dots -->
+    </android.support.design.widget.TextInputLayout>
         
-    </LinearLayout>
-
-</RelativeLayout>
+    <!-- LOG IN BUTTON -->
+    <Button
+        android:id="@+id/LogInButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/Password"
+        android:layout_centerHorizontal="true"
+        android:text="Log In"
+        />
+        <!--android:layout_marginTop="10dp"-->
+        
+</LinearLayout>

@@ -12,6 +12,10 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using System;
 using EaglesNestMobileApp.Core.Model;
+using Java.Lang;
+using System.Threading;
+using Android.Graphics;
+using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -26,6 +30,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public View AnnouncementsView { get; set; }
         public SwipeRefreshLayout RefreshLayout { get; set; }
         public TabLayout TabLayout { get; set; }
+        
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -79,9 +84,11 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
 
+            /* Notifies Adapter that the data set has changed (Important)    */
+            AnnouncementAdapter.NotifyDataSetChanged();
+           
             return AnnouncementsView;
         }
-
 
         private void RefreshLayoutRefresh(object sender, EventArgs e)
         {
