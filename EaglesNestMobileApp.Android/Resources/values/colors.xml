@@ -19,8 +19,8 @@
     <color name="primary_text">#212121</color>      <!-- Black -->
     <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
     <color name="icons">#FFFFFF</color>             <!-- White -->
-    <color name="divider">#BDBDBD</color>           <!-- Light Grey -->
-    <color name="window_background">#E2E2E2</color> <!-- Off White -->
+    <color name="divider">#BDBDBD</color>           <!-- Grey -->
+    <color name="window_background">#E2E2E2</color> <!-- Grey Background -->
     
     <!-- OTHER COLORS -->
     <color name="clear">#0000</color>
@@ -28,9 +28,8 @@
     <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->
     <color name="navigation_bar">#10154C</color>    <!-- Darker Blue than primary_dark_900 -->
     <color name="bright_green">#39e600</color>      <!--- super bright green-->
-  <color name="soft_green"> #4dff4d</color>         <!-- a cloudy green-->
-  <color name="lighter_grey">#e0e0d1</color>        <!-- the lightest gray...so far-->
-  <color name="red_screen"> #8a7c58</color>        <!-- UGLY RED-->
-  <color name="red_screenaaa">#e62c2c</color>
-  <!-- UGLY RED-->
+    <color name="soft_green"> #4dff4d</color>       <!-- a cloudy green-->
+    <color name="lighter_grey">#e0e0d1</color>      <!-- the lightest gray...so far-->
+    <color name="red_screen"> #8a7c58</color>       <!-- UGLY RED-->
+    <color name="red_screenaaa">#e62c2c</color>     <!-- UGLY RED-->
 </resources>

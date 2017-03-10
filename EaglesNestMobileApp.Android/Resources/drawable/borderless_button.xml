@@ -9,9 +9,10 @@
             android:shape="rectangle" >
             <corners android:radius="2dp" />
             <solid android:color="@color/white" />
-            <!-- This color will NOT get applied - because @android:id/mask is
-                 set, the color will ALWAYS be transparent. However, the solid
-                 color value is still required for ripple affect to display.
+            <!-- This color will NOT get applied - because in <item>
+                 android:id="@android:id/mask" is set, the color will ALWAYS
+                 be transparent. However, the solid color value is still
+                 required for ripple affect to display.
                  
                  To change the color of the button, remove @android:id/mask -->
         </shape>
