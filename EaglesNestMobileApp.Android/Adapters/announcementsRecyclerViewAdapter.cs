@@ -69,6 +69,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             // NOTE: THREADING DOES NOT WORK HERE
             #endregion
             ExpandTouchableByTagName(_currentHolder.ParentLayout, "ExpandTouchable");
+            
 
             return _viewHolder;
         }
