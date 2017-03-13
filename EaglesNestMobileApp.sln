@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EaglesNestMobileApp.Android
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{9ACFE440-EACA-41BB-AB38-BB9D922723C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EaglesNestMobileApp.UnitTest", "EaglesNestMobileApp.UnitTest\EaglesNestMobileApp.UnitTest.csproj", "{4EA651AA-971A-42D0-A646-CD7072B40CD3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0F5E2B8-A417-49F0-9D57-1C4FB3C93A15}"
 EndProject
 Global
@@ -29,16 +27,11 @@ Global
 		{5BA81B78-1197-4A99-B5CE-841EA743F1CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA81B78-1197-4A99-B5CE-841EA743F1CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BA81B78-1197-4A99-B5CE-841EA743F1CD}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{4EA651AA-971A-42D0-A646-CD7072B40CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EA651AA-971A-42D0-A646-CD7072B40CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EA651AA-971A-42D0-A646-CD7072B40CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EA651AA-971A-42D0-A646-CD7072B40CD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5BA81B78-1197-4A99-B5CE-841EA743F1CD} = {9ACFE440-EACA-41BB-AB38-BB9D922723C7}
-		{4EA651AA-971A-42D0-A646-CD7072B40CD3} = {B0F5E2B8-A417-49F0-9D57-1C4FB3C93A15}
 	EndGlobalSection
 EndGlobal
