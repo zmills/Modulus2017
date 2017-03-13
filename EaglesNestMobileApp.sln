@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{9ACF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0F5E2B8-A417-49F0-9D57-1C4FB3C93A15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EaglesNestMobileApp.Core.UnitTests", "EaglesNestMobileApp.Core.UnitTests\EaglesNestMobileApp.Core.UnitTests.csproj", "{544507E3-B416-4857-A768-64EE8E4F30E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EaglesNestMobileApp.UnitTests", "EaglesNestMobileApp.Core.UnitTests\EaglesNestMobileApp.UnitTests.csproj", "{544507E3-B416-4857-A768-64EE8E4F30E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
