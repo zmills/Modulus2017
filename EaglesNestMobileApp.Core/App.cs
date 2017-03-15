@@ -33,7 +33,7 @@ namespace EaglesNestMobileApp.Core
         /* The titles for each tab in the pages                              */
         public static class Tabs
         {
-            public static ICharSequence[] HomePage = 
+            public static ICharSequence[] HomePage =
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Announcements",
