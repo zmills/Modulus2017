@@ -1,21 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  
-  
-  <android.support.design.widget.TabLayout
-          android:layout_height="wrap_content"
-          android:layout_width="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.design.widget.TabItem
-            android:text="Breakfast"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.TabItem
-            android:text="Lunch and Dinner"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <android.support.design.widget.TabLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+
+                <android.support.design.widget.TabItem
+                    android:text="Breakfast"
+                    />
+
+                <android.support.design.widget.TabItem
+                    android:text="Lunch and Dinner"
+                    />
+
+            </android.support.design.widget.TabLayout>
+
+
+            <TextView
+                android:id="@+id/line1"
+                android:text="1 - Breakfast Bar"
+                style="@style/ModFoodHeader"
+                />
+
+            <include
+                android:id="@+id/Line1RecyclerView"
+                layout="@layout/BaseRecyclerView"
             />
-   
 
-  </android.support.design.widget.TabLayout>
+            <View style="@style/ModFoodMenuSpacing"/>
+
+            <TextView
+                android:id="@+id/line2"
+                style="@style/ModFoodHeader"
+                android:text="2 - Contental Breakfast"
+                android:layout_marginTop="10dp"
+                />
+
+
+
+            <View style="@style/ModFoodMenuSpacing"/>
+
+            <TextView
+                android:id="@+id/line3"
+                style="@style/ModFoodHeader"
+                android:text="3 - Mega Cereal Bar"
+                />
+
+
+
+            <View style="@style/ModFoodMenuSpacing"/>
+
+
+            <TextView
+                android:id="@+id/line4"
+                style="@style/ModFoodHeader"
+                android:text="4 - Country Cooking"
+        />
+
+            <View style="@style/ModFoodMenuSpacing"/>
+
+            <TextView
+                android:id="@+id/line5"
+                style="@style/ModFoodHeader"
+                android:text="5 - Breakfast Bar"
+    />
+
+            <View style="@style/ModFoodMenuSpacing"/>
+
+            <TextView
+                android:id="@+id/line6"
+                style="@style/ModFoodHeader"
+                android:text="6 - Healthy Choices"
+    />
+
+            <View style="@style/ModFoodMenuSpacing"/>
+
+            <TextView
+                android:id="@+id/line7"
+                style="@style/ModFoodHeader"
+                android:text="7 - Pancake and Waffle Bar"/>
+
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

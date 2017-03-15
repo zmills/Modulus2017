@@ -179,15 +179,17 @@
     <Compile Include="Adapters\announcementViewHolder.cs" />
     <Compile Include="Adapters\eventSignUpRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\eventSignUpViewHolder.cs" />
+    <Compile Include="Adapters\FoodLinearLayoutManager.cs" />
     <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\gradesViewHolder.cs" />
+    <Compile Include="Adapters\MenuItemAdapter.cs" />
+    <Compile Include="Adapters\MenuItemViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="AndroidApp.cs" />
     <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />
-    <Compile Include="Packages\BorderlessButton.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
     <Compile Include="Views\Academics\gradeReportFragment.cs" />
@@ -363,7 +365,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\EventCardLayout.xml" />
+    <AndroidResource Include="Resources\layout\EventCardLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\borderless_button.xml" />
@@ -372,7 +376,25 @@
     <AndroidResource Include="Resources\drawable\borderless_button_shape.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\StudentCourtInfractionCardLayout.xml" />
+    <AndroidResource Include="Resources\layout\StudentCourtInfractionCardLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Packages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FoodMenuList.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MenuItemLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\BaseRecyclerView.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
