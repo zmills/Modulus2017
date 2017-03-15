@@ -43,13 +43,13 @@ namespace EaglesNestMobileApp.Android.Views.Home
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
-            ViewGroup container, Bundle savedInstanceState)
+            ViewGroup parent, Bundle savedInstanceState)
         {
             /* Inflate the layout for the fragment                           */
             AnnouncementsView = inflater.Inflate(
-                Resource.Layout.AnnouncementsFragmentLayout, container, false);
+                Resource.Layout.AnnouncementsFragmentLayout, parent, false);
 
-            /* Get the view pager                                            */
+            /* Get the recyclerview layout                                   */
             AnnouncementRecyclerView = 
                 AnnouncementsView.FindViewById<RecyclerView>(
                     Resource.Id.AnnouncementsRecyclerView);
@@ -61,7 +61,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
             /* Create a custom adapter and pass it the data that it will be  */
             /* recycling through                                             */
             AnnouncementAdapter = 
-                new announcementsRecyclerViewAdapter(Announcements);
+                new announcementsRecyclerViewAdapter(Activity, Announcements);
+            /* Helps with performance: HasStableIds = true */
+            AnnouncementAdapter.HasStableIds = true;
 
             /* Selecting the tab will automatically scroll back to the top   */
             /* of the list                                                   */
@@ -85,9 +87,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
 
             /* Notifies Adapter that the data set has changed (Important)    */
-            AnnouncementAdapter.NotifyDataSetChanged();
+            //AnnouncementAdapter.NotifyDataSetChanged();
+            //AnnouncementRecyclerView.GetAdapter().NotifyDataSetChanged();
             /* (Important)                                                   */
-            AnnouncementRecyclerView.Post(() => AnnouncementAdapter.NotifyDataSetChanged());
+            //AnnouncementRecyclerView.Post(() => AnnouncementAdapter.NotifyDataSetChanged());
+            //AnnouncementRecyclerView.Post(() => AnnouncementRecyclerView.GetAdapter().NotifyDataSetChanged());
+            
            
             return AnnouncementsView;
         }

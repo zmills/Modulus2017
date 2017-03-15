@@ -20,7 +20,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             Title = view.FindViewById<TextView>(Resource.Id.AnnouncementsCardText);
             Image = view.FindViewById<ImageView>(Resource.Id.AnnouncementsCardImage);
 
-            ParentLayout = view.FindViewById<RelativeLayout>(Resource.Id.AnnouncementsCardRelativeLayout);
+            ParentLayout = view.FindViewById<RelativeLayout>(Resource.Id.AnnouncementsCardRelativeLayout);            
         }
 
         // This takes in a card and binds its views to the viewholder's views

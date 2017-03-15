@@ -10,12 +10,13 @@
 * bottom margin to separate content.
 *
 ****************************************************************************-->
-
 <android.support.v4.widget.SwipeRefreshLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/SwipeRefreshAnnouncements"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/SwipeRefreshAnnouncements"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
   
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,11 +25,8 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingTop="8dp"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
-        android:paddingBottom="0dp"
+        android:scrollbars="vertical"
         />
-        <!-- android:paddingTop="8dp" -->
         <!-- android:paddingBottom allows the last card to be visible and not be cut
              off by the bottom navigation bar -->
         <!-- android:clipToPadding="false" helps to set the padding properly -->

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* 
+* TabLayout.xml
+*
+* REFERENCES:
+*   Coordinator Layout:
+*       http://guides.codepath.com/android/handling-scrolls-with-coordinatorlayout
+*       https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml
+*
+****************************************************************************-->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-  
+    
+    <!-- APPBAR LAYOUT -->
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/layout_grades"
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -27,12 +38,15 @@
             android:elevation="0dp"
             app:tabMode="scrollable"
             />
-            <!--android:elevation="4dp"-->
+            <!-- Do NOT set app:layout_scrollFlags="scroll|enterAlways" here. -->
             <!-- can also set app:tabTextColor, app:tabSelectedTextColor,
                  app:tabIndicatorColor, and app:tabIndicatorHeight -->
+            <!-- app:tabMode="scrollable"
+                 Definition: allows the tabs to SCROLL instead of being fixed. -->
     
     </android.support.design.widget.AppBarLayout>
-        
+    
+    <!-- VIEWPAGER -->
     <android.support.v4.view.ViewPager
         android:id="@+id/MainViewPager"
         android:layout_width="match_parent"
@@ -41,7 +55,14 @@
         />
         <!-- setting app:layout_behavior makes the top of the list visible
              (not coverd up by the toolbar and tablayout) -->
-        <!--android:layout_height="0px"
-        android:layout_weight="1"-->
+
+    <!-- FAB -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done" />
     
 </android.support.design.widget.CoordinatorLayout>
