@@ -59,12 +59,22 @@ namespace EaglesNestMobileApp.Android.Helpers
             bool _result = false;
             float x = e.GetX();
             float y = e.GetY();
-          
-            foreach(TouchDelegate touchDelegate in touchDelegatesArray)
+
+            System.Diagnostics.Debug.Write("X: " + x + " " + "Y: " + y);
+            System.Diagnostics.Debug.Write("TDARRAYCOUNT: " + touchDelegatesArray.Count);
+            foreach (TouchDelegate touchDelegate in touchDelegatesArray)
             { 
                 e.SetLocation(x, y);
                 // See if touch location is within the touchDelegate bounds
                 _result = touchDelegate.OnTouchEvent(e) || _result;
+
+                int hello = 1;
+                System.Diagnostics.Debug.Write(hello);
+                hello += 1;
+                if (_result == true)
+                    System.Diagnostics.Debug.Write("TRRRUUUEEE");
+                else
+                    System.Diagnostics.Debug.Write("FAAALLLSSSEEE");
             }
             return _result;
         }

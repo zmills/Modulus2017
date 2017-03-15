@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* HIERARCHY
+* BottomNavLayout.xml
+*
+* BottomNavLayout.xml
+*   -> Frame Layout
+*       -> TabLayout.xml
+*           -> Coordinator Layout
+*               -> AppBar Layout
+*                   -> ToolbarLayout.xml
+*                   -> Tab Layout
+*   -> Bottom Navigation Bar
+*
+****************************************************************************-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:design="http://schema.android.com/apk/res/android.support.design"
@@ -13,13 +27,13 @@
         android:layout_width="match_parent"
         android:layout_above="@+id/BottomNavBar"
         />
+        <!-- Do NOT set the FrameLayout's layout_height to "wrap_content" -->
 
     <!-- BOTTOM NAVIGATION BAR -->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/BottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_gravity="start"
         app:menu="@menu/bottom_nav_menu"
         android:background="@color/white"
         android:elevation="8dp"
@@ -29,5 +43,4 @@
              app:itemBackground="@color/colorPrimaryLight"
              app:itemIconTint="@color/colorIcon"
              app:itemTextColor="@color/colorText" -->
-
 </RelativeLayout>

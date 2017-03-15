@@ -32,4 +32,5 @@
     <color name="lighter_grey">#e0e0d1</color>      <!-- the lightest gray...so far-->
     <color name="red_screen"> #8a7c58</color>       <!-- UGLY RED-->
     <color name="red_screenaaa">#e62c2c</color>     <!-- UGLY RED-->
+    <color name="red">#f44336</color>               <!-- Prime Red -->
 </resources>
