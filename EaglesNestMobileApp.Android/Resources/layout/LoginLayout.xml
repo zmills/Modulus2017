@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/primary">
-    <LinearLayout
-        android:layout_width="fill_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/window_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="100dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="24dp"  
+    android:orientation="vertical"
+    >
+    
+    <!-- USERNAME TEXT INPUT-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/StudentIdLoginText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/loginLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
+        android:theme="@style/ModLoginTextInput"
+        >
+            
+        <EditText
+            android:id="@+id/UserId"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/UserId"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="Student ID"
-                android:layout_marginTop="100dp"
-                android:inputType="number"
-                android:layout_below="@+id/loginLogo" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/Password"
-                android:layout_width="fill_parent"
-                android:layout_height="45dp"
-                android:padding="5dp"
-                android:hint="Password"
-                android:password="true" />
-        </android.support.design.widget.TextInputLayout>
-        <Button
-            android:id="@+id/LogInButton"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Password"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="Log In" />
-    </LinearLayout>
-</RelativeLayout>
+            android:hint="Student ID"
+            android:inputType="number"
+            />            
+    </android.support.design.widget.TextInputLayout>
+
+    <!-- PASSWORD TEXT INPUT -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/PasswordLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ModLoginTextInput"
+        >
+            
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"  
+            android:hint="Password"
+            android:password="true"
+            />
+            <!-- android:password="true" replaces text with black dots -->
+    </android.support.design.widget.TextInputLayout>
+        
+    <!-- LOG IN BUTTON -->
+    <Button
+        android:id="@+id/LogInButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/Password"
+        android:layout_centerHorizontal="true"
+        android:text="Log In"
+        />
+        <!--android:layout_marginTop="10dp"-->
+        
+</LinearLayout>

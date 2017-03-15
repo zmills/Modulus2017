@@ -1,38 +1,30 @@
-/***************************************************************************************/
-/* This class is the "homepage" of the fragments inside the account tab. It holds a    */
-/* viewpager and is loaded everytime the academics menu item is selected.              */
-/***************************************************************************************/
-
+/*****************************************************************************/
+/*                               accountFragment                             */
+/*                                                                           */                                                            
+/*****************************************************************************/
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
-using Android.Runtime;
 using Android.Support.Design.Widget;
-using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
     public class accountFragment : Fragment
     {
-        TabLayout _tabLayout;
+        public TabLayout TabLayout { get; set; }
+        public View CurrentView { get; set; }
+        public ViewPager CurrentPager { get; set; }
 
         // Fragments to be used as tabs for the viewpager
-        Fragment[] _accountFragments =
+        Fragment[] AccountFragments =
         {
             new studentInfoFragment(),
             new attendanceFragment(),
             new scheduleFragment()
         };
-
-        // Titles of the tabs
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Student Info",
-            "Attendance",
-            "Student Schedule"
-        });
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -40,21 +32,27 @@ namespace EaglesNestMobileApp.Android.Views.Account
             base.OnCreate(savedInstanceState);
         }
 
-        // Sets up the viewpager and the tabs along with their titles
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        /* Sets up the viewpager and the tabs along with their titles        */
+        public override View OnCreateView(LayoutInflater inflater, 
+            ViewGroup container, Bundle savedInstanceState)
         { 
 
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            CurrentView = 
+                inflater.Inflate(Resource.Layout.TabLayout, container, false);
 
-            ViewPager _currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            CurrentPager = 
+                CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            _currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _accountFragments, _titles);
+            CurrentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, AccountFragments, 
+                    App.Tabs.AccountPage);
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            _tabLayout.SetupWithViewPager(_currentPager);
+            TabLayout.SetupWithViewPager(CurrentPager);
 
-            return _currentView;
+            return CurrentView;
         }
     }
 }

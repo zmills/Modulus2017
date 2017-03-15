@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* NOTES
+* AnnouncementCardLayout.xml
+* 
+* Any container's/layout's top, left, and right padding should be set to size
+* desired.
+* Adjust the container's bottom padding based on its views' bottom padding.
+* Views within the container should match_parent in width and will set its own
+* bottom margin to separate content.
+*
+****************************************************************************-->
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="@color/white"
     card_view:cardElevation="2dp"
-    card_view:cardUseCompatPadding="true"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    card_view:cardUseCompatPadding="false"
+    android:layout_marginTop="0dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
     >
-    <!-- card_view:cardUseCompatPadding="true" //Took this out because it
-            would not allow card to expand completely to edges of screen -->
+    <!-- card_view:cardUseCompatPadding="####"
+         Set this to FALSE to allow card to expand completely to the edges
+         of the screen -->
     <!-- cardElevation="2dp" is MD resting elevation for a card -->
-    <!-- margins for CardView work only when used with RecyclerView -->
+    <!-- Supposedly, margins for CardView work only when used with RecyclerView -->
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,54 +37,52 @@
         >
             
         <ImageView
+            android:id="@+id/AnnouncementsCardImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CardImage"
             android:adjustViewBounds="true"
             />
             <!-- adjustViewBounds gets rid of unnecessary top/bottom padding -->
 
         <RelativeLayout
+            android:id="@+id/AnnouncementsCardRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
             >
                 
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:id="@+id/CardText"
-                android:layout_below="@+id/CardImage"
+                android:id="@+id/AnnouncementsCardText"
+                android:layout_below="@+id/AnnouncementsCardRelativeLayout"
                 android:textSize="14sp"
                 android:padding="8dp"
                 />
-                <!-- android:layout_width has to be set to 0dp in order
-                     for android:layout_width to work properly -->
-                <!-- CHANGE THESE TEXTVIEWS TO ACTION BUTTONS WITH 14pt FONT -->
+              
+                <Button
+                    android:id="@+id/SignUpButton"
+                    android:textColor="@color/primary"
+                    android:text="SIGNUP"
+                    style="@style/ModBorderlessButton"
+                    android:tag="ExpandTouchable"
+                    android:layout_toLeftOf="@+id/ShareButton"
+                    android:layout_marginLeft="8dp"
+                    />
             
-            <Button
-                android:id="@+id/SignUpButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/ShareButton"
-                android:textColor="@color/primary"
-                android:text="SIGNUP"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                />
-                <!-- FIGURE OUT LATER HOW TO CHANGE BUTTON PADDING -->
-            
-            <Button
-                android:id="@+id/ShareButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/primary"
-                android:text="SHARE"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                />
-                <!-- MD padding for ACTION buttons is 8dp internal padding
-                     and 8dp external padding -->
-                
+                <Button
+                    android:id="@+id/ShareButton"
+                    android:textColor="@color/primary"
+                    android:text="SHARE"
+                    style="@style/ModBorderlessButton"
+                    android:tag="ExpandTouchable"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="8dp"
+                    />
+                    
         </RelativeLayout>        
                 
     </LinearLayout>

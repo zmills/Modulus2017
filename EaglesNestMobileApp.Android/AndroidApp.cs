@@ -24,13 +24,14 @@ namespace EaglesNestMobileApp.Android
          {
             if (_locator == null)
             {
-               // The first initialization will also take care of the navigation service
-               // along with the dialog service. See the ViewModelLocator class in the PCL
-               AppCompatNavigationService navigator = new AppCompatNavigationService();
-               navigator.Configure(App.PageKeys.LoginPageKey, typeof(loginActivity));
-               navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
+               /* The first initialization will also take care of the navigation       */
+               /* service along with the dialog service. See the ViewModelLocator      */
+               /* class in the PCL                                                     */
+               AppCompatNavigationService _navigator = new AppCompatNavigationService();
+               
+               _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
 
-               ViewModelLocator.RegisterNavigationService(navigator);
+               ViewModelLocator.RegisterNavigationService(_navigator);
 
                _locator = new ViewModelLocator();
             }
@@ -41,3 +42,4 @@ namespace EaglesNestMobileApp.Android
 
    }
 }
+ 

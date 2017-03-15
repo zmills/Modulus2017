@@ -177,10 +177,17 @@
   <ItemGroup>
     <Compile Include="Adapters\announcementsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\announcementViewHolder.cs" />
+    <Compile Include="Adapters\eventSignUpRecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\eventSignUpViewHolder.cs" />
+    <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
+    <Compile Include="Adapters\gradesViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="AndroidApp.cs" />
-    <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Helpers\ExpandTouchableArea.cs" />
+    <Compile Include="Helpers\TouchDelegateComposite.cs" />
+    <Compile Include="Packages\BorderlessButton.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
     <Compile Include="Views\Academics\gradeReportFragment.cs" />
@@ -189,10 +196,10 @@
     <Compile Include="Views\Account\attendanceFragment.cs" />
     <Compile Include="Views\Account\studentInfoFragment.cs" />
     <Compile Include="Views\Account\scheduleFragment.cs" />
-    <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
-    <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
-    <Compile Include="Views\Campus_Life\requestsFragment.cs" />
-    <Compile Include="Views\Campus_Life\studentCourtFragment.cs" />
+    <Compile Include="Views\Account\Campus_Life\campusLifeFragment.cs" />
+    <Compile Include="Views\Account\Campus_Life\facilitiesFragment.cs" />
+    <Compile Include="Views\Account\Campus_Life\requestsFragment.cs" />
+    <Compile Include="Views\Account\Campus_Life\studentCourtFragment.cs" />
     <Compile Include="Views\Dining\diningFragment.cs" />
     <Compile Include="Views\Dining\fourWindsFragment.cs" />
     <Compile Include="Views\Dining\grabNGoFragment.cs" />
@@ -347,10 +354,31 @@
     <AndroidResource Include="Resources\drawable\SubmitStudentPhotosFall2.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\GradesCardLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
-      <Project>{53513A67-A02D-44C1-B6E2-B21175A5D11F}</Project>
+      <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
       <Name>EaglesNestMobileApp.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EventCardLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\borderless_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\borderless_button_shape.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\StudentCourtInfractionCardLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\border.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_done.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
