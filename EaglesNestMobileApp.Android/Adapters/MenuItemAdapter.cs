@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System;
 
 using EaglesNestMobileApp.Core.Model.Food;
+using static Android.Views.View;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -19,9 +20,8 @@ namespace EaglesNestMobileApp.Android.Adapters
     {
         public MenuItem[] mMenuItems;
         public MenuItemViewHolder CurrentHolder { get; set; }
-
-
-
+        public View helloView;
+        public View hideView;
 
         public MenuItemAdapter(MenuItem[] menuItems)
         {
@@ -50,11 +50,21 @@ namespace EaglesNestMobileApp.Android.Adapters
             // bind the item with the list array
             MenuItem menuItem = MenuItems.builtInItems[position];
             CurrentHolder = holder as MenuItemViewHolder;
-            CurrentHolder.BindCard(menuItem);
-           
+            CurrentHolder.BindCard(menuItem, CurrentHolder);
+
+            //hideView = CurrentHolder.line1List;
+            //CurrentHolder.mView.Post(() => CurrentHolder.mView.FindViewById<View>(Resource.Id.line1).Click += myClickEvent);
+
         }
 
-       
+        private void myClickEvent(object sender, EventArgs e)
+        {
+            
+            if (hideView.Visibility == ViewStates.Visible)
+                hideView.Visibility = ViewStates.Gone;
+            else
+                hideView.Visibility = ViewStates.Visible;
+        }
     }
 
 
