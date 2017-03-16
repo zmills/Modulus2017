@@ -18,9 +18,15 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class fourWindsFragment : Fragment
     {
+        /*********************************************************************/
+        /* Constants                                                         */
+        /*********************************************************************/
         public const int TOTAL_LINES = 7;
+
+        /*********************************************************************/
+        /*                                                                   */
+        /*********************************************************************/
         public CampusDining campusDining;
-        public MenuItem[] line1Items;
         public List<MenuItem[]> menuList;
         public RecyclerView menuItemRecyclerView;
         public RecyclerView.LayoutManager menuItemLayoutManager;
@@ -32,7 +38,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public List<RecyclerView> menuItemRecyclerViewList;
         public RecyclerView currentMenuItemRecyclerView;
         public RecyclerView prevMenuItemRecyclerView;
-        public View prevLine;
         public List<FoodLinearLayoutManager> menuItemLayoutManagerList;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -44,7 +49,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             campusDining = new CampusDining();
             menuList = campusDining.GetFourWindsBreakfastMealMenus();
 
-           // IListAdapter listAdapter = new ArrayAdapter<string>(Activity, Resource.Layout.FoodMenuList, line1Items);
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -164,35 +168,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 lineCount += 1;
             }
             prevMenuItemRecyclerView = currentMenuItemRecyclerView;
-
-
-
-            //if (menuItemRecyclerView.Visibility == ViewStates.Visible)
-            //    menuItemRecyclerView.Visibility = ViewStates.Gone;
-            //else
-            //    menuItemRecyclerView.Visibility = ViewStates.Visible;
-
-            
-        }
-
-        /*public void myClickEvent(object sender, EventArgs e)
-        {
-
-            if (hideView.Visibility == ViewStates.Visible)
-                hideView.Visibility = ViewStates.Gone;
-            else
-                hideView.Visibility = ViewStates.Visible;
-        }*/
-
-        //protected void OnListItemClick(ListView l, View v, int position, long id)
-        //{
-        //    var t = line1Items[position];
-        //   Toast.MakeText(Activity, t, ToastLength.Short).Show();
-        //}
-
-        public void OnClick ()
-        {
-            System.Diagnostics.Debug.Write("help");
         }
     }
 }
