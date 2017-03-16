@@ -19,12 +19,13 @@
                     />
 
 </android.support.design.widget.TabLayout>
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:orientation="vertical"
-        >
+    <android.support.v4.widget.NestedScrollView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical"
+      android:orientation="vertical"
+      >
 
         <LinearLayout
             android:id="@+id/FourWindsAnimateViewGroup"
@@ -50,7 +51,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+            
 
             <!-- LINE 2 -->
             <TextView
@@ -65,7 +66,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+            
 
             <!-- LINE 3 -->
             <TextView
@@ -80,7 +81,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+           
 
             <!-- LINE 4 -->
             <TextView
@@ -95,7 +96,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+           
 
             <!-- LINE 5 -->
             <TextView
@@ -110,7 +111,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+        
 
             <!-- LINE 6 -->
             <TextView
@@ -125,7 +126,7 @@
                 layout="@layout/BaseRecyclerView"
                 />
 
-            <View style="@style/ModFoodMenuSpacing"/>
+          
 
             <!-- LINE 7 -->
             <TextView

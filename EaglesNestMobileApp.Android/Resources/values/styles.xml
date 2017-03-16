@@ -109,6 +109,7 @@
     <item name="android:layout_height">wrap_content</item>
     <item name="android:gravity">left</item>
     <item name="android:textSize">30dp</item>
+    <item name="android:layout_marginTop">10dp</item>
   </style>
   
   <!-- View Styles-->
