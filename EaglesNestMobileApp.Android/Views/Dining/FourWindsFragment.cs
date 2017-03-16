@@ -26,19 +26,20 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         /*********************************************************************/
         /*                                                                   */
         /*********************************************************************/
-        public CampusDining campusDining;
-        public List<MenuItem[]> menuList;
-        public RecyclerView menuItemRecyclerView;
-        public RecyclerView.LayoutManager menuItemLayoutManager;
-        public List<MenuItemAdapter> menuItemAdapterList;
-        public MenuItemAdapter menuItemAdapter;
-        public View menuItemLayoutView;
-        public View baseRecyclerLayoutView;
-        public List<View> lineList;
-        public List<RecyclerView> menuItemRecyclerViewList;
-        public RecyclerView currentMenuItemRecyclerView;
-        public RecyclerView prevMenuItemRecyclerView;
+        public CampusDining                  campusDining;
+        public List<MenuItem[]>              menuList;
+        public RecyclerView                  menuItemRecyclerView;
+        public List<RecyclerView>            menuItemRecyclerViewList;
+        public RecyclerView.LayoutManager    menuItemLayoutManager;
         public List<FoodLinearLayoutManager> menuItemLayoutManagerList;
+        public MenuItemAdapter               menuItemAdapter;
+        public List<MenuItemAdapter>         menuItemAdapterList;
+        public List<View>                    lineList;
+        public View                          menuItemLayoutView;
+        public View                          baseRecyclerLayoutView;
+        public RecyclerView                  currentMenuItemRecyclerView;
+        public RecyclerView                  prevMenuItemRecyclerView;
+        
 
         public override void OnCreate(Bundle savedInstanceState)
         {
