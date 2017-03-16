@@ -19,26 +19,29 @@ namespace EaglesNestMobileApp.Android.Views.Dining
     public class fourWindsFragment : Fragment
     {
         public const int TOTAL_LINES = 7;
-        public CampusDining campusDining = new CampusDining();
+        public CampusDining campusDining;
         public MenuItem[] line1Items;
-        public List<MenuItem[]> menuList = new List<MenuItem[]>();
+        public List<MenuItem[]> menuList;
         public RecyclerView menuItemRecyclerView;
         public RecyclerView.LayoutManager menuItemLayoutManager;
-        public List<MenuItemAdapter> menuItemAdapterList = new List<MenuItemAdapter>();
+        public List<MenuItemAdapter> menuItemAdapterList;
         public MenuItemAdapter menuItemAdapter;
         public View menuItemLayoutView;
         public View baseRecyclerLayoutView;
-        public List<View> lineList = new List<View>();
-        public List<RecyclerView> menuItemRecyclerViewList = new List<RecyclerView>();
+        public List<View> lineList;
+        public List<RecyclerView> menuItemRecyclerViewList;
         public RecyclerView currentMenuItemRecyclerView;
         public RecyclerView prevMenuItemRecyclerView;
-        public List<FoodLinearLayoutManager> menuItemLayoutManagerList = new List<FoodLinearLayoutManager>();
+        public View prevLine;
+        public List<FoodLinearLayoutManager> menuItemLayoutManagerList;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             /* Four Winds Meal Menus per line                                */
+            menuList = new List<MenuItem[]>();
+            campusDining = new CampusDining();
             menuList = campusDining.GetFourWindsMealMenus();
 
            // IListAdapter listAdapter = new ArrayAdapter<string>(Activity, Resource.Layout.FoodMenuList, line1Items);
@@ -56,6 +59,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 container, false);
 
             /* Add each RecyclerView Layout to the recycler view list        */
+            menuItemRecyclerViewList = new List<RecyclerView>();
             menuItemRecyclerViewList.Add(menuItemLayoutView.
                 FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView));
             menuItemRecyclerViewList.Add(menuItemLayoutView.
@@ -78,10 +82,12 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 baseRecyclerLayoutView.FindViewById<RecyclerView>(Resource.Id.BaseRecyclerView);
 
             /* Create Layout Managers for each recyclerview                  */
+            menuItemLayoutManagerList = new List<FoodLinearLayoutManager>();
             for (int count = 1; count <= TOTAL_LINES; count++)
                 menuItemLayoutManagerList.Add(new FoodLinearLayoutManager(Activity));
 
             /* Create Adapters for each recyclerview                         */
+            menuItemAdapterList = new List<MenuItemAdapter>();
             for (int count = 0; count < TOTAL_LINES; count++)
                 menuItemAdapterList.Add(new MenuItemAdapter(menuList[count]));
 
@@ -95,8 +101,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 menuItemRecyclerViewList[count].SetAdapter(menuItemAdapterList[count]);
             }
 
-
             /* Add each line view to the line list                           */
+            lineList = new List<View>();
             lineList.Add(menuItemLayoutView.FindViewById<View>(Resource.Id.line1));
             lineList.Add(menuItemLayoutView.FindViewById<View>(Resource.Id.line2));
             lineList.Add(menuItemLayoutView.FindViewById<View>(Resource.Id.line3));
@@ -134,7 +140,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         {
             int lineCount = 1;
 
-            prevMenuItemRecyclerView.Visibility = ViewStates.Gone;
             foreach (View line in lineList)
             {
                 System.Diagnostics.Debug.Write("LINE: " + lineCount);
@@ -142,7 +147,16 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 {
                     System.Diagnostics.Debug.Write("FOUND YOU");
                     currentMenuItemRecyclerView = menuItemRecyclerViewList[lineCount - 1];
-                    currentMenuItemRecyclerView.Visibility = ViewStates.Visible;
+
+                    if (prevMenuItemRecyclerView == currentMenuItemRecyclerView &&
+                        prevMenuItemRecyclerView.Visibility == ViewStates.Visible)
+                        currentMenuItemRecyclerView.Visibility = ViewStates.Gone;
+                    else
+                    {
+                        if (prevMenuItemRecyclerView != currentMenuItemRecyclerView)
+                            prevMenuItemRecyclerView.Visibility = ViewStates.Gone;
+                        currentMenuItemRecyclerView.Visibility = ViewStates.Visible;
+                    }
                 }
                 else
                     System.Diagnostics.Debug.Write("NOT YOU");
