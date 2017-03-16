@@ -144,7 +144,7 @@ namespace EaglesNestMobileApp.Core.Model.Food
         /*********************************************************************/
         /* Return the Meal Menus per line in Four Winds                      */
         /*********************************************************************/
-        public List<MenuItem[]> GetFourWindsMealMenus()
+        public List<MenuItem[]> GetFourWindsBreakfastMealMenus()
         {
             fourWindsMealMenus.Add(line1MealItems);
             fourWindsMealMenus.Add(line2MealItems);

@@ -42,7 +42,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             /* Four Winds Meal Menus per line                                */
             menuList = new List<MenuItem[]>();
             campusDining = new CampusDining();
-            menuList = campusDining.GetFourWindsMealMenus();
+            menuList = campusDining.GetFourWindsBreakfastMealMenus();
 
            // IListAdapter listAdapter = new ArrayAdapter<string>(Activity, Resource.Layout.FoodMenuList, line1Items);
         }
