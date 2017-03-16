@@ -4,4 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+  <TextView
+    android:id="@+id/gradeReportFreshman"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Freshman Year"
+    android:gravity="center_horizontal"
+    android:textSize="30dp"
+     />
+
+  <View 
+    style="@style/ModTextViewUnderline"
+    />
+  <View
+    style="@style/ModFoodMenuSpacing"
+    />
+  
+  
+
+  
+ 
 </LinearLayout>
