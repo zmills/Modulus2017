@@ -18,24 +18,27 @@ namespace EaglesNestMobileApp.Android.Adapters
 {
     public class MenuItemAdapter : RecyclerView.Adapter
     {
-        public MenuItem[] mMenuItems;
+        public MenuItem[] menuItemsArray;
         public MenuItemViewHolder CurrentHolder { get; set; }
         public View helloView;
         public View hideView;
 
+        /*********************************************************************/
+        /* Constructor                                                       */
+        /*********************************************************************/
         public MenuItemAdapter(MenuItem[] menuItems)
         {
-            mMenuItems = menuItems;
+            menuItemsArray = menuItems;
         }
 
-        public override int ItemCount
-        {
-            get
-            {
-                return mMenuItems.Length;
-            }
-        }
+        /*********************************************************************/
+        /* Return the number of menu items in the list for adapter use       */
+        /*********************************************************************/
+        public override int ItemCount => menuItemsArray.Length;
 
+        /*********************************************************************/
+        /* Create the viewholder                                             */
+        /*********************************************************************/
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //inflate the menuitem textview 
@@ -45,10 +48,13 @@ namespace EaglesNestMobileApp.Android.Adapters
             return _viewHolder;
         }
 
+        /*********************************************************************/
+        /* Bind the layout views to the viewholder                           */
+        /*********************************************************************/
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             // bind the item with the list array
-            MenuItem menuItem = MenuItems.builtInItems[position];
+            MenuItem menuItem = menuItemsArray[position];
             CurrentHolder = holder as MenuItemViewHolder;
             CurrentHolder.BindCard(menuItem, CurrentHolder);
 

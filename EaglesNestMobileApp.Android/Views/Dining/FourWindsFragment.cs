@@ -18,24 +18,28 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class fourWindsFragment : Fragment
     {
-        public MenuItem[] line1Item;
+        public const int TOTAL_LINES = 7;
+        public CampusDining campusDining = new CampusDining();
+        public MenuItem[] line1Items;
+        public List<MenuItem[]> menuList = new List<MenuItem[]>();
         public RecyclerView menuItemRecyclerView;
         public RecyclerView.LayoutManager menuItemLayoutManager;
+        public List<MenuItemAdapter> menuItemAdapterList = new List<MenuItemAdapter>();
         public MenuItemAdapter menuItemAdapter;
         public View menuItemLayoutView;
         public View baseRecyclerLayoutView;
         public List<View> lineList = new List<View>();
         public List<RecyclerView> menuItemRecyclerViewList = new List<RecyclerView>();
-        public const int TOTAL_LINES = 7;
         public RecyclerView currentMenuItemRecyclerView;
         public RecyclerView prevMenuItemRecyclerView;
         public List<FoodLinearLayoutManager> menuItemLayoutManagerList = new List<FoodLinearLayoutManager>();
 
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            line1Item = MenuItems.builtInItems;
+
+            /* Four Winds Meal Menus per line                                */
+            menuList = campusDining.GetFourWindsMealMenus();
 
            // IListAdapter listAdapter = new ArrayAdapter<string>(Activity, Resource.Layout.FoodMenuList, line1Items);
         }
@@ -43,45 +47,52 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup container, Bundle savedInstanceState)
         {
+            /* Meal Layout View                                              */
             menuItemLayoutView = inflater.Inflate(Resource.Layout.FourWindsFragment,
                 container, false);
 
+            /* Base Meal Item RecyclerView Layout                            */
             baseRecyclerLayoutView = inflater.Inflate(Resource.Layout.BaseRecyclerView,
                 container, false);
 
-            /* Add each Recycler View to the recycler view list */
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line2RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line3RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line4RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line5RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line6RecyclerView));
-            menuItemRecyclerViewList.Add(menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line7RecyclerView));
-
+            /* Add each RecyclerView Layout to the recycler view list        */
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line2RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line3RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line4RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line5RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line6RecyclerView));
+            menuItemRecyclerViewList.Add(menuItemLayoutView.
+                FindViewById<RecyclerView>(Resource.Id.Line7RecyclerView));
            
-            /* Recycler View */
+            /* Create placeholder RecyclerViews from the base recyclerview   */
             menuItemRecyclerView =
                 currentMenuItemRecyclerView =
                 prevMenuItemRecyclerView =
-                menuItemLayoutView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView);
-                //baseRecyclerLayoutView.FindViewById<RecyclerView>(Resource.Id.BaseRecyclerView);
+                baseRecyclerLayoutView.FindViewById<RecyclerView>(Resource.Id.BaseRecyclerView);
 
-            /* Layout Manager */
+            /* Create Layout Managers for each recyclerview                  */
             for (int count = 1; count <= TOTAL_LINES; count++)
                 menuItemLayoutManagerList.Add(new FoodLinearLayoutManager(Activity));
-            //menuItemLayoutManager = new FoodLinearLayoutManager(Activity);
 
-            /* Adapter */
-            menuItemAdapter = new MenuItemAdapter(line1Item);
+            /* Create Adapters for each recyclerview                         */
+            for (int count = 0; count < TOTAL_LINES; count++)
+                menuItemAdapterList.Add(new MenuItemAdapter(menuList[count]));
 
             /* Set Adapter and Layout Manager for each Recycler View         */
-            menuItemRecyclerView.SetLayoutManager(menuItemLayoutManager);
-            menuItemRecyclerView.SetAdapter(menuItemAdapter);
+            //menuItemRecyclerView.SetLayoutManager(menuItemLayoutManager);
+            //menuItemRecyclerView.SetAdapter(menuItemAdapter);
             
-            for(int count = 0; count < menuItemRecyclerViewList.Count; count++)
+            for(int count = 0; count < TOTAL_LINES; count++)
             {            
                 menuItemRecyclerViewList[count].SetLayoutManager(menuItemLayoutManagerList[count]);
-                menuItemRecyclerViewList[count].SetAdapter(menuItemAdapter);
+                menuItemRecyclerViewList[count].SetAdapter(menuItemAdapterList[count]);
             }
 
 
