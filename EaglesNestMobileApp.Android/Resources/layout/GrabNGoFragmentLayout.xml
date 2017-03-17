@@ -18,33 +18,45 @@
                     />
 
   </android.support.design.widget.TabLayout>
+  <android.support.v4.widget.NestedScrollView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical"
+      android:orientation="vertical"
+      >
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
 
+      <TextView
+        android:id="@+id/grabNGoOption1"
+        android:text="1 - Garden Salad Shaker Meal"
+        style="@style/ModFoodHeader"
+        android:clickable="true"
+              />
 
-  <TextView
-    android:id="@+id/grabNGoOption1"
-    android:text="1 - Garden Salad Shaker Meal"
-    style="@style/ModFoodHeader"
-    android:clickable="true"
-    />
+      <TextView
+        android:id="@+id/grabNGoOption2"
+        android:text="2 - Chicken Ciabatta Meal"
+        style="@style/ModFoodHeader"
+        android:clickable="true"
+              />
 
-  <TextView
-    android:id="@+id/grabNGoOption2"
-    android:text="2 - Chicken Ciabatta Meal"
-    style="@style/ModFoodHeader"
-    android:clickable="true"
-    />
+      <TextView
+        android:id="@+id/grabNGoOption3"
+        android:text="3 - PBJ Strawberry Meal"
+        style="@style/ModFoodHeader"
+        android:clickable="true"
+              />
 
-  <TextView
-    android:id="@+id/grabNGoOption3"
-    android:text="3 - PBJ Strawberry Meal"
-    style="@style/ModFoodHeader"
-    android:clickable="true"
-    />
-
-  <TextView
-    android:id="@+id/grabNGoOption4"
-    android:text="4 - Corn Dog Meal"
-    style="@style/ModFoodHeader"
-    android:clickable="true"
-    />
+      <TextView
+        android:id="@+id/grabNGoOption4"
+        android:text="4 - Corn Dog Meal"
+        style="@style/ModFoodHeader"
+        android:clickable="true"
+              />
+    </LinearLayout>
+  </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

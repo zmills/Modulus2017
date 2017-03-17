@@ -185,6 +185,7 @@
     <Compile Include="Adapters\MenuItemAdapter.cs" />
     <Compile Include="Adapters\MenuItemViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
+    <Compile Include="Adapters\varsityTabListener.cs" />
     <Compile Include="AndroidApp.cs" />
     <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Constants.cs" />
