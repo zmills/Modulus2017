@@ -4,6 +4,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+  <TextView
+  android:id="@+id/gradeReportSenior"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:text="Senior Year"
+  android:gravity="center_horizontal"
+  android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+  <TextView
+  android:id="@+id/gradeReportJunior"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:text="Junior Year"
+  android:gravity="center_horizontal"
+  android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+  <TextView
+ android:id="@+id/gradeReportSophomore"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Sophomore Year"
+ android:gravity="center_horizontal"
+ android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+
   <TextView
     android:id="@+id/gradeReportFreshman"
     android:layout_width="match_parent"
@@ -16,11 +57,11 @@
   <View 
     style="@style/ModTextViewUnderline"
     />
-  <View
-    style="@style/ModFoodMenuSpacing"
-    />
+
+
+ 
   
-  
+
 
   
  
