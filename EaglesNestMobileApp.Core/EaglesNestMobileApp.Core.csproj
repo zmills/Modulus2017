@@ -44,7 +44,6 @@
     <Compile Include="App.cs" />
     <Compile Include="Contracts\IAzureService.cs" />
     <Compile Include="Model\Academics\Assignment.cs" />
-    <Compile Include="Model\Academics\Class.cs" />
     <Compile Include="Model\AzureToken.cs" />
     <Compile Include="Model\Campus\Facility.cs" />
     <Compile Include="Model\Home\Card.cs" />
@@ -54,13 +53,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Authenticator.cs" />
     <Compile Include="Services\AzureService.cs" />
+    <Compile Include="Model\Academics\Course.cs" />
+    <Compile Include="Model\Food\FourWindsItem.cs" />
+    <Compile Include="Model\Food\GrabAndGoItem.cs" />
+    <Compile Include="Model\Food\VarsityItem.cs" />
     <Compile Include="ViewModel\LoginActivityViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Model\Food\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">

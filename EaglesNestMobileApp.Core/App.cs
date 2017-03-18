@@ -18,6 +18,25 @@ namespace EaglesNestMobileApp.Core
         public static ViewModelLocator Locator =>
            _locator ?? (_locator = new ViewModelLocator());
 
+        private static MobileServiceClient client;
+        public static MobileServiceClient Client =>
+            client ?? (client = new MobileServiceClient("https://modulus.azurewebsites.net"));
+
+        /* Local DataBase name.                                              */
+        public const string DatabaseName = "EagleDatabase.db";
+
+        /* Keys for the various food lines.                                  */
+        public static class LineKeys
+        {
+            public const string LineOne = "1";
+            public const string LineTwo = "2";
+            public const string LineThree = "3";
+            public const string LineFour = "4";
+            public const string LineFive = "5";
+            public const string LineSix = "6";
+            public const string LineSeven = "7";
+        }
+
         /* Keys for the various activities and fragments                     */
         public static class PageKeys
         {

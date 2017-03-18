@@ -1,6 +1,6 @@
-﻿//namespace EaglesNestMobileApp.Core.Contracts
-//{
-//    public interface IAzureService
-//    {
-//    }
-//}
+﻿namespace EaglesNestMobileApp.Core.Contracts
+{
+    public interface IAzureService
+    {
+    }
+}
