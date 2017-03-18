@@ -1,9 +1,9 @@
-﻿//*************************************************************************/
-//*                               AzureToken                              */
-//* This is the model corresponding to the view in the Azure SQL database */
-//* It is used for authenctication purposes.                              */
-//*                                                                       */
-//*************************************************************************/
+﻿/*******************************************************************************/
+/*                                 AzureToken                                  */
+/*    This is the model corresponding to the view in the Azure SQL database    */
+/*    It is used for authentication purposes.                                  */
+/*                                                                             */
+/*******************************************************************************/
 
 using System;
 

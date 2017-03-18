@@ -1,20 +1,29 @@
+/*****************************************************************************/
+/*                               homeFragment                                */
+/* This activity determines whether a user needs to login and refers him to  */
+/* the viewmodel associated with the login if he does need to login. All     */
+/* logic and errors associated with logging in are handled in the viewmodel  */
+/* (loginActivityViewModel.cs) in the PCL.                                   */
+/*                                                                           */
+/*****************************************************************************/
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
-using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
-using Android.Runtime;
 using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
+    /* This fragment loads the three tabs for the Home menu item and its     */
+    /* viewpager                                                             */
     public class homeFragment : Fragment
     {
-        TabLayout _tabLayout;
+        public TabLayout TabLayout { get; set; }
+        public View CurrentView { get; set; }
 
-        Fragment[] _homeFragments = 
+        Fragment[] HomeFragments = 
         {
             new announcementsFragment(),
             new eventsFragment(),
@@ -26,19 +35,25 @@ namespace EaglesNestMobileApp.Android.Views.Home
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, 
+                               ViewGroup container, Bundle savedInstanceState)
         {
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout,
+                                              container, false);
 
-            ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            ViewPager currentPager = 
+                CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _homeFragments, App.Tabs.HomePage);
+            currentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, HomeFragments,
+                                         App.Tabs.HomePage);
 
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
-            _tabLayout.SetupWithViewPager(currentPager);
+            TabLayout.SetupWithViewPager(currentPager);
 
-            return _currentView;
+            return CurrentView;
         }
     }
 }

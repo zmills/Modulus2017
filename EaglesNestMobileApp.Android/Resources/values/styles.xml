@@ -16,6 +16,9 @@
 * HELP
 * styles.xml
 *
+* The status bar color will only be set if Minimum Android to Target is set to
+* Android 5.0 or greater. (Project->Properties->)
+*
 * android:textSize must contain a value. An error will be thrown if contains
 * @string/...
 *
@@ -26,22 +29,58 @@
 
 <resources>
     <!-- THEME -->
-    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- <item name="android:windownotitle">true</item> -->
+    <style name="AppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- <item name="android:windowNoTitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
+        <item name="windowActionModeOverlay">true</item>
+        <!-- <item name="android:windowContentTransitions">true</item> -->
         
         <!-- <Colors> -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
-        <!-- <item name="statusBarColor">####</item> -->
-        <!-- <item name="navigationBarColor">####</item> -->
-        
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <!--<item name="android:textColorHint">####</item>-->
+        <!-- statusBarColor is automatically set to colorPrimaryDark -->
+        <!--<item name="android:statusBarColor">####</item>-->
+        <!-- Android says: When you customize the navigation and status bars,
+             either make them both transparent or modify only the status bar.
+             The navigation bar should remain black in all other cases. -->
+        <!--<item name="android:navigationBarColor">####</item>-->
         <item name="android:windowBackground">@color/window_background</item>
-        <item name="windowActionModeOverlay">true</item>
-      
-        <!-- You can also set colorControlNormal, colorControlActivated,
-             colorControlHighlight, and colorSwitchThumbNormal -->
+
+        <!-- colorControlNormal controls the ‘normal’ state of components such
+             as an unselected EditText, and unselected Checkboxes and RadioButtons-->
+        <!--<item name="colorControlNormal">####</item>-->
+        <!-- colorControlActivated overrides colorAccent as the activated
+             or checked state for Checkboxes and RadioButtons -->
+        <!--<item name="colorControlActivated">####</item>-->
+        <!-- colorControlHighlight controls the ripple coloring -->
+        <!--<item name="colorControlHighlight">####</item>-->
+        <!--<item name="colorSwitchThumbNormal">####</item>-->
+    </style>
+    
+    <!-- BUTTON STYLES -->
+    <style name="ModBorderlessButton">
+        <!--<item name="android:padding">8dp</item>-->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/borderless_button</item>
+    </style>
+    
+    <!-- To use the default Borderless Button Widget, set
+         parent="Widget.AppCompat.Button.Borderless" in the button style -->
+    <!-- Other attributes can be set for modification:
+         name="colorControlHighlight">?android:colorControlHighlight
+         name="android:background">?android:attr/selectableItemBackground -->
+
+    <!-- TEXT INPUT STYLES -->
+    <style name="ModLoginTextInput">
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorControlHighlight">@color/primary</item>
     </style>
 
     <!-- FONT STYLES -->
