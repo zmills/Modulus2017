@@ -44,8 +44,12 @@
     <Compile Include="App.cs" />
     <Compile Include="Contracts\IAzureService.cs" />
     <Compile Include="Model\Academics\Assignment.cs" />
+    <Compile Include="Model\Academics\GradeCard.cs" />
     <Compile Include="Model\AzureToken.cs" />
     <Compile Include="Model\Campus\Facility.cs" />
+    <Compile Include="Model\Food\FourWindsMenu.cs" />
+    <Compile Include="Model\Food\GrabAndGoMenu.cs" />
+    <Compile Include="Model\Food\VarsityMenu.cs" />
     <Compile Include="Model\Home\Card.cs" />
     <Compile Include="Model\Home\EventsSignUpCard.cs" />
     <Compile Include="Model\LocalToken.cs" />
@@ -61,9 +65,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>

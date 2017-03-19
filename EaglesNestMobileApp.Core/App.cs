@@ -9,6 +9,8 @@
 using Android.Runtime;
 using EaglesNestMobileApp.Core.ViewModel;
 using Java.Lang;
+using Microsoft.WindowsAzure.MobileServices;
+
 namespace EaglesNestMobileApp.Core
 {
     public static class App
@@ -24,6 +26,14 @@ namespace EaglesNestMobileApp.Core
 
         /* Local DataBase name.                                              */
         public const string DatabaseName = "EagleDatabase.db";
+
+        /* Mealtimes                                                         */
+        public static class MealTimes
+        {
+            public const string Breakfast = "Breakfast";
+            public const string Lunch = "Lunch";
+            public const string Dinner = "Dinner";
+        }
 
         /* Keys for the various food lines.                                  */
         public static class LineKeys
