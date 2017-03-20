@@ -13,7 +13,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string Id { get; set; }
 
         public string Salt { get; set; }
-        public string Passwordhash { get; set; }
+        public string HashedPassword { get; set; }
         public string Version { get; set; }
         public bool Deleted { get; set; }
     }

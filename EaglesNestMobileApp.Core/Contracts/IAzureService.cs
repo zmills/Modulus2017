@@ -12,6 +12,9 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task<List<FourWindsItem>> GetFourWindsItemsAsync();
         Task<List<VarsityItem>> GetVarsityItemsAsync();
         Task<List<GrabAndGoItem>> GetGrabAndGoItemsAsync();
+        Task<LocalToken> GetLocalTokenAsync();
+        Task<AzureToken> GetAzureTokenAsync();
+        Task<Student> GetStudentAsync();
         Task SyncAsync(bool pullData = false);
     }
 }

@@ -8,6 +8,14 @@
         public string CourseName { get; set; }
         public string SectionNumber { get; set; }
         public string EnrollmentGrade { get; set; }
+        public string ProfessorTitle { get; set; }
+        public string ProfessorFirstName { get; set; }
+        public string ProfessorLastName { get; set; }
+        public string ProfessorEmail { get; set; }
+        public string Location { get; set; }
+        public string ExamEndTime { get; set; }
+        public string ExamBeginTime { get; set; }
+        public string ExamType { get; set; }
 
         public string GetFullCourseName()
         {

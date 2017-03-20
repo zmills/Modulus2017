@@ -5,6 +5,7 @@
 /*****************************************************************************/
 
 using EaglesNestMobileApp.Core.Contracts;
+using EaglesNestMobileApp.Core.Helpers;
 using EaglesNestMobileApp.Core.Model;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
@@ -25,6 +26,10 @@ namespace EaglesNestMobileApp.Core.Services
         private IMobileServiceSyncTable<FourWindsItem> _fourWindsTable;
         private IMobileServiceSyncTable<VarsityItem> _varsityTable;
         private IMobileServiceSyncTable<GrabAndGoItem> _grabAndGoTable;
+        private IMobileServiceSyncTable<LocalToken> _localTokenTable;
+        private IMobileServiceSyncTable<AzureToken> _azureTokenTable;
+        private IMobileServiceSyncTable<Student> _studentTable;
+        private SyncHandler _syncHandler;
 
         public async Task InitLocalStore()
         {
@@ -34,6 +39,9 @@ namespace EaglesNestMobileApp.Core.Services
 
                 /* Define all the tables                                     */
                 DefineTables();
+
+                _syncHandler = new SyncHandler();
+                _syncHandler.Exclude<LocalToken>();
 
                 /* Sync or something                                         */
                 await _client.SyncContext.InitializeAsync(_eagleDatabase);
@@ -58,6 +66,7 @@ namespace EaglesNestMobileApp.Core.Services
                     await _fourWindsTable.PullAsync("allFourWindsItems", _fourWindsTable.CreateQuery());
                     await _varsityTable.PullAsync("allVarsityItems", _varsityTable.CreateQuery());
                     await _grabAndGoTable.PullAsync("allGrabAndGoItems", _grabAndGoTable.CreateQuery());
+                    // add awaits
                 }
             }
             catch (Exception e)
@@ -76,6 +85,9 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<FourWindsItem>();
             _eagleDatabase.DefineTable<VarsityItem>();
             _eagleDatabase.DefineTable<GrabAndGoItem>();
+            _eagleDatabase.DefineTable<Student>();
+            _eagleDatabase.DefineTable<AzureToken>();
+            _eagleDatabase.DefineTable<LocalToken>();
         }
 
         /*********************************************************************/
@@ -88,6 +100,9 @@ namespace EaglesNestMobileApp.Core.Services
             _fourWindsTable = _client.GetSyncTable<FourWindsItem>();
             _varsityTable = _client.GetSyncTable<VarsityItem>();
             _grabAndGoTable = _client.GetSyncTable<GrabAndGoItem>();
+            _studentTable = _client.GetSyncTable<Student>();
+            _localTokenTable = _client.GetSyncTable<LocalToken>();
+            _azureTokenTable = _client.GetSyncTable<AzureToken>();
         }
 
         public async Task<List<Assignment>> GetAssignmentsAsync()
@@ -113,6 +128,35 @@ namespace EaglesNestMobileApp.Core.Services
         public async Task<List<GrabAndGoItem>> GetGrabAndGoItemsAsync()
         {
             return await _grabAndGoTable.ToListAsync();
+        }
+
+        // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
+        public async Task<LocalToken> GetLocalTokenAsync()
+        {
+            List<LocalToken> list = await _localTokenTable.ToListAsync();
+            return list[0];
+        }
+
+        // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
+        public async Task<AzureToken> GetAzureTokenAsync()
+        {
+            List<AzureToken> list = await _azureTokenTable.ToListAsync();
+            return list[0];
+        }
+
+        // WE NEED TO CONSIDER WHETHER TO PULL LOCAL TOKEN FROM HERE
+        // PASS THE STUDENT ID TO THE METHOD. SAME FOR CLASSES AND ASSIGNMENT
+        // THAT WOULD BE LESS COUPLING, SINCE THE DATA LAYER DOESN'T NECESSARILY
+        // NEED TO KNOW WHO IS LOGGED IN. IT WOULD MAKE THE CLASS MORE VERSATILE.
+        // ALSO, WE COULD CALL THE SPECIFIC SYNCASYNCPART OF THIS TABLE HERE
+        // INSTEAD OF CALLING IT FROM THE VIEWMODEL EVERY TIME WE NEED A TINY
+        // AMOUNT OF DATA. THAT COULD GET RID OF SOME PERFORMANCE ISSUES
+        // PLUS HOW DO WE READ THE LOCAL TOKEN BEFORE WE LOGIN AND INITIALIZE THE
+        // LOCAL STORE???
+        public async Task<Student> GetStudentAsync()
+        {
+            List<Student> list = await _studentTable.ToListAsync();
+            return list[0];
         }
     }
 }

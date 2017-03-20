@@ -5,10 +5,16 @@ namespace EaglesNestMobileApp.Core.Model.Academics
 {
     public class GradeCard : ObservableObject
     {
-        public List<Assignment> ClassAssignments { get; set; }
-        public string CourseTitle { get; set; }
-        public string CourseGrade { get; set; }
-        public string CourseId { get; set; }
+        private List<Assignment> _classAssignments;
+        public List<Assignment> ClassAssignments
+        {
+            get { return _classAssignments; }
+            private set { Set(() => ClassAssignments, ref _classAssignments, value); }
+        }
+
+        public string CourseTitle { get; private set; }
+        public string CourseGrade { get; private set; }
+        public string CourseId { get; private set; }
         public int AssignmentCount => ClassAssignments.Count;
 
         public GradeCard(Course section)
