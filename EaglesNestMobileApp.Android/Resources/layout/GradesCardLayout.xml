@@ -21,7 +21,8 @@
         android:orientation="vertical"
         android:animateLayoutChanges="true"
         >
-
+        
+        <!-- CLASS NAME -->
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -32,6 +33,7 @@
             <!-- android:layout_width has to be set to 0dp in order
                      for android:layout_width to work properly -->
 
+        <!-- GRADE SCORE TABLE -->
         <LinearLayout
             android:id="@+id/llExpandArea"
             android:visibility="gone"

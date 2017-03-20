@@ -16,7 +16,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         {
             System.Diagnostics.Debug.Write("CALLED THE VIEWHOLDER!!!!!!!!!!!!!!!!!!!!!!!!");
 
-            // Set the textview and the imageview to those in the cardviewlayout
+           // Set the textview and the imageview to those in the cardviewlayout
             Title = view.FindViewById<TextView>(Resource.Id.AnnouncementsCardText);
             Image = view.FindViewById<ImageView>(Resource.Id.AnnouncementsCardImage);
 

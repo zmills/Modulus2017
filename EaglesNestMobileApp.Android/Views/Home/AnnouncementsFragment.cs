@@ -62,8 +62,10 @@ namespace EaglesNestMobileApp.Android.Views.Home
             /* recycling through                                             */
             AnnouncementAdapter = 
                 new announcementsRecyclerViewAdapter(Activity, Announcements);
-            /* Helps with performance: HasStableIds = true */
-            AnnouncementAdapter.HasStableIds = true;
+            /* Helps with performance: HasStableIds = true 
+               ALTHOUGH FOR NOW, DO NOT INCLUDE THIS: DATA DOES NOT DISPLAY 
+               CORRECTLY                                                     */
+            //AnnouncementAdapter.HasStableIds = true;
 
             /* Selecting the tab will automatically scroll back to the top   */
             /* of the list                                                   */
