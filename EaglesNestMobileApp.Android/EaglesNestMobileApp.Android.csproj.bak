@@ -17,7 +17,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -383,12 +383,6 @@
     <AndroidResource Include="Resources\layout\GradesCardLayout.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
-      <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
-      <Name>EaglesNestMobileApp.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\EventCardLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -425,6 +419,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
+      <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
+      <Name>EaglesNestMobileApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
