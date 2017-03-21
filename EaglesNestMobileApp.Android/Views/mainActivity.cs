@@ -77,6 +77,7 @@ namespace EaglesNestMobileApp.Android.Views
                 SupportFragmentManager.BackStackEntryCount - 1).Name ==
                 App.PageKeys.HomePageKey)
             {
+                FinishAffinity();
                 System.Environment.Exit(0);
             }
             else
