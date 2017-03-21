@@ -9,7 +9,7 @@ namespace EaglesNestMobileApp.Core.Model.Food
 {
     public class MenuItem
     {
-       private string name;
+       private string name; 
 
        public string Name
         {
