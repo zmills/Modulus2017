@@ -30,8 +30,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             /* Register viewmodels here with any other services                 */
             /* REMEMBER THAT THE DIALOG SERVICE IS REGISTERED ALREADY           */
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<LoginActivityViewModel>(true);
-            SimpleIoc.Default.Register<IAzureService, AzureService>(true);
+            SimpleIoc.Default.Register<LoginActivityViewModel>();
+            SimpleIoc.Default.Register<IAzureService, AzureService>();
             //SimpleIoc.Default.Register<AcademicsViewModel>(true);
             //SimpleIoc.Default.Register<DiningViewModel>(true);
             //SimpleIoc.Default.Register<AccountViewModel>(true);

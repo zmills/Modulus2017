@@ -20,10 +20,10 @@ namespace EaglesNestMobileApp.Core.ViewModel
     {
         /* This makes sure that the login button is disabled so that the user  */
         /* does not make multiple calls to the database.                       */
-        private bool enableButton;
+        private bool enableButton = true;
         public bool EnableButton
         {
-            get => enableButton;
+            get { return enableButton; }
             set
             {
                 Set(() => EnableButton, ref enableButton, value);
@@ -43,7 +43,14 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public LocalToken CurrentUser
         {
             get { return _currentUser; }
-            set { Set(() => _currentUser, ref _currentUser, value); }
+            set { Set(() => CurrentUser, ref _currentUser, value); }
+        }
+
+        private AzureToken _remote;
+        public AzureToken Remote
+        {
+            get { return _remote; }
+            set { Set(() => Remote, ref _remote, value); }
         }
 
         /* Singleton instance of the database                    */
@@ -61,6 +68,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
             /* Disable the login button                                         */
             EnableButton = false;
 
+
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
+            await Database.InitLocalStore();
             /* REMEMBER TO REMOVE BACKDOOR                                      */
             if (CurrentUser.Id == "123")
                 NavigateToMainPage();
@@ -70,16 +82,16 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* speed. Consider giving the user some indication.              */
                 try
                 {
-                    AzureToken remote =
-                        await Database.GetAzureTokenAsync(CurrentUser);
+                    Remote = await Database.GetAzureTokenAsync(CurrentUser);
 
+                    Debug.WriteLine(Remote.Id);
                     /* Compare the given credentials with the one gotten from     */
                     /* Azure and navigate to the mainpage. The plan is to save    */
                     /* CurrentUser in the database as a TOKEN so that we can      */
                     /* query using the id number whenever we need to get          */
                     /* information related to that student.                       */
                     if (Authenticator.VerifyPassword(CurrentUser.Password,
-                           remote.HashedPassword, remote.Salt))
+                           Remote.HashedPassword, Remote.Salt))
                     {
                         CurrentUser.LoggedIn = EnableButton = true;
 
@@ -103,8 +115,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* loads and warn them there?                                    */
                 catch (Exception NoConnection)
                 {
-                    Debug.WriteLine(NoConnection.ToString());
-                    CurrentUser.LoggedIn = EnableButton = false;
+               
+                    Debug.WriteLine(Remote.Id);
+                    Debug.WriteLine(Remote.Id);
+                    Debug.WriteLine($"{CurrentUser.Id}, {CurrentUser.Password}, {NoConnection.ToString()}");
+                    CurrentUser.LoggedIn = EnableButton = true;
                 }
             }
         }

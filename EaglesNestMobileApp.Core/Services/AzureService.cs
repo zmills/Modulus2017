@@ -181,10 +181,9 @@ namespace EaglesNestMobileApp.Core.Services
         // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
         public async Task<AzureToken> GetAzureTokenAsync(LocalToken currentUser)
         {
-            await _azureTokenTable.PullAsync("loginUser",
-                  _azureTokenTable.Where(user => user.Id == currentUser.Id));
+            await _azureTokenTable.PullAsync("loginUser", _azureTokenTable.Where(user => user.Id == "130000"));
 
-            List<AzureToken> list = await _azureTokenTable.ToListAsync();
+            var list = await _azureTokenTable.ToListAsync(); ;
             return list[0];
         }
 
