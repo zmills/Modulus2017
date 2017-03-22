@@ -4,6 +4,7 @@
 /* handlers and data from that activity are also in here.                    */
 /*                                                                           */
 /*****************************************************************************/
+using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Services;
 using GalaSoft.MvvmLight;
@@ -17,8 +18,24 @@ namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class LoginActivityViewModel : ViewModelBase
     {
+        /* This makes sure that the login button is disabled so that the user  */
+        /* does not make multiple calls to the database.                       */
+        private bool enableButton;
+        public bool EnableButton
+        {
+            get => enableButton;
+            set
+            {
+                Set(() => EnableButton, ref enableButton, value);
+                LoginCommand.RaiseCanExecuteChanged();
+            }
+        }
+
         /* This command handles the login event                                */
         private RelayCommand _loginCommand;
+        public RelayCommand LoginCommand => _loginCommand ??
+            (_loginCommand = new RelayCommand(
+                async () => await AttemptLoginAsync(), () => EnableButton));
 
         /* This could be stored in the database and be used for determining    */
         /* whether the user logged out on startup.                             */
@@ -26,15 +43,24 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public LocalToken CurrentUser
         {
             get { return _currentUser; }
-            set { _currentUser = value; }
+            set { Set(() => _currentUser, ref _currentUser, value); }
         }
-        public RelayCommand LoginCommand => _loginCommand ??
-            (_loginCommand = new RelayCommand(() => AttemptLoginAsync()));
+
+        /* Singleton instance of the database                    */
+        private readonly IAzureService Database;
+
+        public LoginActivityViewModel(IAzureService database)
+        {
+            Database = database;
+        }
 
         /* This function allows the user to login providing he has the         */
         /* correct credentials                                                 */
-        private async void AttemptLoginAsync()
+        private async Task AttemptLoginAsync()
         {
+            /* Disable the login button                                         */
+            EnableButton = false;
+
             /* REMEMBER TO REMOVE BACKDOOR                                      */
             if (CurrentUser.Id == "123")
                 NavigateToMainPage();
@@ -44,7 +70,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* speed. Consider giving the user some indication.              */
                 try
                 {
-                    AzureToken remote = await GetLogin();
+                    AzureToken remote =
+                        await Database.GetAzureTokenAsync(CurrentUser);
 
                     /* Compare the given credentials with the one gotten from     */
                     /* Azure and navigate to the mainpage. The plan is to save    */
@@ -54,12 +81,19 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     if (Authenticator.VerifyPassword(CurrentUser.Password,
                            remote.HashedPassword, remote.Salt))
                     {
-                        CurrentUser.LoggedIn = true;
+                        CurrentUser.LoggedIn = EnableButton = true;
 
                         /* Set the password to empty so that no sensitive          */
                         /* information is actually stored on the phone. Then, add  */
                         /* the token to the database.                              */
                         CurrentUser.Password = string.Empty;
+
+                        /* Add the user to the database for future use and also add */
+                        /* a reference to the user for the application lifecycle    */
+                        App.Locator.User = CurrentUser;
+                        await Database.InsertLocalTokenAsync(CurrentUser);
+
+                        /* Allow access to the application main page             */
                         NavigateToMainPage();
                     }
                 }
@@ -70,26 +104,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 catch (Exception NoConnection)
                 {
                     Debug.WriteLine(NoConnection.ToString());
-                    CurrentUser.LoggedIn = false;
+                    CurrentUser.LoggedIn = EnableButton = false;
                 }
             }
         }
-        /* Get the login table based off of the id number inserted; the Azure  */
-        /* querying should use a function from the Azure class/library.        */
-        /* THIS MUST BE REFACTORED                                             */
-        private async Task<AzureToken> GetLogin()
-        {
-            MobileServiceClient client =
-               new MobileServiceClient("http://modulus.azurewebsites.net");
 
-            IMobileServiceTable<AzureToken> LoginTable =
-               client.GetTable<AzureToken>();
-
-            List<AzureToken> Tokens =
-                await LoginTable.Where(current =>
-                current.Id == CurrentUser.Id).ToListAsync();
-            return Tokens.ToArray()[0];
-        }
         /* Starts the mainActivity                                             */
         private void NavigateToMainPage()
         {
