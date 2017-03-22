@@ -12,34 +12,32 @@ using EaglesNestMobileApp.Android.Views;
 using EaglesNestMobileApp.Core.ViewModel;
 using EaglesNestMobileApp.Core;
 using JimBobBennett.MvvmLight.AppCompat;
+using GalaSoft.MvvmLight.Views;
 
 namespace EaglesNestMobileApp.Android
 {
-   public static class AndroidApp
-   {
-      private static ViewModelLocator _locator;
-      public static ViewModelLocator Locator
-      {
-         get
-         {
-            if (_locator == null)
+    public static class AndroidApp
+    {
+        private static ViewModelLocator _locator;
+        public static ViewModelLocator Locator
+        {
+            get
             {
-               /* The first initialization will also take care of the navigation       */
-               /* service along with the dialog service. See the ViewModelLocator      */
-               /* class in the PCL                                                     */
-               AppCompatNavigationService _navigator = new AppCompatNavigationService();
-               
-               _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
+                if (_locator == null)
+                {
+                    /* The first initialization will also take care of the navigation       */
+                    /* service along with the dialog service. See the ViewModelLocator      */
+                    /* class in the PCL                                                     */
+                    AppCompatNavigationService _navigator = new AppCompatNavigationService();
+                    _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
 
-               ViewModelLocator.RegisterNavigationService(_navigator);
+                    ViewModelLocator.RegisterNavigationService(_navigator);
+                    _locator = new ViewModelLocator();
+                }
 
-               _locator = new ViewModelLocator();
+                return _locator;
             }
-
-            return _locator;
-         }
-      }
-
-   }
+        }
+    }
 }
  
