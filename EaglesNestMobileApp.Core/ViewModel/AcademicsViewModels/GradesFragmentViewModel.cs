@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
-    public class AcademicsViewModel : ViewModelBase
+    public class GradesFragmentViewModel : ViewModelBase
     {
         /* The list of the student assignments */
         private List<Assignment> _assignments;
@@ -39,7 +39,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             (_refreshCommand = new RelayCommand(async () => await RefreshGradesAsync()));
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
-        public AcademicsViewModel(IAzureService database)
+        public GradesFragmentViewModel(IAzureService database)
         {
             Database = database;
         }

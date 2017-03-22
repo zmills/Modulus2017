@@ -4,9 +4,9 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
 
-namespace EaglesNestMobileApp.Core.ViewModel
+namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 {
-    public class AccountViewModel : ViewModelBase
+    public class StudentInfoFragmentViewModel : ViewModelBase
     {
         /* The list of the student assignments */
         private Student _currentUser;
@@ -24,7 +24,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
-        public AccountViewModel(IAzureService database)
+        public StudentInfoFragmentViewModel(IAzureService database)
         {
             Database = database;
         }
