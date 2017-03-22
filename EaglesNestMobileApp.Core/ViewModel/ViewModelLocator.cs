@@ -5,52 +5,67 @@
 /*                                                                           */
 /*****************************************************************************/
 
+using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Services;
+using EaglesNestMobileApp.Core.Contracts;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
-   public class ViewModelLocator
-   {
-      public ViewModelLocator()
-      {
-         ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+    public class ViewModelLocator : ObservableObject
+    {
+        private LocalToken _user;
+        public LocalToken User
+        {
+            get { return _user; }
+            set { Set(() => User, ref _user, value); }
+        }
+        public ViewModelLocator()
+        {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-         /* Register viewmodels here with any other services                 */
-         /* REMEMBER THAT THE DIALOG SERVICE IS REGISTERED ALREADY           */
-         SimpleIoc.Default.Register<MainViewModel>();
-         SimpleIoc.Default.Register<LoginActivityViewModel>(true);
-      }
+            /* Register viewmodels here with any other services                 */
+            /* REMEMBER THAT THE DIALOG SERVICE IS REGISTERED ALREADY           */
+            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<LoginActivityViewModel>(true);
+            SimpleIoc.Default.Register<IAzureService, AzureService>(true);
+            //SimpleIoc.Default.Register<AcademicsViewModel>(true);
+            //SimpleIoc.Default.Register<DiningViewModel>(true);
+            //SimpleIoc.Default.Register<AccountViewModel>(true);
 
-      /* This method is used by the AndroidApp class to register the Android */
-      /*  navigation service                                                 */
-      public static void 
-         RegisterNavigationService(INavigationService navigationService)
-      {
-         SimpleIoc.Default.Register(() => navigationService);
-      }
+        }
 
-      /* This method is used by the AndroidApp class to register the Android */
-      /*  dialog service                                                     */
-      public static void RegisterDialogService(IDialogService dialogService)
-      {
-         SimpleIoc.Default.Register(() => dialogService);
-      }
+        /* This method is used by the AndroidApp class to register the Android */
+        /*  navigation service                                                 */
+        public static void
+           RegisterNavigationService(INavigationService navigationService)
+        {
+            SimpleIoc.Default.Register(() => navigationService);
+        }
+
+        /* This method is used by the AndroidApp class to register the Android */
+        /*  dialog service                                                     */
+        public static void RegisterDialogService(IDialogService dialogService)
+        {
+            SimpleIoc.Default.Register(() => dialogService);
+        }
 
 
-      /* The following returns the sigleton instance of the service/         */
-      /* viewmodel                                                           */
-      public LoginActivityViewModel Login => 
-         ServiceLocator.Current.GetInstance<LoginActivityViewModel>();
-      public INavigationService Navigator =>
-         ServiceLocator.Current.GetInstance<INavigationService>();
-      public MainViewModel Main =>
-         ServiceLocator.Current.GetInstance<MainViewModel>();
+        /* The following returns the sigleton instance of the service/         */
+        /* viewmodel                                                           */
+        public LoginActivityViewModel Login =>
+           ServiceLocator.Current.GetInstance<LoginActivityViewModel>();
+        public INavigationService Navigator =>
+           ServiceLocator.Current.GetInstance<INavigationService>();
+        public MainViewModel Main =>
+           ServiceLocator.Current.GetInstance<MainViewModel>();
 
-      public static void Cleanup()
-      {
-         /* TODO Clear the ViewModels                                        */
-      }
-   }
+        public static void Cleanup()
+        {
+            /* TODO Clear the ViewModels                                        */
+        }
+    }
 }
