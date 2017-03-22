@@ -38,7 +38,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* This could be stored in the database and be used for determining    */
         /* whether the user logged out on startup.                             */
         public LocalToken CurrentUser { get; set; } = new LocalToken();
-        
+
 
         private AzureToken _remote;
         public AzureToken Remote
@@ -62,7 +62,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             /* Disable the login button                                         */
             EnableButton = false;
-            
+
 
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
@@ -111,7 +111,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* loads and warn them there?                                    */
                 catch (Exception NoConnection)
                 {
-               
+
                     Debug.WriteLine(Remote.Id);
                     Debug.WriteLine(Remote.Id);
                     Debug.WriteLine($"{CurrentUser.Id}, {CurrentUser.Password}, {NoConnection.ToString()}");
