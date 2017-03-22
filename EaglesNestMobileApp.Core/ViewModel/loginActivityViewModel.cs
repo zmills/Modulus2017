@@ -9,9 +9,7 @@ using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using Microsoft.WindowsAzure.MobileServices;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 namespace EaglesNestMobileApp.Core.ViewModel
