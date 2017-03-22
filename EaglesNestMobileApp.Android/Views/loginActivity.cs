@@ -13,7 +13,6 @@ using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
-using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android
 {
@@ -35,12 +34,10 @@ namespace EaglesNestMobileApp.Android
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
         /* activity in a huge IF STATEMENT                                     */
-        protected override async void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             CurrentPlatform.Init();
-
-            await LoginViewModel.AttemptLoginAsync();
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);

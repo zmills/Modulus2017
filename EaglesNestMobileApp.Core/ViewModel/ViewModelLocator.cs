@@ -32,7 +32,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginActivityViewModel>();
             SimpleIoc.Default.Register<IAzureService, AzureService>();
-            SimpleIoc.Default.Register<IDialogService>();
             //SimpleIoc.Default.Register<AcademicsViewModel>(true);
             //SimpleIoc.Default.Register<DiningViewModel>(true);
             //SimpleIoc.Default.Register<AccountViewModel>(true);
@@ -63,8 +62,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
            ServiceLocator.Current.GetInstance<INavigationService>();
         public MainViewModel Main =>
            ServiceLocator.Current.GetInstance<MainViewModel>();
-        public IDialogService Dialog =>
-           ServiceLocator.Current.GetInstance<IDialogService>();
 
         public static void Cleanup()
         {

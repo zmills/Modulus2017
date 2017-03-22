@@ -57,8 +57,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         /* This function allows the user to login providing he has the         */
         /* correct credentials                                                 */
-        public async Task AttemptLoginAsync()
-        {            
+        private async Task AttemptLoginAsync()
+        {
             /* Disable the login button                                         */
             EnableButton = false;
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
@@ -78,7 +78,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     LocalToken _temporaryToken = await Database.GetLocalTokenAsync();
 
                     Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
-
+                    Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
+                    Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
                     if (_temporaryToken != null)
                     {
                         /* Allow access to the application main page             */
