@@ -64,13 +64,10 @@
     <Compile Include="Model\Food\GrabAndGoItem.cs" />
     <Compile Include="Model\Food\VarsityItem.cs" />
     <Compile Include="ViewModel\AcademicsViewModels\GradesFragmentViewModel.cs" />
-    <Compile Include="ViewModel\DiningViewModels\FourWindsFragmentViewModel.cs" />
-    <Compile Include="ViewModel\DiningViewModels\GrabNGoFragmentViewModel.cs" />
-    <Compile Include="ViewModel\DiningViewModels\VarsityFragmentViewModel.cs" />
+    <Compile Include="ViewModel\DiningViewModels\DiningFragmentsViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModels\StudentInfoFragmentViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\AnnouncementsFragmentViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\CalendarFragmentViewModel.cs" />
-    <Compile Include="ViewModel\DiningViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\EventsFragmentViewModel.cs" />
     <Compile Include="ViewModel\LoginActivityViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
