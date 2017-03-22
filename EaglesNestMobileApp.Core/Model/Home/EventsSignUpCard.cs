@@ -18,6 +18,6 @@ namespace EaglesNestMobileApp.Core.Model.Home
             ButtonText = buttonText;
         }
 
-        
+
     }
 }
