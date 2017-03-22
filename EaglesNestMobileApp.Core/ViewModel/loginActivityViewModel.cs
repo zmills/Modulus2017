@@ -39,12 +39,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         /* This could be stored in the database and be used for determining    */
         /* whether the user logged out on startup.                             */
-        private LocalToken _currentUser = new LocalToken();
-        public LocalToken CurrentUser
-        {
-            get { return _currentUser; }
-            set { Set(() => CurrentUser, ref _currentUser, value); }
-        }
+        public LocalToken CurrentUser { get; set; } = new LocalToken();
+        
 
         private AzureToken _remote;
         public AzureToken Remote
@@ -58,6 +54,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public LoginActivityViewModel(IAzureService database)
         {
+            CurrentUser = new LocalToken();
             Database = database;
         }
 
@@ -67,12 +64,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             /* Disable the login button                                         */
             EnableButton = false;
+            
 
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
+            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
 
-            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
-            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
-            Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
-            await Database.InitLocalStore();
             /* REMEMBER TO REMOVE BACKDOOR                                      */
             if (CurrentUser.Id == "123")
                 NavigateToMainPage();
@@ -82,6 +79,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* speed. Consider giving the user some indication.              */
                 try
                 {
+                    await Database.InitLocalStore();
                     Remote = await Database.GetAzureTokenAsync(CurrentUser);
 
                     Debug.WriteLine(Remote.Id);
