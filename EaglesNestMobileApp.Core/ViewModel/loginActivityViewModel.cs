@@ -52,7 +52,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public LoginActivityViewModel(IAzureService database)
         {
-            CurrentUser = new LocalToken();
             Database = database;
         }
 
@@ -62,8 +61,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             /* Disable the login button                                         */
             EnableButton = false;
-
-
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
             Debug.WriteLine($"\n\n\n\n\n\n{CurrentUser.Id}, {CurrentUser.Password}");
@@ -78,31 +75,45 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 try
                 {
                     await Database.InitLocalStore();
-                    Remote = await Database.GetAzureTokenAsync(CurrentUser);
+                    LocalToken _temporaryToken = await Database.GetLocalTokenAsync();
 
-                    Debug.WriteLine(Remote.Id);
-                    /* Compare the given credentials with the one gotten from     */
-                    /* Azure and navigate to the mainpage. The plan is to save    */
-                    /* CurrentUser in the database as a TOKEN so that we can      */
-                    /* query using the id number whenever we need to get          */
-                    /* information related to that student.                       */
-                    if (Authenticator.VerifyPassword(CurrentUser.Password,
-                           Remote.HashedPassword, Remote.Salt))
+                    Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
+                    Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
+                    Debug.WriteLine($"\n\n\n\n\n\n{_temporaryToken.Id}, {_temporaryToken.Password}");
+                    if (_temporaryToken != null)
                     {
-                        CurrentUser.LoggedIn = EnableButton = true;
-
-                        /* Set the password to empty so that no sensitive          */
-                        /* information is actually stored on the phone. Then, add  */
-                        /* the token to the database.                              */
-                        CurrentUser.Password = string.Empty;
-
-                        /* Add the user to the database for future use and also add */
-                        /* a reference to the user for the application lifecycle    */
-                        App.Locator.User = CurrentUser;
-                        await Database.InsertLocalTokenAsync(CurrentUser);
-
                         /* Allow access to the application main page             */
+                        App.Locator.User = _temporaryToken;
                         NavigateToMainPage();
+                    }
+                    else
+                    {
+                        Remote = await Database.GetAzureTokenAsync(CurrentUser);
+
+                        Debug.WriteLine(Remote.Id);
+                        /* Compare the given credentials with the one gotten from     */
+                        /* Azure and navigate to the mainpage. The plan is to save    */
+                        /* CurrentUser in the database as a TOKEN so that we can      */
+                        /* query using the id number whenever we need to get          */
+                        /* information related to that student.                       */
+                        if (Authenticator.VerifyPassword(CurrentUser.Password,
+                               Remote.HashedPassword, Remote.Salt))
+                        {
+                            CurrentUser.LoggedIn = EnableButton = true;
+
+                            /* Set the password to empty so that no sensitive          */
+                            /* information is actually stored on the phone. Then, add  */
+                            /* the token to the database.                              */
+                            CurrentUser.Password = string.Empty;
+
+                            /* Add the user to the database for future use and also add */
+                            /* a reference to the user for the application lifecycle    */
+                            App.Locator.User = CurrentUser;
+                            await Database.InsertLocalTokenAsync(CurrentUser);
+                            await Database.SyncAsync();
+                            /* Allow access to the application main page             */
+                            NavigateToMainPage();
+                        }
                     }
                 }
                 /* How are we going to signal to the user the different errors?  */
