@@ -101,6 +101,18 @@
         <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">14sp</item>
     </style>
+    
+    <!-- <Generic Font Styles> -->
+    <style name="ModRobotoMedium20">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="ModRobotoRegular16">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    
   <!-- TextView Styles-->
   <style name="ModFoodHeader">
     <item name="android:background">#086ED4</item>
