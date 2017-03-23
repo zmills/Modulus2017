@@ -12,6 +12,7 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.Services
@@ -91,7 +92,7 @@ namespace EaglesNestMobileApp.Core.Services
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message} in SyncAsync {ex.Source} {ex.HResult}");
+                Debug.WriteLine($"{ex.Message} in SyncAsync");
             }
         }
 
@@ -185,9 +186,16 @@ namespace EaglesNestMobileApp.Core.Services
         // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
         public async Task<AzureToken> GetAzureTokenAsync(LocalToken currentUser)
         {
-            await _azureTokenTable.PullAsync("loginUser", _azureTokenTable.Where(user => user.Id == currentUser.Id));
 
-            var list = await _azureTokenTable.Where(user => user.Id == currentUser.Id).ToListAsync();
+            //APPARENTLY THIS DOES NOT WORK PROPERLY
+            await _azureTokenTable.PullAsync("loginUser", 
+                _azureTokenTable.Where(user => user.Id == currentUser.Id));
+
+            List<AzureToken> list = await _azureTokenTable.Where(user =>
+                user.Id == currentUser.Id).ToListAsync();
+
+            //DELETE THE LOGIN INFORMATION
+            await _azureTokenTable.PurgeAsync();
             return list[0];
         }
 
@@ -211,9 +219,31 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                      Insert into local store                      */
         /*********************************************************************/
-        public async Task PurgeDatabase()
+        public async Task PurgeDatabaseAsync()
         {
-            await _localTokenTable.PurgeAsync();
+            await _assignmentTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _courseTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _fourWindsTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _varsityTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _grabAndGoTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _studentTable.PurgeAsync(null, null, true,
+                CancellationToken.None);
+
+            await _localTokenTable.PurgeAsync(null, null, true,
+                CancellationToken.None);
+
+            await _azureTokenTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
         }
     }
 }

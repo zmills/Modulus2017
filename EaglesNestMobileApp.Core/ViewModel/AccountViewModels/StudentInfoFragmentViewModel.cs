@@ -21,6 +21,11 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
         public RelayCommand RefreshCommand => _refreshCommand ??
             (_refreshCommand = new RelayCommand(async () => await RefreshAccountAsync()));
 
+        /* Command to be binded to the refresh event in the view */
+        private RelayCommand _logOutCommand;
+        public RelayCommand LogOutCommand => _logOutCommand ??
+            (_logOutCommand = new RelayCommand(async () => await LogoutAsync()));
+
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
@@ -35,10 +40,17 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             await Database.InitLocalStore();
             await Database.SyncAsync(pullData: true);
 
-
             /* Get the student info. SEE GETSTUDENT METHOD                                 */
             CurrentUser = await Database.GetStudentAsync();
+        }
 
+        /*********************************************************************/
+        /*                      Starts the main activity                     */
+        /*********************************************************************/
+        public async Task LogoutAsync()
+        {
+            await Database.PurgeDatabaseAsync();
+            App.Locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
         }
     }
 }
