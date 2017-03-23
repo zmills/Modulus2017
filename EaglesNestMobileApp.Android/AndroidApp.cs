@@ -15,31 +15,30 @@ using JimBobBennett.MvvmLight.AppCompat;
 
 namespace EaglesNestMobileApp.Android
 {
-   public static class AndroidApp
-   {
-      private static ViewModelLocator _locator;
-      public static ViewModelLocator Locator
-      {
-         get
-         {
-            if (_locator == null)
+    public static partial class AndroidApp
+    {
+        private static ViewModelLocator _locator;
+        public static ViewModelLocator Locator
+        {
+            get
             {
-               /* The first initialization will also take care of the navigation       */
-               /* service along with the dialog service. See the ViewModelLocator      */
-               /* class in the PCL                                                     */
-               AppCompatNavigationService _navigator = new AppCompatNavigationService();
-               
-               _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
+                if (_locator == null)
+                {
+                    /* The first initialization will also take care of the navigation       */
+                    /* service along with the dialog service. See the ViewModelLocator      */
+                    /* class in the PCL                                                     */
+                    AppCompatNavigationService _navigator = new AppCompatNavigationService();
 
-               ViewModelLocator.RegisterNavigationService(_navigator);
+                    _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
 
-               _locator = new ViewModelLocator();
+                    ViewModelLocator.RegisterNavigationService(_navigator);
+
+                    _locator = new ViewModelLocator();
+                }
+
+                return _locator;
             }
-
-            return _locator;
-         }
-      }
-
-   }
+        }
+    }
 }
  
