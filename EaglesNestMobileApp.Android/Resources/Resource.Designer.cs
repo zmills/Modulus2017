@@ -2229,26 +2229,26 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020078
-			public const int avd_hide_password_1 = 2130837624;
+			// aapt resource value: 0x7f02007b
+			public const int avd_hide_password_1 = 2130837627;
 			
-			// aapt resource value: 0x7f020079
-			public const int avd_hide_password_2 = 2130837625;
+			// aapt resource value: 0x7f02007c
+			public const int avd_hide_password_2 = 2130837628;
 			
-			// aapt resource value: 0x7f02007a
-			public const int avd_hide_password_3 = 2130837626;
+			// aapt resource value: 0x7f02007d
+			public const int avd_hide_password_3 = 2130837629;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02007b
-			public const int avd_show_password_1 = 2130837627;
+			// aapt resource value: 0x7f02007e
+			public const int avd_show_password_1 = 2130837630;
 			
-			// aapt resource value: 0x7f02007c
-			public const int avd_show_password_2 = 2130837628;
+			// aapt resource value: 0x7f02007f
+			public const int avd_show_password_2 = 2130837631;
 			
-			// aapt resource value: 0x7f02007d
-			public const int avd_show_password_3 = 2130837629;
+			// aapt resource value: 0x7f020080
+			public const int avd_show_password_3 = 2130837632;
 			
 			// aapt resource value: 0x7f020055
 			public const int border = 2130837589;
@@ -2314,46 +2314,55 @@ namespace EaglesNestMobileApp.Android
 			public const int navigation_empty_icon = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_action_background = 2130837610;
+			public const int nesticonlogo = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_bg = 2130837611;
+			public const int NESTLOGO = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_bg_low = 2130837612;
+			public const int notification_action_background = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notification_bg_low_normal = 2130837613;
+			public const int notification_bg = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int notification_bg_low_pressed = 2130837614;
+			public const int notification_bg_low = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notification_bg_normal = 2130837615;
+			public const int notification_bg_low_normal = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int notification_bg_normal_pressed = 2130837616;
+			public const int notification_bg_low_pressed = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int notification_icon_background = 2130837617;
-			
-			// aapt resource value: 0x7f020076
-			public const int notification_template_icon_bg = 2130837622;
-			
-			// aapt resource value: 0x7f020077
-			public const int notification_template_icon_low_bg = 2130837623;
+			public const int notification_bg_normal = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int notification_tile_bg = 2130837618;
+			public const int notification_bg_normal_pressed = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int notify_panel_notification_icon_bg = 2130837619;
+			public const int notification_icon_background = 2130837619;
+			
+			// aapt resource value: 0x7f020079
+			public const int notification_template_icon_bg = 2130837625;
+			
+			// aapt resource value: 0x7f02007a
+			public const int notification_template_icon_low_bg = 2130837626;
 			
 			// aapt resource value: 0x7f020074
-			public const int Nov28MissionPrayerBand1 = 2130837620;
+			public const int notification_tile_bg = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int SubmitStudentPhotosFall2 = 2130837621;
+			public const int notify_panel_notification_icon_bg = 2130837621;
+			
+			// aapt resource value: 0x7f020076
+			public const int Nov28MissionPrayerBand1 = 2130837622;
+			
+			// aapt resource value: 0x7f020077
+			public const int SubmitStudentPhotosFall2 = 2130837623;
+			
+			// aapt resource value: 0x7f020078
+			public const int test = 2130837624;
 			
 			static Drawable()
 			{
@@ -2367,6 +2376,9 @@ namespace EaglesNestMobileApp.Android
 		
 		public partial class Id
 		{
+			
+			// aapt resource value: 0x7f0a00a2
+			public const int Academic = 2131361954;
 			
 			// aapt resource value: 0x7f0a0078
 			public const int AnnouncementsCardImage = 2131361912;
@@ -2386,74 +2398,95 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0089
 			public const int BottomNavBar = 2131361929;
 			
-			// aapt resource value: 0x7f0a00ff
-			public const int BottomNavIconAccount = 2131362047;
+			// aapt resource value: 0x7f0a0107
+			public const int BottomNavIconAccount = 2131362055;
 			
-			// aapt resource value: 0x7f0a00fd
-			public const int BottomNavIconCampus = 2131362045;
+			// aapt resource value: 0x7f0a0105
+			public const int BottomNavIconCampus = 2131362053;
 			
-			// aapt resource value: 0x7f0a00fe
-			public const int BottomNavIconDining = 2131362046;
+			// aapt resource value: 0x7f0a0106
+			public const int BottomNavIconDining = 2131362054;
 			
-			// aapt resource value: 0x7f0a00fc
-			public const int BottomNavIconGrades = 2131362044;
+			// aapt resource value: 0x7f0a0104
+			public const int BottomNavIconGrades = 2131362052;
 			
-			// aapt resource value: 0x7f0a00fb
-			public const int BottomNavIconHome = 2131362043;
+			// aapt resource value: 0x7f0a0103
+			public const int BottomNavIconHome = 2131362051;
+			
+			// aapt resource value: 0x7f0a00a3
+			public const int Church = 2131361955;
+			
+			// aapt resource value: 0x7f0a00a4
+			public const int Dining = 2131361956;
+			
+			// aapt resource value: 0x7f0a00a7
+			public const int Dorm = 2131361959;
 			
 			// aapt resource value: 0x7f0a009b
 			public const int EventSignUpRecyclerView = 2131361947;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int FourWindsAnimateViewGroup = 2131361955;
+			// aapt resource value: 0x7f0a00aa
+			public const int FourWindsAnimateViewGroup = 2131361962;
 			
-			// aapt resource value: 0x7f0a00bb
-			public const int GradesCardClassName = 2131361979;
-			
-			// aapt resource value: 0x7f0a00bd
-			public const int GradesRecyclerView = 2131361981;
-			
-			// aapt resource value: 0x7f0a00a5
-			public const int Line1RecyclerView = 2131361957;
-			
-			// aapt resource value: 0x7f0a00a7
-			public const int Line2RecyclerView = 2131361959;
-			
-			// aapt resource value: 0x7f0a00a9
-			public const int Line3RecyclerView = 2131361961;
-			
-			// aapt resource value: 0x7f0a00ab
-			public const int Line4RecyclerView = 2131361963;
-			
-			// aapt resource value: 0x7f0a00ad
-			public const int Line5RecyclerView = 2131361965;
-			
-			// aapt resource value: 0x7f0a00af
-			public const int Line6RecyclerView = 2131361967;
-			
-			// aapt resource value: 0x7f0a00b1
-			public const int Line7RecyclerView = 2131361969;
+			// aapt resource value: 0x7f0a00a8
+			public const int FragmentFrameLayout22 = 2131361960;
 			
 			// aapt resource value: 0x7f0a00c2
-			public const int LogInButton = 2131361986;
+			public const int GradesCardClassName = 2131361986;
+			
+			// aapt resource value: 0x7f0a00c4
+			public const int GradesRecyclerView = 2131361988;
+			
+			// aapt resource value: 0x7f0a00ac
+			public const int Line1RecyclerView = 2131361964;
+			
+			// aapt resource value: 0x7f0a00ae
+			public const int Line2RecyclerView = 2131361966;
+			
+			// aapt resource value: 0x7f0a00b0
+			public const int Line3RecyclerView = 2131361968;
+			
+			// aapt resource value: 0x7f0a00b2
+			public const int Line4RecyclerView = 2131361970;
+			
+			// aapt resource value: 0x7f0a00b4
+			public const int Line5RecyclerView = 2131361972;
+			
+			// aapt resource value: 0x7f0a00b6
+			public const int Line6RecyclerView = 2131361974;
+			
+			// aapt resource value: 0x7f0a00b8
+			public const int Line7RecyclerView = 2131361976;
+			
+			// aapt resource value: 0x7f0a00c9
+			public const int LogInButton = 2131361993;
 			
 			// aapt resource value: 0x7f0a0088
 			public const int MainFrameLayout = 2131361928;
 			
-			// aapt resource value: 0x7f0a00ed
-			public const int MainTabLayout = 2131362029;
+			// aapt resource value: 0x7f0a00f5
+			public const int MainTabLayout = 2131362037;
 			
-			// aapt resource value: 0x7f0a00ee
-			public const int MainViewPager = 2131362030;
+			// aapt resource value: 0x7f0a00f6
+			public const int MainViewPager = 2131362038;
 			
-			// aapt resource value: 0x7f0a00c3
-			public const int MenuFoodItem = 2131361987;
+			// aapt resource value: 0x7f0a00cb
+			public const int MenuFoodItem = 2131361995;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int Password = 2131361985;
+			// aapt resource value: 0x7f0a00ca
+			public const int OuterFrameLayout = 2131361994;
 			
-			// aapt resource value: 0x7f0a00c0
-			public const int PasswordLoginText = 2131361984;
+			// aapt resource value: 0x7f0a00c8
+			public const int Password = 2131361992;
+			
+			// aapt resource value: 0x7f0a00c7
+			public const int PasswordLoginText = 2131361991;
+			
+			// aapt resource value: 0x7f0a00a6
+			public const int Recreation = 2131361958;
+			
+			// aapt resource value: 0x7f0a00a5
+			public const int Service = 2131361957;
 			
 			// aapt resource value: 0x7f0a007c
 			public const int ShareButton = 2131361916;
@@ -2461,26 +2494,26 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a007b
 			public const int SignUpButton = 2131361915;
 			
-			// aapt resource value: 0x7f0a00e3
-			public const int StudentCourtCard = 2131362019;
+			// aapt resource value: 0x7f0a00eb
+			public const int StudentCourtCard = 2131362027;
 			
-			// aapt resource value: 0x7f0a00be
-			public const int StudentIdLoginText = 2131361982;
+			// aapt resource value: 0x7f0a00c5
+			public const int StudentIdLoginText = 2131361989;
 			
 			// aapt resource value: 0x7f0a007d
 			public const int SwipeRefreshAnnouncements = 2131361917;
 			
+			// aapt resource value: 0x7f0a00e9
+			public const int SwipeRefreshStudentCourt = 2131362025;
+			
 			// aapt resource value: 0x7f0a00e1
-			public const int SwipeRefreshStudentCourt = 2131362017;
+			public const int SwipeRefreshStudentPass = 2131362017;
 			
-			// aapt resource value: 0x7f0a00d9
-			public const int SwipeRefreshStudentPass = 2131362009;
+			// aapt resource value: 0x7f0a00c6
+			public const int UserId = 2131361990;
 			
-			// aapt resource value: 0x7f0a00bf
-			public const int UserId = 2131361983;
-			
-			// aapt resource value: 0x7f0a00c7
-			public const int action0 = 2131361991;
+			// aapt resource value: 0x7f0a00cf
+			public const int action0 = 2131361999;
 			
 			// aapt resource value: 0x7f0a0068
 			public const int action_bar = 2131361896;
@@ -2503,17 +2536,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0045
 			public const int action_bar_title = 2131361861;
 			
-			// aapt resource value: 0x7f0a00c4
-			public const int action_container = 2131361988;
+			// aapt resource value: 0x7f0a00cc
+			public const int action_container = 2131361996;
 			
 			// aapt resource value: 0x7f0a0069
 			public const int action_context_bar = 2131361897;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int action_divider = 2131361995;
+			// aapt resource value: 0x7f0a00d3
+			public const int action_divider = 2131362003;
 			
-			// aapt resource value: 0x7f0a00c5
-			public const int action_image = 2131361989;
+			// aapt resource value: 0x7f0a00cd
+			public const int action_image = 2131361997;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int action_menu_divider = 2131361797;
@@ -2530,11 +2563,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0047
 			public const int action_mode_close_button = 2131361863;
 			
-			// aapt resource value: 0x7f0a00c6
-			public const int action_text = 2131361990;
+			// aapt resource value: 0x7f0a00ce
+			public const int action_text = 2131361998;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int actions = 2131362004;
+			// aapt resource value: 0x7f0a00dc
+			public const int actions = 2131362012;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int activity_chooser_view_content = 2131361864;
@@ -2557,17 +2590,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0040
 			public const int always = 2131361856;
 			
-			// aapt resource value: 0x7f0a00eb
-			public const int appbar = 2131362027;
+			// aapt resource value: 0x7f0a00f3
+			public const int appbar = 2131362035;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int approvedPassesCard = 2131362012;
+			// aapt resource value: 0x7f0a00e4
+			public const int approvedPassesCard = 2131362020;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int approvedPassesStatus = 2131362013;
+			// aapt resource value: 0x7f0a00e5
+			public const int approvedPassesStatus = 2131362021;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int approvedRequests = 2131362011;
+			// aapt resource value: 0x7f0a00e3
+			public const int approvedRequests = 2131362019;
 			
 			// aapt resource value: 0x7f0a0082
 			public const int attendanceCardClassDetailsTst = 2131361922;
@@ -2584,8 +2617,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a004f
 			public const int buttonPanel = 2131361871;
 			
-			// aapt resource value: 0x7f0a00c8
-			public const int cancel_action = 2131361992;
+			// aapt resource value: 0x7f0a00d0
+			public const int cancel_action = 2131362000;
 			
 			// aapt resource value: 0x7f0a0077
 			public const int card_view = 2131361911;
@@ -2602,8 +2635,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a005f
 			public const int checkbox = 2131361887;
 			
-			// aapt resource value: 0x7f0a00d0
-			public const int chronometer = 2131362000;
+			// aapt resource value: 0x7f0a00d8
+			public const int chronometer = 2131362008;
 			
 			// aapt resource value: 0x7f0a007f
 			public const int class1Attendance = 2131361919;
@@ -2632,8 +2665,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0052
 			public const int contentPanel = 2131361874;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int createNewPass = 2131362010;
+			// aapt resource value: 0x7f0a00e2
+			public const int createNewPass = 2131362018;
 			
 			// aapt resource value: 0x7f0a0059
 			public const int custom = 2131361881;
@@ -2671,8 +2704,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0019
 			public const int end = 2131361817;
 			
-			// aapt resource value: 0x7f0a00d8
-			public const int end_padder = 2131362008;
+			// aapt resource value: 0x7f0a00e0
+			public const int end_padder = 2131362016;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int enterAlways = 2131361825;
@@ -2719,8 +2752,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a005e
 			public const int expanded_menu = 2131361886;
 			
-			// aapt resource value: 0x7f0a00ef
-			public const int fab = 2131362031;
+			// aapt resource value: 0x7f0a00f7
+			public const int fab = 2131362039;
 			
 			// aapt resource value: 0x7f0a001a
 			public const int fill = 2131361818;
@@ -2734,32 +2767,32 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a002d
 			public const int @fixed = 2131361837;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int grabNGoOption1 = 2131361970;
-			
-			// aapt resource value: 0x7f0a00b3
-			public const int grabNGoOption2 = 2131361971;
-			
-			// aapt resource value: 0x7f0a00b4
-			public const int grabNGoOption3 = 2131361972;
-			
-			// aapt resource value: 0x7f0a00b5
-			public const int grabNGoOption4 = 2131361973;
-			
 			// aapt resource value: 0x7f0a00b9
-			public const int gradeReportFreshman = 2131361977;
-			
-			// aapt resource value: 0x7f0a00b7
-			public const int gradeReportJunior = 2131361975;
-			
-			// aapt resource value: 0x7f0a00b6
-			public const int gradeReportSenior = 2131361974;
-			
-			// aapt resource value: 0x7f0a00b8
-			public const int gradeReportSophomore = 2131361976;
+			public const int grabNGoOption1 = 2131361977;
 			
 			// aapt resource value: 0x7f0a00ba
-			public const int grades_card_view = 2131361978;
+			public const int grabNGoOption2 = 2131361978;
+			
+			// aapt resource value: 0x7f0a00bb
+			public const int grabNGoOption3 = 2131361979;
+			
+			// aapt resource value: 0x7f0a00bc
+			public const int grabNGoOption4 = 2131361980;
+			
+			// aapt resource value: 0x7f0a00c0
+			public const int gradeReportFreshman = 2131361984;
+			
+			// aapt resource value: 0x7f0a00be
+			public const int gradeReportJunior = 2131361982;
+			
+			// aapt resource value: 0x7f0a00bd
+			public const int gradeReportSenior = 2131361981;
+			
+			// aapt resource value: 0x7f0a00bf
+			public const int gradeReportSophomore = 2131361983;
+			
+			// aapt resource value: 0x7f0a00c1
+			public const int grades_card_view = 2131361985;
 			
 			// aapt resource value: 0x7f0a0007
 			public const int home = 2131361799;
@@ -2773,8 +2806,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a004d
 			public const int icon = 2131361869;
 			
-			// aapt resource value: 0x7f0a00d5
-			public const int icon_group = 2131362005;
+			// aapt resource value: 0x7f0a00dd
+			public const int icon_group = 2131362013;
 			
 			// aapt resource value: 0x7f0a0042
 			public const int ifRoom = 2131361858;
@@ -2782,23 +2815,23 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a004a
 			public const int image = 2131361866;
 			
-			// aapt resource value: 0x7f0a00d1
-			public const int info = 2131362001;
+			// aapt resource value: 0x7f0a00d9
+			public const int info = 2131362009;
 			
-			// aapt resource value: 0x7f0a00e4
-			public const int infraction1 = 2131362020;
+			// aapt resource value: 0x7f0a00ec
+			public const int infraction1 = 2131362028;
 			
-			// aapt resource value: 0x7f0a00e7
-			public const int infractionCard = 2131362023;
+			// aapt resource value: 0x7f0a00ef
+			public const int infractionCard = 2131362031;
 			
-			// aapt resource value: 0x7f0a00e9
-			public const int infractionDate = 2131362025;
+			// aapt resource value: 0x7f0a00f1
+			public const int infractionDate = 2131362033;
 			
-			// aapt resource value: 0x7f0a00ea
-			public const int infractionTime = 2131362026;
+			// aapt resource value: 0x7f0a00f2
+			public const int infractionTime = 2131362034;
 			
-			// aapt resource value: 0x7f0a00e8
-			public const int infractionTitle = 2131362024;
+			// aapt resource value: 0x7f0a00f0
+			public const int infractionTitle = 2131362032;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int item_touch_helper_previous_elevation = 2131361804;
@@ -2809,29 +2842,29 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a001d
 			public const int left = 2131361821;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int line1 = 2131361956;
+			// aapt resource value: 0x7f0a00ab
+			public const int line1 = 2131361963;
 			
-			// aapt resource value: 0x7f0a00a6
-			public const int line2 = 2131361958;
+			// aapt resource value: 0x7f0a00ad
+			public const int line2 = 2131361965;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int line3 = 2131361960;
+			// aapt resource value: 0x7f0a00af
+			public const int line3 = 2131361967;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int line4 = 2131361962;
+			// aapt resource value: 0x7f0a00b1
+			public const int line4 = 2131361969;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int line5 = 2131361964;
+			// aapt resource value: 0x7f0a00b3
+			public const int line5 = 2131361971;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int line6 = 2131361966;
+			// aapt resource value: 0x7f0a00b5
+			public const int line6 = 2131361973;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int line7 = 2131361968;
+			// aapt resource value: 0x7f0a00b7
+			public const int line7 = 2131361975;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int listItem = 2131361954;
+			// aapt resource value: 0x7f0a00a9
+			public const int listItem = 2131361961;
 			
 			// aapt resource value: 0x7f0a0034
 			public const int listMode = 2131361844;
@@ -2839,20 +2872,20 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a004c
 			public const int list_item = 2131361868;
 			
-			// aapt resource value: 0x7f0a00bc
-			public const int llExpandArea = 2131361980;
+			// aapt resource value: 0x7f0a00c3
+			public const int llExpandArea = 2131361987;
 			
-			// aapt resource value: 0x7f0a00fa
-			public const int masked = 2131362042;
+			// aapt resource value: 0x7f0a0102
+			public const int masked = 2131362050;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int media_actions = 2131361994;
+			// aapt resource value: 0x7f0a00d2
+			public const int media_actions = 2131362002;
 			
-			// aapt resource value: 0x7f0a0101
-			public const int menu_settings = 2131362049;
+			// aapt resource value: 0x7f0a0109
+			public const int menu_settings = 2131362057;
 			
-			// aapt resource value: 0x7f0a0100
-			public const int menu_share = 2131362048;
+			// aapt resource value: 0x7f0a0108
+			public const int menu_share = 2131362056;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int middle = 2131361855;
@@ -2875,14 +2908,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a002c
 			public const int normal = 2131361836;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int notification_background = 2131362003;
+			// aapt resource value: 0x7f0a00db
+			public const int notification_background = 2131362011;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int notification_main_column = 2131361997;
+			// aapt resource value: 0x7f0a00d5
+			public const int notification_main_column = 2131362005;
 			
-			// aapt resource value: 0x7f0a00cc
-			public const int notification_main_column_container = 2131361996;
+			// aapt resource value: 0x7f0a00d4
+			public const int notification_main_column_container = 2131362004;
 			
 			// aapt resource value: 0x7f0a0081
 			public const int numberOfSkips = 2131361921;
@@ -2896,14 +2929,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0051
 			public const int parentPanel = 2131361873;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int pendingPassesCard = 2131362015;
+			// aapt resource value: 0x7f0a00e7
+			public const int pendingPassesCard = 2131362023;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int pendingPassesStatus = 2131362016;
+			// aapt resource value: 0x7f0a00e8
+			public const int pendingPassesStatus = 2131362024;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int pendingRequests = 2131362014;
+			// aapt resource value: 0x7f0a00e6
+			public const int pendingRequests = 2131362022;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int pin = 2131361833;
@@ -2920,11 +2953,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a001e
 			public const int right = 2131361822;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int right_icon = 2131362002;
+			// aapt resource value: 0x7f0a00da
+			public const int right_icon = 2131362010;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int right_side = 2131361998;
+			// aapt resource value: 0x7f0a00d6
+			public const int right_side = 2131362006;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int screen = 2131361840;
@@ -3019,20 +3052,20 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a001f
 			public const int start = 2131361823;
 			
-			// aapt resource value: 0x7f0a00c9
-			public const int status_bar_latest_event_content = 2131361993;
+			// aapt resource value: 0x7f0a00d1
+			public const int status_bar_latest_event_content = 2131362001;
 			
 			// aapt resource value: 0x7f0a008a
 			public const int studentCalendar = 2131361930;
 			
-			// aapt resource value: 0x7f0a00e2
-			public const int studentCourtBanner = 2131362018;
+			// aapt resource value: 0x7f0a00ea
+			public const int studentCourtBanner = 2131362026;
 			
-			// aapt resource value: 0x7f0a00e6
-			public const int studentCourtInfractionBanner = 2131362022;
+			// aapt resource value: 0x7f0a00ee
+			public const int studentCourtInfractionBanner = 2131362030;
 			
-			// aapt resource value: 0x7f0a00e5
-			public const int studentCourtStatus = 2131362021;
+			// aapt resource value: 0x7f0a00ed
+			public const int studentCourtStatus = 2131362029;
 			
 			// aapt resource value: 0x7f0a0062
 			public const int submenuarrow = 2131361890;
@@ -3043,11 +3076,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0035
 			public const int tabMode = 2131361845;
 			
-			// aapt resource value: 0x7f0a00d7
-			public const int text = 2131362007;
+			// aapt resource value: 0x7f0a00df
+			public const int text = 2131362015;
 			
-			// aapt resource value: 0x7f0a00d6
-			public const int text2 = 2131362006;
+			// aapt resource value: 0x7f0a00de
+			public const int text2 = 2131362014;
 			
 			// aapt resource value: 0x7f0a0056
 			public const int textSpacerNoButtons = 2131361878;
@@ -3064,8 +3097,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0001
 			public const int textinput_error = 2131361793;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int time = 2131361999;
+			// aapt resource value: 0x7f0a00d7
+			public const int time = 2131362007;
 			
 			// aapt resource value: 0x7f0a004e
 			public const int title = 2131361870;
@@ -3076,8 +3109,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a005b
 			public const int title_template = 2131361883;
 			
-			// aapt resource value: 0x7f0a00ec
-			public const int toolbar = 2131362028;
+			// aapt resource value: 0x7f0a00f4
+			public const int toolbar = 2131362036;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int top = 2131361824;
@@ -3100,32 +3133,32 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a003b
 			public const int useLogo = 2131361851;
 			
-			// aapt resource value: 0x7f0a00f1
-			public const int varsityBreakfastTab = 2131362033;
+			// aapt resource value: 0x7f0a00f9
+			public const int varsityBreakfastTab = 2131362041;
 			
-			// aapt resource value: 0x7f0a00f3
-			public const int varsityDinnerTab = 2131362035;
+			// aapt resource value: 0x7f0a00fb
+			public const int varsityDinnerTab = 2131362043;
 			
-			// aapt resource value: 0x7f0a00f2
-			public const int varsityLunchTab = 2131362034;
+			// aapt resource value: 0x7f0a00fa
+			public const int varsityLunchTab = 2131362042;
 			
-			// aapt resource value: 0x7f0a00f4
-			public const int varsityOption1 = 2131362036;
+			// aapt resource value: 0x7f0a00fc
+			public const int varsityOption1 = 2131362044;
 			
-			// aapt resource value: 0x7f0a00f5
-			public const int varsityOption2 = 2131362037;
+			// aapt resource value: 0x7f0a00fd
+			public const int varsityOption2 = 2131362045;
 			
-			// aapt resource value: 0x7f0a00f6
-			public const int varsityOption3 = 2131362038;
+			// aapt resource value: 0x7f0a00fe
+			public const int varsityOption3 = 2131362046;
 			
-			// aapt resource value: 0x7f0a00f7
-			public const int varsityOption4 = 2131362039;
+			// aapt resource value: 0x7f0a00ff
+			public const int varsityOption4 = 2131362047;
+			
+			// aapt resource value: 0x7f0a0100
+			public const int varsityOption5 = 2131362048;
 			
 			// aapt resource value: 0x7f0a00f8
-			public const int varsityOption5 = 2131362040;
-			
-			// aapt resource value: 0x7f0a00f0
-			public const int varsityTabs = 2131362032;
+			public const int varsityTabs = 2131362040;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int vertical = 2131361808;
@@ -3133,8 +3166,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0002
 			public const int view_offset_helper = 2131361794;
 			
-			// aapt resource value: 0x7f0a00f9
-			public const int visible = 2131362041;
+			// aapt resource value: 0x7f0a0101
+			public const int visible = 2131362049;
 			
 			// aapt resource value: 0x7f0a0044
 			public const int withText = 2131361860;
@@ -3373,88 +3406,91 @@ namespace EaglesNestMobileApp.Android
 			public const int LoginLayout = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int MenuItemLayout = 2130903099;
+			public const int MainLayout = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_action = 2130903100;
+			public const int MenuItemLayout = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_action_tombstone = 2130903101;
+			public const int notification_action = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_media_action = 2130903102;
+			public const int notification_action_tombstone = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_media_cancel_action = 2130903103;
+			public const int notification_media_action = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_big_media = 2130903104;
+			public const int notification_media_cancel_action = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_big_media_custom = 2130903105;
+			public const int notification_template_big_media = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_big_media_narrow = 2130903106;
+			public const int notification_template_big_media_custom = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int notification_template_big_media_narrow_custom = 2130903107;
+			public const int notification_template_big_media_narrow = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int notification_template_custom_big = 2130903108;
+			public const int notification_template_big_media_narrow_custom = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int notification_template_icon_group = 2130903109;
+			public const int notification_template_custom_big = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int notification_template_lines_media = 2130903110;
+			public const int notification_template_icon_group = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int notification_template_media = 2130903111;
+			public const int notification_template_lines_media = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int notification_template_media_custom = 2130903112;
+			public const int notification_template_media = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int notification_template_part_chronometer = 2130903113;
+			public const int notification_template_media_custom = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int notification_template_part_time = 2130903114;
+			public const int notification_template_part_chronometer = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int RequestsFragmentLayout = 2130903115;
+			public const int notification_template_part_time = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int ScheduleFragmentLayout = 2130903116;
+			public const int RequestsFragmentLayout = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int select_dialog_item_material = 2130903117;
+			public const int ScheduleFragmentLayout = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int select_dialog_multichoice_material = 2130903118;
+			public const int select_dialog_item_material = 2130903118;
 			
 			// aapt resource value: 0x7f03004f
-			public const int select_dialog_singlechoice_material = 2130903119;
+			public const int select_dialog_multichoice_material = 2130903119;
 			
 			// aapt resource value: 0x7f030050
-			public const int StudentCourtFragmentLayout = 2130903120;
+			public const int select_dialog_singlechoice_material = 2130903120;
 			
 			// aapt resource value: 0x7f030051
-			public const int StudentCourtInfractionCardLayout = 2130903121;
+			public const int StudentCourtFragmentLayout = 2130903121;
 			
 			// aapt resource value: 0x7f030052
-			public const int StudentInfoFragmentLayout = 2130903122;
+			public const int StudentCourtInfractionCardLayout = 2130903122;
 			
 			// aapt resource value: 0x7f030053
-			public const int support_simple_spinner_dropdown_item = 2130903123;
+			public const int StudentInfoFragmentLayout = 2130903123;
 			
 			// aapt resource value: 0x7f030054
-			public const int TabLayout = 2130903124;
+			public const int support_simple_spinner_dropdown_item = 2130903124;
 			
 			// aapt resource value: 0x7f030055
-			public const int ToolbarLayout = 2130903125;
+			public const int TabLayout = 2130903125;
 			
 			// aapt resource value: 0x7f030056
-			public const int VarsityFragmentLayout = 2130903126;
+			public const int ToolbarLayout = 2130903126;
+			
+			// aapt resource value: 0x7f030057
+			public const int VarsityFragmentLayout = 2130903127;
 			
 			static Layout()
 			{
@@ -3666,44 +3702,44 @@ namespace EaglesNestMobileApp.Android
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f0700bc
+			public const int AlertDialog_AppCompat = 2131165372;
+			
+			// aapt resource value: 0x7f0700bd
+			public const int AlertDialog_AppCompat_Light = 2131165373;
+			
 			// aapt resource value: 0x7f0700be
-			public const int AlertDialog_AppCompat = 2131165374;
+			public const int Animation_AppCompat_Dialog = 2131165374;
 			
 			// aapt resource value: 0x7f0700bf
-			public const int AlertDialog_AppCompat_Light = 2131165375;
-			
-			// aapt resource value: 0x7f0700c0
-			public const int Animation_AppCompat_Dialog = 2131165376;
-			
-			// aapt resource value: 0x7f0700c1
-			public const int Animation_AppCompat_DropDownUp = 2131165377;
+			public const int Animation_AppCompat_DropDownUp = 2131165375;
 			
 			// aapt resource value: 0x7f070006
 			public const int Animation_Design_BottomSheetDialog = 2131165190;
 			
-			// aapt resource value: 0x7f07017e
-			public const int AppCompatLightTheme = 2131165566;
+			// aapt resource value: 0x7f07017c
+			public const int AppCompatLightTheme = 2131165564;
+			
+			// aapt resource value: 0x7f0700c0
+			public const int Base_AlertDialog_AppCompat = 2131165376;
+			
+			// aapt resource value: 0x7f0700c1
+			public const int Base_AlertDialog_AppCompat_Light = 2131165377;
 			
 			// aapt resource value: 0x7f0700c2
-			public const int Base_AlertDialog_AppCompat = 2131165378;
+			public const int Base_Animation_AppCompat_Dialog = 2131165378;
 			
 			// aapt resource value: 0x7f0700c3
-			public const int Base_AlertDialog_AppCompat_Light = 2131165379;
-			
-			// aapt resource value: 0x7f0700c4
-			public const int Base_Animation_AppCompat_Dialog = 2131165380;
-			
-			// aapt resource value: 0x7f0700c5
-			public const int Base_Animation_AppCompat_DropDownUp = 2131165381;
+			public const int Base_Animation_AppCompat_DropDownUp = 2131165379;
 			
 			// aapt resource value: 0x7f070001
 			public const int Base_CardView = 2131165185;
 			
-			// aapt resource value: 0x7f0700c6
-			public const int Base_DialogWindowTitle_AppCompat = 2131165382;
+			// aapt resource value: 0x7f0700c4
+			public const int Base_DialogWindowTitle_AppCompat = 2131165380;
 			
-			// aapt resource value: 0x7f0700c7
-			public const int Base_DialogWindowTitleBackground_AppCompat = 2131165383;
+			// aapt resource value: 0x7f0700c5
+			public const int Base_DialogWindowTitleBackground_AppCompat = 2131165381;
 			
 			// aapt resource value: 0x7f07005e
 			public const int Base_TextAppearance_AppCompat = 2131165278;
@@ -3759,8 +3795,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07006b
 			public const int Base_TextAppearance_AppCompat_Menu = 2131165291;
 			
-			// aapt resource value: 0x7f0700c8
-			public const int Base_TextAppearance_AppCompat_SearchResult = 2131165384;
+			// aapt resource value: 0x7f0700c6
+			public const int Base_TextAppearance_AppCompat_SearchResult = 2131165382;
 			
 			// aapt resource value: 0x7f07006c
 			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131165292;
@@ -3819,8 +3855,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700b4
 			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131165364;
 			
-			// aapt resource value: 0x7f0700c9
-			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131165385;
+			// aapt resource value: 0x7f0700c7
+			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131165383;
 			
 			// aapt resource value: 0x7f070078
 			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131165304;
@@ -3837,8 +3873,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07007c
 			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165308;
 			
-			// aapt resource value: 0x7f0700ca
-			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165386;
+			// aapt resource value: 0x7f0700c8
+			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165384;
 			
 			// aapt resource value: 0x7f07007d
 			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165309;
@@ -3849,8 +3885,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07007f
 			public const int Base_Theme_AppCompat = 2131165311;
 			
-			// aapt resource value: 0x7f0700cb
-			public const int Base_Theme_AppCompat_CompactMenu = 2131165387;
+			// aapt resource value: 0x7f0700c9
+			public const int Base_Theme_AppCompat_CompactMenu = 2131165385;
 			
 			// aapt resource value: 0x7f070030
 			public const int Base_Theme_AppCompat_Dialog = 2131165232;
@@ -3858,8 +3894,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070031
 			public const int Base_Theme_AppCompat_Dialog_Alert = 2131165233;
 			
-			// aapt resource value: 0x7f0700cc
-			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131165388;
+			// aapt resource value: 0x7f0700ca
+			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131165386;
 			
 			// aapt resource value: 0x7f070032
 			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131165234;
@@ -3870,8 +3906,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070080
 			public const int Base_Theme_AppCompat_Light = 2131165312;
 			
-			// aapt resource value: 0x7f0700cd
-			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131165389;
+			// aapt resource value: 0x7f0700cb
+			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131165387;
 			
 			// aapt resource value: 0x7f070033
 			public const int Base_Theme_AppCompat_Light_Dialog = 2131165235;
@@ -3879,8 +3915,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070034
 			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131165236;
 			
-			// aapt resource value: 0x7f0700ce
-			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131165390;
+			// aapt resource value: 0x7f0700cc
+			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131165388;
 			
 			// aapt resource value: 0x7f070035
 			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131165237;
@@ -3888,17 +3924,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070021
 			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131165217;
 			
+			// aapt resource value: 0x7f0700cd
+			public const int Base_ThemeOverlay_AppCompat = 2131165389;
+			
+			// aapt resource value: 0x7f0700ce
+			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131165390;
+			
 			// aapt resource value: 0x7f0700cf
-			public const int Base_ThemeOverlay_AppCompat = 2131165391;
+			public const int Base_ThemeOverlay_AppCompat_Dark = 2131165391;
 			
 			// aapt resource value: 0x7f0700d0
-			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131165392;
-			
-			// aapt resource value: 0x7f0700d1
-			public const int Base_ThemeOverlay_AppCompat_Dark = 2131165393;
-			
-			// aapt resource value: 0x7f0700d2
-			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131165394;
+			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131165392;
 			
 			// aapt resource value: 0x7f070036
 			public const int Base_ThemeOverlay_AppCompat_Dialog = 2131165238;
@@ -3906,8 +3942,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070037
 			public const int Base_ThemeOverlay_AppCompat_Dialog_Alert = 2131165239;
 			
-			// aapt resource value: 0x7f0700d3
-			public const int Base_ThemeOverlay_AppCompat_Light = 2131165395;
+			// aapt resource value: 0x7f0700d1
+			public const int Base_ThemeOverlay_AppCompat_Light = 2131165393;
 			
 			// aapt resource value: 0x7f070038
 			public const int Base_V11_Theme_AppCompat_Dialog = 2131165240;
@@ -3951,35 +3987,35 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700b6
 			public const int Base_V23_Theme_AppCompat_Light = 2131165366;
 			
+			// aapt resource value: 0x7f0700d2
+			public const int Base_V7_Theme_AppCompat = 2131165394;
+			
+			// aapt resource value: 0x7f0700d3
+			public const int Base_V7_Theme_AppCompat_Dialog = 2131165395;
+			
 			// aapt resource value: 0x7f0700d4
-			public const int Base_V7_Theme_AppCompat = 2131165396;
+			public const int Base_V7_Theme_AppCompat_Light = 2131165396;
 			
 			// aapt resource value: 0x7f0700d5
-			public const int Base_V7_Theme_AppCompat_Dialog = 2131165397;
+			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131165397;
 			
 			// aapt resource value: 0x7f0700d6
-			public const int Base_V7_Theme_AppCompat_Light = 2131165398;
+			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131165398;
 			
 			// aapt resource value: 0x7f0700d7
-			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131165399;
+			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131165399;
 			
 			// aapt resource value: 0x7f0700d8
-			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131165400;
+			public const int Base_V7_Widget_AppCompat_EditText = 2131165400;
 			
 			// aapt resource value: 0x7f0700d9
-			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131165401;
+			public const int Base_Widget_AppCompat_ActionBar = 2131165401;
 			
 			// aapt resource value: 0x7f0700da
-			public const int Base_V7_Widget_AppCompat_EditText = 2131165402;
+			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131165402;
 			
 			// aapt resource value: 0x7f0700db
-			public const int Base_Widget_AppCompat_ActionBar = 2131165403;
-			
-			// aapt resource value: 0x7f0700dc
-			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131165404;
-			
-			// aapt resource value: 0x7f0700dd
-			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131165405;
+			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131165403;
 			
 			// aapt resource value: 0x7f070086
 			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131165318;
@@ -3996,11 +4032,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07008a
 			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131165322;
 			
-			// aapt resource value: 0x7f0700de
-			public const int Base_Widget_AppCompat_ActionMode = 2131165406;
+			// aapt resource value: 0x7f0700dc
+			public const int Base_Widget_AppCompat_ActionMode = 2131165404;
 			
-			// aapt resource value: 0x7f0700df
-			public const int Base_Widget_AppCompat_ActivityChooserView = 2131165407;
+			// aapt resource value: 0x7f0700dd
+			public const int Base_Widget_AppCompat_ActivityChooserView = 2131165405;
 			
 			// aapt resource value: 0x7f070044
 			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131165252;
@@ -4014,8 +4050,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07008d
 			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131165325;
 			
-			// aapt resource value: 0x7f0700e0
-			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165408;
+			// aapt resource value: 0x7f0700de
+			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165406;
 			
 			// aapt resource value: 0x7f0700b7
 			public const int Base_Widget_AppCompat_Button_Colored = 2131165367;
@@ -4026,8 +4062,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07008f
 			public const int Base_Widget_AppCompat_ButtonBar = 2131165327;
 			
-			// aapt resource value: 0x7f0700e1
-			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131165409;
+			// aapt resource value: 0x7f0700df
+			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131165407;
 			
 			// aapt resource value: 0x7f070090
 			public const int Base_Widget_AppCompat_CompoundButton_CheckBox = 2131165328;
@@ -4035,14 +4071,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070091
 			public const int Base_Widget_AppCompat_CompoundButton_RadioButton = 2131165329;
 			
-			// aapt resource value: 0x7f0700e2
-			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131165410;
+			// aapt resource value: 0x7f0700e0
+			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131165408;
 			
 			// aapt resource value: 0x7f07001f
 			public const int Base_Widget_AppCompat_DrawerArrowToggle = 2131165215;
 			
-			// aapt resource value: 0x7f0700e3
-			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131165411;
+			// aapt resource value: 0x7f0700e1
+			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131165409;
 			
 			// aapt resource value: 0x7f070092
 			public const int Base_Widget_AppCompat_DropDownItem_Spinner = 2131165330;
@@ -4053,14 +4089,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070093
 			public const int Base_Widget_AppCompat_ImageButton = 2131165331;
 			
+			// aapt resource value: 0x7f0700e2
+			public const int Base_Widget_AppCompat_Light_ActionBar = 2131165410;
+			
+			// aapt resource value: 0x7f0700e3
+			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131165411;
+			
 			// aapt resource value: 0x7f0700e4
-			public const int Base_Widget_AppCompat_Light_ActionBar = 2131165412;
-			
-			// aapt resource value: 0x7f0700e5
-			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131165413;
-			
-			// aapt resource value: 0x7f0700e6
-			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131165414;
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131165412;
 			
 			// aapt resource value: 0x7f070094
 			public const int Base_Widget_AppCompat_Light_ActionBar_TabText = 2131165332;
@@ -4077,8 +4113,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070098
 			public const int Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131165336;
 			
-			// aapt resource value: 0x7f0700e7
-			public const int Base_Widget_AppCompat_ListMenuView = 2131165415;
+			// aapt resource value: 0x7f0700e5
+			public const int Base_Widget_AppCompat_ListMenuView = 2131165413;
 			
 			// aapt resource value: 0x7f070099
 			public const int Base_Widget_AppCompat_ListPopupWindow = 2131165337;
@@ -4098,8 +4134,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07009e
 			public const int Base_Widget_AppCompat_PopupMenu_Overflow = 2131165342;
 			
-			// aapt resource value: 0x7f0700e8
-			public const int Base_Widget_AppCompat_PopupWindow = 2131165416;
+			// aapt resource value: 0x7f0700e6
+			public const int Base_Widget_AppCompat_PopupWindow = 2131165414;
 			
 			// aapt resource value: 0x7f07003b
 			public const int Base_Widget_AppCompat_ProgressBar = 2131165243;
@@ -4116,17 +4152,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700b9
 			public const int Base_Widget_AppCompat_RatingBar_Small = 2131165369;
 			
-			// aapt resource value: 0x7f0700e9
-			public const int Base_Widget_AppCompat_SearchView = 2131165417;
+			// aapt resource value: 0x7f0700e7
+			public const int Base_Widget_AppCompat_SearchView = 2131165415;
 			
-			// aapt resource value: 0x7f0700ea
-			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131165418;
+			// aapt resource value: 0x7f0700e8
+			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131165416;
 			
 			// aapt resource value: 0x7f0700a0
 			public const int Base_Widget_AppCompat_SeekBar = 2131165344;
 			
-			// aapt resource value: 0x7f0700eb
-			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131165419;
+			// aapt resource value: 0x7f0700e9
+			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131165417;
 			
 			// aapt resource value: 0x7f0700a1
 			public const int Base_Widget_AppCompat_Spinner = 2131165345;
@@ -4137,8 +4173,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700a2
 			public const int Base_Widget_AppCompat_TextView_SpinnerItem = 2131165346;
 			
-			// aapt resource value: 0x7f0700ec
-			public const int Base_Widget_AppCompat_Toolbar = 2131165420;
+			// aapt resource value: 0x7f0700ea
+			public const int Base_Widget_AppCompat_Toolbar = 2131165418;
 			
 			// aapt resource value: 0x7f0700a3
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131165347;
@@ -4158,35 +4194,35 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070003
 			public const int CardView_Light = 2131165187;
 			
-			// aapt resource value: 0x7f070185
-			public const int ModAttendanceCard = 2131165573;
+			// aapt resource value: 0x7f070183
+			public const int ModAttendanceCard = 2131165571;
 			
-			// aapt resource value: 0x7f07017f
-			public const int ModBorderlessButton = 2131165567;
-			
-			// aapt resource value: 0x7f070184
-			public const int ModFoodHeader = 2131165572;
+			// aapt resource value: 0x7f07017d
+			public const int ModBorderlessButton = 2131165565;
 			
 			// aapt resource value: 0x7f070182
-			public const int ModListItemPrimaryText = 2131165570;
-			
-			// aapt resource value: 0x7f070183
-			public const int ModListItemSecondaryText = 2131165571;
-			
-			// aapt resource value: 0x7f070181
-			public const int ModListItemSingleLineText = 2131165569;
+			public const int ModFoodHeader = 2131165570;
 			
 			// aapt resource value: 0x7f070180
-			public const int ModLoginTextInput = 2131165568;
+			public const int ModListItemPrimaryText = 2131165568;
 			
-			// aapt resource value: 0x7f070187
-			public const int ModTextViewFullUnderline = 2131165575;
+			// aapt resource value: 0x7f070181
+			public const int ModListItemSecondaryText = 2131165569;
 			
-			// aapt resource value: 0x7f070188
-			public const int ModTextViewUnderline = 2131165576;
+			// aapt resource value: 0x7f07017f
+			public const int ModListItemSingleLineText = 2131165567;
+			
+			// aapt resource value: 0x7f07017e
+			public const int ModLoginTextInput = 2131165566;
+			
+			// aapt resource value: 0x7f070185
+			public const int ModTextViewFullUnderline = 2131165573;
 			
 			// aapt resource value: 0x7f070186
-			public const int ModViewSpacing = 2131165574;
+			public const int ModTextViewUnderline = 2131165574;
+			
+			// aapt resource value: 0x7f070184
+			public const int ModViewSpacing = 2131165572;
 			
 			// aapt resource value: 0x7f07003d
 			public const int Platform_AppCompat = 2131165245;
@@ -4220,12 +4256,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f0700a8
 			public const int Platform_V21_AppCompat_Light = 2131165352;
-			
-			// aapt resource value: 0x7f0700bc
-			public const int Platform_V25_AppCompat = 2131165372;
-			
-			// aapt resource value: 0x7f0700bd
-			public const int Platform_V25_AppCompat_Light = 2131165373;
 			
 			// aapt resource value: 0x7f070041
 			public const int Platform_Widget_AppCompat_Spinner = 2131165249;
@@ -4272,65 +4302,65 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07005d
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131165277;
 			
+			// aapt resource value: 0x7f0700eb
+			public const int TextAppearance_AppCompat = 2131165419;
+			
+			// aapt resource value: 0x7f0700ec
+			public const int TextAppearance_AppCompat_Body1 = 2131165420;
+			
 			// aapt resource value: 0x7f0700ed
-			public const int TextAppearance_AppCompat = 2131165421;
+			public const int TextAppearance_AppCompat_Body2 = 2131165421;
 			
 			// aapt resource value: 0x7f0700ee
-			public const int TextAppearance_AppCompat_Body1 = 2131165422;
+			public const int TextAppearance_AppCompat_Button = 2131165422;
 			
 			// aapt resource value: 0x7f0700ef
-			public const int TextAppearance_AppCompat_Body2 = 2131165423;
+			public const int TextAppearance_AppCompat_Caption = 2131165423;
 			
 			// aapt resource value: 0x7f0700f0
-			public const int TextAppearance_AppCompat_Button = 2131165424;
+			public const int TextAppearance_AppCompat_Display1 = 2131165424;
 			
 			// aapt resource value: 0x7f0700f1
-			public const int TextAppearance_AppCompat_Caption = 2131165425;
+			public const int TextAppearance_AppCompat_Display2 = 2131165425;
 			
 			// aapt resource value: 0x7f0700f2
-			public const int TextAppearance_AppCompat_Display1 = 2131165426;
+			public const int TextAppearance_AppCompat_Display3 = 2131165426;
 			
 			// aapt resource value: 0x7f0700f3
-			public const int TextAppearance_AppCompat_Display2 = 2131165427;
+			public const int TextAppearance_AppCompat_Display4 = 2131165427;
 			
 			// aapt resource value: 0x7f0700f4
-			public const int TextAppearance_AppCompat_Display3 = 2131165428;
+			public const int TextAppearance_AppCompat_Headline = 2131165428;
 			
 			// aapt resource value: 0x7f0700f5
-			public const int TextAppearance_AppCompat_Display4 = 2131165429;
+			public const int TextAppearance_AppCompat_Inverse = 2131165429;
 			
 			// aapt resource value: 0x7f0700f6
-			public const int TextAppearance_AppCompat_Headline = 2131165430;
+			public const int TextAppearance_AppCompat_Large = 2131165430;
 			
 			// aapt resource value: 0x7f0700f7
-			public const int TextAppearance_AppCompat_Inverse = 2131165431;
+			public const int TextAppearance_AppCompat_Large_Inverse = 2131165431;
 			
 			// aapt resource value: 0x7f0700f8
-			public const int TextAppearance_AppCompat_Large = 2131165432;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131165432;
 			
 			// aapt resource value: 0x7f0700f9
-			public const int TextAppearance_AppCompat_Large_Inverse = 2131165433;
+			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131165433;
 			
 			// aapt resource value: 0x7f0700fa
-			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131165434;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165434;
 			
 			// aapt resource value: 0x7f0700fb
-			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131165435;
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165435;
 			
 			// aapt resource value: 0x7f0700fc
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165436;
+			public const int TextAppearance_AppCompat_Medium = 2131165436;
 			
 			// aapt resource value: 0x7f0700fd
-			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165437;
+			public const int TextAppearance_AppCompat_Medium_Inverse = 2131165437;
 			
 			// aapt resource value: 0x7f0700fe
-			public const int TextAppearance_AppCompat_Medium = 2131165438;
-			
-			// aapt resource value: 0x7f0700ff
-			public const int TextAppearance_AppCompat_Medium_Inverse = 2131165439;
-			
-			// aapt resource value: 0x7f070100
-			public const int TextAppearance_AppCompat_Menu = 2131165440;
+			public const int TextAppearance_AppCompat_Menu = 2131165438;
 			
 			// aapt resource value: 0x7f070049
 			public const int TextAppearance_AppCompat_Notification = 2131165257;
@@ -4341,11 +4371,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700aa
 			public const int TextAppearance_AppCompat_Notification_Info_Media = 2131165354;
 			
-			// aapt resource value: 0x7f070101
-			public const int TextAppearance_AppCompat_Notification_Line2 = 2131165441;
+			// aapt resource value: 0x7f0700ff
+			public const int TextAppearance_AppCompat_Notification_Line2 = 2131165439;
 			
-			// aapt resource value: 0x7f070102
-			public const int TextAppearance_AppCompat_Notification_Line2_Media = 2131165442;
+			// aapt resource value: 0x7f070100
+			public const int TextAppearance_AppCompat_Notification_Line2_Media = 2131165440;
 			
 			// aapt resource value: 0x7f0700ab
 			public const int TextAppearance_AppCompat_Notification_Media = 2131165355;
@@ -4362,86 +4392,86 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700ae
 			public const int TextAppearance_AppCompat_Notification_Title_Media = 2131165358;
 			
+			// aapt resource value: 0x7f070101
+			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131165441;
+			
+			// aapt resource value: 0x7f070102
+			public const int TextAppearance_AppCompat_SearchResult_Title = 2131165442;
+			
 			// aapt resource value: 0x7f070103
-			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131165443;
+			public const int TextAppearance_AppCompat_Small = 2131165443;
 			
 			// aapt resource value: 0x7f070104
-			public const int TextAppearance_AppCompat_SearchResult_Title = 2131165444;
+			public const int TextAppearance_AppCompat_Small_Inverse = 2131165444;
 			
 			// aapt resource value: 0x7f070105
-			public const int TextAppearance_AppCompat_Small = 2131165445;
+			public const int TextAppearance_AppCompat_Subhead = 2131165445;
 			
 			// aapt resource value: 0x7f070106
-			public const int TextAppearance_AppCompat_Small_Inverse = 2131165446;
+			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131165446;
 			
 			// aapt resource value: 0x7f070107
-			public const int TextAppearance_AppCompat_Subhead = 2131165447;
+			public const int TextAppearance_AppCompat_Title = 2131165447;
 			
 			// aapt resource value: 0x7f070108
-			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131165448;
+			public const int TextAppearance_AppCompat_Title_Inverse = 2131165448;
 			
 			// aapt resource value: 0x7f070109
-			public const int TextAppearance_AppCompat_Title = 2131165449;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165449;
 			
 			// aapt resource value: 0x7f07010a
-			public const int TextAppearance_AppCompat_Title_Inverse = 2131165450;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165450;
 			
 			// aapt resource value: 0x7f07010b
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165451;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165451;
 			
 			// aapt resource value: 0x7f07010c
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165452;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165452;
 			
 			// aapt resource value: 0x7f07010d
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165453;
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165453;
 			
 			// aapt resource value: 0x7f07010e
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165454;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165454;
 			
 			// aapt resource value: 0x7f07010f
-			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165455;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131165455;
 			
 			// aapt resource value: 0x7f070110
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165456;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165456;
 			
 			// aapt resource value: 0x7f070111
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131165457;
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131165457;
 			
 			// aapt resource value: 0x7f070112
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165458;
+			public const int TextAppearance_AppCompat_Widget_Button = 2131165458;
 			
 			// aapt resource value: 0x7f070113
-			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131165459;
+			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131165459;
 			
 			// aapt resource value: 0x7f070114
-			public const int TextAppearance_AppCompat_Widget_Button = 2131165460;
+			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131165460;
 			
 			// aapt resource value: 0x7f070115
-			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131165461;
+			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131165461;
 			
 			// aapt resource value: 0x7f070116
-			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131165462;
+			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131165462;
 			
 			// aapt resource value: 0x7f070117
-			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131165463;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131165463;
 			
 			// aapt resource value: 0x7f070118
-			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131165464;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165464;
 			
 			// aapt resource value: 0x7f070119
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131165465;
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165465;
 			
 			// aapt resource value: 0x7f07011a
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165466;
+			public const int TextAppearance_AppCompat_Widget_Switch = 2131165466;
 			
 			// aapt resource value: 0x7f07011b
-			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165467;
-			
-			// aapt resource value: 0x7f07011c
-			public const int TextAppearance_AppCompat_Widget_Switch = 2131165468;
-			
-			// aapt resource value: 0x7f07011d
-			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165469;
+			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165467;
 			
 			// aapt resource value: 0x7f070009
 			public const int TextAppearance_Design_CollapsingToolbar_Expanded = 2131165193;
@@ -4479,20 +4509,20 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07004f
 			public const int TextAppearance_StatusBar_EventContent_Title = 2131165263;
 			
+			// aapt resource value: 0x7f07011c
+			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165468;
+			
+			// aapt resource value: 0x7f07011d
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165469;
+			
 			// aapt resource value: 0x7f07011e
-			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165470;
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165470;
 			
 			// aapt resource value: 0x7f07011f
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165471;
+			public const int Theme_AppCompat = 2131165471;
 			
 			// aapt resource value: 0x7f070120
-			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165472;
-			
-			// aapt resource value: 0x7f070121
-			public const int Theme_AppCompat = 2131165473;
-			
-			// aapt resource value: 0x7f070122
-			public const int Theme_AppCompat_CompactMenu = 2131165474;
+			public const int Theme_AppCompat_CompactMenu = 2131165472;
 			
 			// aapt resource value: 0x7f070023
 			public const int Theme_AppCompat_DayNight = 2131165219;
@@ -4515,41 +4545,41 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070029
 			public const int Theme_AppCompat_DayNight_NoActionBar = 2131165225;
 			
+			// aapt resource value: 0x7f070121
+			public const int Theme_AppCompat_Dialog = 2131165473;
+			
+			// aapt resource value: 0x7f070122
+			public const int Theme_AppCompat_Dialog_Alert = 2131165474;
+			
 			// aapt resource value: 0x7f070123
-			public const int Theme_AppCompat_Dialog = 2131165475;
+			public const int Theme_AppCompat_Dialog_MinWidth = 2131165475;
 			
 			// aapt resource value: 0x7f070124
-			public const int Theme_AppCompat_Dialog_Alert = 2131165476;
+			public const int Theme_AppCompat_DialogWhenLarge = 2131165476;
 			
 			// aapt resource value: 0x7f070125
-			public const int Theme_AppCompat_Dialog_MinWidth = 2131165477;
+			public const int Theme_AppCompat_Light = 2131165477;
 			
 			// aapt resource value: 0x7f070126
-			public const int Theme_AppCompat_DialogWhenLarge = 2131165478;
+			public const int Theme_AppCompat_Light_DarkActionBar = 2131165478;
 			
 			// aapt resource value: 0x7f070127
-			public const int Theme_AppCompat_Light = 2131165479;
+			public const int Theme_AppCompat_Light_Dialog = 2131165479;
 			
 			// aapt resource value: 0x7f070128
-			public const int Theme_AppCompat_Light_DarkActionBar = 2131165480;
+			public const int Theme_AppCompat_Light_Dialog_Alert = 2131165480;
 			
 			// aapt resource value: 0x7f070129
-			public const int Theme_AppCompat_Light_Dialog = 2131165481;
+			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131165481;
 			
 			// aapt resource value: 0x7f07012a
-			public const int Theme_AppCompat_Light_Dialog_Alert = 2131165482;
+			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131165482;
 			
 			// aapt resource value: 0x7f07012b
-			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131165483;
+			public const int Theme_AppCompat_Light_NoActionBar = 2131165483;
 			
 			// aapt resource value: 0x7f07012c
-			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131165484;
-			
-			// aapt resource value: 0x7f07012d
-			public const int Theme_AppCompat_Light_NoActionBar = 2131165485;
-			
-			// aapt resource value: 0x7f07012e
-			public const int Theme_AppCompat_NoActionBar = 2131165486;
+			public const int Theme_AppCompat_NoActionBar = 2131165484;
 			
 			// aapt resource value: 0x7f070010
 			public const int Theme_Design = 2131165200;
@@ -4569,185 +4599,185 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070015
 			public const int Theme_Design_NoActionBar = 2131165205;
 			
+			// aapt resource value: 0x7f07012d
+			public const int ThemeOverlay_AppCompat = 2131165485;
+			
+			// aapt resource value: 0x7f07012e
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131165486;
+			
 			// aapt resource value: 0x7f07012f
-			public const int ThemeOverlay_AppCompat = 2131165487;
+			public const int ThemeOverlay_AppCompat_Dark = 2131165487;
 			
 			// aapt resource value: 0x7f070130
-			public const int ThemeOverlay_AppCompat_ActionBar = 2131165488;
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131165488;
 			
 			// aapt resource value: 0x7f070131
-			public const int ThemeOverlay_AppCompat_Dark = 2131165489;
+			public const int ThemeOverlay_AppCompat_Dialog = 2131165489;
 			
 			// aapt resource value: 0x7f070132
-			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131165490;
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131165490;
 			
 			// aapt resource value: 0x7f070133
-			public const int ThemeOverlay_AppCompat_Dialog = 2131165491;
+			public const int ThemeOverlay_AppCompat_Light = 2131165491;
 			
 			// aapt resource value: 0x7f070134
-			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131165492;
+			public const int Widget_AppCompat_ActionBar = 2131165492;
 			
 			// aapt resource value: 0x7f070135
-			public const int ThemeOverlay_AppCompat_Light = 2131165493;
+			public const int Widget_AppCompat_ActionBar_Solid = 2131165493;
 			
 			// aapt resource value: 0x7f070136
-			public const int Widget_AppCompat_ActionBar = 2131165494;
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131165494;
 			
 			// aapt resource value: 0x7f070137
-			public const int Widget_AppCompat_ActionBar_Solid = 2131165495;
+			public const int Widget_AppCompat_ActionBar_TabText = 2131165495;
 			
 			// aapt resource value: 0x7f070138
-			public const int Widget_AppCompat_ActionBar_TabBar = 2131165496;
+			public const int Widget_AppCompat_ActionBar_TabView = 2131165496;
 			
 			// aapt resource value: 0x7f070139
-			public const int Widget_AppCompat_ActionBar_TabText = 2131165497;
+			public const int Widget_AppCompat_ActionButton = 2131165497;
 			
 			// aapt resource value: 0x7f07013a
-			public const int Widget_AppCompat_ActionBar_TabView = 2131165498;
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131165498;
 			
 			// aapt resource value: 0x7f07013b
-			public const int Widget_AppCompat_ActionButton = 2131165499;
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131165499;
 			
 			// aapt resource value: 0x7f07013c
-			public const int Widget_AppCompat_ActionButton_CloseMode = 2131165500;
+			public const int Widget_AppCompat_ActionMode = 2131165500;
 			
 			// aapt resource value: 0x7f07013d
-			public const int Widget_AppCompat_ActionButton_Overflow = 2131165501;
+			public const int Widget_AppCompat_ActivityChooserView = 2131165501;
 			
 			// aapt resource value: 0x7f07013e
-			public const int Widget_AppCompat_ActionMode = 2131165502;
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131165502;
 			
 			// aapt resource value: 0x7f07013f
-			public const int Widget_AppCompat_ActivityChooserView = 2131165503;
+			public const int Widget_AppCompat_Button = 2131165503;
 			
 			// aapt resource value: 0x7f070140
-			public const int Widget_AppCompat_AutoCompleteTextView = 2131165504;
+			public const int Widget_AppCompat_Button_Borderless = 2131165504;
 			
 			// aapt resource value: 0x7f070141
-			public const int Widget_AppCompat_Button = 2131165505;
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131165505;
 			
 			// aapt resource value: 0x7f070142
-			public const int Widget_AppCompat_Button_Borderless = 2131165506;
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165506;
 			
 			// aapt resource value: 0x7f070143
-			public const int Widget_AppCompat_Button_Borderless_Colored = 2131165507;
+			public const int Widget_AppCompat_Button_Colored = 2131165507;
 			
 			// aapt resource value: 0x7f070144
-			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165508;
+			public const int Widget_AppCompat_Button_Small = 2131165508;
 			
 			// aapt resource value: 0x7f070145
-			public const int Widget_AppCompat_Button_Colored = 2131165509;
+			public const int Widget_AppCompat_ButtonBar = 2131165509;
 			
 			// aapt resource value: 0x7f070146
-			public const int Widget_AppCompat_Button_Small = 2131165510;
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131165510;
 			
 			// aapt resource value: 0x7f070147
-			public const int Widget_AppCompat_ButtonBar = 2131165511;
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131165511;
 			
 			// aapt resource value: 0x7f070148
-			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131165512;
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131165512;
 			
 			// aapt resource value: 0x7f070149
-			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131165513;
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131165513;
 			
 			// aapt resource value: 0x7f07014a
-			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131165514;
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131165514;
 			
 			// aapt resource value: 0x7f07014b
-			public const int Widget_AppCompat_CompoundButton_Switch = 2131165515;
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131165515;
 			
 			// aapt resource value: 0x7f07014c
-			public const int Widget_AppCompat_DrawerArrowToggle = 2131165516;
+			public const int Widget_AppCompat_EditText = 2131165516;
 			
 			// aapt resource value: 0x7f07014d
-			public const int Widget_AppCompat_DropDownItem_Spinner = 2131165517;
+			public const int Widget_AppCompat_ImageButton = 2131165517;
 			
 			// aapt resource value: 0x7f07014e
-			public const int Widget_AppCompat_EditText = 2131165518;
+			public const int Widget_AppCompat_Light_ActionBar = 2131165518;
 			
 			// aapt resource value: 0x7f07014f
-			public const int Widget_AppCompat_ImageButton = 2131165519;
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131165519;
 			
 			// aapt resource value: 0x7f070150
-			public const int Widget_AppCompat_Light_ActionBar = 2131165520;
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131165520;
 			
 			// aapt resource value: 0x7f070151
-			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131165521;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131165521;
 			
 			// aapt resource value: 0x7f070152
-			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131165522;
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131165522;
 			
 			// aapt resource value: 0x7f070153
-			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131165523;
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131165523;
 			
 			// aapt resource value: 0x7f070154
-			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131165524;
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165524;
 			
 			// aapt resource value: 0x7f070155
-			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131165525;
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131165525;
 			
 			// aapt resource value: 0x7f070156
-			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165526;
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131165526;
 			
 			// aapt resource value: 0x7f070157
-			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131165527;
+			public const int Widget_AppCompat_Light_ActionButton = 2131165527;
 			
 			// aapt resource value: 0x7f070158
-			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131165528;
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131165528;
 			
 			// aapt resource value: 0x7f070159
-			public const int Widget_AppCompat_Light_ActionButton = 2131165529;
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131165529;
 			
 			// aapt resource value: 0x7f07015a
-			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131165530;
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131165530;
 			
 			// aapt resource value: 0x7f07015b
-			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131165531;
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131165531;
 			
 			// aapt resource value: 0x7f07015c
-			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131165532;
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131165532;
 			
 			// aapt resource value: 0x7f07015d
-			public const int Widget_AppCompat_Light_ActivityChooserView = 2131165533;
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131165533;
 			
 			// aapt resource value: 0x7f07015e
-			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131165534;
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131165534;
 			
 			// aapt resource value: 0x7f07015f
-			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131165535;
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131165535;
 			
 			// aapt resource value: 0x7f070160
-			public const int Widget_AppCompat_Light_ListPopupWindow = 2131165536;
+			public const int Widget_AppCompat_Light_PopupMenu = 2131165536;
 			
 			// aapt resource value: 0x7f070161
-			public const int Widget_AppCompat_Light_ListView_DropDown = 2131165537;
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131165537;
 			
 			// aapt resource value: 0x7f070162
-			public const int Widget_AppCompat_Light_PopupMenu = 2131165538;
+			public const int Widget_AppCompat_Light_SearchView = 2131165538;
 			
 			// aapt resource value: 0x7f070163
-			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131165539;
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131165539;
 			
 			// aapt resource value: 0x7f070164
-			public const int Widget_AppCompat_Light_SearchView = 2131165540;
+			public const int Widget_AppCompat_ListMenuView = 2131165540;
 			
 			// aapt resource value: 0x7f070165
-			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131165541;
+			public const int Widget_AppCompat_ListPopupWindow = 2131165541;
 			
 			// aapt resource value: 0x7f070166
-			public const int Widget_AppCompat_ListMenuView = 2131165542;
+			public const int Widget_AppCompat_ListView = 2131165542;
 			
 			// aapt resource value: 0x7f070167
-			public const int Widget_AppCompat_ListPopupWindow = 2131165543;
+			public const int Widget_AppCompat_ListView_DropDown = 2131165543;
 			
 			// aapt resource value: 0x7f070168
-			public const int Widget_AppCompat_ListView = 2131165544;
-			
-			// aapt resource value: 0x7f070169
-			public const int Widget_AppCompat_ListView_DropDown = 2131165545;
-			
-			// aapt resource value: 0x7f07016a
-			public const int Widget_AppCompat_ListView_Menu = 2131165546;
+			public const int Widget_AppCompat_ListView_Menu = 2131165544;
 			
 			// aapt resource value: 0x7f0700af
 			public const int Widget_AppCompat_NotificationActionContainer = 2131165359;
@@ -4755,62 +4785,62 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0700b0
 			public const int Widget_AppCompat_NotificationActionText = 2131165360;
 			
+			// aapt resource value: 0x7f070169
+			public const int Widget_AppCompat_PopupMenu = 2131165545;
+			
+			// aapt resource value: 0x7f07016a
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131165546;
+			
 			// aapt resource value: 0x7f07016b
-			public const int Widget_AppCompat_PopupMenu = 2131165547;
+			public const int Widget_AppCompat_PopupWindow = 2131165547;
 			
 			// aapt resource value: 0x7f07016c
-			public const int Widget_AppCompat_PopupMenu_Overflow = 2131165548;
+			public const int Widget_AppCompat_ProgressBar = 2131165548;
 			
 			// aapt resource value: 0x7f07016d
-			public const int Widget_AppCompat_PopupWindow = 2131165549;
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131165549;
 			
 			// aapt resource value: 0x7f07016e
-			public const int Widget_AppCompat_ProgressBar = 2131165550;
+			public const int Widget_AppCompat_RatingBar = 2131165550;
 			
 			// aapt resource value: 0x7f07016f
-			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131165551;
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131165551;
 			
 			// aapt resource value: 0x7f070170
-			public const int Widget_AppCompat_RatingBar = 2131165552;
+			public const int Widget_AppCompat_RatingBar_Small = 2131165552;
 			
 			// aapt resource value: 0x7f070171
-			public const int Widget_AppCompat_RatingBar_Indicator = 2131165553;
+			public const int Widget_AppCompat_SearchView = 2131165553;
 			
 			// aapt resource value: 0x7f070172
-			public const int Widget_AppCompat_RatingBar_Small = 2131165554;
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131165554;
 			
 			// aapt resource value: 0x7f070173
-			public const int Widget_AppCompat_SearchView = 2131165555;
+			public const int Widget_AppCompat_SeekBar = 2131165555;
 			
 			// aapt resource value: 0x7f070174
-			public const int Widget_AppCompat_SearchView_ActionBar = 2131165556;
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131165556;
 			
 			// aapt resource value: 0x7f070175
-			public const int Widget_AppCompat_SeekBar = 2131165557;
+			public const int Widget_AppCompat_Spinner = 2131165557;
 			
 			// aapt resource value: 0x7f070176
-			public const int Widget_AppCompat_SeekBar_Discrete = 2131165558;
+			public const int Widget_AppCompat_Spinner_DropDown = 2131165558;
 			
 			// aapt resource value: 0x7f070177
-			public const int Widget_AppCompat_Spinner = 2131165559;
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131165559;
 			
 			// aapt resource value: 0x7f070178
-			public const int Widget_AppCompat_Spinner_DropDown = 2131165560;
+			public const int Widget_AppCompat_Spinner_Underlined = 2131165560;
 			
 			// aapt resource value: 0x7f070179
-			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131165561;
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131165561;
 			
 			// aapt resource value: 0x7f07017a
-			public const int Widget_AppCompat_Spinner_Underlined = 2131165562;
+			public const int Widget_AppCompat_Toolbar = 2131165562;
 			
 			// aapt resource value: 0x7f07017b
-			public const int Widget_AppCompat_TextView_SpinnerItem = 2131165563;
-			
-			// aapt resource value: 0x7f07017c
-			public const int Widget_AppCompat_Toolbar = 2131165564;
-			
-			// aapt resource value: 0x7f07017d
-			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131165565;
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131165563;
 			
 			// aapt resource value: 0x7f070005
 			public const int Widget_Design_AppBarLayout = 2131165189;
