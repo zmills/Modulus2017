@@ -51,7 +51,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             FragmentTransaction _transaction = Activity.SupportFragmentManager.BeginTransaction();
 
             string _buttonName = (sender as Button).Text;
-
             switch (_buttonName)
             {
                 case AndroidApp.FacilityCategory.Academics:
@@ -75,8 +74,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             }
             _transaction.AddToBackStack("Layered");
             _transaction.Commit();
-            View view = Activity.FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            view.Visibility = ViewStates.Gone;
+            View _view = Activity.FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
+            _view.Visibility = ViewStates.Gone;
         }
     }
 }

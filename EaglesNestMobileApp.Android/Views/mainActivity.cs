@@ -86,7 +86,7 @@ namespace EaglesNestMobileApp.Android.Views
             else if (_previousFragmentName != App.PageKeys.HomePageKey)
             {
                 LoadFragment(App.PageKeys.HomePageKey);
-                Toast.MakeText(this, "Press back again to close application.",
+                Toast.MakeText(this, "Press back again to exit application.",
                     ToastLength.Short).Show();
                 BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
             }

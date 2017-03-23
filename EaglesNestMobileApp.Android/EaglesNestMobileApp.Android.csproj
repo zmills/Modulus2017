@@ -211,6 +211,7 @@
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="Adapters\varsityTabListener.cs" />
     <Compile Include="AndroidApp.cs" />
+    <Compile Include="AndroidApp.FacilityCategory.cs" />
     <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />

@@ -15,7 +15,7 @@ using JimBobBennett.MvvmLight.AppCompat;
 
 namespace EaglesNestMobileApp.Android
 {
-    public static class AndroidApp
+    public static partial class AndroidApp
     {
         private static ViewModelLocator _locator;
         public static ViewModelLocator Locator
@@ -38,16 +38,6 @@ namespace EaglesNestMobileApp.Android
 
                 return _locator;
             }
-        }
-
-        public static class FacilityCategory
-        {
-            public const string Dining = "Dining";
-            public const string Academics = "Academic";
-            public const string Dorm = "Dorm";
-            public const string Service = "Service";
-            public const string Church = "Church";
-            public const string Recreation = "Recreation";
         }
     }
 }
