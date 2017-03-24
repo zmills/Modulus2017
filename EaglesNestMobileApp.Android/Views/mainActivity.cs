@@ -23,7 +23,7 @@ using Android.Views;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", MainLauncher = false, 
+   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1", MainLauncher = false, 
              Theme = "@style/AppCompatLightTheme")]
    
     /* See loginActivity for base class explanation                          */
