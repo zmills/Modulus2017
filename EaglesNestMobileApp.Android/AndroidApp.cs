@@ -15,7 +15,7 @@ using JimBobBennett.MvvmLight.AppCompat;
 
 namespace EaglesNestMobileApp.Android
 {
-    public static class AndroidApp
+    public static partial class AndroidApp
     {
         private static ViewModelLocator _locator;
         public static ViewModelLocator Locator
@@ -28,10 +28,9 @@ namespace EaglesNestMobileApp.Android
                     /* service along with the dialog service. See the ViewModelLocator      */
                     /* class in the PCL                                                     */
                     AppCompatNavigationService _navigator = new AppCompatNavigationService();
+
                     _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
-                    _navigator.Configure(App.PageKeys.LoginPageKey, typeof(loginActivity));
-                    
-                    /* Register the navigation service                                      */
+
                     ViewModelLocator.RegisterNavigationService(_navigator);
 
                     _locator = new ViewModelLocator();

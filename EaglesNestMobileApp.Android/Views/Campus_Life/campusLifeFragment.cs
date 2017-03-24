@@ -54,6 +54,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             TabLayout.SetupWithViewPager(CurrentPager);
             return CurrentView;
+
         }
     }
 }
