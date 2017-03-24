@@ -96,7 +96,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         await Database.InsertLocalTokenAsync(CurrentUser);
                         await Database.SyncAsync();
                         /* Allow access to the application main page         */
+                        EnableLoginButton = true;
                         NavigateToMainPage();
+
                     }
                 }
                 /* How are we going to signal to the user the  errors?       */
