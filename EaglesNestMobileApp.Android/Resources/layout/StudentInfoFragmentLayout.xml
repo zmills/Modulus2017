@@ -1,7 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <!-- ScrollView can only have ONE direct child -->
+    
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
 
-</LinearLayout>
+            <!-- 1. STUDENT INFO HEADER -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoHeaderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    >
+
+                    <!-- ACCOUNT PHOTO -->
+                    <!-- NOTE: android:src is set programmatically for this view -->
+                    <ImageView
+                        android:id="@+id/AccountPhoto"
+                        android:layout_width="112dp"
+                        android:layout_height="112dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/account_circle"
+                        android:padding="2dp"
+                        />
+                        <!-- android:adjustViewBounds="true"
+                             This causes the ImageView to resize itself to fit the
+                             shape of the rescaled image. INCLUDE THIS -->
+                        <!-- android:scaleType="centerCrop"
+                             This scales the image uniformly (maintain the image's
+                             aspect ratio), then centers it. -->
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        >
+                        
+                        <!-- STUDENT NAME -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModRobotoMedium20"
+                            android:text="Marcelino Augello"
+                            />
+
+                        <!-- STUDENT ID -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:text="123451"
+                            />
+                        
+                    </LinearLayout>    
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 2. ACADEMIC INFO -->
+            <!-- Academic Info Title-->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoMedium20"
+                android:text="Academic Info"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+                
+            <android.support.v7.widget.CardView
+                android:id="@+id/AcademicInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    >
+
+                    <!-- Major Title -->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModListItemPrimaryText"
+                        android:text="Major"
+                        />
+                    <!-- Major Data-->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModListItemSecondaryText"
+                        android:text="Computer Science and Software Engineering"
+                        />
+
+                    <!-- Minor Title -->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModListItemPrimaryText"
+                        android:text="Minor"
+                        />
+                    <!-- Minor Data -->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModListItemSecondaryText"
+                        android:text="Web Development"
+                        />
+
+                    <!-- Checksheet/Plan of Study Title -->
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModListItemPrimaryText"
+                        android:text="Checksheet/Plan of Study"
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- STUDENT INFO -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <!-- Room -->
+
+                <!-- Box# & Combination -->
+
+                <!-- Collegian & Location -->
+
+                <!-- Chapel Seat -->
+
+            </android.support.v7.widget.CardView>
+
+            <!-- STUDENT CONTACT INFO -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentContactInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+            </android.support.v7.widget.CardView>
+
+            <!-- PERSONAL CONTACT INFO -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/PersonalContactInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+            </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
