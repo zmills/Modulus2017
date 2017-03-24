@@ -446,7 +446,7 @@
     <AndroidResource Include="Resources\drawable\TheNestLogo3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\account_photo2.png" />
+    <AndroidResource Include="Resources\drawable\account_photo2%28half-size%29.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\account_photo.jpg" />
