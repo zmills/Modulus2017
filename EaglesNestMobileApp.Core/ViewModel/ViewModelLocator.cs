@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -32,6 +33,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginActivityViewModel>();
             SimpleIoc.Default.Register<IAzureService, AzureService>();
+            SimpleIoc.Default.Register<StudentInfoFragmentViewModel>();
             //SimpleIoc.Default.Register<AcademicsViewModel>(true);
             //SimpleIoc.Default.Register<DiningViewModel>(true);
             //SimpleIoc.Default.Register<AccountViewModel>(true);
@@ -58,6 +60,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* viewmodel                                                           */
         public LoginActivityViewModel Login =>
            ServiceLocator.Current.GetInstance<LoginActivityViewModel>();
+        public StudentInfoFragmentViewModel StudentInfo =>
+           ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
         public INavigationService Navigator =>
            ServiceLocator.Current.GetInstance<INavigationService>();
         public MainViewModel Main =>

@@ -44,7 +44,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             CurrentPager =
                 CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
-
             CurrentPager.Adapter =
                 new navigationAdapter(ChildFragmentManager,
                                          CampusLifeFragments,

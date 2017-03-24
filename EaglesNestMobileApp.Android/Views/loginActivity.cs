@@ -41,6 +41,7 @@ namespace EaglesNestMobileApp.Android
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
+            RunOnUiThread(async ()=> await LoginViewModel.CheckUserAsync());
 
             /* Bind views to the viewmodel                                      */
             Username = FindViewById<EditText>(Resource.Id.UserId);

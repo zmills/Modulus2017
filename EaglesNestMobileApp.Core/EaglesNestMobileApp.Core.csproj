@@ -64,6 +64,7 @@
     <Compile Include="Model\Food\GrabAndGoItem.cs" />
     <Compile Include="Model\Food\VarsityItem.cs" />
     <Compile Include="ViewModel\AcademicsViewModels\GradesFragmentViewModel.cs" />
+    <Compile Include="ViewModel\CampusLifeViewModels\FacilitiesFragmentViewModel.cs" />
     <Compile Include="ViewModel\DiningViewModels\DiningFragmentsViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModels\StudentInfoFragmentViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\AnnouncementsFragmentViewModel.cs" />
@@ -73,9 +74,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\CampusLifeViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>

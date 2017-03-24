@@ -54,7 +54,7 @@ namespace EaglesNestMobileApp.Android.Views
             /*( Set our view from the "main" layout resource                 */
             SetContentView(Resource.Layout.BottomNavLayout);
 
-            InitializeNavigation();
+            RunOnUiThread(()=>InitializeNavigation());
          }
 
         private void InitializeNavigation()
@@ -97,19 +97,19 @@ namespace EaglesNestMobileApp.Android.Views
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    LoadFragment(App.PageKeys.HomePageKey);
+                    RunOnUiThread(()=>LoadFragment(App.PageKeys.HomePageKey));
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    LoadFragment(App.PageKeys.AcademicsPageKey);
+                    RunOnUiThread(() =>LoadFragment(App.PageKeys.AcademicsPageKey));
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    LoadFragment(App.PageKeys.CampusLifePageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.CampusLifePageKey));
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    LoadFragment(App.PageKeys.DiningPageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.DiningPageKey));
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    LoadFragment(App.PageKeys.AccountPageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.AccountPageKey));
                     break;
             }
         }

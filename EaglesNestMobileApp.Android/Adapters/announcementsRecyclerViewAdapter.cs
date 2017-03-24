@@ -11,23 +11,25 @@ using EaglesNestMobileApp.Android.Helpers;
 using System.Collections.ObjectModel;
 using System;
 using Android.Content;
+using EaglesNestMobileApp.Android.Views;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
     public class announcementsRecyclerViewAdapter : RecyclerView.Adapter
     {
         /* List of annoucements to be displayed as cards                     */
-        public Context Context;
+        public mainActivity _context;
         public List<Card> Announcements { get; set; }
         public announcementViewHolder CurrentHolder { get; set; }
 
         /*********************************************************************/
         /* Constructor                                                       */
         /*********************************************************************/
-        public announcementsRecyclerViewAdapter(Context context, List<Card> announcements)
+        public announcementsRecyclerViewAdapter(mainActivity context,
+            List<Card> announcements)
         {
             /* Set the context                                               */
-            Context = context;
+            _context = context;
 
             /* Set the local announcements list to the list passed in from   */
             /* the fragment                                                  */
@@ -98,8 +100,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             /* recyclerview and set its title and image                      */
             Card card = Announcements[position];
             CurrentHolder = holder as announcementViewHolder;
-
-            CurrentHolder.BindCard(card);
+            _context.RunOnUiThread(()=>CurrentHolder.BindCard(card));
         }
 
         /*********************************************************************/

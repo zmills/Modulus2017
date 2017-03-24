@@ -12,6 +12,7 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.Services
@@ -68,30 +69,30 @@ namespace EaglesNestMobileApp.Core.Services
                 if (pullData)
                 {
                     /* Pull down student related tables                      */
-                    await _assignmentTable.PullAsync("allAssignments",
-                        _assignmentTable.Where(assignment => 
-                            assignment.StudentId == App.Locator.User.Id));
+                    //await _assignmentTable.PullAsync("allAssignments",
+                    //    _assignmentTable.Where(assignment => 
+                    //        assignment.StudentId == App.Locator.User.Id));
 
-                    await _courseTable.PullAsync("allCourses",
-                        _courseTable.Where(course => 
-                            course.StudentId == App.Locator.User.Id));
+                    //await _courseTable.PullAsync("allCourses",
+                    //    _courseTable.Where(course => 
+                    //        course.StudentId == App.Locator.User.Id));
 
-                    await _studentTable.PullAsync("currentStudent",
-                        _studentTable.Where(student => 
-                            student.Id == App.Locator.User.Id));
+                    //await _studentTable.PullAsync("currentStudent",
+                    //    _studentTable.Where(student => 
+                    //        student.Id == App.Locator.User.Id));
 
-                    /* Pull down non student related tables                 */
-                    await _fourWindsTable.PullAsync("allFourWindsItems",
-                        _fourWindsTable.CreateQuery());
-                    await _varsityTable.PullAsync("allVarsityItems", 
-                        _varsityTable.CreateQuery());
-                    await _grabAndGoTable.PullAsync("allGrabAndGoItems",
-                        _grabAndGoTable.CreateQuery());
+                    ///* Pull down non student related tables                 */
+                    //await _fourWindsTable.PullAsync("allFourWindsItems",
+                    //    _fourWindsTable.CreateQuery());
+                    //await _varsityTable.PullAsync("allVarsityItems", 
+                    //    _varsityTable.CreateQuery());
+                    //await _grabAndGoTable.PullAsync("allGrabAndGoItems",
+                    //    _grabAndGoTable.CreateQuery());
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"{ex.Message} in SyncAsync {ex.Source} {ex.HResult}");
+                Debug.WriteLine($"{ex.Message} in SyncAsync");
             }
         }
 
@@ -172,7 +173,11 @@ namespace EaglesNestMobileApp.Core.Services
         public async Task<LocalToken> GetLocalTokenAsync()
         {
             List<LocalToken> list = await _localTokenTable.ToListAsync();
-            return list[0];
+
+            if (list.Count != 0)
+                return list[0];
+            else
+                return null;
         }
 
         /*********************************************************************/
@@ -181,9 +186,16 @@ namespace EaglesNestMobileApp.Core.Services
         // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
         public async Task<AzureToken> GetAzureTokenAsync(LocalToken currentUser)
         {
-            await _azureTokenTable.PullAsync("loginUser", _azureTokenTable.Where(user => user.Id == currentUser.Id));
 
-            var list = await _azureTokenTable.Where(user => user.Id == currentUser.Id).ToListAsync();
+            //APPARENTLY THIS DOES NOT WORK PROPERLY
+            await _azureTokenTable.PullAsync("loginUser", 
+                _azureTokenTable.Where(user => user.Id == currentUser.Id));
+
+            List<AzureToken> list = await _azureTokenTable.Where(user =>
+                user.Id == currentUser.Id).ToListAsync();
+
+            //DELETE THE LOGIN INFORMATION
+            await _azureTokenTable.PurgeAsync();
             return list[0];
         }
 
@@ -202,6 +214,36 @@ namespace EaglesNestMobileApp.Core.Services
         public async Task InsertLocalTokenAsync(LocalToken user)
         {
             await _localTokenTable.InsertAsync(user);
+        }
+
+        /*********************************************************************/
+        /*                      Insert into local store                      */
+        /*********************************************************************/
+        public async Task PurgeDatabaseAsync()
+        {
+            await _assignmentTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _courseTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _fourWindsTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _varsityTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _grabAndGoTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
+
+            await _studentTable.PurgeAsync(null, null, true,
+                CancellationToken.None);
+
+            await _localTokenTable.PurgeAsync(null, null, true,
+                CancellationToken.None);
+
+            await _azureTokenTable.PurgeAsync(null, null, true, 
+                CancellationToken.None);
         }
     }
 }

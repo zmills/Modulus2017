@@ -61,7 +61,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             /* Create a custom adapter and pass it the data that it will be  */
             /* recycling through                                             */
             AnnouncementAdapter = 
-                new announcementsRecyclerViewAdapter(Activity, Announcements);
+                new announcementsRecyclerViewAdapter(Activity as mainActivity, Announcements);
             /* Helps with performance: HasStableIds = true 
                ALTHOUGH FOR NOW, DO NOT INCLUDE THIS: DATA DOES NOT DISPLAY 
                CORRECTLY                                                     */
