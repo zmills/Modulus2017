@@ -36,25 +36,25 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
         /* Sets up the viewpager, tabs, and the titles of the tabs when the  */
         /* campus life item is selected                                      */
-        public override View OnCreateView(LayoutInflater inflater, 
+        public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
-            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
+            CurrentView = inflater.Inflate(Resource.Layout.TabLayout,
                                               container, false);
 
-            CurrentPager = 
+            CurrentPager =
                 CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
-
-            CurrentPager.Adapter = 
-                new navigationAdapter(ChildFragmentManager, 
-                                         CampusLifeFragments, 
+            CurrentPager.Adapter =
+                new navigationAdapter(ChildFragmentManager,
+                                         CampusLifeFragments,
                                              App.Tabs.CampusLifePage);
 
-            TabLayout = 
+            TabLayout =
                 CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
 
             TabLayout.SetupWithViewPager(CurrentPager);
             return CurrentView;
+
         }
     }
 }

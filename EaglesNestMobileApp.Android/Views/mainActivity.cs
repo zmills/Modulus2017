@@ -14,14 +14,16 @@ using EaglesNestMobileApp.Android.Views.Academics;
 using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Fragment = Android.Support.V4.App.Fragment;
 using Android.App;
 using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
+using Android.Views;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", MainLauncher = true, 
+   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1", MainLauncher = false, 
              Theme = "@style/AppCompatLightTheme")]
    
     /* See loginActivity for base class explanation                          */
@@ -53,7 +55,6 @@ namespace EaglesNestMobileApp.Android.Views
 
             /*( Set our view from the "main" layout resource                 */
             SetContentView(Resource.Layout.BottomNavLayout);
-
             InitializeNavigation();
          }
 
@@ -73,19 +74,25 @@ namespace EaglesNestMobileApp.Android.Views
             /* If the entry on top of the backstack is the home page, close  */
             /* the application else load the homepage and show the user a    */
             /* warning toast                                                 */
-            if (SupportFragmentManager.GetBackStackEntryAt(
-                SupportFragmentManager.BackStackEntryCount - 1).Name ==
-                App.PageKeys.HomePageKey)
+            string _previousFragmentName = 
+                SupportFragmentManager.GetBackStackEntryAt(
+                    SupportFragmentManager.BackStackEntryCount - 1).Name;
+
+            if(_previousFragmentName == "Layered")
             {
-                FinishAffinity();
-                System.Environment.Exit(0);
+                base.OnBackPressed();
+                _bottomNavigationMenu.Visibility = ViewStates.Visible;
+            }
+            else if (_previousFragmentName != App.PageKeys.HomePageKey)
+            {
+                LoadFragment(App.PageKeys.HomePageKey);
+                Toast.MakeText(this, "Press back again to exit application.",
+                    ToastLength.Short).Show();
+                BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
             }
             else
             {
-                LoadFragment(App.PageKeys.HomePageKey);
-                Toast.MakeText(this, "Press back again to close application.",
-                    ToastLength.Short).Show();
-                BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+                FinishAffinity();
             }
         }
 

@@ -9,6 +9,8 @@
 using Android.Runtime;
 using EaglesNestMobileApp.Core.ViewModel;
 using Java.Lang;
+using Microsoft.WindowsAzure.MobileServices;
+
 namespace EaglesNestMobileApp.Core
 {
     public static class App
@@ -17,6 +19,33 @@ namespace EaglesNestMobileApp.Core
         private static ViewModelLocator _locator;
         public static ViewModelLocator Locator =>
            _locator ?? (_locator = new ViewModelLocator());
+
+        private static MobileServiceClient client;
+        public static MobileServiceClient Client =>
+            client ?? (client = new MobileServiceClient("https://modulus.azurewebsites.net"));
+
+        /* Local DataBase name.                                              */
+        public const string DatabaseName = "EagleDatabase12.db";
+
+        /* Mealtimes                                                         */
+        public static class MealTimes
+        {
+            public const string Breakfast = "Breakfast";
+            public const string Lunch = "Lunch";
+            public const string Dinner = "Dinner";
+        }
+
+        /* Keys for the various food lines.                                  */
+        public static class LineKeys
+        {
+            public const string LineOne = "1";
+            public const string LineTwo = "2";
+            public const string LineThree = "3";
+            public const string LineFour = "4";
+            public const string LineFive = "5";
+            public const string LineSix = "6";
+            public const string LineSeven = "7";
+        }
 
         /* Keys for the various activities and fragments                     */
         public static class PageKeys
@@ -33,7 +62,7 @@ namespace EaglesNestMobileApp.Core
         /* The titles for each tab in the pages                              */
         public static class Tabs
         {
-            public static ICharSequence[] HomePage = 
+            public static ICharSequence[] HomePage =
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Announcements",
