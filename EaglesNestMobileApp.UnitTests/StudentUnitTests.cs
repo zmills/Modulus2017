@@ -1,19 +1,24 @@
-﻿using EaglesNestMobileApp.Core.Model;
+﻿/*****************************************************************************/
+/*                               StudentUnitTests                            */
+/*          This class test each unit of work in the Student class.          */
+/*                                                                           */
+/*****************************************************************************/
+using EaglesNestMobileApp.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace EaglesNestMobileApp.UnitTests
 {
-    /// <summary>
-    /// Summary description for StudentTests
-    /// </summary>
     [TestClass]
     public class StudentTests
     {
+        /*********************************************************************/
+        /*          Test what happens when the full name is valid            */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameTestValid()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.FirstName = "Zachary";
             student.LastName = "Mills";
@@ -21,137 +26,122 @@ namespace EaglesNestMobileApp.UnitTests
 
             String expected = "Mills, Zachary Nathanial";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when the first name is empty           */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameFirstNameEmpty()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.MiddleName = "Nathanial";
             student.LastName = "Mills";
             string expected = "Mills, Nathanial";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when the last name is empty            */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameLastNameEmpty()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.FirstName = "Zachary";
             student.MiddleName = "Nathanial";
             string expected = "Zachary Nathanial";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when the middle name is empty          */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameMiddleNameEmpty()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.FirstName = "Zachary";
             student.LastName = "Mills";
             string expected = "Mills, Zachary";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when full name is first name only      */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameFirstNameOnly()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.FirstName = "Zachary";
             string expected = "Zachary";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when full name is middle name only     */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameMiddleNameOnly()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.MiddleName = "Nathanial";
             string expected = "Nathanial";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
 
+        /*********************************************************************/
+        /*          Test what happens when full name is last name only       */
+        /*********************************************************************/
         [TestMethod]
         public void FullNameLastNameOnly()
         {
-            /* Arrange */
+            /* Arrange                                                       */
             Student student = new Student();
             student.LastName = "Mills";
             string expected = "Mills";
 
-            /* Act     */
+            /* Act                                                           */
             string actual = student.FullName;
 
-            /* Assert  */
+            /* Assert                                                        */
             Assert.AreEqual(expected, actual);
         }
-
-        //[TestMethod]
-        //public void ValidateValid()
-        //{
-        //    /* Arrange */
-        //    var Student = new Student();
-        //    Student.LastName = "Baggins";
-        //    Student.EmailAddress = "fbaggins@hobbiton.me";
-
-        //    /* Act     */
-        //    var expected = true;
-
-        //    /* Assert  */
-        //    var actual = Student.Validate();
-
-        //    Assert.AreEqual(expected, actual);
-        //}
-
-        //[TestMethod]
-        //public void ValidateMissingLastName()
-        //{
-        //    /* Arrange */
-        //    var Student = new Student();
-        //    Student.EmailAddress = "fbaggins@hobbiton.me";
-
-        //    /* Act     */
-        //    var expected = false;
-
-        //    /* Assert  */
-        //    var actual = Student.Validate();
-
-        //    Assert.AreEqual(expected, actual);
-        //}
     }
 }
