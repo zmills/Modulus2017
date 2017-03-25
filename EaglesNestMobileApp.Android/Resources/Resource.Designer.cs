@@ -4218,14 +4218,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070003
 			public const int CardView_Light = 2131165187;
 			
-			// aapt resource value: 0x7f070185
-			public const int ModAttendanceCard = 2131165573;
+			// aapt resource value: 0x7f070189
+			public const int ModAttendanceCard = 2131165577;
 			
 			// aapt resource value: 0x7f07017d
 			public const int ModBorderlessButton = 2131165565;
 			
-			// aapt resource value: 0x7f070184
-			public const int ModFoodHeader = 2131165572;
+			// aapt resource value: 0x7f070186
+			public const int ModDivider = 2131165574;
+			
+			// aapt resource value: 0x7f070188
+			public const int ModFoodHeader = 2131165576;
 			
 			// aapt resource value: 0x7f070180
 			public const int ModListItemPrimaryText = 2131165568;
@@ -4242,17 +4245,26 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070182
 			public const int ModRobotoMedium20 = 2131165570;
 			
+			// aapt resource value: 0x7f070184
+			public const int ModRobotoRegular16 = 2131165572;
+			
 			// aapt resource value: 0x7f070183
-			public const int ModRobotoRegular16 = 2131165571;
+			public const int ModRobotoRegular20 = 2131165571;
+			
+			// aapt resource value: 0x7f070185
+			public const int ModRobotoThin20 = 2131165573;
 			
 			// aapt resource value: 0x7f070187
-			public const int ModTextViewFullUnderline = 2131165575;
+			public const int ModStudentInfoDivider = 2131165575;
 			
-			// aapt resource value: 0x7f070188
-			public const int ModTextViewUnderline = 2131165576;
+			// aapt resource value: 0x7f07018b
+			public const int ModTextViewFullUnderline = 2131165579;
 			
-			// aapt resource value: 0x7f070186
-			public const int ModViewSpacing = 2131165574;
+			// aapt resource value: 0x7f07018c
+			public const int ModTextViewUnderline = 2131165580;
+			
+			// aapt resource value: 0x7f07018a
+			public const int ModViewSpacing = 2131165578;
 			
 			// aapt resource value: 0x7f07003d
 			public const int Platform_AppCompat = 2131165245;
