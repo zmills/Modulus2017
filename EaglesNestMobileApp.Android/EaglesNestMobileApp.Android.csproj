@@ -446,7 +446,7 @@
     <AndroidResource Include="Resources\drawable\TheNestLogo3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\account_photo2%28halfsize%29.png" />
+    <AndroidResource Include="Resources\drawable\account_photo2.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\account_photo.jpg" />
@@ -456,6 +456,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ExamScheduleRecyclerViewLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AttendanceRecyclerViewLayout.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
