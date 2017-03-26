@@ -1,94 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:padding="8dp"
-    android:orientation="vertical"
-    >
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/exam_time_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        cardview:cardBackgroundColor="@color/white"
-        cardview:cardElevation="2dp"
-        cardview:cardUseCompatPadding="false"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp"
-            >
-
-            <TextView
-                android:id="@+id/examClassNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="BI 223-1"
-                android:textSize="24dp"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:id="@+id/examClassName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16dp"
-                android:text="Life of David"
-                />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                >
-
-                <TextView
-                    android:id="@+id/examDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tue. May 1"
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="8dp"
-                    />
-
-                <TextView
-                    android:id="@+id/examTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8:30–9:50 a.m."
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    />
-
-                <TextView
-                    android:id="@+id/examRoomLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:text="AC 413"
-                    android:layout_weight="1"
-                    />
-
-            </LinearLayout>
-        
-        </LinearLayout>
-    
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
+<android.support.v7.widget.RecyclerView
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:id="@+id/ExamSchedulerRecyclerView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:clipToPadding="false"
+       android:paddingTop="8dp"
+       android:scrollbars="vertical"
+        />
