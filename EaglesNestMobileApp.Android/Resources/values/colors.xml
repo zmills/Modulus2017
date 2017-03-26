@@ -19,8 +19,13 @@
     <color name="primary_text">#212121</color>      <!-- Black -->
     <color name="secondary_text">#757575</color>    <!-- Dark Grey -->
     <color name="icons">#FFFFFF</color>             <!-- White -->
-    <color name="divider">#BDBDBD</color>           <!-- Grey -->
+    <color name="divider">#BDBDBD</color>           <!-- Grey (divider) -->
+    <color name="divider_light">#E0E0E0</color>     <!-- Grey (divider light) -->
     <color name="window_background">#E2E2E2</color> <!-- Grey Background -->
+    
+    <!-- <default mimics> -->
+    <color name="default_primary_text">#757575</color>
+    <color name="default_secondary_text">#777777</color>
     
     <!-- OTHER COLORS -->
     <color name="clear">#0000</color>

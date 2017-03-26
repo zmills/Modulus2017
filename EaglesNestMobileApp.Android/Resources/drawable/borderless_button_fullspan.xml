@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- RIPPLE EFFECT FOR BORDERLESS BUTTON FULLSPAN -->
+
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:colorControlHighlight" >
+    <item android:id="@android:id/mask" >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle" >
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</ripple>

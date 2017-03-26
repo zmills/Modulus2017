@@ -10,7 +10,7 @@
 * Sub-headers:
 *   <Sub Header>
 *
-* Place 3 return lines above each HEADER.
+* Place 3 return lines above each HEADER and 1 return line below.
 *
 ****************************************************************************-->
 
@@ -23,14 +23,19 @@
 *
 * android:textSize must contain a value. An error will be thrown if contains
 * @string/...
-*
 * Example:
 *   CORRECT:    <item name="android:textSize">16sp</item>
 *   INCORRECT:  <item name="android:textSize">@string/my_font_size</item>
+*
+* PRECEDENCE
+*   Styles declared in the xml layout file take precedence over styles that
+*   are declared here.
+*
 ****************************************************************************-->
 
 <resources>
     <!-- THEME -->
+    
     <style name="AppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="android:windowNoTitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
@@ -66,6 +71,8 @@
     
     
     <!-- BUTTON STYLES -->
+    
+    <!-- <Borderless Button> -->
     <style name="ModBorderlessButton">
         <!--<item name="android:padding">8dp</item>-->
         <item name="android:layout_width">wrap_content</item>
@@ -74,7 +81,19 @@
         <item name="android:padding">8dp</item>
         <item name="android:background">@drawable/borderless_button</item>
     </style>
-    
+    <!-- <Borderless Button Full Span> -->
+    <style name="ModBorderlessButtonFullSpan">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/borderless_button_fullspan</item>
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
     <!-- To use the default Borderless Button Widget, set
          parent="Widget.AppCompat.Button.Borderless" in the button style -->
     <!-- Other attributes can be set for modification:
@@ -84,6 +103,7 @@
     
     
     <!-- TEXT INPUT STYLES -->
+    
     <style name="ModLoginTextInput">
         <item name="colorControlActivated">@color/primary</item>
         <item name="colorControlHighlight">@color/primary</item>
@@ -116,29 +136,31 @@
         <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <style name="ModRobotoRegular16">
-        <item name="android:fontFamily">@string/roboto_regular</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-    <style name="ModRobotoRegular16">
-        <item name="android:fontFamily">@string/roboto_regular</item>
-        <item name="android:textSize">16sp</item>
-    </style>
     <style name="ModRobotoThin20">
         <item name="android:fontFamily">@string/roboto_thin</item>
         <item name="android:textSize">20sp</item>
+    </style>
+    <style name="ModRobotoRegular16">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
   
     
     <!-- DIVIDER STYLES -->
+    
     <style name="ModDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/divider</item>
+        <item name="android:background">@color/divider_light</item>
+    </style>
+    <style name="ModDividerLight" parent="ModDivider">
+        <item name="android:background">@color/divider_light</item>
     </style>
     <style name="ModStudentInfoDivider" parent="ModDivider">
         <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     
