@@ -13,7 +13,7 @@ using Android.Graphics;
 using static Android.Support.V4.App.ActionBarDrawerToggle;
 using Android.Support.V7.View;
 
-// Referenced from:
+// Adapted from:
 // http://stackoverflow.com/questions/6799066/how-to-use-multiple-touchdelegate/20051314#20051314
 // 
 

@@ -34,7 +34,7 @@
             android:id="@+id/MainTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="?attr/modTabLayoutColor"
             android:elevation="0dp"
             app:tabMode="scrollable"
             />
