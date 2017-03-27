@@ -23,7 +23,7 @@
                 android:id="@+id/StudentInfoHeaderCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/white"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
                 card_view:cardElevation="2dp"
                 card_view:cardUseCompatPadding="false"
                 android:layout_marginTop="0dp"
@@ -105,7 +105,7 @@
                 android:id="@+id/AcademicInfoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/white"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
                 card_view:cardElevation="2dp"
                 card_view:cardUseCompatPadding="false"
                 android:layout_marginTop="0dp"
@@ -150,7 +150,7 @@
                     </LinearLayout>
                     
                     <!-- Divider Line -->
-                    <View style="@style/ModStudentInfoDivider" />
+                    <View style="@style/ModDividerWithMargins" />
                     
                     <!-- Minor Container -->
                     <LinearLayout
@@ -181,7 +181,7 @@
                     </LinearLayout>
                         
                     <!-- Divider Line -->
-                    <!--<View style="@style/ModStudentInfoDivider" />-->
+                    <!--<View style="@style/ModDividerWithMargins" />-->
 
                     <!-- Edit Button -->
                     <!--<Button
@@ -195,11 +195,11 @@
                         android:layout_marginBottom="8dp"
                         />-->
 
-                    <View style="@style/ModDividerLight" />
+                    <View style="@style/ModDivider" />
                     
                     <!-- Checksheet/Plan of Study Title -->
                     <Button
-                        android:textColor="@color/default_primary_text"
+                        android:textColor="?attr/android:textColorPrimary"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="Checksheet/Plan of Study"
                         />
@@ -213,7 +213,7 @@
                 android:id="@+id/StudentInfoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/white"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
                 card_view:cardElevation="2dp"
                 card_view:cardUseCompatPadding="false"
                 android:layout_marginTop="0dp"
@@ -237,7 +237,7 @@
                 android:id="@+id/StudentContactInfoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/white"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
                 card_view:cardElevation="2dp"
                 card_view:cardUseCompatPadding="false"
                 android:layout_marginTop="0dp"
@@ -253,7 +253,7 @@
                 android:id="@+id/PersonalContactInfoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardBackgroundColor="@color/white"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
                 card_view:cardElevation="2dp"
                 card_view:cardUseCompatPadding="false"
                 android:layout_marginTop="0dp"
