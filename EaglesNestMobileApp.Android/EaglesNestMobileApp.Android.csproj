@@ -58,6 +58,10 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\monoandroid1\GalaSoft.MvvmLight.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform.AndroidSupport, Version=5.3.0.19094, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightAndroidSupport.5.3.0.0\lib\monoandroid1\GalaSoft.MvvmLight.Platform.AndroidSupport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="JimBobBennett.MvvmLight.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JimBobBennett.MvvmLight.AppCompat.1.1.2\lib\MonoAndroid50\JimBobBennett.MvvmLight.AppCompat.dll</HintPath>
       <Private>True</Private>
