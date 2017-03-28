@@ -92,6 +92,8 @@
         <item name="modDividerColor">@color/divider_light_theme</item>
         <!-- <<borderless button fullspan color>> -->
         <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_light_theme</item>
+        <!-- <<refresh layout icon color>> -->
+        <item name="modRefreshLayoutIconColor">@color/primary</item>
 
     </style>
     
@@ -131,6 +133,8 @@
         <item name="modDividerColor">@color/divider_dark_theme</item>
         <!-- <<borderless button fullspan color>> -->
         <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_dark_theme</item>
+        <!-- <<refresh layout icon color>> -->
+        <item name="modRefreshLayoutIconColor">@color/accent</item>
 
     </style>
     

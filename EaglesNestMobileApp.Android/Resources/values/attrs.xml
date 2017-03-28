@@ -27,5 +27,8 @@
 
     <!-- BORDERLESS BUTTON FULLSPAN -->
     <attr name="modBorderlessButtonFullSpanColor" format="reference" />
+    
+    <!-- REFRESH LAYOUT ICON -->
+    <attr name="modRefreshLayoutIconColor" format="reference" />
 
 </resources>

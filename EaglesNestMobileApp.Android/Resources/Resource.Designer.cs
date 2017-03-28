@@ -740,6 +740,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f01015c
 			public const int modDividerColor = 2130772316;
 			
+			// aapt resource value: 0x7f01015e
+			public const int modRefreshLayoutIconColor = 2130772318;
+			
 			// aapt resource value: 0x7f010157
 			public const int modTabLayoutColor = 2130772311;
 			

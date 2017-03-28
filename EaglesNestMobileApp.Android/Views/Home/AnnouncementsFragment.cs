@@ -78,9 +78,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 AnnouncementsView.FindViewById<SwipeRefreshLayout>(
                     Resource.Id.SwipeRefreshAnnouncements);
 
-            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+            /*RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
                 Resource.Color.accent, Resource.Color.primary_text,
-                    Resource.Color.secondary_text);
+                    Resource.Color.secondary_text);*/
             RefreshLayout.Refresh += RefreshLayoutRefresh;
 
             /* Setup the recyclerview with the created adapter and layout    */
