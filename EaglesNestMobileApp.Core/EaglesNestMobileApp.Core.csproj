@@ -63,6 +63,7 @@
     <Compile Include="Model\Food\FourWindsItem.cs" />
     <Compile Include="Model\Food\GrabAndGoItem.cs" />
     <Compile Include="Model\Food\VarsityItem.cs" />
+    <Compile Include="ViewModel\AcademicsViewModels\ExamScheduleFragmentViewModel.cs" />
     <Compile Include="ViewModel\AcademicsViewModels\GradesFragmentViewModel.cs" />
     <Compile Include="ViewModel\CampusLifeViewModels\FacilitiesFragmentViewModel.cs" />
     <Compile Include="ViewModel\DiningViewModels\DiningFragmentsViewModel.cs" />

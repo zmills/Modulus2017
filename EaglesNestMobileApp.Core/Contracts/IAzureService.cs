@@ -1,5 +1,5 @@
 ﻿using EaglesNestMobileApp.Core.Model;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.Contracts
@@ -7,11 +7,11 @@ namespace EaglesNestMobileApp.Core.Contracts
     public interface IAzureService
     {
         Task InitLocalStore();
-        Task<List<Assignment>> GetAssignmentsAsync();
-        Task<List<Course>> GetCoursesAsync();
-        Task<List<FourWindsItem>> GetFourWindsItemsAsync();
-        Task<List<VarsityItem>> GetVarsityItemsAsync();
-        Task<List<GrabAndGoItem>> GetGrabAndGoItemsAsync();
+        Task<ObservableCollection<Assignment>> GetAssignmentsAsync();
+        Task<ObservableCollection<Course>> GetCoursesAsync();
+        Task<ObservableCollection<FourWindsItem>> GetFourWindsItemsAsync();
+        Task<ObservableCollection<VarsityItem>> GetVarsityItemsAsync();
+        Task<ObservableCollection<GrabAndGoItem>> GetGrabAndGoItemsAsync();
         Task<LocalToken> GetLocalTokenAsync();
         Task<AzureToken> GetAzureTokenAsync(LocalToken user);
         Task<Student> GetStudentAsync();
