@@ -25,4 +25,7 @@
     <!-- DIVIDER -->
     <attr name="modDividerColor" format="reference" />
 
+    <!-- BORDERLESS BUTTON FULLSPAN -->
+    <attr name="modBorderlessButtonFullSpanColor" format="reference" />
+
 </resources>

@@ -23,7 +23,8 @@
     <color name="divider_light_theme">#E0E0E0</color>           <!-- Grey (divider light) -->
     <color name="window_background">#E2E2E2</color>             <!-- Grey Background -->
     <color name="body_text_light_theme">#424242</color>         <!--616161-->
-    <color name="body_text_soft_light_theme">#616161</color>    <!--757575-->        
+    <color name="body_text_soft_light_theme">#616161</color>    <!--757575-->
+    <color name="borderless_button_fullspan_light_theme">#1C53A3</color>
     
     <!-- DARK THEME COLOR PALETTE -->
     <color name="mod_card_background_color_dark">#424242</color>    <!-- Grey 800 -->
@@ -31,6 +32,7 @@
     <color name="body_text_dark_theme">#EEEEEE</color>              <!-- Grey 200 -->
     <color name="body_text_soft_dark_theme">#E0E0E0</color>         <!-- Grey 300 -->
     <color name="divider_dark_theme">#616161</color>                <!-- Grey 700 -->
+    <color name="borderless_button_fullspan_dark_theme">#FFC200</color>
     
     <!-- OTHER COLORS -->
     <color name="clear">#0000</color>

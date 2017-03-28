@@ -89,7 +89,9 @@
         <item name="modBodyTextColor">@color/body_text_light_theme</item>
         <item name="modBodyTextColorSoft">@color/body_text_soft_light_theme</item>
         <!-- <<divider color>> -->
-        <item name="modDividerColor">@color/divider_light_theme</item>        
+        <item name="modDividerColor">@color/divider_light_theme</item>
+        <!-- <<borderless button fullspan color>> -->
+        <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_light_theme</item>
 
     </style>
     
@@ -127,7 +129,9 @@
         <item name="modBodyTextColorSoft">@color/body_text_soft_dark_theme</item>
         <!-- <<divider color>> -->
         <item name="modDividerColor">@color/divider_dark_theme</item>
-    
+        <!-- <<borderless button fullspan color>> -->
+        <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_dark_theme</item>
+
     </style>
     
     
