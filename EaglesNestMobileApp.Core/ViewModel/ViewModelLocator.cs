@@ -36,7 +36,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<IAzureService, AzureService>();
             SimpleIoc.Default.Register<StudentInfoFragmentViewModel>();
             //SimpleIoc.Default.Register<AcademicsViewModel>(true);
-            //SimpleIoc.Default.Register<DiningViewModel>(true);
+            SimpleIoc.Default.Register<DiningFragmentsViewModel>();
             //SimpleIoc.Default.Register<AccountViewModel>(true);
 
         }
@@ -67,8 +67,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
            ServiceLocator.Current.GetInstance<INavigationService>();
         public MainViewModel Main =>
             ServiceLocator.Current.GetInstance<MainViewModel>();
+       
         public GradesFragmentViewModel Grades =>
             ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
+        public DiningFragmentsViewModel Dining =>
+            ServiceLocator.Current.GetInstance<DiningFragmentsViewModel>();
         public ExamSeceduleFragmentViewModel Exams =>
             ServiceLocator.Current.GetInstance<ExamSeceduleFragmentViewModel>();
 
