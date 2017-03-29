@@ -53,19 +53,22 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
+
+            // TODO
+            // commented out anything to do with _tabLayout. Was throwing errors
             /* Meal Layout View                                                  */
             menuItemLayoutView = inflater.Inflate(Resource.Layout.FourWindsFragment,
                 container, false);
 
-            TabLayout _tabLayout =
-                menuItemLayoutView.FindViewById<TabLayout>(Resource.Id.FourWindsTabLayout);
+            //TabLayout _tabLayout =
+            //    menuItemLayoutView.FindViewById<TabLayout>(Resource.Id.FourWindsTabLayout);
 
-            _nestedScrollView =
-                menuItemLayoutView.FindViewById<NestedScrollView>(Resource.Id.NestedScrollViewFourWindsLayout);
+            //_nestedScrollView =
+            //    menuItemLayoutView.FindViewById<NestedScrollView>(Resource.Id.NestedScrollViewFourWindsLayout);
 
-            _nestedScrollView.NestedScrollingEnabled = false;
+            //_nestedScrollView.NestedScrollingEnabled = false;
 
-            Activity.RunOnUiThread(() => _tabLayout.TabSelected += TabLayoutSelected);
+            //Activity.RunOnUiThread(() => _tabLayout.TabSelected += TabLayoutSelected);
 
             /* Get all of the recyclerviews                                      */
             Activity.RunOnUiThread(() => GetRecyclerViews());
@@ -79,7 +82,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             /* Set the recylerviews to their adapters                            */
             Activity.RunOnUiThread(() => SetAdaptersToRecyclerViews());
 
-            Activity.RunOnUiThread(() => _tabLayout.GetChildAt(0).Selected = true);
+            //Activity.RunOnUiThread(() => _tabLayout.GetChildAt(0).Selected = true);
 
             return menuItemLayoutView;
         }
