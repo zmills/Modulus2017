@@ -6,91 +6,94 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
-using System.Collections.Generic;
-using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
-using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Home;
+using GalaSoft.MvvmLight.Helpers;
+using EaglesNestMobileApp.Core.ViewModel;
+using EaglesNestMobileApp.Core;
+using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class eventsFragment : Fragment
     {
         /* This will bind to the list in the viewmodel                       */
-        public List<EventsSignUpCard> Events { get; set; }
-        public RecyclerView EventSignUpRecyclerView { get; set; }
-        public eventSignUpRecyclerViewAdapter EventSignUpAdapter { get; set; }
-        public RecyclerView.LayoutManager EventSignUpLayoutManager { get; set; }
-        public TabLayout TabLayout { get; set; }
-        public View EventSignUpView { get; set; }
+        private ObservableRecyclerAdapter<EventsSignUpCard, CachingViewHolder> _adapter;
+        private RecyclerView _eventRecyclerView;
+        private TabLayout _currentTabLayout;
+        private View _eventSignUpView;
+        private int _position;
+
+        public EventsFragmentViewModel ViewModel
+        {
+            get { return App.Locator.Events; }
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            /* Create your fragment here                                     */
-            InitializeEvents();
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup container, Bundle savedInstanceState)
         {
             // Inflate the layout for the fragment
-            EventSignUpView = 
+            _eventSignUpView = 
                 inflater.Inflate(Resource.Layout.EventsFragmentLayout, 
                                     container, false);
 
             /* Get the view pager                                            */
-            EventSignUpRecyclerView = 
-                EventSignUpView.FindViewById<RecyclerView>(
+            _eventRecyclerView = 
+                _eventSignUpView.FindViewById<RecyclerView>(
                     Resource.Id.EventSignUpRecyclerView);
 
-            /* Create a new layout manager using the activity containing     */
-            /* this fragment as the context                                  */
-            EventSignUpLayoutManager = new LinearLayoutManager(Activity);
+            _adapter = ViewModel.Events.GetRecyclerAdapter(
+                BindViewHolder,
+                Resource.Layout.EventCardLayout,
+                OnItemClick);
 
-            /* Create a custom adapter and pass it the data that it will be  */
-            /* recycling through                                             */
-            EventSignUpAdapter = new eventSignUpRecyclerViewAdapter(Events);
+            _eventRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
+            _eventRecyclerView.SetAdapter(_adapter);
 
-            /* Selecting the tab will automatically scroll back to the top   */
-            /* of the list                                                   */
-            TabLayout = 
-                ParentFragment.View.FindViewById<TabLayout>(
-                    Resource.Id.MainTabLayout);
-            TabLayout.TabReselected += TabReselected;
+            _currentTabLayout = ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            _currentTabLayout.TabReselected += TabLayoutTabReselected;
 
-            /* Setup the recyclerview with the created adapter and layout    */
-            /* manager                                                       */
-            EventSignUpRecyclerView.SetLayoutManager(EventSignUpLayoutManager);
-            EventSignUpRecyclerView.SetAdapter(EventSignUpAdapter);
-            return EventSignUpView;
+            return _eventSignUpView;
         }
 
-        private void TabReselected(object sender, 
-                                      TabLayout.TabReselectedEventArgs Event)
+        private void OnItemClick(int oldPosition, View oldView, int newPosition, View newView)
         {
-            if (Event.Tab.Text == "Events Signup")
-            {
-                if (EventSignUpAdapter.ViewPosition >= 10)
-                    EventSignUpRecyclerView.ScrollToPosition(10);
-
-                EventSignUpRecyclerView.SmoothScrollToPosition(0);
-            }
+            Activity.RunOnUiThread(() => ViewModel.Refresh());
         }
 
-        private void InitializeEvents()
+        private void BindViewHolder(CachingViewHolder Holder, EventsSignUpCard card, int position)
         {
-            Events = new List<EventsSignUpCard>();
+            _position = position;
 
-            /* Loop through inserting cards in the announcements list after  */
-            /* titling them and providing an image                           */
-            for (int counter = 0; counter < 20; counter++)
+            var _textview = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpTitle);
+
+            Holder.DeleteBinding(_textview);
+
+            var nameBinding = new Binding<string, string>(
+                card,
+                () => card.Title,
+                _textview,
+                () => _textview.Text,
+                BindingMode.OneWay);
+
+            Holder.SaveBinding(_textview, nameBinding);
+        }
+
+        private void TabLayoutTabReselected(object sender, TabLayout.TabReselectedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(e.Tab.Text);
+            if (e.Tab.Text == "Events Signup")
             {
-                EventsSignUpCard current = 
-                    new EventsSignUpCard("Event " + counter,
-                                            "Event Description", "SIGNUP");
-               Events.Add(current);
+                if (_position > 10)
+                {
+                    _eventRecyclerView.ScrollToPosition(10);
+                }
+                _eventRecyclerView.SmoothScrollToPosition(0);
             }
         }
     }

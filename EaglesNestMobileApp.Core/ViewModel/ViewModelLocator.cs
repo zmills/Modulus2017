@@ -35,9 +35,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<LoginActivityViewModel>();
             SimpleIoc.Default.Register<IAzureService, AzureService>();
             SimpleIoc.Default.Register<StudentInfoFragmentViewModel>();
-            //SimpleIoc.Default.Register<AcademicsViewModel>(true);
+            SimpleIoc.Default.Register<EventsFragmentViewModel>();
+            SimpleIoc.Default.Register<GradesFragmentViewModel>();
             SimpleIoc.Default.Register<DiningFragmentsViewModel>();
-            //SimpleIoc.Default.Register<AccountViewModel>(true);
 
         }
 
@@ -56,24 +56,33 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register(() => dialogService);
         }
 
-
+        /* The following returns the sigleton instance of the service/         */
+        /* viewmodel                                                           */
         /* The following returns the sigleton instance of the service/         */
         /* viewmodel                                                           */
         public LoginActivityViewModel Login =>
            ServiceLocator.Current.GetInstance<LoginActivityViewModel>();
+
+        public AnnouncementsFragmentViewModel Announcements =>
+           ServiceLocator.Current.GetInstance<AnnouncementsFragmentViewModel>();
+
+        public GradesFragmentViewModel Grades =>
+           ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
+
+        public EventsFragmentViewModel Events =>
+           ServiceLocator.Current.GetInstance<EventsFragmentViewModel>();
+
         public StudentInfoFragmentViewModel StudentInfo =>
            ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
+
+        public DiningFragmentsViewModel Dining =>
+        ServiceLocator.Current.GetInstance<DiningFragmentsViewModel>();
+
         public INavigationService Navigator =>
            ServiceLocator.Current.GetInstance<INavigationService>();
         public MainViewModel Main =>
-            ServiceLocator.Current.GetInstance<MainViewModel>();
-       
-        public GradesFragmentViewModel Grades =>
-            ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
-        public DiningFragmentsViewModel Dining =>
-            ServiceLocator.Current.GetInstance<DiningFragmentsViewModel>();
-        public ExamSeceduleFragmentViewModel Exams =>
-            ServiceLocator.Current.GetInstance<ExamSeceduleFragmentViewModel>();
+           ServiceLocator.Current.GetInstance<MainViewModel>();
+
 
         public static void Cleanup()
         {

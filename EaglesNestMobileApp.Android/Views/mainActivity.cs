@@ -52,7 +52,7 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            App.Locator.Events.InitializeVm();
             /*( Set our view from the "main" layout resource                 */
             SetContentView(Resource.Layout.BottomNavLayout);
             InitializeNavigation();
