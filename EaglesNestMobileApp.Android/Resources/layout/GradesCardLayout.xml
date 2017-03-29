@@ -10,71 +10,156 @@
     card_view:cardUseCompatPadding="false"
     android:layout_marginBottom="8dp"
     >
-    <!-- card_view:cardUseCompatPadding="true" //Took this out because it
-            would not allow card to expand completely to edges of screen -->
-    <!-- cardElevation="2dp" is MD resting elevation for a card -->
-    <!-- margins for CardView work only when used with RecyclerView -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:animateLayoutChanges="true"
         >
         
-        <!-- CLASS NAME -->
+        <!-- COURSE NAME -->
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/GradesCardClassName"
-            android:textSize="20sp"
             android:padding="16dp"
+            style="@style/ModRobotoRegular20"
             />
-            <!-- android:layout_width has to be set to 0dp in order
-                     for android:layout_width to work properly -->
 
-        <!-- GRADE SCORE TABLE -->
+        <!-- CUMULATIVE GRADE -->
         <LinearLayout
-            android:id="@+id/llExpandArea"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingBottom="8dp"
             >
-            <!-- Set button visibility to GONE (button will be completely
-                 "removed" __the buttons space will be available for another
-                 widgets) or INVISIBLE (button will became "transparent"__
-                 its space will not be available for another widgets) -->
-            <!--android:visibility="invisible"-->
-            <!--android:visibility="visible"-->
 
+            <!-- Cumulative Grade Title -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Item1"
+                android:paddingRight="8dp"
+                style="@style/ModListItemPrimaryText"
+                android:text="Cumulative Grade:"
                 />
 
+            <!-- Cumulative Grade Data-->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Item2"
+                android:paddingRight="8dp"
+                style="@style/ModRobotoRegular20"
+                android:text="A+"
                 />
-
-          <android.support.v7.widget.RecyclerView
-                 android:id="@+id/AssignmentsRecyclerView"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:clipToPadding="false"
-                 android:paddingTop="0dp"
-                 android:paddingRight="16dp"
-                 android:paddingLeft="16dp"
-                 android:paddingBottom="16dp" />
         
         </LinearLayout>
-    
+        
+        <!-- Divider Line -->
+        <View style="@style/ModDivider" />
+
+        <!-- TEACHER INFO BUTTON -->
+        <Button
+            android:textColor="?attr/modBorderlessButtonFullSpanColor"
+            style="@style/ModBorderlessButtonFullSpan"
+            android:text="Teacher Info"
+            />
+
+        <!-- Divider Line -->
+        <View style="@style/ModDivider" />
+            
+        <!-- COURSE GRADE -->
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="A+"
+            android:padding6="16dp"
+            />-->
+            <!--style="@style/ModListItemSecondaryText"-->
+        
+        <!-- TEACHER INFO -->
+        <!--<Button
+            android:id="@+id/TeacherInfoButton"
+            android:textColor="?attr/colorPrimary"
+            android:text="TEACHER INFO"
+            style="@style/ModBorderlessButton"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toLeftOf="@+id/ShowGradesButton"
+            />-->
+        
+        <!-- SHOW GRADES -->
+        <Button
+            android:id="@+id/ShowGradesButton"
+            android:textColor="?attr/colorPrimary"
+            android:text="SHOW GRADES"
+            style="@style/ModBorderlessButton"
+            android:gravity="left"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text=">"
+            />
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:text="SHOW GRADES"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="16dp"
+            />-->
+        
+        <!-- EXPANDING ASSIGNMENTS AREA -->
+        <LinearLayout
+            android:id="@+id/llExpandArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade 1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade 2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade 3"
+                />
+            <!--<android.support.v7.widget.RecyclerView
+                android:id="@+id/AssignmentsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="0dp"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:nestedScrollingEnabled="false"
+                />-->
+        
+        </LinearLayout>
+            
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
