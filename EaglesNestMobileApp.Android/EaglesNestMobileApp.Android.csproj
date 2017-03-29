@@ -389,7 +389,9 @@
     <AndroidResource Include="Resources\drawable\SubmitStudentPhotosFall2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\GradesCardLayout.xml" />
+    <AndroidResource Include="Resources\layout\GradesCardLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\EventCardLayout.xml">
