@@ -7,7 +7,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class AnnouncementsFragmentViewModel : ViewModelBase
     {
-        public ObservableCollection<AnnouncementCard> Announcements { get; set; }
+        public ObservableCollection<Card> Announcements { get; set; }
 
         public static void Initialize()
         {
