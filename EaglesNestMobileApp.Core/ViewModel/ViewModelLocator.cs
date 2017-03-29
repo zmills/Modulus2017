@@ -13,6 +13,7 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
+using EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -65,7 +66,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public INavigationService Navigator =>
            ServiceLocator.Current.GetInstance<INavigationService>();
         public MainViewModel Main =>
-           ServiceLocator.Current.GetInstance<MainViewModel>();
+            ServiceLocator.Current.GetInstance<MainViewModel>();
+        public GradesFragmentViewModel Grades =>
+            ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
+        public ExamSeceduleFragmentViewModel Exams =>
+            ServiceLocator.Current.GetInstance<ExamSeceduleFragmentViewModel>();
 
         public static void Cleanup()
         {
