@@ -53,24 +53,24 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             string _buttonName = (sender as Button).Text;
             switch (_buttonName)
             {
-                case AndroidApp.FacilityCategory.Academics:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
-                case AndroidApp.FacilityCategory.Church:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
-                case AndroidApp.FacilityCategory.Dining:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
-                case AndroidApp.FacilityCategory.Dorm:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
-                case AndroidApp.FacilityCategory.Recreation:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
-                case AndroidApp.FacilityCategory.Service:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new attendanceFragment());
-                    break;
+                //case AndroidApp.FacilityCategory.Academics:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
+                //case AndroidApp.FacilityCategory.Church:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
+                //case AndroidApp.FacilityCategory.Dining:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
+                //case AndroidApp.FacilityCategory.Dorm:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
+                //case AndroidApp.FacilityCategory.Recreation:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
+                //case AndroidApp.FacilityCategory.Service:
+                //    _transaction.Replace(Resource.Id.MainFrameLayout, new academicTimesFragment());
+                //    break;
             }
             _transaction.AddToBackStack("Layered");
             _transaction.Commit();
