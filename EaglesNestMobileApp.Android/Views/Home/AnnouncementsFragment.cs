@@ -78,7 +78,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 AnnouncementsView.FindViewById<SwipeRefreshLayout>(
                     Resource.Id.SwipeRefreshAnnouncements);
 
-            RefreshLayout.SetColorSchemeResources(Resource.Attribute.modRefreshLayoutIconColor,
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
                 Resource.Color.accent, Resource.Color.primary_text,
                     Resource.Color.secondary_text);
             RefreshLayout.Refresh += RefreshLayoutRefresh;
