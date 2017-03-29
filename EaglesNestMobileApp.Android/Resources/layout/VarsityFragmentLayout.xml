@@ -62,28 +62,56 @@
              android:text="1 - Pizza Creations"
              style="@style/ModFoodHeader"
             android:clickable="true" />
+      <include
+                android:id="@+id/VarsityLine1"
+                layout="@layout/BaseRecyclerView"
+                />
       
           <TextView
              android:id="@+id/varsityOption2"
              android:text="2 - Hot Deli"
             style="@style/ModFoodHeader"
             android:clickable="true" />
+      
+        <include
+                android:id="@+id/VarsityLine2"
+                layout="@layout/BaseRecyclerView"
+                />
+      
+        
           <TextView
              android:id="@+id/varsityOption3"
              android:text="3 - Chicken Tenders"
              style="@style/ModFoodHeader"
             android:clickable="true" />
+      
+        <include
+                android:id="@+id/VarsityLine3"
+                layout="@layout/BaseRecyclerView"
+                />
+      
+        
           <TextView
              android:id="@+id/varsityOption4"
              android:text="4 - Soup and Salad"
              style="@style/ModFoodHeader"
             android:clickable="true" />
+              
+               <include
+                android:id="@+id/VarsityLine4"
+                layout="@layout/BaseRecyclerView"
+                />
 
           <TextView
                android:id="@+id/varsityOption5"
                android:text="5 - Mega Cereal Bar"
                style="@style/ModFoodHeader"
             android:clickable="true" />
+    
+  <include
+                android:id="@+id/VarsityLine5"
+                layout="@layout/BaseRecyclerView"
+                />
       </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
 
