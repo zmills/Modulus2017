@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -13,22 +14,22 @@ namespace EaglesNestMobileApp.Core.ViewModel
     public class GradesFragmentViewModel : ViewModelBase
     {
         /* The list of the student assignments */
-        private List<Assignment> _assignments;
-        public List<Assignment> Assignments
+        private ObservableCollection<Assignment> _assignments;
+        public ObservableCollection<Assignment> Assignments
         {
             get { return _assignments; }
             private set { Set(() => Assignments, ref _assignments, value); }
         }
         /* The list of classes the student is taking */
-        private List<Course> _classes;
-        public List<Course> Classes
+        private ObservableCollection<Course> _classes;
+        public ObservableCollection<Course> Classes
         {
             get { return _classes; }
             set { Set(() => Classes, ref _classes, value); }
         }
         /* Grade cards to be passed to the views */
-        private List<GradeCard> _grades;
-        public List<GradeCard> Grades
+        private ObservableCollection<GradeCard> _grades;
+        public ObservableCollection<GradeCard> Grades
         {
             get { return _grades; }
             set { Set(() => Grades, ref _grades, value); }
@@ -72,7 +73,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* Add each assignment to the appropriate card                     */
         public void GetGradeCards()
         {
-            Grades = new List<GradeCard>();
+            Grades = new ObservableCollection<GradeCard>();
             foreach (var course in Classes)
             {
                 GradeCard current = new GradeCard(course);
@@ -82,11 +83,28 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         current.AddAssignment(assignment);
                 }
                 /* Sort the list of assignments based off of the most recently updated one */
-                current.ClassAssignments.Sort((x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt));
+                // current.ClassAssignments.Sort((x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt));
                 Grades.Add(current);
             }
             /* Sort the classes based off of the most recently updated assignment           */
-            Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+            // Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+        }
+
+        public void InitializeVm()
+        {
+            Grades = new ObservableCollection<GradeCard>();
+            for (int counter = 0; counter < 15; counter++)
+            {
+                GradeCard current = new GradeCard("CS 452 Software Engineering Project II");
+
+                for (int index = 0; index < 4; index++)
+                {
+                    Assignment currentAssignment = new Assignment() { AssingmentName = "Quiz " + index };
+                    current.AddAssignment(currentAssignment);
+                }
+
+                Grades.Add(current);
+            }
         }
     }
 }

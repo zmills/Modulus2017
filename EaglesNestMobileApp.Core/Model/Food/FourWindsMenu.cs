@@ -1,33 +1,45 @@
 ﻿using GalaSoft.MvvmLight;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 
 namespace EaglesNestMobileApp.Core.Model.Food
 {
     public class FourWindsMenu : ObservableObject
     {
-        // MADE PRIVATE
-        private List<FourWindsItem> LineOneBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineTwoBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineThreeBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFourBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFiveBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSixBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSevenBreakfast { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineOneLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineTwoLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineThreeLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFourLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFiveLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSixLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSevenLunch { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineOneDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineTwoDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineThreeDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFourDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineFiveDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSixDinner { get; set; } = new List<FourWindsItem>();
-        private List<FourWindsItem> LineSevenDinner { get; set; } = new List<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineOneBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineTwoBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineThreeBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFourBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFiveBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSixBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSevenBreakfast = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineOneLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineTwoLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineThreeLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFourLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFiveLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSixLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSevenLunch = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineOneDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineTwoDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineThreeDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFourDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineFiveDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSixDinner = new ObservableCollection<FourWindsItem>();
+        private ObservableCollection<FourWindsItem> LineSevenDinner = new ObservableCollection<FourWindsItem>();
+
+        public ObservableCollection<FourWindsItem> LineOne { get; set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineTwo { get; private set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineThree { get; private set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineFour { get; private set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineFive { get; private set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineSix { get; private set; } = new ObservableCollection<FourWindsItem>();
+        public ObservableCollection<FourWindsItem> LineSeven { get; private set; } = new ObservableCollection<FourWindsItem>();
+
+        public FourWindsMenu()
+        {
+            GetMealTime(App.MealTimes.Breakfast);
+        }
 
 
         // Move to app class
@@ -134,49 +146,58 @@ namespace EaglesNestMobileApp.Core.Model.Food
             }
         }
 
-        public List<List<FourWindsItem>> GetBreakfastMenu()
+        public void GetMealTime(string mealTime)
         {
-            List<List<FourWindsItem>> Menu = new List<List<FourWindsItem>>
+            switch (mealTime)
             {
-                LineOneBreakfast,
-                LineTwoBreakfast,
-                LineThreeBreakfast,
-                LineFourBreakfast,
-                LineFiveBreakfast,
-                LineSixBreakfast,
-                LineSevenBreakfast
-            };
-            return Menu;
+                case App.MealTimes.Breakfast:
+                    {
+                        LineOne = LineOneBreakfast;
+                        LineTwo = LineTwoBreakfast;
+                        LineThree = LineThreeBreakfast;
+                        LineFour = LineFourBreakfast;
+                        LineFive = LineFiveBreakfast;
+                        LineSix = LineSixBreakfast;
+                        LineSeven = LineSevenBreakfast;
+                    }
+                    break;
+                case App.MealTimes.Lunch:
+                    {
+                        LineOne = LineOneLunch;
+                        LineTwo = LineTwoLunch;
+                        LineThree = LineThreeLunch;
+                        LineFour = LineFourLunch;
+                        LineFive = LineFiveLunch;
+                        LineSix = LineSixLunch;
+                        LineSeven = LineSevenLunch;
+                    }
+                    break;
+                case App.MealTimes.Dinner:
+                    {
+                        LineOne = LineOneDinner;
+                        LineTwo = LineTwoDinner;
+                        LineThree = LineThreeDinner;
+                        LineFour = LineFourDinner;
+                        LineFive = LineFiveDinner;
+                        LineSix = LineSixDinner;
+                        LineSeven = LineSevenDinner;
+                    }
+                    break;
+                default:
+                    Debug.WriteLine("An incorrenct meal time was passed to the FourWindsMenu Class");
+                    break;
+            }
         }
 
-        public List<List<FourWindsItem>> GetLunchMenu()
+        public void ClearLines()
         {
-            List<List<FourWindsItem>> Menu = new List<List<FourWindsItem>>
-            {
-                LineOneLunch,
-                LineTwoLunch,
-                LineThreeLunch,
-                LineFourLunch,
-                LineFiveLunch,
-                LineSixLunch,
-                LineSevenLunch
-            };
-            return Menu;
-        }
-
-        public List<List<FourWindsItem>> GetDinnerMenu()
-        {
-            List<List<FourWindsItem>> Menu = new List<List<FourWindsItem>>
-            {
-                LineOneDinner,
-                LineTwoDinner,
-                LineThreeDinner,
-                LineFourDinner,
-                LineFiveDinner,
-                LineSixDinner,
-                LineSevenDinner
-            };
-            return Menu;
+            LineOne.Clear();
+            LineTwo.Clear();
+            LineThree.Clear();
+            LineFour.Clear();
+            LineFive.Clear();
+            LineSix.Clear();
+            LineSeven.Clear();
         }
     }
 }

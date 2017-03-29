@@ -58,6 +58,10 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\monoandroid1\GalaSoft.MvvmLight.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform.AndroidSupport, Version=5.3.0.19094, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightAndroidSupport.5.3.0.0\lib\monoandroid1\GalaSoft.MvvmLight.Platform.AndroidSupport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="JimBobBennett.MvvmLight.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JimBobBennett.MvvmLight.AppCompat.1.1.2\lib\MonoAndroid50\JimBobBennett.MvvmLight.AppCompat.dll</HintPath>
       <Private>True</Private>
@@ -223,7 +227,6 @@
     <Compile Include="Views\Account\attendanceFragment.cs" />
     <Compile Include="Views\Account\studentInfoFragment.cs" />
     <Compile Include="Views\Account\scheduleFragment.cs" />
-    <Compile Include="Views\Campus_Life\academicTimesFragment.cs" />
     <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
     <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
     <Compile Include="Views\Campus_Life\requestsFragment.cs" />
@@ -305,6 +308,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AnnouncementCardLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ClassAssignment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -453,7 +459,19 @@
     <AndroidResource Include="Resources\drawable-xhdpi\account_photo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout.xml" />
+    <AndroidResource Include="Resources\layout\AttendancePenaltyLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ExamScheduleRecyclerViewLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AttendanceRecyclerViewLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\borderless_button_fullspan.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\attrs.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

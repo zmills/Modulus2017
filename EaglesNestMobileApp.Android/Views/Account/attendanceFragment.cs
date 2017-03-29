@@ -12,8 +12,8 @@ namespace EaglesNestMobileApp.Android.Views.Account
     public class attendanceFragment : Fragment
     {
         View announcementView;
-        TextView attendanceList;
-        TextView unexcusedAttendanceReport;
+        //TextView attendanceList;
+        //TextView unexcusedAttendanceReport;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -26,19 +26,19 @@ namespace EaglesNestMobileApp.Android.Views.Account
             announcementView = inflater.Inflate(Resource.Layout.AttendanceFragmentLayout,
                 container, false);
 
-            attendanceList = announcementView.FindViewById<TextView>(Resource.Id.class1AttendanceUnexcused);
-            unexcusedAttendanceReport = announcementView.FindViewById<TextView>(Resource.Id.attendanceCardClassDetailsTst);
+            //attendanceList = announcementView.FindViewById<TextView>(Resource.Id.class1AttendanceUnexcused);
+            //unexcusedAttendanceReport = announcementView.FindViewById<TextView>(Resource.Id.attendanceCardClassDetailsTst);
 
-            attendanceList.Click += AttendanceList_Click;
+            //attendanceList.Click += AttendanceList_Click;
             return announcementView;
         }
 
         private void AttendanceList_Click(object sender, System.EventArgs e)
         {
-            if (unexcusedAttendanceReport.Visibility == ViewStates.Gone)
-                unexcusedAttendanceReport.Visibility = ViewStates.Visible;
-            else
-                unexcusedAttendanceReport.Visibility = ViewStates.Gone;
+            //if (unexcusedAttendanceReport.Visibility == ViewStates.Gone)
+            //    unexcusedAttendanceReport.Visibility = ViewStates.Visible;
+            //else
+            //    unexcusedAttendanceReport.Visibility = ViewStates.Gone;
         }
     }
 }

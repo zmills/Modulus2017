@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CARD -->
+    <attr name="modCardBackgroundColor" format="reference" />
+
+    <!-- TOOLBAR -->
+    <attr name="modToolbarColor" format="reference" />
+    <attr name="modToolbarTheme" format="reference" />
+    <attr name="modToolbarPopupTheme" format="reference" />
+
+    <!-- TABLAYOUT -->
+    <attr name="modTabLayoutColor" format="reference" />
+
+    <!-- BOTTOM NAV BAR -->
+    <attr name="modBottomNavColor" format="reference" />
+    
+    <!-- CALENDAR VIEW -->
+    <attr name="modCalendarBackgroundColor" format="reference" />
+    
+    <!-- BODY TEXT -->
+    <attr name="modBodyTextColor" format="reference" />
+    <attr name="modBodyTextColorSoft" format="reference" />
+    
+    <!-- DIVIDER -->
+    <attr name="modDividerColor" format="reference" />
+
+    <!-- BORDERLESS BUTTON FULLSPAN -->
+    <attr name="modBorderlessButtonFullSpanColor" format="reference" />
+    
+    <!-- REFRESH LAYOUT ICON -->
+    <attr name="modRefreshLayoutIconColor" format="reference" />
+
+</resources>

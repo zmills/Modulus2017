@@ -5,7 +5,7 @@
     android:id="@+id/event_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    cardview:cardBackgroundColor="@color/white"
+    cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
     cardview:cardElevation="2dp"
     cardview:cardUseCompatPadding="false"
     android:layout_marginBottom="8dp"

@@ -1,12 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EaglesNestMobileApp.Core.Model.Academics
 {
     public class GradeCard : ObservableObject
     {
-        private List<Assignment> _classAssignments;
-        public List<Assignment> ClassAssignments
+        private ObservableCollection<Assignment> _classAssignments;
+        public ObservableCollection<Assignment> ClassAssignments
         {
             get { return _classAssignments; }
             private set { Set(() => ClassAssignments, ref _classAssignments, value); }
@@ -19,10 +20,16 @@ namespace EaglesNestMobileApp.Core.Model.Academics
 
         public GradeCard(Course section)
         {
-            ClassAssignments = new List<Assignment>();
+            ClassAssignments = new ObservableCollection<Assignment>();
             CourseGrade = section.EnrollmentGrade;
             CourseTitle = section.GetFullCourseName();
             CourseId = section.Id;
+        }
+
+        public GradeCard(string courseTitle)
+        {
+            ClassAssignments = new ObservableCollection<Assignment>();
+            this.CourseTitle = courseTitle;
         }
 
         public void AddAssignment(Assignment assignment)
@@ -30,7 +37,7 @@ namespace EaglesNestMobileApp.Core.Model.Academics
             ClassAssignments.Add(assignment);
         }
 
-        public void AddAssignments(List<Assignment> assignments)
+        public void AddAssignments(ObservableCollection<Assignment> assignments)
         {
             ClassAssignments = assignments;
         }
