@@ -1,21 +1,32 @@
 ﻿using GalaSoft.MvvmLight;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace EaglesNestMobileApp.Core.Model.Food
 {
     public class GrabAndGoMenu : ObservableObject
     {
         // MUST BE MADE PRIVATE
-        private List<GrabAndGoItem> LineOneLunch { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineTwoLunch { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineThreeLunch { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineFourLunch { get; set; } = new List<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineOneLunch = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineTwoLunch = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineThreeLunch = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineFourLunch = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineOneDinner = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineTwoDinner = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineThreeDinner = new ObservableCollection<GrabAndGoItem>();
+        private ObservableCollection<GrabAndGoItem> LineFourDinner = new ObservableCollection<GrabAndGoItem>();
+        
+        public ObservableCollection<GrabAndGoItem> LineOne { get; set; } = new ObservableCollection<GrabAndGoItem>();
+        public ObservableCollection<GrabAndGoItem> LineTwo { get; private set; } = new ObservableCollection<GrabAndGoItem>();
+        public ObservableCollection<GrabAndGoItem> LineThree { get; private set; } = new ObservableCollection<GrabAndGoItem>();
+        public ObservableCollection<GrabAndGoItem> LineFour { get; private set; } = new ObservableCollection<GrabAndGoItem>();
 
-        //MUST BE MADE PRIVATE
-        private List<GrabAndGoItem> LineOneDinner { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineTwoDinner { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineThreeDinner { get; set; } = new List<GrabAndGoItem>();
-        private List<GrabAndGoItem> LineFourDinner { get; set; } = new List<GrabAndGoItem>();
+        public GrabAndGoMenu()
+        {
+            GetMealTime(App.MealTimes.Lunch);
+        }
+
 
         public void AddItem(GrabAndGoItem item)
         {
@@ -63,28 +74,30 @@ namespace EaglesNestMobileApp.Core.Model.Food
             }
         }
 
-        public List<List<GrabAndGoItem>> GetLunchMenu()
+        public void GetMealTime(string mealTime)
         {
-            List<List<GrabAndGoItem>> Menu = new List<List<GrabAndGoItem>>
+            switch (mealTime)
             {
-                LineOneLunch,
-                LineTwoLunch,
-                LineThreeLunch,
-                LineFourLunch
-            };
-            return Menu;
-        }
-
-        public List<List<GrabAndGoItem>> GetDinnerMenu()
-        {
-            List<List<GrabAndGoItem>> Menu = new List<List<GrabAndGoItem>>
-            {
-                LineOneDinner,
-                LineTwoDinner,
-                LineThreeDinner,
-                LineFourDinner
-            };
-            return Menu;
+                case App.MealTimes.Lunch:
+                    {
+                        LineOne = LineOneLunch;
+                        LineTwo = LineTwoLunch;
+                        LineThree = LineThreeLunch;
+                        LineFour = LineFourLunch;
+                    }
+                    break;
+                case App.MealTimes.Dinner:
+                    {
+                        LineOne = LineOneDinner;
+                        LineTwo = LineTwoDinner;
+                        LineThree = LineThreeDinner;
+                        LineFour = LineFourDinner;
+                    }
+                    break;
+                default:
+                    Debug.WriteLine("An incorrenct meal time was passed to the FourWindsMenu Class");
+                    break;
+            }
         }
     }
 }

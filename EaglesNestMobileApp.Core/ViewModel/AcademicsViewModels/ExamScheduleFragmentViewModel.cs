@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 {
-    public class ExamSeceduleFragmentViewModel : ViewModelBase
+    public class ExamScheduleFragmentViewModel : ViewModelBase
     {
-        private ObservableCollection<Course> _classes;
+        private ObservableCollection<Course> _classes =
+            new ObservableCollection<Course>();
         public ObservableCollection<Course> Classes
         {
             get { return _classes; }
@@ -17,14 +18,33 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 
         private readonly IAzureService Database;
 
-        public ExamSeceduleFragmentViewModel(IAzureService database)
+        public ExamScheduleFragmentViewModel(IAzureService database)
         {
             this.Database = database;
         }
 
-        public async void Initialize()
+        private async void Initialize()
         {
             await Task.Run(() => RefreshExamScheduleAsync());
+        }
+
+        public void InitializeVm()
+        {
+            for(int counter = 0; counter <= 6; counter++)
+            {
+                Course current = new Course
+                {
+                    CourseName = "Software Engineering",
+                    CourseCode = "CS 451",
+                    ExamDate = "May 10",
+                    ExamBeginTime = "8:00am",
+                    ExamEndTime = "9:00am",
+                    Location = "AC 215",
+                    SectionNumber = "1"
+                };
+                Classes.Add(current);
+            }
+
         }
 
         private async void RefreshExamScheduleAsync()

@@ -10,6 +10,5 @@
     android:paddingLeft="8dp"
     android:paddingBottom="0dp"
     android:background="@color/primary_light"
-    android:visibility="gone"
     android:nestedScrollingEnabled="false"
     />

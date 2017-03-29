@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels;
+using EaglesNestMobileApp.Core.ViewModel.DiningViewModels;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -37,7 +38,10 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<StudentInfoFragmentViewModel>();
             SimpleIoc.Default.Register<EventsFragmentViewModel>();
             SimpleIoc.Default.Register<GradesFragmentViewModel>();
-            SimpleIoc.Default.Register<DiningFragmentsViewModel>();
+            SimpleIoc.Default.Register<VarsityFragmentViewModel>();
+            SimpleIoc.Default.Register<FourWindsFragmentViewModel>();
+            SimpleIoc.Default.Register<GrabAndGoFragmentViewModel>();
+            SimpleIoc.Default.Register<ExamScheduleFragmentViewModel>();
 
         }
 
@@ -67,22 +71,31 @@ namespace EaglesNestMobileApp.Core.ViewModel
            ServiceLocator.Current.GetInstance<AnnouncementsFragmentViewModel>();
 
         public GradesFragmentViewModel Grades =>
-           ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
+        ServiceLocator.Current.GetInstance<GradesFragmentViewModel>();
 
         public EventsFragmentViewModel Events =>
-           ServiceLocator.Current.GetInstance<EventsFragmentViewModel>();
+        ServiceLocator.Current.GetInstance<EventsFragmentViewModel>();
 
         public StudentInfoFragmentViewModel StudentInfo =>
-           ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
+        ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
 
-        public DiningFragmentsViewModel Dining =>
-        ServiceLocator.Current.GetInstance<DiningFragmentsViewModel>();
+        public GrabAndGoFragmentViewModel GrabAndGo =>
+        ServiceLocator.Current.GetInstance<GrabAndGoFragmentViewModel>();
+
+        public VarsityFragmentViewModel Varsity =>
+        ServiceLocator.Current.GetInstance<VarsityFragmentViewModel>();
+
+        public FourWindsFragmentViewModel FourWinds =>
+        ServiceLocator.Current.GetInstance<FourWindsFragmentViewModel>();
+
+        public ExamScheduleFragmentViewModel Exams =>
+        ServiceLocator.Current.GetInstance<ExamScheduleFragmentViewModel>();
 
         public INavigationService Navigator =>
-           ServiceLocator.Current.GetInstance<INavigationService>();
-        public MainViewModel Main =>
-           ServiceLocator.Current.GetInstance<MainViewModel>();
+        ServiceLocator.Current.GetInstance<INavigationService>();
 
+        public MainViewModel Main =>
+        ServiceLocator.Current.GetInstance<MainViewModel>();
 
         public static void Cleanup()
         {
