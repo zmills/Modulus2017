@@ -16,6 +16,9 @@
         public string ExamEndTime { get; set; }
         public string ExamBeginTime { get; set; }
         public string ExamType { get; set; }
+        public string ExamDate { get; set; }
+        public string FormattedCourseCode { get { return $"{CourseCode}-{SectionNumber}"; } }
+        public string ExamTime { get { return $"{ExamBeginTime}-{ExamEndTime}"; } }
 
         public string GetFullCourseName()
         {

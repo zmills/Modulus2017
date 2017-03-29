@@ -9,6 +9,7 @@
     <android.support.design.widget.TabLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:id="@+id/FourWindsTabLayout"
         >
 
         <android.support.design.widget.TabItem
@@ -16,7 +17,11 @@
             />
 
         <android.support.design.widget.TabItem
-            android:text="Lunch and Dinner"
+            android:text="Lunch"
+            />
+      
+       <android.support.design.widget.TabItem
+            android:text="Dinner"
             />
 
     </android.support.design.widget.TabLayout>
