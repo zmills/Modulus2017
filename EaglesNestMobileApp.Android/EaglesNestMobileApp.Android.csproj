@@ -223,6 +223,7 @@
     <Compile Include="Views\Account\attendanceFragment.cs" />
     <Compile Include="Views\Account\studentInfoFragment.cs" />
     <Compile Include="Views\Account\scheduleFragment.cs" />
+    <Compile Include="Views\Campus_Life\academicTimesFragment.cs" />
     <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
     <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
     <Compile Include="Views\Campus_Life\requestsFragment.cs" />
@@ -446,10 +447,13 @@
     <AndroidResource Include="Resources\drawable\TheNestLogo3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\account_photo2%28half-size%29.png" />
+    <AndroidResource Include="Resources\drawable\account_photo2.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\account_photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
