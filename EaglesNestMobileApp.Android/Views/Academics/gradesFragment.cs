@@ -104,12 +104,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             /* Get the recyclerview                                                */
             _assignmentsRecyclerView =
                holder.FindCachedViewById<RecyclerView>(
-                   Resource.Id.AssignmentRecyclerView);
+                   Resource.Id.AssignmentsRecyclerView);
 
             /* Bind to the data                                                    */
             Activity.RunOnUiThread(() => _assignmentAdapter =
             gradeCard.ClassAssignments.GetRecyclerAdapter(ChildBindViewHolder,
-                Resource.Layout.GradeAssignment,
+                Resource.Layout.ClassAssignment,
                 OnChildClick
                 ));
 
