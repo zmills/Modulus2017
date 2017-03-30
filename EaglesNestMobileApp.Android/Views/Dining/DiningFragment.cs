@@ -29,30 +29,33 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //Activity.RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
+            //Activity.RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
+            //Activity.RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup container, Bundle savedInstanceState)
         {
             /* Use this to return your custom view for this Fragment         */
-            CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
-                container, false);
+            Activity.RunOnUiThread(() => CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
+                container, false));
 
             CurrentPager = 
                 CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            CurrentPager.Adapter = 
+            Activity.RunOnUiThread(()=>CurrentPager.Adapter = 
                 new navigationAdapter(ChildFragmentManager, DiningFragments, 
-                                         App.Tabs.DiningPage);
-           
-            TabLayout = 
-                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+                                         App.Tabs.DiningPage));
+
+            Activity.RunOnUiThread(() => TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout));
 
             /* Set the tablayout to fixed so that the titles aren't smashed  */
             /* together. REMINDER: BACKLIST: get width of tabLayout and set  */
             /* Fixed or Scrollable depending on the width                    */
             TabLayout.TabMode = TabLayout.ModeFixed;
-            TabLayout.SetupWithViewPager(CurrentPager);
+            Activity.RunOnUiThread(() => TabLayout.SetupWithViewPager(CurrentPager));
             
             return CurrentView;
         }

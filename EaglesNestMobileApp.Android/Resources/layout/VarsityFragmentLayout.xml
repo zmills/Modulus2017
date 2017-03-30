@@ -61,8 +61,8 @@
              android:id="@+id/varsityOption1"
              android:text="1 - Pizza Creations"
              style="@style/ModFoodHeader"
-            android:clickable="true" />
-      <include
+             android:clickable="true" />
+          <include
                 android:id="@+id/VarsityLine1"
                 layout="@layout/BaseRecyclerView"
                 />
@@ -70,10 +70,10 @@
           <TextView
              android:id="@+id/varsityOption2"
              android:text="2 - Hot Deli"
-            style="@style/ModFoodHeader"
-            android:clickable="true" />
+             style="@style/ModFoodHeader"
+             android:clickable="true" />
       
-        <include
+          <include
                 android:id="@+id/VarsityLine2"
                 layout="@layout/BaseRecyclerView"
                 />
@@ -108,13 +108,12 @@
                style="@style/ModFoodHeader"
             android:clickable="true" />
     
-  <include
+            <include
                 android:id="@+id/VarsityLine5"
                 layout="@layout/BaseRecyclerView"
                 />
       </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
-
 </LinearLayout>
 
 

@@ -15,6 +15,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         /* Instantiate a viewholder TextView to be set with a class name     */
         public TextView GradesClassName { get; set; }
         public LinearLayout ExpandCard { get; set; }
+        public Button ShowGradesButton { get; set; }
 
         public gradesViewHolder(View view) : base(view)
         {
@@ -22,6 +23,9 @@ namespace EaglesNestMobileApp.Android.Adapters
             /* textview in the layout                                        */
             GradesClassName = 
                 view.FindViewById<TextView>(Resource.Id.GradesCardClassName);
+
+            ShowGradesButton =
+                view.FindViewById<Button>(Resource.Id.ShowGradesButton);
 
             ExpandCard = 
                 view.FindViewById<LinearLayout>(Resource.Id.llExpandArea);

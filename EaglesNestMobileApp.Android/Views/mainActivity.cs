@@ -52,6 +52,11 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RunOnUiThread(() => App.Locator.Events.InitializeVm());
+            RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
+            RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
+            RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
+            RunOnUiThread(() => App.Locator.Exams.InitializeVm());
 
             /*( Set our view from the "main" layout resource                 */
             SetContentView(Resource.Layout.BottomNavLayout);
@@ -104,19 +109,19 @@ namespace EaglesNestMobileApp.Android.Views
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    LoadFragment(App.PageKeys.HomePageKey);
+                    RunOnUiThread(()=>LoadFragment(App.PageKeys.HomePageKey));
                     break;
                 case Resource.Id.BottomNavIconGrades:
-                    LoadFragment(App.PageKeys.AcademicsPageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.AcademicsPageKey));
                     break;
                 case Resource.Id.BottomNavIconCampus:
-                    LoadFragment(App.PageKeys.CampusLifePageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.CampusLifePageKey));
                     break;
                 case Resource.Id.BottomNavIconDining:
-                    LoadFragment(App.PageKeys.DiningPageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.DiningPageKey));
                     break;
                 case Resource.Id.BottomNavIconAccount:
-                    LoadFragment(App.PageKeys.AccountPageKey);
+                    RunOnUiThread(() => LoadFragment(App.PageKeys.AccountPageKey));
                     break;
             }
         }

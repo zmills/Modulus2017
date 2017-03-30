@@ -66,8 +66,10 @@
     <Compile Include="ViewModel\AcademicsViewModels\ExamScheduleFragmentViewModel.cs" />
     <Compile Include="ViewModel\AcademicsViewModels\GradesFragmentViewModel.cs" />
     <Compile Include="ViewModel\CampusLifeViewModels\FacilitiesFragmentViewModel.cs" />
-    <Compile Include="ViewModel\DiningViewModels\DiningFragmentsViewModel.cs" />
+    <Compile Include="ViewModel\DiningViewModels\VarsityFragmentViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModels\StudentInfoFragmentViewModel.cs" />
+    <Compile Include="ViewModel\DiningViewModels\FourWindsFragmentViewModel.cs" />
+    <Compile Include="ViewModel\DiningViewModels\GrabAndGoViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\AnnouncementsFragmentViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\CalendarFragmentViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModels\EventsFragmentViewModel.cs" />
