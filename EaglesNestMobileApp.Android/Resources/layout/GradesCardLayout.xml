@@ -15,25 +15,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:animateLayoutChanges="true"
         >
         
         <!-- COURSE NAME -->
         <TextView
+            android:id="@+id/GradesCardClassName"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/GradesCardClassName"
-            android:padding="16dp"
-            style="@style/ModRobotoRegular20"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="0dp"
+            style="@style/ModRobotoMedium20"
             />
 
-        <!-- CUMULATIVE GRADE -->
+        <!-- COURSE GRADE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
-            android:paddingBottom="8dp"
+            android:paddingBottom="0dp"
             >
 
             <!-- Cumulative Grade Title -->
@@ -41,12 +43,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
-                style="@style/ModListItemPrimaryText"
-                android:text="Cumulative Grade:"
+                style="@style/ModRobotoRegular16"
+                android:text="Current Class Grade:"
                 />
 
             <!-- Cumulative Grade Data-->
             <TextView
+                android:id="@+id/CourseGrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
@@ -61,65 +64,51 @@
 
         <!-- TEACHER INFO BUTTON -->
         <Button
+            android:id="@+id/TeacherInfoButton"
             android:textColor="?attr/modBorderlessButtonFullSpanColor"
-            style="@style/ModBorderlessButtonFullSpan"
             android:text="Teacher Info"
+            style="@style/ModBorderlessButtonFullSpan"
             />
+            <!--android:background="@drawable/border_thin"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"-->
+            
+
 
         <!-- Divider Line -->
         <View style="@style/ModDivider" />
-            
-        <!-- COURSE GRADE -->
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="A+"
-            android:padding6="16dp"
-            />-->
-            <!--style="@style/ModListItemSecondaryText"-->
-        
-        <!-- TEACHER INFO -->
-        <!--<Button
-            android:id="@+id/TeacherInfoButton"
-            android:textColor="?attr/colorPrimary"
-            android:text="TEACHER INFO"
-            style="@style/ModBorderlessButton"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_toLeftOf="@+id/ShowGradesButton"
-            />-->
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:animateLayoutChanges="true"
             >
             
-            <!-- SHOW GRADES TEXT -->
+            <!-- SHOW GRADES BUTTON -->
             <Button
                 android:id="@+id/ShowGradesButton"
                 android:textColor="?attr/colorPrimary"
                 android:text="SHOW GRADES"
                 style="@style/ModBorderlessButton"
-                android:gravity="left"
-                android:layout_marginTop="16dp"
+                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
-                    />
+                />
 
             <!-- SHOW GRADES ARROW -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_alignParentRight="true"
                 android:text="^"
-                    />
+                />
 
-        </LinearLayout>
+        </RelativeLayout>
         
         <!-- EXPANDING ASSIGNMENTS AREA -->
         <LinearLayout

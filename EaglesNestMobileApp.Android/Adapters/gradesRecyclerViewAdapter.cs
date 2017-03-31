@@ -3,6 +3,10 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Core.Model;
+using ProgressDialog = Android.App.ProgressDialog;
+using Android.Widget;
+using Android.Content;
+using Android.App;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -12,11 +16,14 @@ namespace EaglesNestMobileApp.Android.Adapters
         public List<Card> GradesCardList { get; set; }
         public gradesViewHolder GradesViewHolder { get; set; }
         private int expandedPosition = -1;
+        private Context _context;
+        public View dialogBoxLayout { get; set; }
 
-        public gradesRecyclerViewAdapter(List<Card> grades)
+        public gradesRecyclerViewAdapter(List<Card> grades, Context context)
         {
             // Set the local list to the list passed in
             GradesCardList = grades;
+            _context = context;
         }
 
         // Returns the number of cards in the list
@@ -38,12 +45,17 @@ namespace EaglesNestMobileApp.Android.Adapters
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.GradesCardLayout, parent, false);
+            View view =
+                LayoutInflater.From(parent.Context).Inflate(Resource.Layout.GradesCardLayout, parent, false);
+
+            /*View dialogBoxLayout =
+                LayoutInflater.From(parent.Context).Inflate(Resource.Layout.GradesCardLayout, parent, false);*/
 
             GradesViewHolder = new gradesViewHolder(view);
 
             GradesViewHolder.ShowGradesButton.Click += View_Click;
             GradesViewHolder.ShowGradesButton.Tag = GradesViewHolder;
+            GradesViewHolder.TeacherInfoButton.Click += PopUpBox;
 
             return GradesViewHolder;
         }
@@ -60,6 +72,16 @@ namespace EaglesNestMobileApp.Android.Adapters
 
             expandedPosition = GradesViewHolderCurrent.AdapterPosition;
             NotifyItemChanged(expandedPosition);
+        }
+
+        private void PopUpBox(object sender, EventArgs e)
+        {
+            Dialog dialogBox = new Dialog(_context);
+            dialogBox.SetTitle("Messaging & Telephone Instructions");
+            //dialogBox.SetMessage("");
+            dialogBox.SetContentView(Resource.Layout.StudentInfoFragmentLayout);
+            //dialogBox.SetView(LayoutInflater.From(_context).Inflate(Resource.Layout.GradesCardLayout, null));
+            dialogBox.Show();
         }
     }
 }
