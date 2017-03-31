@@ -2304,26 +2304,26 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f020056
 			public const int avd_hide_password = 2130837590;
 			
-			// aapt resource value: 0x7f020082
-			public const int avd_hide_password_1 = 2130837634;
-			
 			// aapt resource value: 0x7f020083
-			public const int avd_hide_password_2 = 2130837635;
+			public const int avd_hide_password_1 = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int avd_hide_password_3 = 2130837636;
+			public const int avd_hide_password_2 = 2130837636;
+			
+			// aapt resource value: 0x7f020085
+			public const int avd_hide_password_3 = 2130837637;
 			
 			// aapt resource value: 0x7f020057
 			public const int avd_show_password = 2130837591;
 			
-			// aapt resource value: 0x7f020085
-			public const int avd_show_password_1 = 2130837637;
-			
 			// aapt resource value: 0x7f020086
-			public const int avd_show_password_2 = 2130837638;
+			public const int avd_show_password_1 = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int avd_show_password_3 = 2130837639;
+			public const int avd_show_password_2 = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int avd_show_password_3 = 2130837640;
 			
 			// aapt resource value: 0x7f020058
 			public const int border = 2130837592;
@@ -2421,11 +2421,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f020077
 			public const int notification_icon_background = 2130837623;
 			
-			// aapt resource value: 0x7f020080
-			public const int notification_template_icon_bg = 2130837632;
-			
 			// aapt resource value: 0x7f020081
-			public const int notification_template_icon_low_bg = 2130837633;
+			public const int notification_template_icon_bg = 2130837633;
+			
+			// aapt resource value: 0x7f020082
+			public const int notification_template_icon_low_bg = 2130837634;
 			
 			// aapt resource value: 0x7f020078
 			public const int notification_tile_bg = 2130837624;
@@ -2437,19 +2437,22 @@ namespace EaglesNestMobileApp.Android
 			public const int Nov28MissionPrayerBand1 = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int SubmitStudentPhotosFall2 = 2130837627;
+			public const int studentSchedule_dateButton = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int TheNestLogo1 = 2130837628;
+			public const int SubmitStudentPhotosFall2 = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int TheNestLogo2 = 2130837629;
+			public const int TheNestLogo1 = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int TheNestLogo3 = 2130837630;
+			public const int TheNestLogo2 = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int up_arrow = 2130837631;
+			public const int TheNestLogo3 = 2130837631;
+			
+			// aapt resource value: 0x7f020080
+			public const int up_arrow = 2130837632;
 			
 			static Drawable()
 			{
