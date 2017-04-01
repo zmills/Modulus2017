@@ -7,6 +7,7 @@ using ProgressDialog = Android.App.ProgressDialog;
 using Android.Widget;
 using Android.Content;
 using Android.App;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -74,14 +75,24 @@ namespace EaglesNestMobileApp.Android.Adapters
             NotifyItemChanged(expandedPosition);
         }
 
-        private void PopUpBox(object sender, EventArgs e)
+        private async void PopUpBox(object sender, EventArgs e)
         {
-            Dialog dialogBox = new Dialog(_context);
+            Dialog dialogBox = new Dialog(_context, Resource.Style.ModAppCompatLightTheme);
             dialogBox.SetTitle("Messaging & Telephone Instructions");
             //dialogBox.SetMessage("");
             dialogBox.SetContentView(Resource.Layout.StudentInfoFragmentLayout);
             //dialogBox.SetView(LayoutInflater.From(_context).Inflate(Resource.Layout.GradesCardLayout, null));
+            /*dialogBox.Window.Attributes.Width = ViewGroup.LayoutParams.MatchParent;
+            dialogBox.Window.Attributes.Height = ViewGroup.LayoutParams.MatchParent;
+            dialogBox.Window.Attributes.HorizontalMargin = 0;
+            dialogBox.Window.Attributes.VerticalMargin = 0;
+            dialogBox.Window.Attributes.VerticalWeight = 0;
+            dialogBox.Window.Attributes.HorizontalWeight = 0;*/
+            //dialogBox.Window.AddFlags(WindowManagerFlags.Fullscreen);
+            //dialogBox.Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.TranslucentStatus);
             dialogBox.Show();
+            await Task.Delay(5000);
+            dialogBox.Dismiss();
         }
     }
 }

@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
-                style="@style/ModRobotoRegular16"
+                style="@style/ModListItemPrimaryText"
                 android:text="Current Class Grade:"
                 />
 
@@ -100,12 +100,13 @@
                 android:layout_marginRight="8dp"
                 />
 
-            <!-- SHOW GRADES ARROW -->
-            <TextView
+            <!-- SHOW GRADES ARROW ICON -->
+            <ImageView
+                android:id="@+id/ShowGradesArrowIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="^"
+                android:src="@drawable/up_arrow"
                 />
 
         </RelativeLayout>
