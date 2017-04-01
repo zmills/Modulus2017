@@ -3574,7 +3574,7 @@ namespace EaglesNestMobileApp.Android
 			public const int FoodMenuList = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int FourWindsFragment = 2130903097;
+			public const int FourWindsFragmentLayout = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
 			public const int GrabNGoFragmentLayout = 2130903098;

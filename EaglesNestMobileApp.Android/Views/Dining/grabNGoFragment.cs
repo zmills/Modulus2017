@@ -123,15 +123,15 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             _previousRecyclerview = _currentRecyclerview;
         }
 
-        private void BindViewHolder(CachingViewHolder holder, GrabAndGoItem varsityItem, int position)
+        private void BindViewHolder(CachingViewHolder holder, GrabAndGoItem grabAndGoItem, int position)
         {
             TextView _textview = holder.FindCachedViewById<TextView>(Resource.Id.listItem);
 
             holder.DeleteBinding(_textview);
 
             var itemBinding = new Binding<string, string>(
-                varsityItem,
-                () => varsityItem.ItemName,
+                grabAndGoItem,
+                () => grabAndGoItem.ItemName,
                 _textview,
                 () => _textview.Text,
                 BindingMode.OneWay,
