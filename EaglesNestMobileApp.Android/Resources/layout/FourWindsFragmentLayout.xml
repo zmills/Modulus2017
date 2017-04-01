@@ -89,6 +89,7 @@
             <include
                 android:id="@+id/Line3RecyclerView"
                 layout="@layout/BaseRecyclerView"
+                android:background="@color/primary"
                 />
 
            
