@@ -51,6 +51,8 @@
         android:gravity="right"
         android:textSize="15dp" 
         android:layout_below="@+id/infractionTitle"/>
+
+    
       
     </RelativeLayout>
   </android.support.v7.widget.CardView>

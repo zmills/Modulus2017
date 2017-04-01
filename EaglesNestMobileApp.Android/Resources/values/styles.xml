@@ -38,7 +38,7 @@
     
     <!-- LIGHT THEME -->
     
-    <style name="AppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ModAppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- <item name="android:windowNoTitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
         <item name="windowActionModeOverlay">true</item>
@@ -102,7 +102,7 @@
     
     <!-- DARK THEME -->
     
-    <style name="AppCompatDarkTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="ModAppCompatDarkTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="windowActionModeOverlay">true</item>
         
         <!-- <Colors> -->
