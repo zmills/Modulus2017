@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         Fragment[] CampusLifeFragments =
         {
             new facilitiesFragment(),
-            new requestsFragment(),
+            //new requestsFragment(),
             new studentCourtFragment(),
         };
 

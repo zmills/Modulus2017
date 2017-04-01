@@ -12,12 +12,15 @@ using System.Collections.Generic;
 using Android.Content;
 using EaglesNestMobileApp.Android.Views.Account;
 using System;
+using Dialog = Android.App.Dialog;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
     public class facilitiesFragment : Fragment
     {
         View view;
+        Dialog _dialogBox;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,56 +34,72 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
                 container, false);
 
-            Button _dining = view.FindViewById<Button>(Resource.Id.Dining);
-            Button _academics = view.FindViewById<Button>(Resource.Id.Academic);
-            Button _church = view.FindViewById<Button>(Resource.Id.Church);
-            Button _service = view.FindViewById<Button>(Resource.Id.Service);
-            Button _recreation = view.FindViewById<Button>(Resource.Id.Recreation);
-            Button _dorm = view.FindViewById<Button>(Resource.Id.Dorm);
-
-            _dining.Click += LoadLayeredFragment;
-            _academics.Click += LoadLayeredFragment;
-            _church.Click += LoadLayeredFragment;
-            _service.Click += LoadLayeredFragment;
-            _recreation.Click += LoadLayeredFragment;
-            _dorm.Click += LoadLayeredFragment;
+            Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
 
-        private void LoadLayeredFragment(object sender, System.EventArgs e)
+        private void SetUpFacilitiesLayout()
         {
-            CreateAndShowDialog((sender as Button).Text);
+            view.FindViewById<Button>(Resource.Id.Dining).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Academic).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Church).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Service).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Recreation).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Dorm).Click += LoadPopUpAsync;
         }
 
-        private void CreateAndShowDialog(string facilityCategory)
+        private async void LoadPopUpAsync(object sender, EventArgs e)
         {
-            switch (facilityCategory)
+            /* ViewModel Text must be passed to all these layouts                */
+            switch ((sender as Button).Text)
             {
                 case AndroidApp.FacilityCategory.Academics:
                     {
-
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
                     }
                     break;
                 case AndroidApp.FacilityCategory.Church:
                     {
-
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
                     }
                     break;
                 case AndroidApp.FacilityCategory.Dining:
                     {
-
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
                     }
                     break;
                 case AndroidApp.FacilityCategory.Dorm:
                     {
-
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
                     }
                     break;
                 case AndroidApp.FacilityCategory.Recreation:
-
+                    {
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Service:
-
+                    {
+                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.Show();
+                        await Task.Delay(5000);
+                        _dialogBox.Dismiss();
+                    }
                     break;
             }
         }

@@ -68,6 +68,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
             try
             {
                 /* Initialize the localDb if not already present and sync  */
+                await Database.InitLocalStore();
                 await Database.SyncAsync(pullData: true);
 
                 /* Get all the items for the dining facilities              */

@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         Fragment[] AcademicsFragments =
         {
             new gradesFragment(),
-            new gradeReportFragment(),
+            //new gradeReportFragment(),
             new examScheduleFragment()
         };
 

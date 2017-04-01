@@ -27,7 +27,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         {
             new announcementsFragment(),
             new eventsFragment(),
-            new calendarFragment()
+            //new calendarFragment()
         };
 
         public override void OnCreate(Bundle savedInstanceState)
