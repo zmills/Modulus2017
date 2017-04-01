@@ -9,7 +9,9 @@
     android:paddingRight="8dp"
     android:paddingLeft="8dp"
     android:paddingBottom="0dp"
-    android:background="@color/primary_light"
+    
     android:nestedScrollingEnabled="false"
     android:visibility="gone"
     />
+<!-- This controls the background of the list -->
+<!-- android:background="@color/primary_light"-->
