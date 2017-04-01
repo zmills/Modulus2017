@@ -16,6 +16,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         public TextView GradesClassName { get; set; }
         public LinearLayout ExpandCard { get; set; }
         public Button ShowGradesButton { get; set; }
+        public Button TeacherInfoButton { get; set; }
 
         public gradesViewHolder(View view) : base(view)
         {
@@ -29,6 +30,9 @@ namespace EaglesNestMobileApp.Android.Adapters
 
             ExpandCard = 
                 view.FindViewById<LinearLayout>(Resource.Id.llExpandArea);
+
+            TeacherInfoButton =
+                view.FindViewById<Button>(Resource.Id.TeacherInfoButton);
         }
 
         /* Take in a gradesCard and assign its data to the viewholder's views */

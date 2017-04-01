@@ -13,100 +13,114 @@ using Android.Support.V7.Widget;
 using Android.Support.Design.Widget;
 using Android.Widget;
 using static Android.Support.Design.Widget.TabLayout;
+using System.Collections.Generic;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class grabNGoFragment : Fragment
     {
         private View _grabAndGoFragmentView;
+        List<RecyclerView> RecyclerviewList;
+        List<TextView> LineList;
+        RecyclerView _currentRecyclerview;
+        RecyclerView _previousRecyclerview;
+        int _lineCount; 
 
         public GrabAndGoFragmentViewModel ViewModel
         {
             get { return App.Locator.GrabAndGo; }
         }
 
-        /* All the recyclerview adapters */
-        private ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder> _lineOneAdapter;
-        private ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder> _lineTwoAdapter;
-        private ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder> _lineThreeAdapter;
-        private ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder> _lineFourAdapter;
-        
-        /* All the recyclerviews                                            */
-        private RecyclerView _lineOneRecyclerView;
-        private RecyclerView _lineTwoRecyclerView;
-        private RecyclerView _lineThreeRecyclerView;
-        private RecyclerView _lineFourRecyclerView;
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            _lineCount = ViewModel.GrabAndGoMenu.LunchMenu.Count;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup container, Bundle savedInstanceState)
         {
             /* Use this to return your custom view for this Fragment         */
-            _grabAndGoFragmentView = inflater.Inflate(Resource.Layout.GrabNGoFragmentLayout, 
-                container, false);
+            _grabAndGoFragmentView = 
+                inflater.Inflate(Resource.Layout.GrabNGoFragmentLayout, 
+                    container, false);
 
+            /* Set up the tablayout for the meal times                       */
             TabLayout _tabLayout =
                 _grabAndGoFragmentView.FindViewById<TabLayout>(Resource.Id.GrabAndGoTabLayout);
 
-            Activity.RunOnUiThread(() => _tabLayout.TabSelected += TabLayoutSelected);
+            /* Set the current and previous recyclerviews */
+            _currentRecyclerview = _previousRecyclerview =
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine1);
 
-            /* Get all of the recyclerviews                                      */
-            Activity.RunOnUiThread(() => GetRecyclerViews());
-
-            /* Set the adapters                                                  */
-            Activity.RunOnUiThread(() => BindAdapters());
-
-            /* Set the layout managers                                           */
-            Activity.RunOnUiThread(() => SetLayoutManagers());
-
-            /* Set the recylerviews to their adapters                            */
-            Activity.RunOnUiThread(() => SetAdaptersToRecyclerViews());
+            /* Set up the recyclerviews and adapters for the fragment        */
+            Activity.RunOnUiThread(()=> SetUpGrabAndGo());
 
             return _grabAndGoFragmentView;
         }
-        private void TabLayoutSelected(object sender, TabSelectedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine(e.Tab.Text);
+        
 
-            Activity.RunOnUiThread(() => ViewModel.GrabAndGoMenu.GetMealTime(e.Tab.Text));
-            Activity.RunOnUiThread(() => UpDateDataSource());
+        /* Get the recyclerviews in from the xml layout                      */
+        private void SetUpGrabAndGo()
+        {
+            /* Add the recyclerviews to a list                               */
+            RecyclerviewList = new List<RecyclerView>
+            {
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine1),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine2),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine3),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine4)
+            };
+
+            /* Add the lines to a list                                       */
+            LineList = new List<TextView>
+            {
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption1),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption2),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption3),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption4)
+            };
+           
+            /* Set adapters, layout managers, and click handlers             */
+            for (int count = 0; count < _lineCount; count++)
+            {
+                /* Set Adapters */
+                RecyclerviewList[count].SetAdapter
+                    (
+                        ViewModel.GrabAndGoMenu.LunchMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
+                    );
+                
+                /* Set Layout Managers */
+                RecyclerviewList[count].SetLayoutManager(new LinearLayoutManager(Activity));
+
+                /* Set Click Event */
+                LineList[count].Click += LineClick;
+            }
         }
 
-        private void UpDateDataSource()
+        private void LineClick(object sender, System.EventArgs e)
         {
-            Activity.RunOnUiThread(() => _lineOneAdapter.DataSource = ViewModel.GrabAndGoMenu.LineOne);
-            Activity.RunOnUiThread(() => _lineTwoAdapter.DataSource = ViewModel.GrabAndGoMenu.LineTwo);
-            Activity.RunOnUiThread(() => _lineThreeAdapter.DataSource = ViewModel.GrabAndGoMenu.LineThree);
-            Activity.RunOnUiThread(() => _lineFourAdapter.DataSource = ViewModel.GrabAndGoMenu.LineFour);
-        }
+            /* Find the correct recyclerview, close the previous one         */
+            for(int count = 0; count < LineList.Count; count++)
+            {
+                if (sender.Equals(LineList[count]))
+                {
+                    _currentRecyclerview = RecyclerviewList[count];
 
-        /* Get the recyclerviews in from the xml layout                          */
-        public void GetRecyclerViews()
-        {
-            _lineOneRecyclerView =
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine1);
-            _lineTwoRecyclerView =
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine2);
-            _lineThreeRecyclerView =
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine3);
-            _lineFourRecyclerView =
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine4);
-        }
-
-        public void BindAdapters()
-        {
-            _lineOneAdapter = ViewModel.GrabAndGoMenu.LineOne.GetRecyclerAdapter(
-                BindViewHolder, Resource.Layout.FoodMenuList);
-            _lineTwoAdapter = ViewModel.GrabAndGoMenu.LineTwo.GetRecyclerAdapter(
-                BindViewHolder, Resource.Layout.FoodMenuList);
-            _lineThreeAdapter = ViewModel.GrabAndGoMenu.LineThree.GetRecyclerAdapter(
-                BindViewHolder, Resource.Layout.FoodMenuList);
-            _lineFourAdapter = ViewModel.GrabAndGoMenu.LineFour.GetRecyclerAdapter(
-                BindViewHolder, Resource.Layout.FoodMenuList);
+                    if (_previousRecyclerview == _currentRecyclerview &&
+                        _previousRecyclerview.Visibility == ViewStates.Visible)
+                        _currentRecyclerview.Visibility = ViewStates.Gone;
+                    else
+                    {
+                        if (_previousRecyclerview != _currentRecyclerview)
+                            _previousRecyclerview.Visibility = ViewStates.Gone;
+                        _currentRecyclerview.Visibility = ViewStates.Visible;
+                    }
+                }
+                else
+                    System.Diagnostics.Debug.Write("Something is very wrong: in the grabandgo fragment");
+            }
+            _previousRecyclerview = _currentRecyclerview;
         }
 
         private void BindViewHolder(CachingViewHolder holder, GrabAndGoItem varsityItem, int position)
@@ -125,23 +139,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                );
 
             holder.SaveBinding(_textview, itemBinding);
-        }
-
-
-        public void SetAdaptersToRecyclerViews()
-        {
-            _lineOneRecyclerView.SetAdapter(_lineOneAdapter);
-            _lineTwoRecyclerView.SetAdapter(_lineTwoAdapter);
-            _lineThreeRecyclerView.SetAdapter(_lineThreeAdapter);
-            _lineFourRecyclerView.SetAdapter(_lineFourAdapter);
-        }
-
-        public void SetLayoutManagers()
-        {
-            _lineOneRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
-            _lineTwoRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
-            _lineThreeRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
-            _lineFourRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
         }
     }
 }

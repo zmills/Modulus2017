@@ -173,6 +173,8 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Adapters;
 using EaglesNestMobileApp.Core.Model;
+using Android.Widget;
+using Android.Content;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -206,11 +208,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
             /* Create a new layout manager using the activity containing     */
             /* this fragment as the context                                  */
+
             GradesLayoutManager = new LinearLayoutManager(Activity);
 
             /* Create a custom adapter and pass it the data that it will be  */
             /* recycling through                                             */
-            GradesAdapter = new gradesRecyclerViewAdapter(GradesCardList);
+            GradesAdapter = new gradesRecyclerViewAdapter(GradesCardList, Activity);
 
             /* Setup the recyclerview with the created adapter and layout    */
             /* manager                                                       */
