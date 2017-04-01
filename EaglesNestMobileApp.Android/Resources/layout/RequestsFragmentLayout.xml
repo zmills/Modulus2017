@@ -40,7 +40,9 @@
        android:layout_gravity="center_horizontal"
        cardview:cardElevation="4dp"
        cardview:cardCornerRadius="5dp"
-       android:id="@+id/approvedPassesCard">
+       android:id="@+id/approvedPassesCard"
+       android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
 
       <TextView
         android:id="@+id/approvedPassesStatus"
@@ -70,7 +72,9 @@
        android:layout_gravity="center_horizontal"
        cardview:cardElevation="4dp"
        cardview:cardCornerRadius="5dp"
-       android:id="@+id/pendingPassesCard">
+       android:id="@+id/pendingPassesCard"
+       android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
 
       <TextView
         android:id="@+id/pendingPassesStatus"
