@@ -11,6 +11,7 @@ using Android.Support.Design.Widget;
 using System.Collections.Generic;
 using Android.Content;
 using EaglesNestMobileApp.Android.Views.Account;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -48,34 +49,40 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
         private void LoadLayeredFragment(object sender, System.EventArgs e)
         {
-            FragmentTransaction _transaction = Activity.SupportFragmentManager.BeginTransaction();
+            CreateAndShowDialog((sender as Button).Text);
+        }
 
-            string _buttonName = (sender as Button).Text;
-            switch (_buttonName)
+        private void CreateAndShowDialog(string facilityCategory)
+        {
+            switch (facilityCategory)
             {
                 case AndroidApp.FacilityCategory.Academics:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Church:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Dining:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Dorm:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Recreation:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+
                     break;
                 case AndroidApp.FacilityCategory.Service:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+
                     break;
             }
-            _transaction.AddToBackStack("Layered");
-            _transaction.Commit();
-            View _view = Activity.FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            _view.Visibility = ViewStates.Gone;
         }
     }
 }
