@@ -82,7 +82,7 @@ namespace EaglesNestMobileApp.Core.Services
                     //await _studentTable.PullAsync("currentStudent",
                     //    _studentTable.Where(student => 
                     //        student.Id == App.Locator.User.Id));
-                    PullOptions data = new PullOptions { MaxPageSize = 1000 };
+                    PullOptions data = new PullOptions { MaxPageSize = 150 };
                     ///* Pull down non student related tables                 */
                     await _fourWindsTable.PullAsync("firstPageFourWindsItems",
                         _fourWindsTable.CreateQuery(), data);
@@ -95,6 +95,7 @@ namespace EaglesNestMobileApp.Core.Services
             catch (Exception ex)
             {
                 Debug.WriteLine($"{ex.Message} in SyncAsync");
+                Debug.WriteLine("Please check your internet connection!");
             }
         }
 
@@ -110,7 +111,7 @@ namespace EaglesNestMobileApp.Core.Services
             //_eagleDatabase.DefineTable<GrabAndGoItem>();
             //_eagleDatabase.DefineTable<Student>();
             //_eagleDatabase.DefineTable<AzureToken>();
-            //_eagleDatabase.DefineTable<LocalToken>();
+            _eagleDatabase.DefineTable<LocalToken>();
         }
 
         /*********************************************************************/
@@ -124,7 +125,7 @@ namespace EaglesNestMobileApp.Core.Services
             //_varsityTable = _client.GetSyncTable<VarsityItem>();
             //_grabAndGoTable = _client.GetSyncTable<GrabAndGoItem>();
             //_studentTable = _client.GetSyncTable<Student>();
-            //_localTokenTable = _client.GetSyncTable<LocalToken>();
+            _localTokenTable = _client.GetSyncTable<LocalToken>();
             //_azureTokenTable = _client.GetSyncTable<AzureToken>();
         }
 

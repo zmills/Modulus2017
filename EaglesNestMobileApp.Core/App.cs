@@ -87,7 +87,7 @@ namespace EaglesNestMobileApp.Core
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Facility Times",
-                "Pass Requests",
+                //"Pass Requests",
                 "Student Court"
             });
             public static ICharSequence[] AcademicsPage =

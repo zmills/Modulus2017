@@ -9,6 +9,7 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using JimBobBennett.MvvmLight.AppCompat;
@@ -16,7 +17,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", MainLauncher = false,
+    [Activity(Label = "Eaglesnest", MainLauncher = true,
          Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
@@ -34,14 +35,15 @@ namespace EaglesNestMobileApp.Android
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
         /* activity in a huge IF STATEMENT                                     */
-        protected override void OnCreate(Bundle bundle)
+        protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             CurrentPlatform.Init();
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
-            RunOnUiThread(async ()=> await LoginViewModel.CheckUserAsync());
+            await App.Locator.FourWinds.RefreshMenusAsync();
+            RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
 
             /* Bind views to the viewmodel                                      */
             Username = FindViewById<EditText>(Resource.Id.UserId);
