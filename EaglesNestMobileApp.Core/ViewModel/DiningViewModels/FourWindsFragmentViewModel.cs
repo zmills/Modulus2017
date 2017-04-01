@@ -87,7 +87,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
         {
             /* Reset all the ObservableCollections so that we're not adding */
             /* to existing items                                            */
-            FourWindsMenu.ClearLines();
+            //FourWindsMenu.ClearLines();
 
             /* Format the Four Winds dining menus                           */
             foreach (var item in FourWindsItems)

@@ -6,40 +6,39 @@ namespace EaglesNestMobileApp.Core.Model.Food
 {
     public class FourWindsMenu : ObservableObject
     {
-        private ObservableCollection<FourWindsItem> LineOneBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineTwoBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineThreeBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFourBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFiveBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSixBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSevenBreakfast = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineOneLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineTwoLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineThreeLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFourLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFiveLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSixLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSevenLunch = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineOneDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineTwoDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineThreeDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFourDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineFiveDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSixDinner = new ObservableCollection<FourWindsItem>();
-        private ObservableCollection<FourWindsItem> LineSevenDinner = new ObservableCollection<FourWindsItem>();
-
-        public ObservableCollection<FourWindsItem> LineOne { get; set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineTwo { get; private set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineThree { get; private set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineFour { get; private set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineFive { get; private set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineSix { get; private set; } = new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> LineSeven { get; private set; } = new ObservableCollection<FourWindsItem>();
-
-        public FourWindsMenu()
-        {
-            GetMealTime(App.MealTimes.Breakfast);
-        }
+        public ObservableCollection<ObservableCollection<FourWindsItem>> BreakfastMenu
+            = new ObservableCollection<ObservableCollection<FourWindsItem>>
+            {
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>()
+            };
+        public ObservableCollection<ObservableCollection<FourWindsItem>> LunchMenu
+            = new ObservableCollection<ObservableCollection<FourWindsItem>>
+            {
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>()
+            };
+        public ObservableCollection<ObservableCollection<FourWindsItem>> DinnerMenu
+            = new ObservableCollection<ObservableCollection<FourWindsItem>>
+            {
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>(),
+                new ObservableCollection<FourWindsItem>()
+            };
 
 
         // Move to app class
@@ -67,25 +66,25 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LineOneBreakfast.Add(item);
+                    BreakfastMenu[0].Add(item);
                     break;
                 case App.LineKeys.LineTwo:
-                    LineTwoBreakfast.Add(item);
+                    BreakfastMenu[1].Add(item);
                     break;
                 case App.LineKeys.LineThree:
-                    LineThreeBreakfast.Add(item);
+                    BreakfastMenu[2].Add(item);
                     break;
                 case App.LineKeys.LineFour:
-                    LineFourBreakfast.Add(item);
+                    BreakfastMenu[3].Add(item);
                     break;
                 case App.LineKeys.LineFive:
-                    LineFiveBreakfast.Add(item);
+                    BreakfastMenu[4].Add(item);
                     break;
                 case App.LineKeys.LineSix:
-                    LineSixBreakfast.Add(item);
+                    BreakfastMenu[5].Add(item);
                     break;
                 case App.LineKeys.LineSeven:
-                    LineSevenBreakfast.Add(item);
+                    BreakfastMenu[6].Add(item);
                     break;
             }
         }
@@ -95,25 +94,25 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LineOneLunch.Add(item);
+                    LunchMenu[0].Add(item);
                     break;
                 case App.LineKeys.LineTwo:
-                    LineTwoLunch.Add(item);
+                    LunchMenu[1].Add(item);
                     break;
                 case App.LineKeys.LineThree:
-                    LineThreeLunch.Add(item);
+                    LunchMenu[2].Add(item);
                     break;
                 case App.LineKeys.LineFour:
-                    LineFourLunch.Add(item);
+                    LunchMenu[3].Add(item);
                     break;
                 case App.LineKeys.LineFive:
-                    LineFiveLunch.Add(item);
+                    LunchMenu[4].Add(item);
                     break;
                 case App.LineKeys.LineSix:
-                    LineSixLunch.Add(item);
+                    LunchMenu[5].Add(item);
                     break;
                 case App.LineKeys.LineSeven:
-                    LineSevenLunch.Add(item);
+                    LunchMenu[6].Add(item);
                     break;
             }
         }
@@ -123,81 +122,27 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LineOneDinner.Add(item);
+                    DinnerMenu[0].Add(item);
                     break;
                 case App.LineKeys.LineTwo:
-                    LineTwoDinner.Add(item);
+                    DinnerMenu[1].Add(item);
                     break;
                 case App.LineKeys.LineThree:
-                    LineThreeDinner.Add(item);
+                    DinnerMenu[2].Add(item);
                     break;
                 case App.LineKeys.LineFour:
-                    LineFourDinner.Add(item);
+                    DinnerMenu[3].Add(item);
                     break;
                 case App.LineKeys.LineFive:
-                    LineFiveDinner.Add(item);
+                    DinnerMenu[4].Add(item);
                     break;
                 case App.LineKeys.LineSix:
-                    LineSixDinner.Add(item);
+                    DinnerMenu[5].Add(item);
                     break;
                 case App.LineKeys.LineSeven:
-                    LineSevenDinner.Add(item);
+                    DinnerMenu[6].Add(item);
                     break;
             }
-        }
-
-        public void GetMealTime(string mealTime)
-        {
-            switch (mealTime)
-            {
-                case App.MealTimes.Breakfast:
-                    {
-                        LineOne = LineOneBreakfast;
-                        LineTwo = LineTwoBreakfast;
-                        LineThree = LineThreeBreakfast;
-                        LineFour = LineFourBreakfast;
-                        LineFive = LineFiveBreakfast;
-                        LineSix = LineSixBreakfast;
-                        LineSeven = LineSevenBreakfast;
-                    }
-                    break;
-                case App.MealTimes.Lunch:
-                    {
-                        LineOne = LineOneLunch;
-                        LineTwo = LineTwoLunch;
-                        LineThree = LineThreeLunch;
-                        LineFour = LineFourLunch;
-                        LineFive = LineFiveLunch;
-                        LineSix = LineSixLunch;
-                        LineSeven = LineSevenLunch;
-                    }
-                    break;
-                case App.MealTimes.Dinner:
-                    {
-                        LineOne = LineOneDinner;
-                        LineTwo = LineTwoDinner;
-                        LineThree = LineThreeDinner;
-                        LineFour = LineFourDinner;
-                        LineFive = LineFiveDinner;
-                        LineSix = LineSixDinner;
-                        LineSeven = LineSevenDinner;
-                    }
-                    break;
-                default:
-                    Debug.WriteLine("An incorrenct meal time was passed to the FourWindsMenu Class");
-                    break;
-            }
-        }
-
-        public void ClearLines()
-        {
-            LineOne.Clear();
-            LineTwo.Clear();
-            LineThree.Clear();
-            LineFour.Clear();
-            LineFive.Clear();
-            LineSix.Clear();
-            LineSeven.Clear();
         }
     }
 }
