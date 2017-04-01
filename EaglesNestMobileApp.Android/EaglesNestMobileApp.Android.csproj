@@ -488,7 +488,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\studentSchedule_dateButton.xml" />
+    <AndroidResource Include="Resources\drawable\studentSchedule_dateButton.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\StudentScheduleRecyclerViewLayout.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\move_fab.xml" />

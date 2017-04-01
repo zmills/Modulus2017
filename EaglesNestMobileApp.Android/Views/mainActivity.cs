@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*                                 mainActivity                              */
-/* This activity is started after the user has successfully logged in. It    */       
+/* This activity is started after the user has successfully logged in. It    */
 /* handles all the navigation and the selected item events of the bottom     */
 /* navigation view                                                           */
 /*                                                                           */
@@ -14,149 +14,179 @@ using EaglesNestMobileApp.Android.Views.Academics;
 using EaglesNestMobileApp.Android.Views.Home;
 using static Android.Support.Design.Widget.BottomNavigationView;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
-using Fragment = Android.Support.V4.App.Fragment;
 using Android.App;
 using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
-using Android.Views;
+using Android.Content.PM;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1", MainLauncher = true, 
+    [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1",
+        MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait,
              Theme = "@style/ModAppCompatLightTheme")]
-   
-    /* See loginActivity for base class explanation                          */
-    public class mainActivity : AppCompatActivityBase 
-    {
-      /* Fragments corresponding to each navigation menu item                */
-        private homeFragment             _homePage = new homeFragment();
-        private academicsFragment   _academicsPage = new academicsFragment();
-        private campusLifeFragment _campusLifePage = new campusLifeFragment();
-        private diningFragment         _diningPage = new diningFragment();
-        private accountFragment       _accountPage = new accountFragment();
 
-        /* References the bottom navigation menu in this activity's layout   */
-        private BottomNavigationView _bottomNavigationMenu;
-        
+    /* See loginActivity for base class explanation                          */
+    public class mainActivity : AppCompatActivityBase
+    {
+        /* Variables for managing the backstack                              */
+        private bool _isHome;
+        private int _backStackCount;
+        private string _fragmentTag;
 
         /* Public accessors for member variables                             */
-        public homeFragment             HomePage => _homePage;
-        public academicsFragment   AcademicsPage => _academicsPage;
-        public campusLifeFragment CampusLifePage => _campusLifePage;
-        public diningFragment         DiningPage => _diningPage;
-        public accountFragment       AccountPage => _accountPage;
-        public BottomNavigationView BottomNavigationMenu => 
-                                      _bottomNavigationMenu;
+        public homeFragment HomePage
+        { get; private set; } = new homeFragment();
+        public academicsFragment AcademicsPage
+        { get; private set; } = new academicsFragment();
+        public campusLifeFragment CampusLifePage
+        { get; private set; } = new campusLifeFragment();
+        public diningFragment DiningPage
+        { get; private set; } = new diningFragment();
+        public accountFragment AccountPage
+        { get; private set; } = new accountFragment();
+
+        public BottomNavigationView BottomNavigationMenu { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             RunOnUiThread(() => App.Locator.Events.InitializeVm());
-            RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
+            //RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
             RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
             RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
             RunOnUiThread(() => App.Locator.Exams.InitializeVm());
 
             /*( Set our view from the "main" layout resource                 */
-            SetContentView(Resource.Layout.BottomNavLayout);
-            InitializeNavigation();
-         }
+            RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
+            RunOnUiThread(() => InitializeNavigation());
+        }
 
         private void InitializeNavigation()
         {
             /* Set up the event handler for the bottom navigation menu       */
-            _bottomNavigationMenu = 
-                FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            BottomNavigationMenu.NavigationItemSelected += NavItemSelected;
+            RunOnUiThread(() => (BottomNavigationMenu =
+                FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
+                    .NavigationItemSelected += NavItemSelected);
 
             /* Loads up the main page                                        */
-            LoadFragment(App.PageKeys.HomePageKey);
+            RunOnUiThread(() => LoadHomeFragment());
         }
 
         public override void OnBackPressed()
         {
-            /* If the entry on top of the backstack is the home page, close  */
-            /* the application else load the homepage and show the user a    */
-            /* warning toast                                                 */
-            string _previousFragmentName = 
-                SupportFragmentManager.GetBackStackEntryAt(
-                    SupportFragmentManager.BackStackEntryCount - 1).Name;
+            _isHome =
+                SupportFragmentManager
+                    .FindFragmentByTag(App.PageKeys.HomePageKey).IsVisible;
 
-            if(_previousFragmentName == "Layered")
+            if (!_isHome)
             {
-                base.OnBackPressed();
-                _bottomNavigationMenu.Visibility = ViewStates.Visible;
-            }
-            else if (_previousFragmentName != App.PageKeys.HomePageKey)
-            {
-                LoadFragment(App.PageKeys.HomePageKey);
+                RunOnUiThread(() => LoadHomeFragment());
                 Toast.MakeText(this, "Press back again to exit application.",
                     ToastLength.Short).Show();
                 BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
             }
             else
             {
-                FinishAffinity();
+                Finish();
             }
+        }
+
+        /* Old backstack management. DO NOT DELETE */
+        //public override void OnBakckPressed()
+        //{
+        //    /* If the entry on top of the backstack is the home page, close  */
+        //    /* the application else load the homepage and show the user a    */
+        //    /* warning toast                                                 */
+        //    string _previousFragmentName = 
+        //        SupportFragmentManager.GetBackStackEntryAt(
+        //            SupportFragmentManager.BackStackEntryCount - 1).Name;
+
+        //    if(_previousFragmentName == "Layered")
+        //    {
+        //        base.OnBackPressed();
+        //        _bottomNavigationMenu.Visibility = ViewStates.Visible;
+        //    }
+        //    else if (_previousFragmentName != App.PageKeys.HomePageKey)
+        //    {
+        //        LoadFragment(App.PageKeys.HomePageKey);
+        //        Toast.MakeText(this, "Press back again to exit application.",
+        //            ToastLength.Short).Show();
+        //        BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+        //    }
+        //    else
+        //    {
+        //        FinishAffinity();
+        //    }
+        //}
+
+        private void LoadHomeFragment()
+        {
+            FragmentTransaction _transaction =
+                   SupportFragmentManager.BeginTransaction();
+
+            _fragmentTag = App.PageKeys.HomePageKey;
+            _transaction.Replace(Resource.Id.MainFrameLayout,
+                HomePage, _fragmentTag);
+
+            _backStackCount = SupportFragmentManager.BackStackEntryCount;
+
+            /* Add the homefragment to the backstack for back button purposes */
+            if (_backStackCount < 1)
+            {
+                System.Diagnostics.Debug.WriteLine($"BACKSTACK INSIDE IF {_backStackCount}");
+                _transaction.AddToBackStack(_fragmentTag);
+            }
+            _transaction.Commit();
+            System.Diagnostics.Debug.WriteLine($"BACKSTACK outside IF {_backStackCount}");
         }
 
         /* Event handler for menu item selection                             */
-        private void NavItemSelected(object sender, 
+        private void NavItemSelected(object sender,
                                      NavigationItemSelectedEventArgs menuItem)
-        {
-            /* Load the page based off of the id of the menu item selected   */
-            switch (menuItem.Item.ItemId)
-            {
-                case Resource.Id.BottomNavIconHome:
-                    RunOnUiThread(()=>LoadFragment(App.PageKeys.HomePageKey));
-                    break;
-                case Resource.Id.BottomNavIconGrades:
-                    RunOnUiThread(() => LoadFragment(App.PageKeys.AcademicsPageKey));
-                    break;
-                case Resource.Id.BottomNavIconCampus:
-                    RunOnUiThread(() => LoadFragment(App.PageKeys.CampusLifePageKey));
-                    break;
-                case Resource.Id.BottomNavIconDining:
-                    RunOnUiThread(() => LoadFragment(App.PageKeys.DiningPageKey));
-                    break;
-                case Resource.Id.BottomNavIconAccount:
-                    RunOnUiThread(() => LoadFragment(App.PageKeys.AccountPageKey));
-                    break;
-            }
-        }
-
-        /* Loads the appropriate fragment and adds it to the backstack       */
-        private void LoadFragment(string Tag)
         {
             FragmentTransaction _transaction =
                 SupportFragmentManager.BeginTransaction();
 
-            switch (Tag)
+            /* Load the page based off of the id of the menu item selected   */
+            switch (menuItem.Item.ItemId)
             {
-                case App.PageKeys.HomePageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, 
-                                            HomePage, Tag);
+                case Resource.Id.BottomNavIconHome:
+                    {
+                        RunOnUiThread(() => LoadHomeFragment());
+                        return;
+                    }
                     break;
-                case App.PageKeys.AcademicsPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, 
-                                            AcademicsPage, Tag);
-                    break;
-                case App.PageKeys.CampusLifePageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, 
-                                            CampusLifePage, Tag);
-                    break;
-                case App.PageKeys.DiningPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, 
-                                            DiningPage, Tag);
-                    break;
-                case App.PageKeys.AccountPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, 
-                                            AccountPage, Tag);
-                    break;
+                case Resource.Id.BottomNavIconGrades:
+                    {
+                        _fragmentTag = App.PageKeys.AcademicsPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            AcademicsPage, _fragmentTag);
+                    }break;
+                case Resource.Id.BottomNavIconCampus:
+                    {
+                        _fragmentTag = App.PageKeys.CampusLifePageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            CampusLifePage, _fragmentTag);
+
+                    }break;
+                case Resource.Id.BottomNavIconDining:
+                    {
+                        _fragmentTag = App.PageKeys.DiningPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            DiningPage, _fragmentTag);
+                    }break;
+                case Resource.Id.BottomNavIconAccount:
+                    {
+                        _fragmentTag = App.PageKeys.AccountPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            AccountPage, _fragmentTag);
+                    }break;
             }
-            _transaction.AddToBackStack(Tag);
+
+            System.Diagnostics.Debug.WriteLine($"BEFORE COMMIT {_backStackCount}");
             _transaction.Commit();
+            System.Diagnostics.Debug.WriteLine($"AFTER COMMIT {_backStackCount}");
         }
     }
 }

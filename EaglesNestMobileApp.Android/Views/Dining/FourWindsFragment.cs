@@ -94,7 +94,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 /* Set Adapters */
                 RecyclerviewList[count].SetAdapter
                     (
-                        ViewModel.FourWindsMenu.LunchMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
+                        ViewModel.FourWindsMenu.DinnerMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
                     );
 
                 /* Set Layout Managers */
