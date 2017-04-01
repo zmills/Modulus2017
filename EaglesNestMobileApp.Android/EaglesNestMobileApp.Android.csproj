@@ -290,7 +290,7 @@
     <AndroidResource Include="Resources\layout\StudentCourtFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\FourWindsFragment.xml">
+    <AndroidResource Include="Resources\layout\FourWindsFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\VarsityFragmentLayout.xml">
