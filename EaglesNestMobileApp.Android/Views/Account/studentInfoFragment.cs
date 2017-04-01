@@ -15,6 +15,7 @@ using EaglesNestMobileApp.Core;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Helpers;
 using System;
+using System.Threading;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -34,27 +35,39 @@ namespace EaglesNestMobileApp.Android.Views.Account
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, 
+        public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
             StudentInfoView = inflater.Inflate(Resource.Layout.StudentInfoFragmentLayout,
                 container, false);
 
             /* Create and set Account Photo circular image */
-            Resources _resources = Resources;
-            Bitmap _accountPhotoBitmap = BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo);
+            //ImageView _accountPhotoView = null;
+            //RoundedBitmapDrawable _drawable = null;
             ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
-            RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(_resources, _accountPhotoBitmap);
+            RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,
+                    BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
             _drawable.CornerRadius = System.Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
+            Activity.RunOnUiThread(() =>
+            {
+                _accountPhotoView.SetImageDrawable(_drawable);
+            });
+            
+            //Resources _resources = Resources;
+            //Bitmap _accountPhotoBitmap = BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo);
+            ///*SEPARATE THREAD*/ ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
+            //RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,
+            //    BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
+            //_drawable.CornerRadius = System.Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
             #region NOTE
             // Use the following only if image has same width and height:
             //     Replace _drawable.CorderRadius = ... with
             //     _drawable.Circular = true;
             #endregion
-            _accountPhotoView.SetImageDrawable(_drawable);
+            /*UI THREAD*/
 
             //sActivity.RunOnUiThread(()=>SetStudentInfo());
-            
+
 
             /* Use this to return your custom view for this Fragment         */
             return StudentInfoView;

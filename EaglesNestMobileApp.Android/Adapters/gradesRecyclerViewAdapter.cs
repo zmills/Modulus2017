@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.Content;
 using Android.App;
 using System.Threading.Tasks;
+using Android.Animation;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -19,6 +20,13 @@ namespace EaglesNestMobileApp.Android.Adapters
         private int expandedPosition = -1;
         private Context _context;
         public View dialogBoxLayout { get; set; }
+        /*TESTING - ANIMATION */
+        /*TESTING - ANIMATION */
+        public View myView { get; set; }
+        /*TESTING - ANIMATION */
+        public AnimatorSet _animatorSet { get; set; }
+        /*TESTING - ANIMATION */
+        public View GradesCard { get; set; }
 
         public gradesRecyclerViewAdapter(List<Card> grades, Context context)
         {
@@ -58,7 +66,22 @@ namespace EaglesNestMobileApp.Android.Adapters
             GradesViewHolder.ShowGradesButton.Tag = GradesViewHolder;
             GradesViewHolder.TeacherInfoButton.Click += PopUpBox;
 
+
+            /* TESTING - ANIMATION */
+            (view.FindViewById<Button>(Resource.Id.ShowGradesButton)).Click += startAnimation;
+            myView = view.FindViewById<TextView>(Resource.Id.CourseGrade);
+            _animatorSet = (AnimatorSet)AnimatorInflater.LoadAnimator(parent.Context, Resource.Animation.move_fab);
+            _animatorSet.SetTarget(myView);
+            //Activity.RunOnUiThread(() => _animatorSet.Start());
+            //FAB.Click += startAnimation;
+
             return GradesViewHolder;
+        }
+
+        private void startAnimation(object sender, System.EventArgs e)
+        {
+            //Activity.RunOnUiThread(() => _animatorSet.Start());
+            _animatorSet.Start();
         }
 
         private void View_Click(object sender, EventArgs e)

@@ -173,8 +173,11 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Adapters;
 using EaglesNestMobileApp.Core.Model;
-using Android.Widget;
+//using Android.Widget;
 using Android.Content;
+using Android.Support.Design.Widget;
+using Android.Animation;
+using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
