@@ -22,7 +22,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         Fragment[] AccountFragments =
         {
             new studentInfoFragment(),
-            new attendanceFragment(),
+            //new attendanceFragment(),
             new scheduleFragment()
         };
 

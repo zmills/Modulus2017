@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1",
         ScreenOrientation = ScreenOrientation.Portrait,
-           MainLauncher = false, Theme = "@style/ModAppCompatDarkTheme")]
+           MainLauncher = true, Theme = "@style/ModAppCompatDarkTheme")]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
