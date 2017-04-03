@@ -41,8 +41,9 @@ namespace EaglesNestMobileApp.Android.Adapters
             _context = context;
             //_rotate180 = (AnimatorSet)AnimatorInflater.LoadAnimator(context, Resource.Animation.rotate_180_overshoot);
             rotateTry2 = new RotateAnimation(0, 180, Dimension.RelativeToSelf, 0.5f, Dimension.RelativeToSelf, 0.5f);
-            rotateTry2.Duration = 3000;
+            rotateTry2.Duration = 500;
             rotateTry2.Interpolator = new AnticipateOvershootInterpolator();
+            rotateTry2.FillAfter = true;
         }
 
         // Returns the number of cards in the list
@@ -68,7 +69,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             {
                 GradesViewHolder.ExpandCard.Visibility = ViewStates.Gone;
                 //_rotate180.Start();
-                GradesViewHolder.ShowGradesArrow.StartAnimation(rotateTry2);
+                //GradesViewHolder.ShowGradesArrow.StartAnimation(rotateTry2);
             }
         }
 
