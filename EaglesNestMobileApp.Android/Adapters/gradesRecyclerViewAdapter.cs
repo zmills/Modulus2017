@@ -58,10 +58,11 @@ namespace EaglesNestMobileApp.Android.Adapters
 
             if (position == expandedPosition)
             {
+                GradesViewHolder.ShowGradesArrow.StartAnimation(rotateTry2);
                 GradesViewHolder.ExpandCard.Visibility = ViewStates.Visible;
                 /* Fade out up arrow */
                 //_rotate180.Start();
-                GradesViewHolder.ShowGradesArrow.StartAnimation(rotateTry2);
+                
             }
             else
             {
