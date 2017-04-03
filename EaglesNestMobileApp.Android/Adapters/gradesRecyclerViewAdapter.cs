@@ -134,7 +134,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             Dialog dialogBox = new Dialog(_context, Resource.Style.ModAppCompatLightTheme);
             dialogBox.SetTitle("Messaging & Telephone Instructions");
             //dialogBox.SetMessage("");
-            //dialogBox.Window.SetContentView(Resource.Layout.StudentInfoFragmentLayout);
+            dialogBox.Window.SetContentView(Resource.Layout.StudentInfoFragmentLayout);
             dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             #region OTHER ANIMATIONS
             /* 1. Animation_AppCompat_Dialog, Base_Animation_AppCompat_Dialog

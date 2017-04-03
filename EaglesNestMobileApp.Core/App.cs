@@ -80,7 +80,7 @@ namespace EaglesNestMobileApp.Core
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Student Info",
-                //"Attendance",
+                "Attendance",
                 "Student Schedule"
             });
             public static ICharSequence[] CampusLifePage =
@@ -94,7 +94,7 @@ namespace EaglesNestMobileApp.Core
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Class Grades",
-                //"Grade Report",
+                "Grade Report",
                 "Exam Schedule"
             });
         }

@@ -2494,11 +2494,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00ac
 			public const int Academic = 2131361964;
 			
-			// aapt resource value: 0x7f0a0116
-			public const int AcademicInfoCard = 2131362070;
+			// aapt resource value: 0x7f0a0112
+			public const int AcademicInfoCard = 2131362066;
 			
-			// aapt resource value: 0x7f0a0113
-			public const int AccountPhoto = 2131362067;
+			// aapt resource value: 0x7f0a010f
+			public const int AccountPhoto = 2131362063;
 			
 			// aapt resource value: 0x7f0a0078
 			public const int AnnouncementsCardImage = 2131361912;
@@ -2662,8 +2662,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00db
 			public const int PasswordLoginText = 2131362011;
 			
-			// aapt resource value: 0x7f0a0125
-			public const int PersonalContactInfoCard = 2131362085;
+			// aapt resource value: 0x7f0a0121
+			public const int PersonalContactInfoCard = 2131362081;
 			
 			// aapt resource value: 0x7f0a00b0
 			public const int Recreation = 2131361968;
@@ -2683,68 +2683,68 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a007b
 			public const int SignUpButton = 2131361915;
 			
+			// aapt resource value: 0x7f0a0118
+			public const int StudentBoxCombination = 2131362072;
+			
+			// aapt resource value: 0x7f0a0123
+			public const int StudentCellphone = 2131362083;
+			
 			// aapt resource value: 0x7f0a011c
-			public const int StudentBoxCombination = 2131362076;
+			public const int StudentChapelSeatRowNumber = 2131362076;
 			
-			// aapt resource value: 0x7f0a0127
-			public const int StudentCellphone = 2131362087;
+			// aapt resource value: 0x7f0a011b
+			public const int StudentChapelSeatSection = 2131362075;
 			
-			// aapt resource value: 0x7f0a0120
-			public const int StudentChapelSeatRowNumber = 2131362080;
+			// aapt resource value: 0x7f0a011a
+			public const int StudentCollegianLocation = 2131362074;
 			
-			// aapt resource value: 0x7f0a011f
-			public const int StudentChapelSeatSection = 2131362079;
-			
-			// aapt resource value: 0x7f0a011e
-			public const int StudentCollegianLocation = 2131362078;
+			// aapt resource value: 0x7f0a0119
+			public const int StudentCollegianName = 2131362073;
 			
 			// aapt resource value: 0x7f0a011d
-			public const int StudentCollegianName = 2131362077;
+			public const int StudentContactInfoCard = 2131362077;
 			
-			// aapt resource value: 0x7f0a0121
-			public const int StudentContactInfoCard = 2131362081;
+			// aapt resource value: 0x7f0a0106
+			public const int StudentCourtCard = 2131362054;
 			
-			// aapt resource value: 0x7f0a010a
-			public const int StudentCourtCard = 2131362058;
+			// aapt resource value: 0x7f0a011e
+			public const int StudentEmail = 2131362078;
 			
-			// aapt resource value: 0x7f0a0122
-			public const int StudentEmail = 2131362082;
+			// aapt resource value: 0x7f0a0110
+			public const int StudentFullName = 2131362064;
 			
-			// aapt resource value: 0x7f0a0114
-			public const int StudentFullName = 2131362068;
+			// aapt resource value: 0x7f0a0124
+			public const int StudentHomeAddress = 2131362084;
 			
-			// aapt resource value: 0x7f0a0128
-			public const int StudentHomeAddress = 2131362088;
-			
-			// aapt resource value: 0x7f0a0115
-			public const int StudentId = 2131362069;
+			// aapt resource value: 0x7f0a0111
+			public const int StudentId = 2131362065;
 			
 			// aapt resource value: 0x7f0a00d9
 			public const int StudentIdLoginText = 2131362009;
 			
-			// aapt resource value: 0x7f0a0119
-			public const int StudentInfoCard = 2131362073;
+			// aapt resource value: 0x7f0a0115
+			public const int StudentInfoCard = 2131362069;
 			
-			// aapt resource value: 0x7f0a0112
-			public const int StudentInfoHeaderCard = 2131362066;
-			
-			// aapt resource value: 0x7f0a011b
-			public const int StudentMailbox = 2131362075;
+			// aapt resource value: 0x7f0a010e
+			public const int StudentInfoHeaderCard = 2131362062;
 			
 			// aapt resource value: 0x7f0a0117
-			public const int StudentMajor = 2131362071;
+			public const int StudentMailbox = 2131362071;
 			
-			// aapt resource value: 0x7f0a0118
-			public const int StudentMinor = 2131362072;
+			// aapt resource value: 0x7f0a0113
+			public const int StudentMajor = 2131362067;
 			
-			// aapt resource value: 0x7f0a0126
-			public const int StudentPersonalEmail = 2131362086;
+			// aapt resource value: 0x7f0a0114
+			public const int StudentMinor = 2131362068;
 			
-			// aapt resource value: 0x7f0a011a
-			public const int StudentRoom = 2131362074;
+			// aapt resource value: 0x7f0a0122
+			public const int StudentPersonalEmail = 2131362082;
 			
-			// aapt resource value: 0x7f0a0123
-			public const int StudentRoomPhone = 2131362083;
+			// aapt resource value: 0x7f0a0116
+			public const int StudentRoom = 2131362070;
+			
+			// aapt resource value: 0x7f0a011f
+			public const int StudentRoomPhone = 2131362079;
 			
 			// aapt resource value: 0x7f0a0101
 			public const int StudentScheduleFridayButton = 2131362049;
@@ -2767,14 +2767,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00ff
 			public const int StudentScheduleWednesdayButton = 2131362047;
 			
-			// aapt resource value: 0x7f0a0124
-			public const int StudentSchoolAddress = 2131362084;
+			// aapt resource value: 0x7f0a0120
+			public const int StudentSchoolAddress = 2131362080;
 			
 			// aapt resource value: 0x7f0a007d
 			public const int SwipeRefreshAnnouncements = 2131361917;
 			
-			// aapt resource value: 0x7f0a0108
-			public const int SwipeRefreshStudentCourt = 2131362056;
+			// aapt resource value: 0x7f0a0104
+			public const int SwipeRefreshStudentCourt = 2131362052;
 			
 			// aapt resource value: 0x7f0a00f4
 			public const int SwipeRefreshStudentPass = 2131362036;
@@ -3100,20 +3100,20 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00ec
 			public const int info = 2131362028;
 			
+			// aapt resource value: 0x7f0a0107
+			public const int infraction1 = 2131362055;
+			
+			// aapt resource value: 0x7f0a010a
+			public const int infractionCard = 2131362058;
+			
+			// aapt resource value: 0x7f0a010c
+			public const int infractionDate = 2131362060;
+			
+			// aapt resource value: 0x7f0a010d
+			public const int infractionTime = 2131362061;
+			
 			// aapt resource value: 0x7f0a010b
-			public const int infraction1 = 2131362059;
-			
-			// aapt resource value: 0x7f0a010e
-			public const int infractionCard = 2131362062;
-			
-			// aapt resource value: 0x7f0a0110
-			public const int infractionDate = 2131362064;
-			
-			// aapt resource value: 0x7f0a0111
-			public const int infractionTime = 2131362065;
-			
-			// aapt resource value: 0x7f0a010f
-			public const int infractionTitle = 2131362063;
+			public const int infractionTitle = 2131362059;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int item_touch_helper_previous_elevation = 2131361804;
@@ -3334,29 +3334,29 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0091
 			public const int studentCalendar = 2131361937;
 			
+			// aapt resource value: 0x7f0a0105
+			public const int studentCourtBanner = 2131362053;
+			
 			// aapt resource value: 0x7f0a0109
-			public const int studentCourtBanner = 2131362057;
+			public const int studentCourtInfractionBanner = 2131362057;
 			
-			// aapt resource value: 0x7f0a010d
-			public const int studentCourtInfractionBanner = 2131362061;
-			
-			// aapt resource value: 0x7f0a010c
-			public const int studentCourtStatus = 2131362060;
+			// aapt resource value: 0x7f0a0108
+			public const int studentCourtStatus = 2131362056;
 			
 			// aapt resource value: 0x7f0a0103
 			public const int studentScheduleDay = 2131362051;
 			
-			// aapt resource value: 0x7f0a0104
-			public const int studentScheduleEvent = 2131362052;
+			// aapt resource value: 0x7f0a0125
+			public const int studentScheduleEvent = 2131362085;
 			
-			// aapt resource value: 0x7f0a0107
-			public const int studentScheduleEventDescription = 2131362055;
+			// aapt resource value: 0x7f0a0128
+			public const int studentScheduleEventDescription = 2131362088;
 			
-			// aapt resource value: 0x7f0a0105
-			public const int studentScheduleEventTime = 2131362053;
+			// aapt resource value: 0x7f0a0126
+			public const int studentScheduleEventTime = 2131362086;
 			
-			// aapt resource value: 0x7f0a0106
-			public const int studentScheduleEventTitle = 2131362054;
+			// aapt resource value: 0x7f0a0127
+			public const int studentScheduleEventTitle = 2131362087;
 			
 			// aapt resource value: 0x7f0a0062
 			public const int submenuarrow = 2131361890;
