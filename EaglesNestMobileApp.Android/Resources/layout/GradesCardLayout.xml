@@ -8,7 +8,7 @@
     card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
     card_view:cardElevation="2dp"
     card_view:cardUseCompatPadding="false"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="16dp"
     >
 
     <LinearLayout
@@ -26,7 +26,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="0dp"
-            style="@style/ModRobotoRegular20"
+            style="@style/ModRobotoMedium20"
             />
 
         <!-- COURSE GRADE -->
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
-                style="@style/ModListItemPrimaryText"
+                style="@style/ModRobotoRegular16"
                 android:text="Current Class Grade:"
                 />
 
@@ -53,32 +53,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegular16"
                 android:text="A+"
                 />
         
         </LinearLayout>
-        
-        <!-- Divider Line -->
-        <View style="@style/ModDivider" />
-
-        <!-- TEACHER INFO BUTTON -->
-        <Button
-            android:id="@+id/TeacherInfoButton"
-            android:textColor="?attr/modBorderlessButtonFullSpanColor"
-            android:text="Teacher Info"
-            style="@style/ModBorderlessButtonFullSpan"
-            />
-            <!--android:background="@drawable/border_thin"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"-->
-            
-
 
         <!-- Divider Line -->
-        <View style="@style/ModDivider" />
+        <!--<View style="@style/ModDividerWithMargins" />-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -88,17 +70,29 @@
             android:paddingBottom="16dp"
             android:animateLayoutChanges="true"
             >
-            
-            <!-- SHOW GRADES BUTTON -->
+
+            <!-- TEACHER INFO BUTTON -->
             <Button
-                android:id="@+id/ShowGradesButton"
-                android:textColor="?attr/colorPrimary"
-                android:text="SHOW GRADES"
-                style="@style/ModBorderlessButton"
+                android:id="@+id/TeacherInfoButton"
+                android:textColor="?attr/modBorderlessButtonTextColorPrimary"
+                android:text="TEACHER INFO"
+                style="@style/ModBorderOnlyButton"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 />
+            
+            <!-- SHOW GRADES BUTTON -->
+            <Button
+                android:id="@+id/ShowGradesButton"
+                android:textColor="?attr/modBorderlessButtonTextColorPrimary"
+                android:text="SHOW GRADES"
+                style="@style/ModBorderlessButton"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_toLeftOf="@+id/ShowGradesArrowIcon"
+                />
+            <!--android:layout_alignParentLeft="true"-->
 
             <!-- SHOW GRADES ARROW ICON -->
             <ImageView
@@ -106,8 +100,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/up_arrow"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_up"
                 />
+                <!-- color assigned in @drawable/arrow_up -->
 
         </RelativeLayout>
         
