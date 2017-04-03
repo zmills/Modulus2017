@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Core
             client ?? (client = new MobileServiceClient("https://modulus.azurewebsites.net"));
 
         /* Local DataBase name.                                              */
-        public const string DatabaseName = "EagleDatabase12.db";
+        public const string DatabaseName = "EagleDatabase.db";
 
         /* Mealtimes                                                         */
         public static class MealTimes

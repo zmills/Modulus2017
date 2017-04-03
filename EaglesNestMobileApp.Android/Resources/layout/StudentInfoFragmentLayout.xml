@@ -70,6 +70,7 @@
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:id="@+id/StudentFullName"
                             style="@style/ModRobotoMedium20"
                             android:text="Marcelino Augello"
                             />
@@ -79,6 +80,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             style="@style/ModRobotoRegular16"
+                            android:id="@+id/StudentId"
                             android:text="123451"
                             />
                         
@@ -147,6 +149,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Computer Science and Software Engineering"
+                            android:id="@+id/StudentMajor"
                             />
 
                     </LinearLayout>
@@ -178,6 +181,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Web Development"
+                            android:id="@+id/StudentMinor"
                             />
 
                     </LinearLayout>
@@ -256,6 +260,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Coberly South 2168-1"
+                            android:id="@+id/StudentRoom"
                             />
 
                     </LinearLayout>
@@ -295,6 +300,7 @@
                                 style="@style/ModListItemSecondaryText"
                                 android:text="1455"
                                 android:layout_marginRight="8dp"
+                                android:id="@+id/StudentMailbox"
                                 />
                         
                             <!-- Combination Data -->
@@ -303,6 +309,7 @@
                                 android:layout_width="wrap_content"
                                 style="@style/ModListItemSecondaryText"
                                 android:text="26-48-12"
+                                android:id="@+id/StudentBoxCombination"
                                 />
                     
                         </LinearLayout>
@@ -347,6 +354,7 @@
                             style="@style/ModListItemSecondaryText"
                             android:text="Iota Chi Delta Stingrays"
                             android:layout_marginRight="8dp"
+                            android:id="@+id/StudentCollegianName"
                             />
 
                         <!-- Location Data -->
@@ -355,6 +363,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="AC 451"
+                            android:id="@+id/StudentCollegianLocation"
                             />
                        
                     </LinearLayout>
@@ -386,6 +395,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Balcony Section C"
+                            android:id="@+id/StudentChapelSeatSection"
                             />
 
                         <!-- Chapel Seat Line 2 Data -->
@@ -394,6 +404,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Row F Seat 14"
+                            android:id="@+id/StudentChapelSeatRowNumber"
                             />
 
                     </LinearLayout>
@@ -462,6 +473,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="maugello4332@students.pcci.edu"
+                            android:id="@+id/StudentEmail"
                             />
 
                     </LinearLayout>
@@ -493,6 +505,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="17-2168-1"
+                            android:id="@+id/StudentRoomPhone"
                             />
 
                     </LinearLayout>
@@ -534,6 +547,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Marcelino Augello\nPCC Box 1455\n250 Brent Lane\nPensacola, FL  32503-2287"
+                            android:id="@+id/StudentSchoolAddress"
                             />
 
                     </LinearLayout>
@@ -602,6 +616,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="maugello7@gmail.com"
+                            android:id="@+id/StudentPersonalEmail"
                             />
 
                     </LinearLayout>
@@ -627,12 +642,13 @@
                             android:layout_marginTop="4dp"
                             />
 
-                        <!-- Room Phone Data -->
+                        <!-- Personal Phone Data -->
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="C: 571-581-0518"
+                            android:id="@+id/StudentCellphone"
                             />
 
                     </LinearLayout>
@@ -664,6 +680,7 @@
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
                             android:text="Marcelino Augello\n3204 Golden Ct.\nWoodbridge, VA  22193"
+                            android:id="@+id/StudentHomeAddress"
                             />
 
                     </LinearLayout>

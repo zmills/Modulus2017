@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         List<TextView> LineList;
         RecyclerView _currentRecyclerview;
         RecyclerView _previousRecyclerview;
-        int _lineCount;
+        int _lineCount = 7;
 
         public FourWindsFragmentViewModel ViewModel
         {
@@ -35,7 +35,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _lineCount = ViewModel.FourWindsMenu.LunchMenu.Count;
         }
 
         public override View OnCreateView(LayoutInflater inflater,
@@ -52,7 +51,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             /* Set the current and previous recyclerviews */
             _currentRecyclerview = _previousRecyclerview =
-                _fourWindsFragmentView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView);
+                _fourWindsFragmentView.FindViewById<RecyclerView>(Resource.Id.Line7RecyclerView);
 
             /* Set up the recyclerviews and adapters for the fragment        */
             Activity.RunOnUiThread(() => SetUpFourWinds());
@@ -94,14 +93,16 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 /* Set Adapters */
                 RecyclerviewList[count].SetAdapter
                     (
-                        ViewModel.FourWindsMenu.DinnerMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
+                        ViewModel.FourWindsMenu.LunchMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
                     );
 
                 /* Set Layout Managers */
                 RecyclerviewList[count].SetLayoutManager(new LinearLayoutManager(Activity));
 
+
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
+                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.LunchMenu[count][0].MealTheme}";
             }
         }
 
@@ -113,21 +114,27 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 if (sender.Equals(LineList[count]))
                 {
                     _currentRecyclerview = RecyclerviewList[count];
-
                     if (_previousRecyclerview == _currentRecyclerview &&
                         _previousRecyclerview.Visibility == ViewStates.Visible)
+                    {
                         _currentRecyclerview.Visibility = ViewStates.Gone;
+                        _previousRecyclerview = _currentRecyclerview;
+                        return;
+                    }
                     else
                     {
                         if (_previousRecyclerview != _currentRecyclerview)
                             _previousRecyclerview.Visibility = ViewStates.Gone;
-                        _currentRecyclerview.Visibility = ViewStates.Visible;
+                        {
+                            _currentRecyclerview.Visibility = ViewStates.Visible;
+                            _previousRecyclerview = _currentRecyclerview;
+                            return;
+                        }
                     }
                 }
                 else
-                    System.Diagnostics.Debug.Write("Something is very wrong: in the varsity fragment");
+                    System.Diagnostics.Debug.Write("Not the corect recyclerview");
             }
-            _previousRecyclerview = _currentRecyclerview;
         }
 
         private void BindViewHolder(CachingViewHolder holder, FourWindsItem fourWindsItem, int position)
@@ -135,6 +142,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             TextView _textview = holder.FindCachedViewById<TextView>(Resource.Id.listItem);
 
             holder.DeleteBinding(_textview);
+
+            ImageView arrowIcon = holder.FindCachedViewById<ImageView>(Resource.Id.ShowGradesArrowIcon);
 
             var itemBinding = new Binding<string, string>(
                 fourWindsItem,

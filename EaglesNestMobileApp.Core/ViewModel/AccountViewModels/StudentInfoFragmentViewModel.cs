@@ -9,17 +9,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
     public class StudentInfoFragmentViewModel : ViewModelBase
     {
         /* The list of the student assignments */
-        private Student _currentUser;
+        private Student _currentUser = new Student();
         public Student CurrentUser
         {
             get { return _currentUser; }
             private set { Set(() => CurrentUser, ref _currentUser, value); }
         }
-
-        /* Command to be binded to the refresh event in the view */
-        private RelayCommand _refreshCommand;
-        public RelayCommand RefreshCommand => _refreshCommand ??
-            (_refreshCommand = new RelayCommand(async () => await RefreshAccountAsync()));
 
         /* Command to be binded to the refresh event in the view */
         private RelayCommand _logOutCommand;
@@ -34,13 +29,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             Database = database;
         }
 
-        public async Task RefreshAccountAsync()
+        public async Task InitializeAsync()
         {
-            /* Initialize the localDb if not already present and sync  */
-            await Database.InitLocalStore();
-            await Database.SyncAsync(pullData: true);
-
-            /* Get the student info. SEE GETSTUDENT METHOD                                 */
             CurrentUser = await Database.GetStudentAsync();
         }
 

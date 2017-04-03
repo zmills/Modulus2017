@@ -90,7 +90,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             // Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
         }
 
-        public void InitializeVm()
+        public void Initialize()
         {
             Grades = new ObservableCollection<GradeCard>();
             for (int counter = 0; counter < 15; counter++)
