@@ -21,6 +21,7 @@
     <!-- BODY TEXT -->
     <attr name="modBodyTextColor" format="reference" />
     <attr name="modBodyTextColorSoft" format="reference" />
+    <attr name="modBodyTextColorLightweight" format="reference" />
     
     <!-- DIVIDER -->
     <attr name="modDividerColor" format="reference" />
@@ -30,5 +31,9 @@
     
     <!-- REFRESH LAYOUT ICON -->
     <attr name="modRefreshLayoutIconColor" format="reference" />
+    
+    <!-- BORDERLESS BUTTON TEXT -->
+    <attr name="modBorderlessButtonTextColorPrimary" format="reference" />
+    <attr name="modBorderlessButtonTextColorSecondary" format="reference" />
 
 </resources>

@@ -7,6 +7,7 @@
 /*                                                                           */
 /*****************************************************************************/
 using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using EaglesNestMobileApp.Core;
@@ -18,7 +19,9 @@ using Microsoft.WindowsAzure.MobileServices;
 namespace EaglesNestMobileApp.Android
 {
     [Activity(Label = "Eaglesnest", MainLauncher = true,
-         Icon = "@drawable/TheNestLogo1")]
+        ScreenOrientation = ScreenOrientation.Portrait,
+        Icon = "@drawable/TheNestLogo1")]
+
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
     public class loginActivity : AppCompatActivityBase
@@ -35,14 +38,14 @@ namespace EaglesNestMobileApp.Android
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
         /* activity in a huge IF STATEMENT                                     */
-        protected override async void OnCreate(Bundle bundle)
+        protected override /*async*/ void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             CurrentPlatform.Init();
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
-            await App.Locator.FourWinds.RefreshMenusAsync();
+            //await App.Locator.FourWinds.RefreshMenusAsync();
             RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
 
             /* Bind views to the viewmodel                                      */
