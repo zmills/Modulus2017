@@ -35,9 +35,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/modTabLayoutColor"
-            android:elevation="0dp"
-            app:tabMode="scrollable"
-            />
+            android:elevation="0dp"/>
+        <!--app:tabMode="scrollable" -->
+            
             <!-- Do NOT set app:layout_scrollFlags="scroll|enterAlways" here. -->
             <!-- can also set app:tabTextColor, app:tabSelectedTextColor,
                  app:tabIndicatorColor, and app:tabIndicatorHeight -->

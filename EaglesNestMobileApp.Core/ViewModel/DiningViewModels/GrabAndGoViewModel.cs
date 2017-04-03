@@ -85,7 +85,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
         /* THE FOLLOWING METHODS PROVIDE STATIC DATA                        */
         public void InitializeVm()
         {
-            /* Add lunch items                                               */
+            /* Add lunch items                                              */
             for (int count = 0; count < 40; count++)
             {
                 GrabAndGoItem current =
@@ -99,7 +99,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
                 GrabAndGoMenu.AddItem(current);
             }
 
-            /* Add dinner items                                               */
+            /* Add dinner items                                             */
             for (int count = 0; count < 40; count++)
             {
                 GrabAndGoItem current =
