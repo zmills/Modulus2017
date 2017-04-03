@@ -18,7 +18,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
         /* All the items being served in Grab And Go        */
         private ObservableCollection<GrabAndGoItem> _grabAndGoItems 
             = new ObservableCollection<GrabAndGoItem>();
-        public ObservableCollection<GrabAndGoItem> GrabAndGoItems
+        protected ObservableCollection<GrabAndGoItem> GrabAndGoItems
         {
             get { return _grabAndGoItems; }
             set { Set(() => GrabAndGoItems, ref _grabAndGoItems, value); }
@@ -64,12 +64,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
             }
         }
 
-        public void GetDiningMenus()
+        protected void GetDiningMenus()
         {
-            /* Reset all the ObservableCollections so that we're not adding */
-            /* to existing items                                            */
-            GrabAndGoMenu = new GrabAndGoMenu();
-
             /* Format the Four Winds dining menus                           */
             foreach (var item in GrabAndGoItems)
             {
@@ -77,6 +73,16 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
             }
         }
 
+        public async Task InitializeAsync()
+        {
+            /* Get all the items for the dining facilities              */
+            GrabAndGoItems = await Database.GetGrabAndGoItemsAsync();
+
+            GetDiningMenus();
+        }
+
+        /*------------------------------------------------------------------*/
+        /* THE FOLLOWING METHODS PROVIDE STATIC DATA                        */
         public void InitializeVm()
         {
             /* Add lunch items                                               */

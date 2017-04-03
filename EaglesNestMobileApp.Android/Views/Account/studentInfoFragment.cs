@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using GalaSoft.MvvmLight.Helpers;
 using System;
 using System.Threading;
+using EaglesNestMobileApp.Core.ViewModel;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -41,9 +42,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
             StudentInfoView = inflater.Inflate(Resource.Layout.StudentInfoFragmentLayout,
                 container, false);
 
-            /* Create and set Account Photo circular image */
-            //ImageView _accountPhotoView = null;
-            //RoundedBitmapDrawable _drawable = null;
             ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
             RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,
                     BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
@@ -66,7 +64,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             #endregion
             /*UI THREAD*/
 
-            //sActivity.RunOnUiThread(()=>SetStudentInfo());
+            SetStudentInfo();
 
 
             /* Use this to return your custom view for this Fragment         */
@@ -75,33 +73,36 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
         private void SetStudentInfo()
         {
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.AddressLineOne;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.AddressLineTwo;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.BoxCombination;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.BoxNumber;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.CellPhone;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.City;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Classification;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.CollegianLocation;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.CollegianMascot;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.CollegianName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Country;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.DegreeName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.DoorNumber;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Dorm;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.FirstName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Id;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.LastName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.MajorName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.MiddleName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.PersonalEmail;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.PreferredName;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.RoomNumber;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Row;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.SeatNumber;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.Section;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.State;
-            //StudentInfoView.FindViewById<TextView>(Resource.Id).Text = ViewModel.CurrentUser.StudentEmail;
+            /* Not sure we'll need to bind considering the student data is very rarely changed    */
+            //var _fullNameBinding = new Binding<string, string>
+            //    (
+            //        ViewModel.CurrentUser,
+            //        ()=> ViewModel.CurrentUser.FormattedName,
+            //        fullName,
+            //        ()=> fullName.Text
+            //    );
+
+            //_bindings.Add(_fullNameBinding);
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentFullName).Text = ViewModel.CurrentUser.FormattedName;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentId).Text = ViewModel.CurrentUser.Id;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMajor).Text = ViewModel.CurrentUser.MajorName;
+
+            /* A MINOR NEEDS TO BE ADDED TO THE STUDENT CLASS*/
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMinor).Text = ViewModel.CurrentUser.MajorName;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoom).Text = ViewModel.CurrentUser.RoomNumber;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMailbox).Text = ViewModel.CurrentUser.BoxNumber;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentBoxCombination).Text = ViewModel.CurrentUser.BoxCombination;
+
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianName).Text = $"{ViewModel.CurrentUser.CollegianName} {ViewModel.CurrentUser.CollegianMascot}";
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianLocation).Text = ViewModel.CurrentUser.CollegianLocation;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatSection).Text = ViewModel.CurrentUser.FormattedChapelSeat;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatRowNumber).Text = ViewModel.CurrentUser.FormattedChapelSeat;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentEmail).Text = ViewModel.CurrentUser.StudentEmail;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoomPhone).Text = ViewModel.CurrentUser.RoomNumber;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentSchoolAddress).Text = ViewModel.CurrentUser.FormattedAddress;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentPersonalEmail).Text = ViewModel.CurrentUser.PersonalEmail;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCellphone).Text = ViewModel.CurrentUser.CellPhone;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentHomeAddress).Text = ViewModel.CurrentUser.FormattedAddress;
         }
     }
 }

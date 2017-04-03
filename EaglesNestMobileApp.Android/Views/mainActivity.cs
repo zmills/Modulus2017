@@ -19,12 +19,13 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
+using EaglesNestMobileApp.Core.ViewModel;
 
 namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/TheNestLogo1",
-        MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait,
-             Theme = "@style/ModAppCompatLightTheme")]
+        ScreenOrientation = ScreenOrientation.Portrait,
+           MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
@@ -36,26 +37,27 @@ namespace EaglesNestMobileApp.Android.Views
 
         /* Public accessors for member variables                             */
         public homeFragment HomePage
-        { get; private set; } = new homeFragment();
-        public academicsFragment AcademicsPage
-        { get; private set; } = new academicsFragment();
-        public campusLifeFragment CampusLifePage
-        { get; private set; } = new campusLifeFragment();
-        public diningFragment DiningPage
-        { get; private set; } = new diningFragment();
-        public accountFragment AccountPage
-        { get; private set; } = new accountFragment();
+            { get; private set; } = new homeFragment();
 
-        public BottomNavigationView BottomNavigationMenu { get; private set; }
+        public academicsFragment AcademicsPage
+            { get; private set; } = new academicsFragment();
+
+        public campusLifeFragment CampusLifePage
+            { get; private set; } = new campusLifeFragment();
+
+        public diningFragment DiningPage
+            { get; private set; } = new diningFragment();
+
+        public accountFragment AccountPage
+            { get; private set; } = new accountFragment();
+
+        public BottomNavigationView BottomNavigationMenu
+            { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            RunOnUiThread(() => App.Locator.Events.InitializeVm());
-            //RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
-            RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
-            RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
-            RunOnUiThread(() => App.Locator.Exams.InitializeVm());
+            RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
             /*( Set our view from the "main" layout resource                 */
             RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
@@ -92,34 +94,6 @@ namespace EaglesNestMobileApp.Android.Views
             }
         }
 
-        /* Old backstack management. DO NOT DELETE */
-        //public override void OnBakckPressed()
-        //{
-        //    /* If the entry on top of the backstack is the home page, close  */
-        //    /* the application else load the homepage and show the user a    */
-        //    /* warning toast                                                 */
-        //    string _previousFragmentName = 
-        //        SupportFragmentManager.GetBackStackEntryAt(
-        //            SupportFragmentManager.BackStackEntryCount - 1).Name;
-
-        //    if(_previousFragmentName == "Layered")
-        //    {
-        //        base.OnBackPressed();
-        //        _bottomNavigationMenu.Visibility = ViewStates.Visible;
-        //    }
-        //    else if (_previousFragmentName != App.PageKeys.HomePageKey)
-        //    {
-        //        LoadFragment(App.PageKeys.HomePageKey);
-        //        Toast.MakeText(this, "Press back again to exit application.",
-        //            ToastLength.Short).Show();
-        //        BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
-        //    }
-        //    else
-        //    {
-        //        FinishAffinity();
-        //    }
-        //}
-
         private void LoadHomeFragment()
         {
             FragmentTransaction _transaction =
@@ -134,11 +108,9 @@ namespace EaglesNestMobileApp.Android.Views
             /* Add the homefragment to the backstack for back button purposes */
             if (_backStackCount < 1)
             {
-                System.Diagnostics.Debug.WriteLine($"BACKSTACK INSIDE IF {_backStackCount}");
                 _transaction.AddToBackStack(_fragmentTag);
             }
             _transaction.Commit();
-            System.Diagnostics.Debug.WriteLine($"BACKSTACK outside IF {_backStackCount}");
         }
 
         /* Event handler for menu item selection                             */
@@ -156,7 +128,6 @@ namespace EaglesNestMobileApp.Android.Views
                         RunOnUiThread(() => LoadHomeFragment());
                         return;
                     }
-                    break;
                 case Resource.Id.BottomNavIconGrades:
                     {
                         _fragmentTag = App.PageKeys.AcademicsPageKey;
@@ -183,10 +154,7 @@ namespace EaglesNestMobileApp.Android.Views
                             AccountPage, _fragmentTag);
                     }break;
             }
-
-            System.Diagnostics.Debug.WriteLine($"BEFORE COMMIT {_backStackCount}");
             _transaction.Commit();
-            System.Diagnostics.Debug.WriteLine($"AFTER COMMIT {_backStackCount}");
         }
     }
 }

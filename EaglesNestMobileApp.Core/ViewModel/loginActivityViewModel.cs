@@ -66,7 +66,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
             /* REMEMBER TO REMOVE BACKDOOR                                   */
             if (CurrentUser.Id == "123")
+            {
+                CurrentUser.Id = "118965";
+                await Database.InsertLocalTokenAsync(CurrentUser);
+                await Database.SyncAsync(pullData: true);
                 NavigateToMainPage();
+            }
             else
             {
                 /* This will take a while depending on the connection speed. */
@@ -85,18 +90,17 @@ namespace EaglesNestMobileApp.Core.ViewModel
                            Remote.HashedPassword, Remote.Salt))
                     {
                         /* Set the password to empty so that no sensitive    */
-                        /* information is actually stored on the phone. Then */ 
+                        /* information is actually stored on the phone. Then */
                         /* add the token to the database.                    */
                         CurrentUser.Password = string.Empty;
 
                         /* Add the user to the database for future use and   */
                         /* also add a reference to the user for the          */
                         /* application lifecycle                             */
-                        App.Locator.User = CurrentUser;
                         await Database.InsertLocalTokenAsync(CurrentUser);
-                        await Database.SyncAsync();
+                        await Database.SyncAsync(pullData: true);
+
                         /* Allow access to the application main page         */
-                        EnableLoginButton = true;
                         NavigateToMainPage();
 
                     }
@@ -110,7 +114,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     Debug.WriteLine($"{CurrentUser.Id}, " +
                         $"{CurrentUser.Password}, " +
                         $" {NoConnection.ToString()}");
-                    CurrentUser.LoggedIn = EnableLoginButton = true;
+                    CurrentUser.LoggedIn = true;
+                }
+                finally
+                {
+                    EnableLoginButton = true;
                 }
             }
         }
@@ -132,7 +140,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
             {
                 /* Allow access to the application main page                 */
                 App.Locator.User = _temporaryToken;
-                await Database.SyncAsync();
+
+                await Database.SyncAsync(pullData:true);
+
                 NavigateToMainPage();
             }
             else
