@@ -94,6 +94,9 @@
         <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_light_theme</item>
         <!-- <<refresh layout icon color>> -->
         <item name="modRefreshLayoutIconColor">@color/primary</item>
+        <!-- The layout background for facility time pop ups -->
+        <item name="modFacilityTimeBackground">@color/white</item>
+   
 
     </style>
     
@@ -289,5 +292,7 @@
         <item name="android:background">@color/white</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
+
+   
     
 </resources>

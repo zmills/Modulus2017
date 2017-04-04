@@ -35,14 +35,14 @@ namespace EaglesNestMobileApp.Android
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
         /* activity in a huge IF STATEMENT                                     */
-        protected override async void OnCreate(Bundle bundle)
+        protected override  void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             CurrentPlatform.Init();
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
-            await App.Locator.FourWinds.RefreshMenusAsync();
+            //await App.Locator.FourWinds.RefreshMenusAsync();
             RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
 
             /* Bind views to the viewmodel                                      */

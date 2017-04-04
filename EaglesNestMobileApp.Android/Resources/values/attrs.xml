@@ -31,4 +31,6 @@
     <!-- REFRESH LAYOUT ICON -->
     <attr name="modRefreshLayoutIconColor" format="reference" />
 
+    <attr name="modFacilityTimeBackground" format="reference" />
+
 </resources>
