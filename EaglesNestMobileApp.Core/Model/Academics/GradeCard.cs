@@ -22,7 +22,7 @@ namespace EaglesNestMobileApp.Core.Model.Academics
         {
             ClassAssignments = new ObservableCollection<Assignment>();
             CourseGrade = section.EnrollmentGrade;
-            CourseTitle = section.GetFullCourseName();
+            CourseTitle = section.GetFullCourseName;
             CourseId = section.Id;
         }
 
