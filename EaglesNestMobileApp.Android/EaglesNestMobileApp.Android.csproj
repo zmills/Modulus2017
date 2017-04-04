@@ -420,7 +420,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\BaseRecyclerView.xml" />
+    <AndroidResource Include="Resources\layout\BaseRecyclerView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\border.xml" />
@@ -500,6 +502,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\rotate_180_overshoot.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilitiesTimeChurch.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
