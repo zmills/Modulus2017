@@ -35,13 +35,13 @@ namespace EaglesNestMobileApp.Android
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
         /* activity in a huge IF STATEMENT                                     */
-        protected override  void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             CurrentPlatform.Init();
 
             /* Set our view from the "main" layout resource                     */
-            SetContentView(Resource.Layout.LoginLayout);
+            RunOnUiThread(() => SetContentView(Resource.Layout.LoginLayout));
             //await App.Locator.FourWinds.RefreshMenusAsync();
             RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
 
@@ -52,16 +52,19 @@ namespace EaglesNestMobileApp.Android
 
             /* This binds the input from the user to the current user token in  */
             /* the login viewmodel                                              */
-            LoginViewModel.CurrentUser.SetBinding(
-                () => LoginViewModel.CurrentUser.Id, Username,
-                () => Username.Text, BindingMode.TwoWay);
+            RunOnUiThread(() =>
+            {
+                LoginViewModel.CurrentUser.SetBinding(
+                    () => LoginViewModel.CurrentUser.Id, Username,
+                    () => Username.Text, BindingMode.TwoWay);
 
-            LoginViewModel.CurrentUser.SetBinding(
-                () => LoginViewModel.CurrentUser.Password, Password,
-                () => Password.Text, BindingMode.TwoWay);
+                LoginViewModel.CurrentUser.SetBinding(
+                    () => LoginViewModel.CurrentUser.Password, Password,
+                    () => Password.Text, BindingMode.TwoWay);
 
-            /* This command in the login viewmodel handles all the login logic  */
-            LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
+                /* This command in the login viewmodel handles all the login logic  */
+                LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
+            });
         }
     }
 }

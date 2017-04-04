@@ -402,9 +402,6 @@
     <AndroidResource Include="Resources\drawable\borderless_button.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\borderless_button_shape.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\StudentCourtInfractionCardLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -483,7 +480,9 @@
     <AndroidResource Include="Resources\drawable\border_thin.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\up_arrow.xml" />
+    <AndroidResource Include="Resources\drawable\arrow_up.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\studentSchedule_dateButton.xml">
@@ -494,9 +493,13 @@
     <AndroidResource Include="Resources\layout\StudentScheduleRecyclerViewLayout.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FacilitiesTimeChurch.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\anim\move_fab.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\border_only_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\rotate_180_overshoot.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -173,8 +173,11 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Android.Adapters;
 using EaglesNestMobileApp.Core.Model;
-using Android.Widget;
+//using Android.Widget;
 using Android.Content;
+using Android.Support.Design.Widget;
+using Android.Animation;
+using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -225,10 +228,17 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         private void InitializeGrades()
         {
             GradesCardList = new List<Card>();
+            List<string> CourseNames = new List<string>();
+            CourseNames.Add("BA 403-4 Business Communications");
+            CourseNames.Add("BI 216-2 Teachings of Jesus");
+            CourseNames.Add("CC 131 College Choir");
+            CourseNames.Add("CS 432 Computer Architecture");
+            CourseNames.Add("CS 452 Software Engineering Project II");
 
-            for (int counter = 0; counter < 10; counter++)
+
+            for (int counter = 0; counter < 5; counter++)
             {
-                Card current = new Card("CS 451 Software Engineering II");
+                Card current = new Card(CourseNames[counter]);
                 GradesCardList.Add(current);
             }
 

@@ -10,6 +10,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
     {
         private ObservableCollection<Course> _classes =
             new ObservableCollection<Course>();
+
         public ObservableCollection<Course> Classes
         {
             get { return _classes; }
@@ -23,12 +24,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
             this.Database = database;
         }
 
-        private async void Initialize()
+        public async Task Initialize()
         {
-            await Task.Run(() => RefreshExamScheduleAsync());
+            Classes = await Database.GetCoursesAsync();
         }
 
-        public void InitializeVm()
+        public void InitializeStatic()
         {
             for(int counter = 0; counter <= 6; counter++)
             {

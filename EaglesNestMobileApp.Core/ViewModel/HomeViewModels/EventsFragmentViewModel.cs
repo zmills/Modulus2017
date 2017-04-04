@@ -8,7 +8,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
     {
         public ObservableCollection<EventsSignUpCard> Events { get; set; }
 
-        public void InitializeVm()
+        public void Initialize()
         {
             Events = new ObservableCollection<EventsSignUpCard>();
 

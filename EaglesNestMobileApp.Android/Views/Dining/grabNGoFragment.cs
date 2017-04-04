@@ -24,7 +24,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         List<TextView> LineList;
         RecyclerView _currentRecyclerview;
         RecyclerView _previousRecyclerview;
-        int _lineCount; 
+        int _lineCount = 4;
 
         public GrabAndGoFragmentViewModel ViewModel
         {
@@ -34,7 +34,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _lineCount = ViewModel.GrabAndGoMenu.LunchMenu.Count;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -95,6 +94,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
+                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme}";
+
             }
         }
 
@@ -109,18 +110,25 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                     if (_previousRecyclerview == _currentRecyclerview &&
                         _previousRecyclerview.Visibility == ViewStates.Visible)
+                    {
                         _currentRecyclerview.Visibility = ViewStates.Gone;
+                        _previousRecyclerview = _currentRecyclerview;
+                        return;
+                    }
                     else
                     {
                         if (_previousRecyclerview != _currentRecyclerview)
                             _previousRecyclerview.Visibility = ViewStates.Gone;
-                        _currentRecyclerview.Visibility = ViewStates.Visible;
+                        {
+                            _currentRecyclerview.Visibility = ViewStates.Visible;
+                            _previousRecyclerview = _currentRecyclerview;
+                            return;
+                        }
                     }
                 }
                 else
                     System.Diagnostics.Debug.Write("Something is very wrong: in the grabandgo fragment");
             }
-            _previousRecyclerview = _currentRecyclerview;
         }
 
         private void BindViewHolder(CachingViewHolder holder, GrabAndGoItem grabAndGoItem, int position)

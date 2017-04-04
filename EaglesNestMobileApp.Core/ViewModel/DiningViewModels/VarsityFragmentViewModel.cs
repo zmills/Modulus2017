@@ -17,7 +17,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* All the items being served in Varsity            */
         private ObservableCollection<VarsityItem> _varsityItems = 
             new ObservableCollection<VarsityItem>();
-        public ObservableCollection<VarsityItem> VarsityItems
+        protected ObservableCollection<VarsityItem> VarsityItems
         {
             get { return _varsityItems; }
             set { Set(() => VarsityItems, ref _varsityItems, value); }
@@ -70,10 +70,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public void GetDiningMenus()
         {
-            /* Reset all the ObservableCollections so that we're not adding */
-            /* to existing items                                            */
-            VarsityMenu = new VarsityMenu();
-
             /* Format the Varsity dining menus                              */
             foreach (var item in VarsityItems)
             {
@@ -81,7 +77,17 @@ namespace EaglesNestMobileApp.Core.ViewModel
             }
         }
 
-        public void InitializeVm()
+        public async Task InitializeAsync()
+        {
+            /* Get all the items for the dining facilities              */
+            VarsityItems = await Database.GetVarsityItemsAsync();
+
+            GetDiningMenus();
+        }
+
+        /*------------------------------------------------------------------*/
+        /* THE FOLLOWING METHODS PROVIDE STATIC DATA                        */
+        public void InitializeStatic()
         {
             for (int count = 0; count < 40; count++)
             {

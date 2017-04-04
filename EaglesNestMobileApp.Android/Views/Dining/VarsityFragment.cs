@@ -25,7 +25,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         List<TextView> LineList;
         RecyclerView _currentRecyclerview;
         RecyclerView _previousRecyclerview;
-        int _lineCount;
+        int _lineCount = 4;
 
         public VarsityFragmentViewModel ViewModel
         {
@@ -35,7 +35,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _lineCount = ViewModel.VarsityMenu.LunchMenu.Count;
         }
 
         public override View OnCreateView(LayoutInflater inflater,
@@ -98,6 +97,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
+                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme}";
             }
         }
 
@@ -112,18 +112,25 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                     if (_previousRecyclerview == _currentRecyclerview &&
                         _previousRecyclerview.Visibility == ViewStates.Visible)
+                    {
                         _currentRecyclerview.Visibility = ViewStates.Gone;
+                        _previousRecyclerview = _currentRecyclerview;
+                        return;
+                    }
                     else
                     {
                         if (_previousRecyclerview != _currentRecyclerview)
                             _previousRecyclerview.Visibility = ViewStates.Gone;
-                        _currentRecyclerview.Visibility = ViewStates.Visible;
+                        {
+                            _currentRecyclerview.Visibility = ViewStates.Visible;
+                            _previousRecyclerview = _currentRecyclerview;
+                            return;
+                        }
                     }
                 }
                 else
-                    System.Diagnostics.Debug.Write("Something is very wrong: in the varsity fragment");
+                    System.Diagnostics.Debug.Write("Not the corect recyclerview");
             }
-            _previousRecyclerview = _currentRecyclerview;
         }
 
         private void BindViewHolder(CachingViewHolder holder, VarsityItem varsityItem, int position)
