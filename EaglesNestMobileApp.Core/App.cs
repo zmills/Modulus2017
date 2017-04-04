@@ -27,6 +27,20 @@ namespace EaglesNestMobileApp.Core
         /* Local DataBase name.                                              */
         public const string DatabaseName = "EagleDatabase.db";
 
+        /* Attendance violation types                                        */
+        public static class ViolationTypes
+        {
+            public const string Absence = "A";
+            public const string Tardy = "T";
+            public const string PendingAbsence = "PA";
+            public const string PendingTardy = "PT";
+        }
+
+        public enum Days
+        {
+            Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+        }
+
         /* Mealtimes                                                         */
         public static class MealTimes
         {

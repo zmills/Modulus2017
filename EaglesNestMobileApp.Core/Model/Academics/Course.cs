@@ -1,4 +1,7 @@
-﻿namespace EaglesNestMobileApp.Core.Model
+﻿using EaglesNestMobileApp.Core.Model.Personal;
+using System.Collections.ObjectModel;
+
+namespace EaglesNestMobileApp.Core.Model
 {
     public class Course
     {
@@ -20,9 +23,24 @@
         public string FormattedCourseCode { get { return $"{CourseCode}-{SectionNumber}"; } }
         public string ExamTime { get { return $"{ExamBeginTime}-{ExamEndTime}"; } }
 
-        public string GetFullCourseName()
+        public string Absences { get { return AttendanceViolations[0].Count.ToString(); } }
+        public string PendingAbsences { get { return AttendanceViolations[1].Count.ToString(); } }
+        public string Tardies { get { return AttendanceViolations[2].Count.ToString(); } }
+        public string PendingTardies { get { return AttendanceViolations[3].Count.ToString(); } }
+
+        public string GetFullCourseName
         {
-            return $"{CourseCode}-{SectionNumber} {CourseName}";
+            get { return $"{CourseCode}-{SectionNumber} {CourseName}"; }
         }
+
+
+        public ObservableCollection<ObservableCollection<AttendanceViolation>> AttendanceViolations = 
+            new ObservableCollection<ObservableCollection<AttendanceViolation>>
+        {
+            new ObservableCollection<AttendanceViolation>(),
+            new ObservableCollection<AttendanceViolation>(),
+            new ObservableCollection<AttendanceViolation>(),
+            new ObservableCollection<AttendanceViolation>()
+        };
     }
 }

@@ -19,7 +19,6 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
-using EaglesNestMobileApp.Core.ViewModel;
 
 namespace EaglesNestMobileApp.Android.Views
 {
