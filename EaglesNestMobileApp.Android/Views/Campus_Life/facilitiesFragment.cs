@@ -64,6 +64,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 case AndroidApp.FacilityCategory.Church:
                     {
                         _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+                        _dialogBox.SetContentView(Resource.Layout.FacilitiesTimeChurch);
                         _dialogBox.Show();
                         await Task.Delay(5000);
                         _dialogBox.Dismiss();
