@@ -223,6 +223,7 @@
     </style>
 
     <!-- <Generic Font Styles> -->
+    <!-- <<20 sp>> -->
     <style name="ModRobotoMedium20">
         <item name="android:fontFamily">@string/roboto_medium</item>
         <item name="android:textSize">20sp</item>
@@ -243,6 +244,7 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">?attr/modBodyTextColor</item>
     </style>
+    <!-- <<16 sp>> -->
     <style name="ModRobotoMediumSoft16">
         <item name="android:fontFamily">@string/roboto_medium</item>
         <item name="android:textSize">16sp</item>
@@ -263,9 +265,20 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">?attr/modBodyTextColorSoft</item>
     </style>
+    <!-- <<13 sp>> -->
+    <style name="ModRobotoRegular13">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <!-- <<12 sp>> -->
+    <style name="ModRobotoMediumLightweight12">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorLightweight</item>
+    </style>
 
-  
-    
+
     <!-- DIVIDER STYLES -->
     
     <style name="ModDivider">

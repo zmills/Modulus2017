@@ -178,6 +178,7 @@ using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Animation;
 using Android.Widget;
+using static Android.Support.V7.Widget.RecyclerView;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -222,6 +223,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             /* manager                                                       */
             GradesRecyclerView.SetLayoutManager(GradesLayoutManager);
             GradesRecyclerView.SetAdapter(GradesAdapter);
+
             return GradesView;
         }
 
