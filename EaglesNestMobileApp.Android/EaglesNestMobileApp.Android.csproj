@@ -309,9 +309,6 @@
     <AndroidResource Include="Resources\layout\AnnouncementCardLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ClassAssignment.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\BoxCombinationDialogLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -517,6 +514,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FacilitiesTimeDorm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\GradesAssignment.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout2.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
