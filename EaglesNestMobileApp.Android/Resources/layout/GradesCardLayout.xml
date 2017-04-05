@@ -76,7 +76,7 @@
                 android:id="@+id/TeacherInfoButton"
                 android:textColor="?attr/modBorderlessButtonTextColorPrimary"
                 android:text="TEACHER INFO"
-                style="@style/ModBorderOnlyButton"
+                style="@style/ModBorderlessButton"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
