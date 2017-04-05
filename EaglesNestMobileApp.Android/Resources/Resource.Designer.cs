@@ -2494,71 +2494,71 @@ namespace EaglesNestMobileApp.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int Academic = 2131361965;
+			// aapt resource value: 0x7f0a00ac
+			public const int Academic = 2131361964;
 			
-			// aapt resource value: 0x7f0a0077
-			public const int AcademicInfoCard = 2131361911;
+			// aapt resource value: 0x7f0a00b3
+			public const int AcademicInfoCard = 2131361971;
 			
 			// aapt resource value: 0x7f0a0110
 			public const int AccountPhoto = 2131362064;
 			
+			// aapt resource value: 0x7f0a0078
+			public const int AnnouncementsCardImage = 2131361912;
+			
 			// aapt resource value: 0x7f0a0079
-			public const int AnnouncementsCardImage = 2131361913;
+			public const int AnnouncementsCardRelativeLayout = 2131361913;
 			
 			// aapt resource value: 0x7f0a007a
-			public const int AnnouncementsCardRelativeLayout = 2131361914;
+			public const int AnnouncementsCardText = 2131361914;
 			
-			// aapt resource value: 0x7f0a007b
-			public const int AnnouncementsCardText = 2131361915;
+			// aapt resource value: 0x7f0a007e
+			public const int AnnouncementsRecyclerView = 2131361918;
 			
-			// aapt resource value: 0x7f0a007f
-			public const int AnnouncementsRecyclerView = 2131361919;
-			
-			// aapt resource value: 0x7f0a0093
-			public const int AssignmentTextView = 2131361939;
-			
-			// aapt resource value: 0x7f0a0081
-			public const int AttendancePenaltyListItem = 2131361921;
-			
-			// aapt resource value: 0x7f0a0085
-			public const int AttendancePenaltyListRecyclerView1 = 2131361925;
-			
-			// aapt resource value: 0x7f0a0088
-			public const int AttendancePenaltyListRecyclerView2 = 2131361928;
-			
-			// aapt resource value: 0x7f0a008b
-			public const int AttendancePenaltyListRecyclerView3 = 2131361931;
-			
-			// aapt resource value: 0x7f0a008e
-			public const int AttendancePenaltyListRecyclerView4 = 2131361934;
-			
-			// aapt resource value: 0x7f0a008c
-			public const int AttendancePendingTardies = 2131361932;
-			
-			// aapt resource value: 0x7f0a008d
-			public const int AttendancePendingTardiesNumber = 2131361933;
-			
-			// aapt resource value: 0x7f0a0086
-			public const int AttendancePendingUnexcused = 2131361926;
-			
-			// aapt resource value: 0x7f0a0087
-			public const int AttendancePendingUnexcusedNumber = 2131361927;
+			// aapt resource value: 0x7f0a0092
+			public const int AssignmentTextView = 2131361938;
 			
 			// aapt resource value: 0x7f0a0080
-			public const int AttendanceRecyclerView = 2131361920;
+			public const int AttendancePenaltyListItem = 2131361920;
 			
-			// aapt resource value: 0x7f0a0089
-			public const int AttendanceTardies = 2131361929;
+			// aapt resource value: 0x7f0a0084
+			public const int AttendancePenaltyListRecyclerView1 = 2131361924;
+			
+			// aapt resource value: 0x7f0a0087
+			public const int AttendancePenaltyListRecyclerView2 = 2131361927;
 			
 			// aapt resource value: 0x7f0a008a
-			public const int AttendanceTardiesNumber = 2131361930;
+			public const int AttendancePenaltyListRecyclerView3 = 2131361930;
 			
-			// aapt resource value: 0x7f0a008f
-			public const int BaseRecyclerView = 2131361935;
+			// aapt resource value: 0x7f0a008d
+			public const int AttendancePenaltyListRecyclerView4 = 2131361933;
 			
-			// aapt resource value: 0x7f0a0091
-			public const int BottomNavBar = 2131361937;
+			// aapt resource value: 0x7f0a008b
+			public const int AttendancePendingTardies = 2131361931;
+			
+			// aapt resource value: 0x7f0a008c
+			public const int AttendancePendingTardiesNumber = 2131361932;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int AttendancePendingUnexcused = 2131361925;
+			
+			// aapt resource value: 0x7f0a0086
+			public const int AttendancePendingUnexcusedNumber = 2131361926;
+			
+			// aapt resource value: 0x7f0a007f
+			public const int AttendanceRecyclerView = 2131361919;
+			
+			// aapt resource value: 0x7f0a0088
+			public const int AttendanceTardies = 2131361928;
+			
+			// aapt resource value: 0x7f0a0089
+			public const int AttendanceTardiesNumber = 2131361929;
+			
+			// aapt resource value: 0x7f0a008e
+			public const int BaseRecyclerView = 2131361934;
+			
+			// aapt resource value: 0x7f0a0090
+			public const int BottomNavBar = 2131361936;
 			
 			// aapt resource value: 0x7f0a0141
 			public const int BottomNavIconAccount = 2131362113;
@@ -2575,23 +2575,23 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a013d
 			public const int BottomNavIconHome = 2131362109;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int Church = 2131361966;
+			// aapt resource value: 0x7f0a00ad
+			public const int Church = 2131361965;
 			
 			// aapt resource value: 0x7f0a00d4
 			public const int CourseGrade = 2131362004;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int Dining = 2131361967;
+			// aapt resource value: 0x7f0a00ae
+			public const int Dining = 2131361966;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int Dorm = 2131361970;
+			// aapt resource value: 0x7f0a00b1
+			public const int Dorm = 2131361969;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int EventSignUpRecyclerView = 2131361957;
+			// aapt resource value: 0x7f0a00a4
+			public const int EventSignUpRecyclerView = 2131361956;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int ExamScheduleRecyclerView = 2131361964;
+			// aapt resource value: 0x7f0a00ab
+			public const int ExamScheduleRecyclerView = 2131361963;
 			
 			// aapt resource value: 0x7f0a00b6
 			public const int FourWindsAnimateViewGroup = 2131361974;
@@ -2599,8 +2599,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00b5
 			public const int FourWindsTabLayout = 2131361973;
 			
-			// aapt resource value: 0x7f0a00b3
-			public const int FragmentFrameLayout22 = 2131361971;
+			// aapt resource value: 0x7f0a00b2
+			public const int FragmentFrameLayout22 = 2131361970;
 			
 			// aapt resource value: 0x7f0a00c7
 			public const int GrabAndGoLine1 = 2131361991;
@@ -2647,8 +2647,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00de
 			public const int LogInButton = 2131362014;
 			
-			// aapt resource value: 0x7f0a0090
-			public const int MainFrameLayout = 2131361936;
+			// aapt resource value: 0x7f0a008f
+			public const int MainFrameLayout = 2131361935;
 			
 			// aapt resource value: 0x7f0a012b
 			public const int MainTabLayout = 2131362091;
@@ -2668,14 +2668,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0121
 			public const int PersonalContactInfoCard = 2131362081;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int Recreation = 2131361969;
-			
 			// aapt resource value: 0x7f0a00b0
-			public const int Service = 2131361968;
+			public const int Recreation = 2131361968;
 			
-			// aapt resource value: 0x7f0a007d
-			public const int ShareButton = 2131361917;
+			// aapt resource value: 0x7f0a00af
+			public const int Service = 2131361967;
+			
+			// aapt resource value: 0x7f0a007c
+			public const int ShareButton = 2131361916;
 			
 			// aapt resource value: 0x7f0a00d7
 			public const int ShowGradesArrowIcon = 2131362007;
@@ -2683,8 +2683,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00d6
 			public const int ShowGradesButton = 2131362006;
 			
-			// aapt resource value: 0x7f0a007c
-			public const int SignUpButton = 2131361916;
+			// aapt resource value: 0x7f0a007b
+			public const int SignUpButton = 2131361915;
 			
 			// aapt resource value: 0x7f0a0118
 			public const int StudentBoxCombination = 2131362072;
@@ -2773,8 +2773,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0120
 			public const int StudentSchoolAddress = 2131362080;
 			
-			// aapt resource value: 0x7f0a007e
-			public const int SwipeRefreshAnnouncements = 2131361918;
+			// aapt resource value: 0x7f0a007d
+			public const int SwipeRefreshAnnouncements = 2131361917;
 			
 			// aapt resource value: 0x7f0a0105
 			public const int SwipeRefreshStudentCourt = 2131362053;
@@ -2893,14 +2893,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00f7
 			public const int approvedRequests = 2131362039;
 			
+			// aapt resource value: 0x7f0a0081
+			public const int attendanceClassName = 2131361921;
+			
 			// aapt resource value: 0x7f0a0082
-			public const int attendanceClassName = 2131361922;
+			public const int attendanceClassUnexcused = 2131361922;
 			
 			// aapt resource value: 0x7f0a0083
-			public const int attendanceClassUnexcused = 2131361923;
-			
-			// aapt resource value: 0x7f0a0084
-			public const int attendanceClassUnexcusedNumber = 2131361924;
+			public const int attendanceClassUnexcusedNumber = 2131361923;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int auto = 2131361830;
@@ -2917,8 +2917,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00e4
 			public const int cancel_action = 2131362020;
 			
-			// aapt resource value: 0x7f0a0078
-			public const int card_view = 2131361912;
+			// aapt resource value: 0x7f0a0077
+			public const int card_view = 2131361911;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int center = 2131361812;
@@ -2962,20 +2962,20 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a004b
 			public const int default_activity_button = 2131361867;
 			
-			// aapt resource value: 0x7f0a0097
-			public const int design_bottom_sheet = 2131361943;
-			
-			// aapt resource value: 0x7f0a009e
-			public const int design_menu_item_action_area = 2131361950;
+			// aapt resource value: 0x7f0a0096
+			public const int design_bottom_sheet = 2131361942;
 			
 			// aapt resource value: 0x7f0a009d
-			public const int design_menu_item_action_area_stub = 2131361949;
+			public const int design_menu_item_action_area = 2131361949;
 			
 			// aapt resource value: 0x7f0a009c
-			public const int design_menu_item_text = 2131361948;
+			public const int design_menu_item_action_area_stub = 2131361948;
 			
 			// aapt resource value: 0x7f0a009b
-			public const int design_navigation_view = 2131361947;
+			public const int design_menu_item_text = 2131361947;
+			
+			// aapt resource value: 0x7f0a009a
+			public const int design_navigation_view = 2131361946;
 			
 			// aapt resource value: 0x7f0a0036
 			public const int disableHome = 2131361846;
@@ -2995,38 +2995,38 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0022
 			public const int enterAlwaysCollapsed = 2131361826;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int eventSignUpButton = 2131361956;
-			
-			// aapt resource value: 0x7f0a00a2
-			public const int eventSignUpDateTime = 2131361954;
-			
 			// aapt resource value: 0x7f0a00a3
-			public const int eventSignUpDescription = 2131361955;
+			public const int eventSignUpButton = 2131361955;
 			
 			// aapt resource value: 0x7f0a00a1
-			public const int eventSignUpTitle = 2131361953;
+			public const int eventSignUpDateTime = 2131361953;
+			
+			// aapt resource value: 0x7f0a00a2
+			public const int eventSignUpDescription = 2131361954;
 			
 			// aapt resource value: 0x7f0a00a0
-			public const int event_card_view = 2131361952;
+			public const int eventSignUpTitle = 2131361952;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int examClassName = 2131361960;
+			// aapt resource value: 0x7f0a009f
+			public const int event_card_view = 2131361951;
 			
 			// aapt resource value: 0x7f0a00a7
-			public const int examClassNumber = 2131361959;
-			
-			// aapt resource value: 0x7f0a00a9
-			public const int examDate = 2131361961;
-			
-			// aapt resource value: 0x7f0a00ab
-			public const int examRoomLocation = 2131361963;
-			
-			// aapt resource value: 0x7f0a00aa
-			public const int examTime = 2131361962;
+			public const int examClassName = 2131361959;
 			
 			// aapt resource value: 0x7f0a00a6
-			public const int exam_time_card_view = 2131361958;
+			public const int examClassNumber = 2131361958;
+			
+			// aapt resource value: 0x7f0a00a8
+			public const int examDate = 2131361960;
+			
+			// aapt resource value: 0x7f0a00aa
+			public const int examRoomLocation = 2131361962;
+			
+			// aapt resource value: 0x7f0a00a9
+			public const int examTime = 2131361961;
+			
+			// aapt resource value: 0x7f0a00a5
+			public const int exam_time_card_view = 2131361957;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int exitUntilCollapsed = 2131361827;
@@ -3118,8 +3118,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a000c
 			public const int item_touch_helper_previous_elevation = 2131361804;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int largeLabel = 2131361941;
+			// aapt resource value: 0x7f0a0094
+			public const int largeLabel = 2131361940;
 			
 			// aapt resource value: 0x7f0a001d
 			public const int left = 2131361821;
@@ -3178,8 +3178,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a002f
 			public const int multiply = 2131361839;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int navigation_header_container = 2131361946;
+			// aapt resource value: 0x7f0a0099
+			public const int navigation_header_container = 2131361945;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int never = 2131361859;
@@ -3298,14 +3298,14 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a003a
 			public const int showTitle = 2131361850;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int smallLabel = 2131361940;
-			
-			// aapt resource value: 0x7f0a0099
-			public const int snackbar_action = 2131361945;
+			// aapt resource value: 0x7f0a0093
+			public const int smallLabel = 2131361939;
 			
 			// aapt resource value: 0x7f0a0098
-			public const int snackbar_text = 2131361944;
+			public const int snackbar_action = 2131361944;
+			
+			// aapt resource value: 0x7f0a0097
+			public const int snackbar_text = 2131361943;
 			
 			// aapt resource value: 0x7f0a0025
 			public const int snap = 2131361829;
@@ -3331,8 +3331,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00e5
 			public const int status_bar_latest_event_content = 2131362021;
 			
-			// aapt resource value: 0x7f0a0092
-			public const int studentCalendar = 2131361938;
+			// aapt resource value: 0x7f0a0091
+			public const int studentCalendar = 2131361937;
 			
 			// aapt resource value: 0x7f0a0106
 			public const int studentCourtBanner = 2131362054;
@@ -3379,8 +3379,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a0055
 			public const int textSpacerNoTitle = 2131361877;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int text_input_password_toggle = 2131361951;
+			// aapt resource value: 0x7f0a009e
+			public const int text_input_password_toggle = 2131361950;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int textinput_counter = 2131361792;
@@ -3409,8 +3409,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a005a
 			public const int topPanel = 2131361882;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int touch_outside = 2131361942;
+			// aapt resource value: 0x7f0a0095
+			public const int touch_outside = 2131361941;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int transition_current_scene = 2131361805;
@@ -3601,94 +3601,94 @@ namespace EaglesNestMobileApp.Android
 			public const int abc_select_dialog_material = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int AcademicTimesFragmentLayout = 2130903067;
+			public const int AnnouncementCardLayout = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int AnnouncementCardLayout = 2130903068;
+			public const int AnnouncementsFragmentLayout = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int AnnouncementsFragmentLayout = 2130903069;
+			public const int AttendanceFragmentLayout = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int AttendanceFragmentLayout = 2130903070;
+			public const int AttendancePenaltyLayout = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int AttendancePenaltyLayout = 2130903071;
+			public const int AttendanceRecyclerViewLayout = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int AttendanceRecyclerViewLayout = 2130903072;
+			public const int BaseRecyclerView = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int BaseRecyclerView = 2130903073;
+			public const int BottomNavLayout = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int BottomNavLayout = 2130903074;
+			public const int CalendarFragmentLayout = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int CalendarFragmentLayout = 2130903075;
+			public const int ClassAssignment = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int ClassAssignment = 2130903076;
+			public const int design_bottom_navigation_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int design_bottom_navigation_item = 2130903077;
+			public const int design_bottom_sheet_dialog = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int design_bottom_sheet_dialog = 2130903078;
+			public const int design_layout_snackbar = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int design_layout_snackbar = 2130903079;
+			public const int design_layout_snackbar_include = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int design_layout_snackbar_include = 2130903080;
+			public const int design_layout_tab_icon = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int design_layout_tab_icon = 2130903081;
+			public const int design_layout_tab_text = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int design_layout_tab_text = 2130903082;
+			public const int design_menu_item_action_area = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int design_menu_item_action_area = 2130903083;
+			public const int design_navigation_item = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int design_navigation_item = 2130903084;
+			public const int design_navigation_item_header = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int design_navigation_item_header = 2130903085;
+			public const int design_navigation_item_separator = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int design_navigation_item_separator = 2130903086;
+			public const int design_navigation_item_subheader = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int design_navigation_item_subheader = 2130903087;
+			public const int design_navigation_menu = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int design_navigation_menu = 2130903088;
+			public const int design_navigation_menu_item = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int design_navigation_menu_item = 2130903089;
+			public const int design_text_input_password_icon = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int design_text_input_password_icon = 2130903090;
+			public const int EventCardLayout = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int EventCardLayout = 2130903091;
+			public const int EventsFragmentLayout = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int EventsFragmentLayout = 2130903092;
+			public const int ExamScheduleCardLayout = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int ExamScheduleCardLayout = 2130903093;
+			public const int ExamScheduleFragmentLayout = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int ExamScheduleFragmentLayout = 2130903094;
+			public const int FacilitiesFragmentLayout = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int FacilitiesFragmentLayout = 2130903095;
+			public const int FacilitiesPopupFragmentLayout = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int FacilitiesPopupFragmentLayout = 2130903096;
+			public const int FacilitiesTimeAcademic = 2130903096;
 			
 			// aapt resource value: 0x7f030039
 			public const int FacilitiesTimeChurch = 2130903097;
