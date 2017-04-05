@@ -42,7 +42,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<FourWindsFragmentViewModel>();
             SimpleIoc.Default.Register<GrabAndGoFragmentViewModel>();
             SimpleIoc.Default.Register<ExamScheduleFragmentViewModel>();
-
+            SimpleIoc.Default.Register<AttendanceFragmentViewModel>();
+            SimpleIoc.Default.Register<ScheduleFragmentViewModel>();
         }
 
         /* This method is used by the AndroidApp class to register the Android */
@@ -96,6 +97,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public MainViewModel Main =>
         ServiceLocator.Current.GetInstance<MainViewModel>();
+
+        public AttendanceFragmentViewModel Attendance =>
+        ServiceLocator.Current.GetInstance<AttendanceFragmentViewModel>();
+
+        public ScheduleFragmentViewModel StudentSchedule =>
+        ServiceLocator.Current.GetInstance<ScheduleFragmentViewModel>();
 
         public static void Cleanup()
         {

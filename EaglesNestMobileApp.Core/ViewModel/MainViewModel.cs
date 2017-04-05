@@ -21,6 +21,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             App.Locator.Varsity.InitializeStatic();
             //await App.Locator.FourWinds.InitializeAsync();
             App.Locator.FourWinds.InitializeStatic();
+            App.Locator.Attendance.InitializeStatic();
         }
     }
 }

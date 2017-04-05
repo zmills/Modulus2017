@@ -1,6 +1,7 @@
 ﻿using EaglesNestMobileApp.Core.Model;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using EaglesNestMobileApp.Core.Model.Personal;
 
 namespace EaglesNestMobileApp.Core.Contracts
 {
@@ -18,5 +19,6 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task InsertLocalTokenAsync(LocalToken user);
         Task PurgeDatabaseAsync();
         Task SyncAsync(bool pullData = false);
+        //Task<ObservableCollection<AttendanceViolation>> GetAttendanceViolationsAsync();
     }
 }
