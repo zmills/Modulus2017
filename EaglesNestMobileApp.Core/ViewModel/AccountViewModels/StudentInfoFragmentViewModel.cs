@@ -16,6 +16,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             private set { Set(() => CurrentUser, ref _currentUser, value); }
         }
 
+        public string BoxCombinationInstructions;
+
         /* Command to be binded to the refresh event in the view */
         private RelayCommand _logOutCommand;
         public RelayCommand LogOutCommand => _logOutCommand ??
@@ -32,6 +34,15 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
         public async Task InitializeAsync()
         {
             CurrentUser = await Database.GetStudentAsync();
+
+            /* Breaking up the combination for the string                      */
+            /* NEED TO USE REGULAR EXPRESSION!!        */
+            BoxCombinationInstructions = "In order to open your box, turn the " +
+                "dial left at least four turns stopping at " +
+                $"{CurrentUser.BoxCombination.Substring(0, 2)}, turn " +
+                "right passing first number one time and stopping at " +
+                $"{CurrentUser.BoxCombination.Substring(3, 2)}, then left and" +
+                $" stop at {CurrentUser.BoxCombination.Substring(5, 2)}.";
         }
 
         /*********************************************************************/

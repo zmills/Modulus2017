@@ -29,6 +29,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
             //Activity.RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
             //Activity.RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
             //Activity.RunOnUiThread(() => App.Locator.Varsity.InitializeVm());

@@ -7,6 +7,7 @@
   android:layout_gravity="center_horizontal"
   cardview:cardElevation="4dp"
   cardview:cardCornerRadius="5dp"
+  android:layout_marginBottom="16dp"
   cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
   android:id="@+id/studentScheduleEvent"
   >

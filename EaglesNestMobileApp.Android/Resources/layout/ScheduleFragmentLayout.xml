@@ -22,7 +22,8 @@
       android:background="@drawable/studentSchedule_dateButton"
       android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleSundayButton"
+      android:id="@+id/Sunday"
+      android:tag="Sunday"
       />
 
     <ImageButton
@@ -31,7 +32,8 @@
       android:background="@drawable/studentSchedule_dateButton"
      android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleMondayButton"
+      android:id="@+id/Monday"
+      android:tag="Monday"
       />
 
     <ImageButton
@@ -40,7 +42,8 @@
       android:background="@drawable/studentSchedule_dateButton"
       android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleTuesdayButton"
+      android:id="@+id/Tuesday"
+      android:tag="Tuesday"
       />
 
     <ImageButton
@@ -49,7 +52,8 @@
       android:background="@drawable/studentSchedule_dateButton"
     android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleWednesdayButton"
+      android:id="@+id/Wednesday"
+      android:tag="Wednesday"
       />
 
     <ImageButton
@@ -58,7 +62,8 @@
       android:background="@drawable/studentSchedule_dateButton"
       android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleThursdayButton"
+      android:id="@+id/Thursday"
+      android:tag="Thursday"
       />
 
     <ImageButton
@@ -67,16 +72,18 @@
       android:background="@drawable/studentSchedule_dateButton"
       android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleFridayButton"
+      android:id="@+id/Friday"
+      android:tag="Friday"
       />
 
     <ImageButton
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:background="@drawable/studentSchedule_dateButton"
-     android:layout_margin="8dp"
+      android:layout_margin="8dp"
       android:layout_weight="1"
-      android:id="@+id/StudentScheduleSaturdayButton"
+      android:id="@+id/Saturday"
+      android:tag="Saturday"
       />
    
     </LinearLayout>
@@ -86,8 +93,8 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Monday"
-      android:id="@+id/studentScheduleDay"
+      android:text="Sunday"
+      android:id="@+id/StudentScheduleDay"
       android:gravity="center_horizontal"
       android:layout_marginLeft="5dp"
       android:textSize="30dp" />
@@ -97,7 +104,17 @@
     />
   
   <!-- This is to be recycled -->
-
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/StudentScheduleRecyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:clipToPadding="false"
+      android:paddingTop="0dp"
+      android:paddingRight="16dp"
+      android:paddingLeft="16dp"
+      android:paddingBottom="16dp"
+      android:nestedScrollingEnabled="false"
+                />
 </LinearLayout>
 
 

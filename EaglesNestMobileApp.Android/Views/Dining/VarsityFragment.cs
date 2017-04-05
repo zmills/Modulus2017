@@ -22,6 +22,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
     {
         private View _varsityFragmentView;
         List<RecyclerView> RecyclerviewList;
+        ObservableRecyclerAdapter<VarsityItem, CachingViewHolder> _adapter;
         List<TextView> LineList;
         RecyclerView _currentRecyclerview;
         RecyclerView _previousRecyclerview;
@@ -35,6 +36,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater,
@@ -149,6 +151,55 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                );
 
             holder.SaveBinding(_textview, itemBinding);
+        }
+
+        private void SelectMealTime(string mealTime)
+        {
+            switch (mealTime)
+            {
+                case App.MealTimes.Breakfast:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.VarsityMenu.BreakfastMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.BreakfastMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+                case App.MealTimes.Lunch:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.VarsityMenu.LunchMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+                case App.MealTimes.Dinner:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.VarsityMenu.DinnerMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.DinnerMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+            }
         }
     }
 }

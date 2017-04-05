@@ -16,9 +16,9 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
     public class FourWindsFragmentViewModel: ViewModelBase
     {
         /* All the items being served in Four Winds         */
-        private ObservableCollection<FourWindsItem> _fourWindsItems = 
-            new ObservableCollection<FourWindsItem>();
-        protected ObservableCollection<FourWindsItem> FourWindsItems
+        private List<FourWindsItem> _fourWindsItems = 
+            new List<FourWindsItem>();
+        protected List<FourWindsItem> FourWindsItems
         {
             get { return _fourWindsItems; }
             set { Set(() => FourWindsItems, ref _fourWindsItems, value); }
