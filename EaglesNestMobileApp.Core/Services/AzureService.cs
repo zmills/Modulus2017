@@ -72,7 +72,7 @@ namespace EaglesNestMobileApp.Core.Services
 
             try
             {
-                await _client.SyncContext.PushAsync();
+                //await _client.SyncContext.PushAsync();
                 if (pullData)
                 {
                     /* Pull down student related tables                      */
@@ -83,6 +83,9 @@ namespace EaglesNestMobileApp.Core.Services
                     await _courseTable.PullAsync("allCourses",
                         _courseTable.Where(course =>
                             course.StudentId == _currentUser.Id));
+
+                    var list = _assignmentTable.ToListAsync();
+
 
                     await _studentTable.PullAsync("currentStudent",
                         _studentTable.Where(student =>

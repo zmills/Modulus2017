@@ -228,7 +228,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             var _nameBinding = new Binding<string, string>
                 (
                     assignment,
-                    () => assignment.AssingmentName,
+                    () => assignment.AssignmentName,
                     _assignmentName,
                     () => _assignmentName.Text
                 );

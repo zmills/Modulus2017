@@ -50,6 +50,23 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             Database = database;
         }
+
+        public async Task InitializeAsync()
+        {
+            Classes = await Database.GetCoursesAsync();
+
+            Assignments = await Database.GetAssignmentsAsync();
+
+            /* Sort the list of based off of the most recently updated one */
+            Assignments.Sort
+                (
+                    (x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt)
+                );
+
+            /* Format the student gradeCards for the separate views    */
+            GetGradeCards();
+        }
+
         /* Refresh the grades pulling off of the remote db.                */
         /* There needs to be something that indicates to the user          */
         /* that the page is being refreshed like in a swipe refresh layout */
@@ -70,6 +87,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     );
 
                 /* Format the student gradeCards for the separate views    */
+                Grades.Clear();
                 GetGradeCards();
             }
             catch (Exception ex)
@@ -112,7 +130,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 {
                     Assignment currentAssignment = new Assignment()
                     {
-                        AssingmentName = "Quiz " + index,
+                        AssignmentName = "Quiz " + index,
                         AssignmentDate = "4/12/2017",
                         GradeScore = "100"
                     };
