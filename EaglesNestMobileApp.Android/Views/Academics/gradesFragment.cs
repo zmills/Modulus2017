@@ -194,6 +194,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
+
             InitializeGrades();
         }
 

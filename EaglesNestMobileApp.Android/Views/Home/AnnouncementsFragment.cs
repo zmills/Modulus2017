@@ -36,6 +36,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
 
             /* Get the announcements. Announcements would be set to the      */
             /* cards inside the viewmodel here                               */

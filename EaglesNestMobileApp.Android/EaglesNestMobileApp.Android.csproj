@@ -312,6 +312,9 @@
     <AndroidResource Include="Resources\layout\ClassAssignment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\BoxCombinationDialogLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LoginLayout.xml">

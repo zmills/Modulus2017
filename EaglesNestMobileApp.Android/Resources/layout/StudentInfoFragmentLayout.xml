@@ -324,6 +324,7 @@
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="See Combination Instructions"
+                        android:id="@+id/BoxCombinationInstructions"
                         />
 
                     <!-- Divider Line -->

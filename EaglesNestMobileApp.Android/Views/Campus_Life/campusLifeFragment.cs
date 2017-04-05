@@ -32,6 +32,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         /* Sets up the viewpager, tabs, and the titles of the tabs when the  */
