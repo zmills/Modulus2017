@@ -12,12 +12,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
             //App.Locator.Announcements.Initialize();
             App.Locator.Events.Initialize();
             App.Locator.Grades.Initialize();
-            await App.Locator.Exams.Initialize();
+            //await App.Locator.Exams.Initialize();
             App.Locator.Exams.InitializeStatic();
             //await App.Locator.GrabAndGo.InitializeAsync();
             App.Locator.GrabAndGo.InitializeVm();
             
-            await App.Locator.StudentInfo.InitializeAsync();
+            //await App.Locator.StudentInfo.InitializeAsync();
             //await App.Locator.Varsity.InitializeAsync();
             App.Locator.Varsity.InitializeStatic();
             //await App.Locator.FourWinds.InitializeAsync();

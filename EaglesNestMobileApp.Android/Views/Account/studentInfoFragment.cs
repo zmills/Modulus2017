@@ -69,7 +69,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             #endregion
             /*UI THREAD*/
 
-            Activity.RunOnUiThread(()=>SetStudentInfo());
+            //Activity.RunOnUiThread(()=>SetStudentInfo());
 
 
             /* Use this to return your custom view for this Fragment         */
@@ -88,16 +88,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
         private void SetStudentInfo()
         {
-            /* Not sure we'll need to bind considering the student data is very rarely changed    */
-            //var _fullNameBinding = new Binding<string, string>
-            //    (
-            //        ViewModel.CurrentUser,
-            //        ()=> ViewModel.CurrentUser.FormattedName,
-            //        fullName,
-            //        ()=> fullName.Text
-            //    );
-
-            //_bindings.Add(_fullNameBinding);
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentFullName).Text = ViewModel.CurrentUser.FormattedName;
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentId).Text = ViewModel.CurrentUser.Id;
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMajor).Text = ViewModel.CurrentUser.MajorName;
