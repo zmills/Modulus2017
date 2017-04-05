@@ -11,6 +11,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string LineNumber { get; set; }
         public string ItemName { get; set; }
         public string BuildingName { get; set; }
+        public string Version { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }
     }
 }

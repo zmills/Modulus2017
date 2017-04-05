@@ -42,8 +42,10 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 {
                     Title = $"My Event {count}",
                     Time = $"{count}:00 - {count + 1}:00",
-                    Location = "Field House"
+                    Location = "Field House",
+                    Day = "Sunday"
                 };
+                Events.Add(studentEvent);
             }
 
             SortEvents();

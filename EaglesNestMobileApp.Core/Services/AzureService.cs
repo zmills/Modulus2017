@@ -6,6 +6,7 @@
 using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Helpers;
 using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Model.Food;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -91,10 +92,10 @@ namespace EaglesNestMobileApp.Core.Services
                     /* Pull down non student related tables                 */
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
-                    await _fourWindsTable.PullAsync("firstPageFourWindsItems",
-                        _fourWindsTable.CreateQuery(), data);
+                    await _fourWindsTable.PullAsync("allFourWindsItems",
+                       _fourWindsTable.CreateQuery(), data);
 
-                    var num = await _fourWindsTable.ToListAsync();
+
                     await _varsityTable.PullAsync("allVarsityItems",
                         _varsityTable.CreateQuery());
 
@@ -158,12 +159,13 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                       Get the Four Winds items                    */
         /*********************************************************************/
-        public async Task<ObservableCollection<FourWindsItem>> GetFourWindsItemsAsync()
+        public async Task<List<FourWindsItem>> GetFourWindsItemsAsync()
         {
-            var num = await _fourWindsTable.ToListAsync();
-            Debug.WriteLine("\n\n\n\n\n\n FourWinds " + num.Count);
+             var _allItems = await _fourWindsTable.ToListAsync();
 
-            return await _fourWindsTable.ToCollectionAsync();
+            Debug.WriteLine("\n\n\n\n" + "FourWinds: " +_allItems.Count);
+
+            return await _fourWindsTable.ToListAsync();
         }
 
         /*********************************************************************/

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using EaglesNestMobileApp.Core.Model.Personal;
+using System.Collections.Generic;
 
 namespace EaglesNestMobileApp.Core.Contracts
 {
@@ -10,7 +11,7 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task InitLocalStore();
         Task<ObservableCollection<Assignment>> GetAssignmentsAsync();
         Task<ObservableCollection<Course>> GetCoursesAsync();
-        Task<ObservableCollection<FourWindsItem>> GetFourWindsItemsAsync();
+        Task<List<FourWindsItem>> GetFourWindsItemsAsync();
         Task<ObservableCollection<VarsityItem>> GetVarsityItemsAsync();
         Task<ObservableCollection<GrabAndGoItem>> GetGrabAndGoItemsAsync();
         Task<LocalToken> GetLocalTokenAsync();

@@ -21,6 +21,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
     public class fourWindsFragment : Fragment
     {
         private View _fourWindsFragmentView;
+        ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder> _adapter;
         List<RecyclerView> RecyclerviewList;
         List<TextView> LineList;
         RecyclerView _currentRecyclerview;
@@ -49,6 +50,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             TabLayout _tabLayout =
                 _fourWindsFragmentView.FindViewById<TabLayout>(Resource.Id.FourWindsTabLayout);
 
+            _tabLayout.TabSelected += MealTimeSelected;
+
             /* Set the current and previous recyclerviews */
             _currentRecyclerview = _previousRecyclerview =
                 _fourWindsFragmentView.FindViewById<RecyclerView>(Resource.Id.Line7RecyclerView);
@@ -57,6 +60,11 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             Activity.RunOnUiThread(() => SetUpFourWinds());
 
             return _fourWindsFragmentView;
+        }
+
+        private void MealTimeSelected(object sender, TabSelectedEventArgs e)
+        {
+            SelectMealTime(e.Tab.Text);
         }
 
 
@@ -93,18 +101,20 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 /* Set Adapters */
                 RecyclerviewList[count].SetAdapter
                     (
-                        ViewModel.FourWindsMenu.LunchMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
+                        ViewModel.FourWindsMenu.BreakfastMenu[count].GetRecyclerAdapter(BindViewHolder, Resource.Layout.FoodMenuList)
                     );
 
                 /* Set Layout Managers */
                 RecyclerviewList[count].SetLayoutManager(new LinearLayoutManager(Activity));
-
+                
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
-                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.LunchMenu[count][0].MealTheme}";
+                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme}";
             }
         }
+
+        
 
         private void LineClick(object sender, System.EventArgs e)
         {
@@ -155,6 +165,55 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                );
 
             holder.SaveBinding(_textview, itemBinding);
+        }
+
+        private void SelectMealTime(string mealTime)
+        {
+            switch (mealTime)
+            {
+                case App.MealTimes.Breakfast:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                        {
+                            _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
+                            _adapter.DataSource = ViewModel.FourWindsMenu.BreakfastMenu[count];
+                            LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme}";
+                            _adapter.NotifyDataSetChanged();
+                        }
+                        });
+                    }
+                    break;
+                case App.MealTimes.Lunch:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.FourWindsMenu.LunchMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.LunchMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+                case App.MealTimes.Dinner:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.FourWindsMenu.DinnerMenu[count];
+                                //LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.DinnerMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+            }
         }
     }
 }
