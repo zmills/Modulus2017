@@ -114,7 +114,7 @@ namespace EaglesNestMobileApp.Core
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Class Grades",
-                "Grade Report",
+                //"Grade Report",
                 "Exam Schedule"
             });
         }

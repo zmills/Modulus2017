@@ -15,9 +15,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
     public class VarsityFragmentViewModel : ViewModelBase
     {
         /* All the items being served in Varsity            */
-        private ObservableCollection<VarsityItem> _varsityItems = 
-            new ObservableCollection<VarsityItem>();
-        protected ObservableCollection<VarsityItem> VarsityItems
+        private List<VarsityItem> _varsityItems = new List<VarsityItem>();
+        protected List<VarsityItem> VarsityItems
         {
             get { return _varsityItems; }
             set { Set(() => VarsityItems, ref _varsityItems, value); }
