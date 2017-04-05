@@ -89,17 +89,29 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StudentUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EaglesNestMobileApp.Android\EaglesNestMobileApp.Android.csproj">
+      <Project>{5ba81b78-1197-4a99-b5ce-841ea743f1cd}</Project>
+      <Name>EaglesNestMobileApp.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EaglesNestMobileApp.Core\EaglesNestMobileApp.Core.csproj">
+      <Project>{53513a67-a02d-44c1-b6e2-b21175a5d11f}</Project>
+      <Name>EaglesNestMobileApp.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

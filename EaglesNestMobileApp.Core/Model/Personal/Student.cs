@@ -1,12 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
-using System;
 
 namespace EaglesNestMobileApp.Core.Model
 {
     public class Student : ObservableObject
     {
-        public string Version { get; set; }
-        public DateTimeOffset UpdatedAt { get; set; }
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -35,10 +32,40 @@ namespace EaglesNestMobileApp.Core.Model
         public string SeatNumber { get; set; }
         public string DoorNumber { get; set; }
         public string Classification { get; set; } //NOT IN AZURE DB FOR SOME REASON
-        //ALSO MISSING MINOR
+
+        public string FullName
+        {
+            get
+            {
+                string _fullName = LastName;
+
+                /* If first name exist, determine how to append to full name.  */
+                if (!string.IsNullOrWhiteSpace(FirstName))
+                {
+                    if (!string.IsNullOrWhiteSpace(_fullName))
+                        _fullName += ", ";
+
+                    _fullName += FirstName;
+                }
+
+                /* If middle name exist, determine how to append to full name. */
+                if (!string.IsNullOrWhiteSpace(MiddleName))
+                {
+                    if (!string.IsNullOrWhiteSpace(_fullName))
+                    {
+                        if (string.IsNullOrWhiteSpace(FirstName))
+                            _fullName += ", ";
+                        else
+                            _fullName += " ";
+                    }
+                    _fullName += MiddleName;
+                }
+                return _fullName;
+            }
+        }
 
         /* These strings return the concatenated/ formatted version of data                 */
-        public string FormattedName => $"{FirstName} {MiddleName} {LastName} ({PreferredName})";
+        public string FormattedName => $"{FullName} ({PreferredName})";
         public string FormattedChapelSeat => $"{Section}, {Row}, {SeatNumber}";
         public string FormattedAddress => $"{AddressLineOne}\n{City}, {State} {Zip}\n{Country}";
         public string FormattedCollegian => $"{CollegianName} {CollegianMascot} ({CollegianLocation})";
