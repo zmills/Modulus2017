@@ -15,4 +15,11 @@
     <string name="ApplicationName">EaglesNestMobileApp.Android</string>
     <string name="hello">Hello World, Click Me!</string>
     <string name="button_2_string">ACCENT</string>
+
+    <string name="Academic">Academic</string>
+    <string name="Church">Church</string>
+    <string name="Dining">Dining</string>
+    <string name="Service">Service</string>
+    <string name="Recreation">Recreation</string>
+    <string name="Dorm">Dorm</string>
 </resources>

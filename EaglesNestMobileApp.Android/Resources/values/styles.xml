@@ -235,7 +235,7 @@
         <item name="android:textColor">?attr/modBodyTextColor</item>
     </style>
     <style name="ModRobotoRegularSoft20">
-        <item name="android:fontFamily">@string/roboto_light</item>
+        <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">?attr/modBodyTextColorSoft</item>
     </style>
@@ -298,13 +298,15 @@
     <!-- OTHER VIEW STYLES -->
     
     <!-- <Dining Line> -->
-    <style name="ModDiningLineHeader">
+    <style name="ModDiningLineLayoutView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">56dp</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:background">@drawable/border_dining_line</item>
+        <!--<item name="android:layout_marginBottom">8dp</item>-->
+        <!--<item name="android:background">@drawable/border_dining_line</item>-->
+        <item name="android:background">@drawable/borderless_button</item>
+        <item name="android:clickable">true</item>
     </style>
     <style name="ModDiningLineNumber">
         <item name="android:layout_width">56dp</item>
@@ -314,7 +316,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">8dp</item>
-        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="android:background">?attr/colorPrimary</item>
     </style>
     <style name="ModDiningLineTitle" parent="ModRobotoMedium20">
         <item name="android:layout_width">match_parent</item>
@@ -323,9 +325,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:background">@drawable/borderless_button</item>
-        <item name="android:clickable">true</item>
+        <item name="android:paddingBottom">8dp</item>        
     </style>
     
     

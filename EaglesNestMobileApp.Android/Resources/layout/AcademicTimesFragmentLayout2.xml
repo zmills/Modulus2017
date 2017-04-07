@@ -1,246 +1,381 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
     >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolbarDialogLayout"
+        />
+    
+    <!-- TOOLBAR -->
+    <!--<android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/modToolbarColor"
+        android:theme="?attr/modToolbarTheme"
+        app:popupTheme="?attr/modToolbarPopupTheme"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Academic"
+            />
+        
+    </android.support.v7.widget.Toolbar>-->
+    
+    <!-- SCROLLVIEW -->
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="8dp"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
-        <!-- 1. ACADEMIC CENTER -->
-
-        <!-- Academic Center Title -->
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            style="@style/ModRobotoRegular20"
-            android:text="Academic Center"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-                />
-
-        <!-- Academic Center CardView -->
-        <android.support.v7.widget.CardView
-            android:id="@+id/StudentInfoCard"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
-            card_view:cardElevation="2dp"
-            card_view:cardUseCompatPadding="false"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
             >
+            
+<!-- ********************************************************************** -->
+<!-- CARD SEPARATOR -->       
+<!-- ********************************************************************** -->
 
-            <!-- Academic Center Layout -->
-            <LinearLayout
+            <!-- 1. ACADEMIC CENTER -->
+
+            <!-- Academic Center Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Academic Center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- Academic Center CardView -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoCard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
                 >
 
-                <!-- See Combination Instructions Button -->
-                <Button
-                    android:textColor="?attr/modBorderlessButtonFullSpanColor"
-                    style="@style/ModBorderlessButtonFullSpan"
-                    android:text="See Combination Instructions"
-                    android:gravity="left"
+                <!-- Academic Center Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/ACClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms"
+                        android:gravity="left"
                         />
 
-                <!-- Divider Line -->
-                <View style="@style/ModDivider" />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-                <!-- ROOM -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                        >
+                    <!-- Offices Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms"
+                        android:gravity="left"
+                        />
+                
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-                    <!-- Room Title -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemPrimaryText"
-                        android:text="Room"
-                            />
+                    <!-- Practice Rooms Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Practice Rooms"
+                        android:gravity="left"
+                        />
 
-                    <!-- Room Data -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemSecondaryText"
-                        android:text="Coberly South 2168-1"
-                        android:id="@+id/StudentRoom"
-                            />
-
-                </LinearLayout>
-
-                <!-- Divider Line -->
-                <View style="@style/ModDividerWithMargins" />
-
-                <!-- MAILBOX & COMBINATION -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                        >
-
-                    <!-- Mailbox# & Combination Title -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemPrimaryText"
-                        android:text="Mailbox &amp; Combination"
-                        android:layout_marginTop="4dp"
-                            />
-
-                    <!-- Mailbox# & Combination Data Container -->
+                    <!-- ROOM -->
                     <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
                             >
 
-                        <!-- Mailbox# Data -->
+                        <!-- Room Title -->
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="1455"
-                            android:layout_marginRight="8dp"
-                            android:id="@+id/StudentMailbox"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Room"
                                 />
 
-                        <!-- Combination Data -->
+                        <!-- Room Data -->
                         <TextView
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             style="@style/ModListItemSecondaryText"
-                            android:text="26-48-12"
-                            android:id="@+id/StudentBoxCombination"
+                            android:text="Coberly South 2168-1"
+                            android:id="@+id/StudentRoom"
+                                />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- MAILBOX & COMBINATION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                            >
+
+                        <!-- Mailbox# & Combination Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Mailbox &amp; Combination"
+                            android:layout_marginTop="4dp"
+                                />
+
+                        <!-- Mailbox# & Combination Data Container -->
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                                >
+
+                            <!-- Mailbox# Data -->
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                style="@style/ModListItemSecondaryText"
+                                android:text="1455"
+                                android:layout_marginRight="8dp"
+                                android:id="@+id/StudentMailbox"
+                                    />
+
+                            <!-- Combination Data -->
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                style="@style/ModListItemSecondaryText"
+                                android:text="26-48-12"
+                                android:id="@+id/StudentBoxCombination"
+                                    />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- See Combination Instructions Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="See Combination Instructions"
+                            />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- COLLEGIAN & LOCATION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                            >
+
+                        <!-- Collegian & Location Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Collegian &amp; Location"
+                            android:layout_marginTop="4dp"
+                                />
+
+                        <!-- Collegian Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Iota Chi Delta Stingrays"
+                            android:layout_marginRight="8dp"
+                            android:id="@+id/StudentCollegianName"
+                                />
+
+                        <!-- Location Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="AC 451"
+                            android:id="@+id/StudentCollegianLocation"
+                                />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- CHAPEL SEAT -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                            >
+
+                        <!-- Chapel Seat Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Chapel Seat"
+                            android:layout_marginTop="4dp"
+                                />
+
+                        <!-- Chapel Seat Line 1 Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Balcony Section C"
+                            android:id="@+id/StudentChapelSeatSection"
+                                />
+
+                        <!-- Chapel Seat Line 2 Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Row F Seat 14"
+                            android:id="@+id/StudentChapelSeatRowNumber"
                                 />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- Divider Line -->
-                <View style="@style/ModDivider" />
+            </android.support.v7.widget.CardView>
 
-                <!-- See Combination Instructions Button -->
-                <Button
-                    android:textColor="?attr/modBorderlessButtonFullSpanColor"
-                    style="@style/ModBorderlessButtonFullSpan"
-                    android:text="See Combination Instructions"
+<!-- ********************************************************************** -->
+<!-- CARD SEPARATOR -->       
+<!-- ********************************************************************** -->
+            <!-- 2. MACKENZIE BUILDING -->
+
+            <!-- MacKenzie Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="MacKenzie Building"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- MacKenzie Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <!-- MacKenzie Building Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/MKClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms, 1–6 Fls"
+                        android:gravity="left"
                         />
 
-                <!-- Divider Line -->
-                <View style="@style/ModDivider" />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+                    
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/MKLabs"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Nursing/Computer Lab, 3rd and 5th Fls"
+                        android:gravity="left"
+                        />
 
-                <!-- COLLEGIAN & LOCATION -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                        >
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-                    <!-- Collegian & Location Title -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemPrimaryText"
-                        android:text="Collegian &amp; Location"
-                        android:layout_marginTop="4dp"
-                            />
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/MKPlanetarium"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Planetarium, 6th Fl"
+                        android:gravity="left"
+                        />
 
-                    <!-- Collegian Data -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemSecondaryText"
-                        android:text="Iota Chi Delta Stingrays"
-                        android:layout_marginRight="8dp"
-                        android:id="@+id/StudentCollegianName"
-                            />
-
-                    <!-- Location Data -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemSecondaryText"
-                        android:text="AC 451"
-                        android:id="@+id/StudentCollegianLocation"
-                            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
                 </LinearLayout>
 
-                <!-- Divider Line -->
-                <View style="@style/ModDividerWithMargins" />
+            </android.support.v7.widget.CardView>
 
-                <!-- CHAPEL SEAT -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                        >
+        </LinearLayout>
 
-                    <!-- Chapel Seat Title -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemPrimaryText"
-                        android:text="Chapel Seat"
-                        android:layout_marginTop="4dp"
-                            />
+    </android.support.v4.widget.NestedScrollView>
 
-                    <!-- Chapel Seat Line 1 Data -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemSecondaryText"
-                        android:text="Balcony Section C"
-                        android:id="@+id/StudentChapelSeatSection"
-                            />
-
-                    <!-- Chapel Seat Line 2 Data -->
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        style="@style/ModListItemSecondaryText"
-                        android:text="Row F Seat 14"
-                        android:id="@+id/StudentChapelSeatRowNumber"
-                            />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>
