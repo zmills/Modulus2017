@@ -368,7 +368,9 @@
     <AndroidResource Include="Resources\menu\sample_home_menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml" />
+    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BroomHockeyAllStarCons1.jpg" />
