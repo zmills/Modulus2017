@@ -7,25 +7,10 @@
     >
 
     <!-- TOOLBAR -->
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/modToolbarColor"
-        android:theme="?attr/modToolbarTheme"
-        app:popupTheme="?attr/modToolbarPopupTheme"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Services"
-            />
-
-    </android.support.v7.widget.Toolbar>
+        layout="@layout/ToolbarDialogLayout"
+        />
 
     <!-- SCROLLVIEW -->
     <android.support.v4.widget.NestedScrollView

@@ -24,7 +24,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
     {
         View view;
         Dialog _dialogBox;
-        View toolbarLayout;
         SupportToolbar dialogToolbar;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -40,16 +39,11 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
                 container, false);
 
-            toolbarLayout = inflater.Inflate(Resource.Layout.ToolbarDialogLayout,
-                container, false);
-
-            dialogToolbar = toolbarLayout.FindViewById<SupportToolbar>(Resource.Id.DialogToolbar);
-
+            //toolbarLayout = inflater.Inflate(Resource.Layout.ToolbarDialogLayout,
+            //    container, false);
             
-            //dialogToolbar.SetNavigationIcon(Resource.Drawable.arrow_up);
-            //dialogToolbar.SetTitle(Resource.String.Academic);
-            if (dialogToolbar != null)
-                dialogToolbar.SetTitle(Resource.String.Academic);
+            
+            //dialogToolbar.SetTitle(Resource.String.Academic);            
 
             Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
@@ -67,83 +61,59 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
         private async void LoadPopUpAsync(object sender, EventArgs e)
         {
-            /* ViewModel Text must be passed to all these layouts                */
-            switch ((sender as Button).Text)
+            string title = (sender as Button).Text;
+
+            /* Disable the button                                            */
+            (sender as Button).Enabled = false;
+
+            /* Create the dialog box                                         */
+            _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+
+            /* ViewModel Text must be passed to all these layouts            */
+            switch (title)
             {
+
                 case AndroidApp.FacilityCategory.Academics:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
-                        //_dialogBox.Window.RequestFeature(WindowFeatures.NoTitle);
                         _dialogBox.Window.SetContentView(Resource.Layout.AcademicTimesFragmentLayout2);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
                 case AndroidApp.FacilityCategory.Church:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
                         _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesChurch);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
                 case AndroidApp.FacilityCategory.Dining:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
                         _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesDining);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
                 case AndroidApp.FacilityCategory.Dorm:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
                         _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesDorm);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
                 case AndroidApp.FacilityCategory.Recreation:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
                         _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesRecreation);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
                 case AndroidApp.FacilityCategory.Service:
                     {
-                        (sender as Button).Enabled = false;
-                        _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
                         _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesService);
-                        _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-                        await Task.Delay(150);
-                        _dialogBox.Show();
-                        await Task.Delay(400);
-                        (sender as Button).Enabled = true;
                     }
                     break;
             }
+
+            dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+            dialogToolbar.Title = title;
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            dialogToolbar.NavigationClick += (navSender, navEvent) => { _dialogBox.Dismiss(); };
+            await Task.Delay(150);
+            _dialogBox.Show();
+            await Task.Delay(400);
+            (sender as Button).Enabled = true;
         }
     }
 }
