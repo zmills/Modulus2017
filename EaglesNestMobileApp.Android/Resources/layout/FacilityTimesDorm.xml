@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <View
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Residence Halls"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Doors open at 5:45 a.m. (Sun 7 a.m.) and close at 10:25 p.m."
+      />
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="
+Men's Dorms"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Ballard Hall"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Campus House"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Coberly Hall"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Young Tower"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Women's Dorms"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Bradley Tower"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Dixon Tower"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Griffith Tower"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Convenience Stores"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Gearbox (Men’s RH)"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Pelican (Women’s RH)"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="M–Th	8–10:30 p.m."
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="F, Sat	8–11:45 p.m."
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Sun	7–10:30 p.m."
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Practice Rooms"
+      />
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Bradley Tower and Young Tower"
+      />
+
+
+        <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="M–Sun	5:45 a.m.–10:15 p.m."
+      />
+
+    </View>
+
+
+    </LinearLayout>

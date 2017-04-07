@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* HIERARCHY
+* BottomNavLayout.xml
+*
+* BottomNavLayout.xml
+*   -> Frame Layout
+*       -> TabLayout.xml
+*           -> Coordinator Layout
+*               -> AppBar Layout
+*                   -> ToolbarLayout.xml
+*                   -> Tab Layout
+*   -> Bottom Navigation Bar
+*
+****************************************************************************-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:design="http://schema.android.com/apk/res/android.support.design"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <!-- MAIN FRAMELAYOUT FOR FRAGMENTS -->
+    <FrameLayout
+        android:id="@+id/MainFrameLayout"
         android:layout_height="match_parent"
-        android:minWidth="25px"
-        android:minHeight="25px">
-    <!-- MAIN FRAME LAYOUT FOR FRAGMENTS -->
-        <FrameLayout
-            android:id="@+id/MainFrameLayout"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:minWidth="25px"
-            android:minHeight="25px" />
-    </LinearLayout>
-<!-- BOTTOM NAVIGATION BAR -->
+        android:layout_width="match_parent"
+        android:layout_above="@+id/BottomNavBar"
+        />
+        <!-- Do NOT set the FrameLayout's layout_height to "wrap_content" -->
+
+    <!-- BOTTOM NAVIGATION BAR -->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/BottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_gravity="start"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@color/white"
+        android:background="?attr/modBottomNavColor"
         android:elevation="8dp"
-        android:layout_below="@+id/MainFrameLayout"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        />
+        <!-- Can also set these attributes for the bottom nav bar:
+             app:itemBackground="@color/colorPrimaryLight"
+             app:itemIconTint="@color/colorIcon"
+             app:itemTextColor="@color/colorText" -->
 </RelativeLayout>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:cardview="http://schemas.android.com/apk/res-auto"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center_horizontal"
+      android:padding="5dp">
+  
+  <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         cardview:cardElevation="4dp"
+         cardview:cardCornerRadius="5dp"
+         cardview:cardBackgroundColor="@color/window_background"
+         android:id="@+id/infractionCard">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+      <TextView
+        android:id="@+id/infractionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chewing Gum in CS 452 "
+        android:layout_marginLeft="5dp"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center"  />
+
+      <TextView
+        android:id="@+id/infractionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02/20/2017"
+        android:layout_marginLeft="5dp"
+        android:textSize="15dp"
+        android:gravity="left"
+        android:layout_below="@+id/infractionTitle" />
+
+      <TextView
+        android:id="@+id/infractionTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3:30pm"    
+        android:layout_marginLeft="5dp"
+        android:gravity="right"
+        android:textSize="15dp" 
+        android:layout_below="@+id/infractionTitle"/>
+
+    
+      
+    </RelativeLayout>
+  </android.support.v7.widget.CardView>
+</LinearLayout>

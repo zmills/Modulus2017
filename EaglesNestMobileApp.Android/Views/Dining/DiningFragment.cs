@@ -1,55 +1,64 @@
+/*****************************************************************************/
+/*                              diningFragment                               */
+/*                                                                           */
+/*****************************************************************************/
 using Android.OS;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.Design.Widget;
-using Java.Lang;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
-using Android.Runtime;
+using EaglesNestMobileApp.Core;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
     public class diningFragment : Fragment
     {
-        TabLayout _tabLayout;
+        TabLayout TabLayout { get; set; }
+        View CurrentView { get; set; }
+        ViewPager CurrentPager { get; set; }
 
-        Fragment[] _diningFragments =
+        Fragment[] DiningFragments =
         {
             new fourWindsFragment(),
             new varsityFragment(),
             new grabNGoFragment()
         };
 
-        ICharSequence[] _titles = CharSequence.ArrayFromStringArray(new[]
-        {
-            "Four Winds",
-            "Varsity",
-            "Grab N Go"
-        });
-
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
+            //Activity.RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
+            //Activity.RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
+            //Activity.RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, 
+            ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            View _currentView = inflater.Inflate(Resource.Layout.TabLayout, container, false);
+            /* Use this to return your custom view for this Fragment         */
+            Activity.RunOnUiThread(() => CurrentView = inflater.Inflate(Resource.Layout.TabLayout, 
+                container, false));
 
-            ViewPager currentPager = _currentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
+            CurrentPager = 
+                CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
 
-            currentPager.Adapter = new navigationAdapter(ChildFragmentManager, _diningFragments, _titles);
-           
-            _tabLayout = _currentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
+            Activity.RunOnUiThread(()=>CurrentPager.Adapter = 
+                new navigationAdapter(ChildFragmentManager, DiningFragments, 
+                                         App.Tabs.DiningPage));
 
-            // Set the tablayout to fixed so that the titles aren't smashed together
-            // REMINDER: BACKLIST: get width of tabLayout and set Fixed or Scrollable depending on the width
-            _tabLayout.TabMode = TabLayout.ModeFixed;
-            _tabLayout.SetupWithViewPager(currentPager);
+            Activity.RunOnUiThread(() => TabLayout = 
+                CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout));
+
+            /* Set the tablayout to fixed so that the titles aren't smashed  */
+            /* together. REMINDER: BACKLIST: get width of tabLayout and set  */
+            /* Fixed or Scrollable depending on the width                    */
+            TabLayout.TabMode = TabLayout.ModeFixed;
+            Activity.RunOnUiThread(() => TabLayout.SetupWithViewPager(CurrentPager));
             
-            return _currentView;
+            return CurrentView;
         }
     }
 }

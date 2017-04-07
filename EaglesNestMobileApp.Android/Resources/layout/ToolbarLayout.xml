@@ -2,16 +2,21 @@
 <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/Toolbar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways"
-        />
+        android:background="?attr/modToolbarColor"
+        android:theme="?attr/modToolbarTheme"
+        app:popupTheme="?attr/modToolbarPopupTheme"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        >
+</android.support.v7.widget.Toolbar>
+        <!-- app:layout_scrollFlags="scroll|enterAlways" 
+             Definition: The view becomes visible when scrolling up.
+             Exposes the toolbar as soon as scrolling up takes place. -->
+        <!-- app:layout_scrollFlags="scroll|enterAlways|snap"
+             The toolbar will snap to its closest side when scrolled past
+             or below 50% of its height -->
         <!-- popupTheme is used when inflating popup menus inside the toolbar -->
-        <!-- Hello -->
 
         

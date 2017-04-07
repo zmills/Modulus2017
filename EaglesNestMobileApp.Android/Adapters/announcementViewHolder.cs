@@ -1,7 +1,7 @@
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using EaglesNestMobileApp.Android.Cards;
+using EaglesNestMobileApp.Core.Model;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {
@@ -10,19 +10,24 @@ namespace EaglesNestMobileApp.Android.Adapters
         // Public accessors
         public TextView Title { get; set; }
         public ImageView Image { get; set; }
+        public ViewGroup ParentLayout;
 
         public announcementViewHolder(View view) : base(view)
-        {   
-            // Set the textview and the imageview to those in the cardviewlayout
-            Title = view.FindViewById<TextView>(Resource.Id.CardText);
-            Image = view.FindViewById<ImageView>(Resource.Id.CardImage);
+        {
+            System.Diagnostics.Debug.Write("CALLED THE VIEWHOLDER!!!!!!!!!!!!!!!!!!!!!!!!");
+
+           // Set the textview and the imageview to those in the cardviewlayout
+            Title = view.FindViewById<TextView>(Resource.Id.AnnouncementsCardText);
+            Image = view.FindViewById<ImageView>(Resource.Id.AnnouncementsCardImage);
+
+            ParentLayout = view.FindViewById<RelativeLayout>(Resource.Id.AnnouncementsCardRelativeLayout);            
         }
 
-        // This takes in a card and does the assignment to the textview and imageview
-        public void GetCard(Card announcement)
+        // This takes in a card and binds its views to the viewholder's views
+        public void BindCard(Card announcementsCard)
         {
-            Title.Text = announcement.Title;
-            Image.SetImageResource(announcement.Image);
+            Title.Text = announcementsCard.Title;
+            Image.SetImageResource(announcementsCard.Image);
         }
     }
 }

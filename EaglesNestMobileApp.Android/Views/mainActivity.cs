@@ -1,9 +1,10 @@
-//***************************************************************************************/
-//*                                   mainActivity                                      */
-//* This activity is started after the user has successfully logged in. It handles all  */
-//* the navigation and the selected item events of the bottom navigation view           */
-//*                                                                                     */
-//***************************************************************************************/
+/*****************************************************************************/
+/*                                 mainActivity                              */
+/* This activity is started after the user has successfully logged in. It    */
+/* handles all the navigation and the selected item events of the bottom     */
+/* navigation view                                                           */
+/*                                                                           */
+/*****************************************************************************/
 using Android.OS;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Android.Views.Account;
@@ -17,114 +18,141 @@ using Android.App;
 using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
+using Android.Content.PM;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-   [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")]
-   public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
-   {
-        // Fragments corresponding to each navigation menu item
-        private homeFragment             _homePage = new homeFragment();
-        private academicsFragment   _academicsPage = new academicsFragment();
-        private campusLifeFragment _campusLifePage = new campusLifeFragment();
-        private diningFragment         _diningPage = new diningFragment();
-        private accountFragment       _accountPage = new accountFragment();
+    [Activity(Label = "The Nest", Icon = "@drawable/TheNestLogo1",
+       ScreenOrientation = ScreenOrientation.Portrait,
+           MainLauncher = false, Theme = "@style/ModAppCompatDarkTheme")]
 
-        // References the bottom navigation menu in this activity's layout
-        private BottomNavigationView _bottomNavigationMenu;
-        
+    /* See loginActivity for base class explanation                          */
+    public class mainActivity : AppCompatActivityBase
+    {
+        /* Variables for managing the backstack                              */
+        private bool _isHome;
+        private int _backStackCount;
+        private string _fragmentTag;
 
-        // Public accessors for member variables
-        public homeFragment             HomePage => _homePage;
-        public academicsFragment   AcademicsPage => _academicsPage;
-        public campusLifeFragment CampusLifePage => _campusLifePage;
-        public diningFragment         DiningPage => _diningPage;
-        public accountFragment       AccountPage => _accountPage;
-        public BottomNavigationView BottomNavigationMenu => _bottomNavigationMenu;
-        
+        /* Public accessors for member variables                             */
+        public homeFragment HomePage
+            { get; private set; } = new homeFragment();
+
+        public academicsFragment AcademicsPage
+            { get; private set; } = new academicsFragment();
+
+        public campusLifeFragment CampusLifePage
+            { get; private set; } = new campusLifeFragment();
+
+        public diningFragment DiningPage
+            { get; private set; } = new diningFragment();
+
+        public accountFragment AccountPage
+            { get; private set; } = new accountFragment();
+
+        public BottomNavigationView BottomNavigationMenu
+            { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.BottomNavLayout);
-
-            InitializeNavigation();
-         }
+            /*( Set our view from the "main" layout resource                 */
+            RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
+            RunOnUiThread(() => InitializeNavigation());
+        }
 
         private void InitializeNavigation()
         {
-            // Set up the event handler for the bottom navigation menu
-            _bottomNavigationMenu = FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            BottomNavigationMenu.NavigationItemSelected += BottomNavigationMenu_NavigationItemSelected;
+            /* Set up the event handler for the bottom navigation menu       */
+            RunOnUiThread(() => (BottomNavigationMenu =
+                FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
+                    .NavigationItemSelected += NavItemSelected);
 
-            LoadFragment(Constants.HomePageKey);
+            /* Loads up the main page                                        */
+            RunOnUiThread(() => LoadHomeFragment());
         }
 
         public override void OnBackPressed()
         {
-            // If the entry on top of the backstack is the home page, close the application
-            // else load the homepage and show the user a warning toast 
-            if (SupportFragmentManager.GetBackStackEntryAt
-                (SupportFragmentManager.BackStackEntryCount - 1).Name == Constants.HomePageKey)
-                System.Environment.Exit(0);
+            _isHome =
+                SupportFragmentManager
+                    .FindFragmentByTag(App.PageKeys.HomePageKey).IsVisible;
+
+            if (!_isHome)
+            {
+                RunOnUiThread(() => LoadHomeFragment());
+                Toast.MakeText(this, "Press back again to exit application.",
+                    ToastLength.Short).Show();
+                BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+            }
             else
             {
-                LoadFragment(Constants.HomePageKey);
-                Toast.MakeText(this, "Press back again to close application.", ToastLength.Short).Show();
-                _bottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+                Finish();
             }
         }
 
-        // Event handler for menu item selection
-        private void BottomNavigationMenu_NavigationItemSelected(object sender, NavigationItemSelectedEventArgs menuItem)
+        private void LoadHomeFragment()
         {
-            // Load the appropriate page based off of the id of the menu item selected
+            FragmentTransaction _transaction =
+                   SupportFragmentManager.BeginTransaction();
+
+            _fragmentTag = App.PageKeys.HomePageKey;
+            _transaction.Replace(Resource.Id.MainFrameLayout,
+                HomePage, _fragmentTag);
+
+            _backStackCount = SupportFragmentManager.BackStackEntryCount;
+
+            /* Add the homefragment to the backstack for back button purposes */
+            if (_backStackCount < 1)
+            {
+                _transaction.AddToBackStack(_fragmentTag);
+            }
+            _transaction.Commit();
+        }
+
+        /* Event handler for menu item selection                             */
+        private void NavItemSelected(object sender,
+                                     NavigationItemSelectedEventArgs menuItem)
+        {
+            FragmentTransaction _transaction =
+                SupportFragmentManager.BeginTransaction();
+
+            /* Load the page based off of the id of the menu item selected   */
             switch (menuItem.Item.ItemId)
             {
                 case Resource.Id.BottomNavIconHome:
-                    LoadFragment(Constants.HomePageKey);
-                    break;
+                    {
+                        RunOnUiThread(() => LoadHomeFragment());
+                        return;
+                    }
                 case Resource.Id.BottomNavIconGrades:
-                    LoadFragment(Constants.AcademicsPageKey);
-                    break;
+                    {
+                        _fragmentTag = App.PageKeys.AcademicsPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            AcademicsPage, _fragmentTag);
+                    }break;
                 case Resource.Id.BottomNavIconCampus:
-                    LoadFragment(Constants.CampusLifePageKey);
-                    break;
+                    {
+                        _fragmentTag = App.PageKeys.CampusLifePageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            CampusLifePage, _fragmentTag);
+
+                    }break;
                 case Resource.Id.BottomNavIconDining:
-                    LoadFragment(Constants.DiningPageKey);
-                    break;
+                    {
+                        _fragmentTag = App.PageKeys.DiningPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            DiningPage, _fragmentTag);
+                    }break;
                 case Resource.Id.BottomNavIconAccount:
-                    LoadFragment(Constants.AccountPageKey);
-                    break;
+                    {
+                        _fragmentTag = App.PageKeys.AccountPageKey;
+                        _transaction.Replace(Resource.Id.MainFrameLayout,
+                            AccountPage, _fragmentTag);
+                    }break;
             }
-        }
-
-        // Loads the appropriate fragment and adds it to the backstack
-        private void LoadFragment(string Tag)
-        {
-            FragmentTransaction _transaction = SupportFragmentManager.BeginTransaction();
-
-            switch (Tag)
-            {
-                case Constants.HomePageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, HomePage, Tag);
-                    break;
-                case Constants.AcademicsPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AcademicsPage, Tag);
-                    break;
-                case Constants.CampusLifePageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, CampusLifePage, Tag);
-                    break;
-                case Constants.DiningPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, DiningPage, Tag);
-                    break;
-                case Constants.AccountPageKey:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, AccountPage, Tag);
-                    break;
-            }
-            _transaction.AddToBackStack(Tag);
             _transaction.Commit();
         }
     }

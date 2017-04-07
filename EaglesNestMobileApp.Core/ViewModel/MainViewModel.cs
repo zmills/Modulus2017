@@ -1,34 +1,29 @@
+using EaglesNestMobileApp.Core.Contracts;
+using EaglesNestMobileApp.Core.Model;
 using GalaSoft.MvvmLight;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel()
+        public async Task InitializeViewModels()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            //App.Locator.Announcements.Initialize();
+            App.Locator.Events.Initialize();
+            //App.Locator.Grades.InitializeStatic();
+            await App.Locator.Grades.InitializeAsync();
+            await App.Locator.Exams.Initialize();
+            //App.Locator.Exams.InitializeStatic();
+            await App.Locator.GrabAndGo.InitializeAsync();
+            //App.Locator.GrabAndGo.InitializeVm();
+            await App.Locator.StudentInfo.InitializeAsync();
+            await App.Locator.Varsity.InitializeAsync();
+            //App.Locator.Varsity.InitializeStatic();
+            await App.Locator.FourWinds.InitializeAsync();
+            //App.Locator.FourWinds.InitializeStatic();
+            //App.Locator.Attendance.InitializeStatic();
+            //App.Locator.StudentSchedule.InitializeStatic();
         }
     }
 }
