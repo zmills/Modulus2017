@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/window_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="100dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="24dp"  
+    android:orientation="vertical"
+    >
+    
+    <!-- USERNAME TEXT INPUT-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/StudentIdLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ModLoginTextInput"
+        >
+            
+        <EditText
+            android:id="@+id/UserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student ID"
+            android:inputType="number"
+            />            
+    </android.support.design.widget.TextInputLayout>
+
+    <!-- PASSWORD TEXT INPUT -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/PasswordLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ModLoginTextInput"
+        >
+            
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"  
+            android:hint="Password"
+            android:password="true"
+            android:inputType="number"
+            />
+            <!-- android:password="true" replaces text with black dots -->
+    </android.support.design.widget.TextInputLayout>
+        
+    <!-- LOG IN BUTTON -->
+    <Button
+        android:id="@+id/LogInButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/Password"
+        android:layout_centerHorizontal="true"
+        android:text="Log In"
+        />
+        <!--android:layout_marginTop="10dp"-->
+        
+</LinearLayout>

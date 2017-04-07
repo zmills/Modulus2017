@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--***************************************************************************
+* CODING STANDARDS
+* styles.xml
+* 
+* Tabs: 4 (replace with spaces)
+*
+* Block headers will be displayed as such:
+*   HEADER
+* Sub-headers:
+*   <Sub Header>
+*
+* Place 3 return lines above each HEADER and 1 return line below.
+*
+****************************************************************************-->
+
+<!--***************************************************************************
+* HELP
+* styles.xml
+*
+* The status bar color will only be set if Minimum Android to Target is set to
+* Android 5.0 or greater. (Project->Properties->)
+*
+* android:textSize must contain a value. An error will be thrown if contains
+* @string/...
+* Example:
+*   CORRECT:    <item name="android:textSize">16sp</item>
+*   INCORRECT:  <item name="android:textSize">@string/my_font_size</item>
+*
+* PRECEDENCE
+*   Styles declared in the xml layout file take precedence over styles that
+*   are declared here.
+*
+****************************************************************************-->
+
+<resources>
+    <!-- THEMES -->
+    
+    <!-- LIGHT THEME -->
+    
+    <style name="ModAppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- <item name="android:windowNoTitle">true</item> -->
+        <!-- <item name="android:windowActionBar">false</item> -->
+        <item name="windowActionModeOverlay">true</item>
+        <!-- The "windowActionModeOverlay">true<
+             Actionbar will overlay the content. -->
+        <!-- <item name="android:windowContentTransitions">true</item> -->
+        
+        <!-- <Colors> -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <!--<item name="android:textColorPrimary">USING DEFAULT THEME COLOR: #212121 rgb(33,33,33)</item>-->
+        <!--<item name="android:textColorSecondary">USING DEFALUT THEME COLOR: #757575 rgb(117,117,117)</item>-->
+        
+        <!--<item name="android:textColorHint">####</item>-->
+        <!-- statusBarColor is automatically set to colorPrimaryDark -->
+        <!--<item name="android:statusBarColor">####</item>-->
+        <!-- Android says: When you customize the navigation and status bars,
+             either make them both transparent or modify only the status bar.
+             The navigation bar should remain black in all other cases. -->
+        <!--<item name="android:navigationBarColor">####</item>-->
+        <item name="android:windowBackground">@color/window_background</item>
+
+        <!-- colorControlNormal controls the ‘normal’ state of components such
+             as an unselected EditText, and unselected Checkboxes and RadioButtons-->
+        <!--<item name="colorControlNormal">####</item>-->
+        <!-- colorControlActivated overrides colorAccent as the activated
+             or checked state for Checkboxes and RadioButtons -->
+        <!--<item name="colorControlActivated">####</item>-->
+        <!-- colorControlHighlight controls the ripple coloring -->
+        <!--<item name="colorControlHighlight">####</item>-->
+        <!--<item name="colorSwitchThumbNormal">####</item>-->
+    
+        <!-- <Other Colors> -->
+        <!-- <<cardview>> -->
+        <item name="modCardBackgroundColor">@color/white</item>
+        <!-- <<toolbar>> -->
+        <item name="modToolbarColor">@color/primary</item>
+        <item name="modToolbarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="modToolbarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <!-- <<tablayout>>-->
+        <item name="modTabLayoutColor">@color/white</item>
+        <!-- <<bottom nav bar>>-->
+        <item name="modBottomNavColor">@color/white</item>
+        <!-- <<calendar>> -->
+        <item name="modCalendarBackgroundColor">@color/white</item>
+        <!-- <<body text color>> -->
+        <item name="modBodyTextColor">@color/body_text_light_theme</item>
+        <item name="modBodyTextColorSoft">@color/body_text_soft_light_theme</item>
+        <item name="modBodyTextColorLightweight">@color/body_text_lightweight_light_theme</item>
+        <!-- <<divider color>> -->
+        <item name="modDividerColor">@color/divider_light_theme</item>
+        <!-- <<borderless button fullspan color>> -->
+        <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_light_theme</item>
+        <!-- <<refresh layout icon color>> -->
+        <item name="modRefreshLayoutIconColor">@color/primary</item>
+        <!-- <<borderless button colors>> -->
+        <item name="modBorderlessButtonTextColorPrimary">@color/primary</item>
+        <item name="modBorderlessButtonTextColorSecondary">@color/black</item>
+    </style>
+    
+    
+    
+    
+    <!-- DARK THEME -->
+    
+    <style name="ModAppCompatDarkTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="windowActionModeOverlay">true</item>
+        
+        <!-- <Colors> -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <!--<item name="android:textColorSecondary">USING DEFAULT THEME COLOR</item>-->
+        <!--<item name="android:windowBackground">USING DEFAULT THEME COLOR</item>-->
+    
+        <!-- <Other Colors> -->
+        <!-- <<cardview>> -->
+        <item name="modCardBackgroundColor">@color/mod_card_background_color_dark</item>
+        <!-- <<toolbar>> -->
+        <item name="modToolbarColor">@color/mod_appbar_color_dark</item>
+        <item name="modToolbarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="modToolbarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <!-- <<tablayout>>-->
+        <item name="modTabLayoutColor">@color/mod_appbar_color_dark</item>
+        <!-- <<bottom nav bar>>-->
+        <item name="modBottomNavColor">@color/mod_appbar_color_dark</item>
+        <!-- <<calendar>> -->
+        <item name="modCalendarBackgroundColor">@color/mod_card_background_color_dark</item>
+        <!-- <<body text color>> -->
+        <item name="modBodyTextColor">@color/body_text_dark_theme</item>
+        <item name="modBodyTextColorSoft">@color/body_text_soft_dark_theme</item>
+        <item name="modBodyTextColorLightweight">@color/body_text_lightweight_dark_theme</item>
+        <!-- <<divider color>> -->
+        <item name="modDividerColor">@color/divider_dark_theme</item>
+        <!-- <<borderless button fullspan color>> -->
+        <item name="modBorderlessButtonFullSpanColor">@color/borderless_button_fullspan_dark_theme</item>
+        <!-- <<refresh layout icon color>> -->
+        <item name="modRefreshLayoutIconColor">@color/accent</item>
+        <!-- <<standard button color>> -->
+        <item name="modBorderlessButtonTextColorPrimary">@color/accent</item>
+        <item name="modBorderlessButtonTextColorSecondary">@color/white</item>
+    </style>
+    
+    
+    
+    <!-- BUTTON STYLES -->
+    
+    <!-- <Borderless Button> -->
+    <style name="ModBorderlessButton">
+        <!--<item name="android:padding">8dp</item>-->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/borderless_button</item>
+    </style>
+    <!-- <Borderless Button Full Span> -->
+    <style name="ModBorderlessButtonFullSpan">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:background">@drawable/borderless_button_fullspan</item>
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="ModBorderlessButtonFullSpanSmall">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/borderless_button_fullspan</item>
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <!-- <Border-Only Button> -->
+    <style name="ModBorderOnlyButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/border_only_button</item>
+    </style>
+
+    <!-- To use the default Borderless Button Widget, set
+         parent="Widget.AppCompat.Button.Borderless" in the button style -->
+    <!-- Other attributes can be set for modification:
+         name="colorControlHighlight">?android:colorControlHighlight
+         name="android:background">?android:attr/selectableItemBackground -->
+
+    
+    
+    <!-- TEXT INPUT STYLES -->
+    
+    <style name="ModLoginTextInput">
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorControlHighlight">@color/primary</item>
+    </style>
+
+    
+    
+    <!-- FONT STYLES -->
+    
+    <!-- <List Component> -->
+    <style name="ModListItemSingleLineText">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="ModListItemPrimaryText">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <style name="ModListItemSecondaryText">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+
+    <!-- <Generic Font Styles> -->
+    <!-- <<20 sp>> -->
+    <style name="ModRobotoMedium20">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <style name="ModRobotoRegular20">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <style name="ModRobotoRegularSoft20">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorSoft</item>
+    </style>
+    <style name="ModRobotoThin20">
+        <item name="android:fontFamily">@string/roboto_thin</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <!-- <<16 sp>> -->
+    <style name="ModRobotoMediumSoft16">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorSoft</item>
+    </style>
+    <style name="ModRobotoMediumLightweight16">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorLightweight</item>
+    </style>
+    <style name="ModRobotoRegular16">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <style name="ModRobotoRegularSoft16">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorSoft</item>
+    </style>
+    <!-- <<13 sp>> -->
+    <style name="ModRobotoRegular13">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <!-- <<12 sp>> -->
+    <style name="ModRobotoMediumLightweight12">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorLightweight</item>
+    </style>
+
+
+    
+    <!-- DIVIDER STYLES -->
+    
+    <style name="ModDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?attr/modDividerColor</item>
+    </style>
+    <style name="ModDividerWithMargins" parent="ModDivider">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+    
+    
+    
+    <!-- OTHER VIEW STYLES -->
+    
+    <!-- <Dining Line> -->
+    <style name="ModDiningLineLayoutView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:orientation">horizontal</item>
+        <!--<item name="android:layout_marginBottom">8dp</item>-->
+        <!--<item name="android:background">@drawable/border_dining_line</item>-->
+        <item name="android:background">@drawable/borderless_button</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="ModDiningLineNumber">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+    <style name="ModDiningLineTitle" parent="ModRobotoMedium20">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingBottom">8dp</item>        
+    </style>
+    
+    
+    
+
+<!--
+*******************************************************************************
+*
+*        NICK. CREATE HEADERS AND <subheaders> FOR YOUR STYLES. THANKS! 
+*
+*******************************************************************************
+-->
+    
+    <!-- TextView Styles-->
+    <style name="ModFoodLineHeader">
+        <item name="android:background">#086ED4</item>
+        <item name="android:gravity">left</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/border_only_button</item>
+    </style>
+
+    <style name="ModAttendanceCard">
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
+  
+    <!-- View Styles-->
+    <style name="ModViewSpacing">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+    </style>
+
+    <style name="ModTextViewFullUnderline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="ModTextViewUnderline">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    
+</resources>

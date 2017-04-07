@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* CODING STANDARDS                                                            
+* strings.xml              
+*
+* All string name attributes will be lowercased words separated by
+* underscores.
+*
+* For example:
+*   name="my_string"
+****************************************************************************-->
+
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">EaglesNestMobileApp.Android</string>
+    <string name="hello">Hello World, Click Me!</string>
+    <string name="button_2_string">ACCENT</string>
+  
+    <string-array name="days">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>  
+        <item>Saturday</item>
+    </string-array>
+
 </resources>

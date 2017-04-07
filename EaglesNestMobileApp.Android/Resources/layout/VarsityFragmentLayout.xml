@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+               >
+
+  <!--<Button
+    android:id="@+id/btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Breakfast"
+    android:gravity="center"
+  />
+  <Button
+    android:id="@+id/btn1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Lunch and Dinner"
+    android:layout_toRightOf="@+id/btn"
+  
+  />-->
+
+  <android.support.design.widget.TabLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:id="@+id/varsityTabs" >
+
+    <android.support.design.widget.TabItem
+        android:text="Breakfast"
+        android:id="@+id/varsityBreakfastTab"
+        />
+
+    <android.support.design.widget.TabItem
+        android:text="Lunch"
+        android:id="@+id/varsityLunchTab"
+        />
+
+    <android.support.design.widget.TabItem
+        android:text="Dinner"
+        android:id="@+id/varsityDinnerTab"
+        />
+
+  </android.support.design.widget.TabLayout>
+
+  <android.support.v4.widget.NestedScrollView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical"
+      android:orientation="vertical"
+      >
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+      
+    
+
+          <TextView
+             android:id="@+id/varsityOption1"
+             android:text="1 - Pizza Creations"
+             style="@style/ModFoodLineHeader"
+             android:clickable="true" />
+          <include
+                android:id="@+id/VarsityLine1"
+                layout="@layout/BaseRecyclerView"
+                />
+      
+          <TextView
+             android:id="@+id/varsityOption2"
+             android:text="2 - Hot Deli"
+             style="@style/ModFoodLineHeader"
+             android:clickable="true" />
+      
+          <include
+                android:id="@+id/VarsityLine2"
+                layout="@layout/BaseRecyclerView"
+                />
+      
+        
+          <TextView
+             android:id="@+id/varsityOption3"
+             android:text="3 - Chicken Tenders"
+             style="@style/ModFoodLineHeader"
+            android:clickable="true" />
+      
+        <include
+                android:id="@+id/VarsityLine3"
+                layout="@layout/BaseRecyclerView"
+                />
+      
+        
+          <TextView
+             android:id="@+id/varsityOption4"
+             android:text="4 - Soup and Salad"
+             style="@style/ModFoodLineHeader"
+            android:clickable="true" />
+              
+               <include
+                android:id="@+id/VarsityLine4"
+                layout="@layout/BaseRecyclerView"
+                />
+
+          <TextView
+               android:id="@+id/varsityOption5"
+               android:text="5 - Mega Cereal Bar"
+               style="@style/ModFoodLineHeader"
+            android:clickable="true" />
+    
+            <include
+                android:id="@+id/VarsityLine5"
+                layout="@layout/BaseRecyclerView"
+                />
+      </LinearLayout>
+  </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+
+
+

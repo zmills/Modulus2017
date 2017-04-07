@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <!-- ScrollView can only have ONE direct child -->
+    
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
+
+            <!-- 1. STUDENT PHOTO, NAME, ID -->
+            
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoHeaderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    >
+
+                    <!-- ACCOUNT PHOTO -->
+                    <!-- NOTE: android:src is set programmatically for this view -->
+                    <ImageView
+                        android:id="@+id/AccountPhoto"
+                        android:layout_width="112dp"
+                        android:layout_height="112dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/account_circle"
+                        android:padding="2dp"
+                        />
+                        <!-- android:adjustViewBounds="true"
+                             This causes the ImageView to resize itself to fit the
+                             shape of the rescaled image. INCLUDE THIS -->
+                        <!-- android:scaleType="centerCrop"
+                             This scales the image uniformly (maintain the image's
+                             aspect ratio), then centers it. -->
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        >
+                        
+                        <!-- STUDENT NAME -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/StudentFullName"
+                            style="@style/ModRobotoMedium20"
+                            android:text="Marcelino Augello"
+                            />
+
+                        <!-- STUDENT ID -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:id="@+id/StudentId"
+                            android:text="123451"
+                            />
+                        
+                    </LinearLayout>    
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 2. ACADEMIC INFO -->
+            
+            <!-- Academic Info Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Academic Info"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- Academic Info CardView -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/AcademicInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+                
+                <!-- Academic Info Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    >
+
+                    <!-- MAJOR -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Major Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Major"
+                            />
+
+                        <!-- Major Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Computer Science and Software Engineering"
+                            android:id="@+id/StudentMajor"
+                            />
+
+                    </LinearLayout>
+                    
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+                    
+                    <!-- MINOR -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Minor Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Minor"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Minor Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Web Development"
+                            android:id="@+id/StudentMinor"
+                            />
+
+                    </LinearLayout>
+                        
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+                    
+                    <!-- Checksheet/Plan of Study Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Checksheet/Plan of Study"
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 3. STUDENT INFO -->
+            
+            <!-- Student Info Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Student Info"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- Student Info CardView -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <!-- Student Info Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <!-- ROOM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Room Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Room"
+                            />
+
+                        <!-- Room Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Coberly South 2168-1"
+                            android:id="@+id/StudentRoom"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- MAILBOX & COMBINATION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Mailbox# & Combination Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Mailbox &amp; Combination"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Mailbox# & Combination Data Container -->
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:orientation="horizontal"
+                            >
+                            
+                            <!-- Mailbox# Data -->
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                style="@style/ModListItemSecondaryText"
+                                android:text="1455"
+                                android:layout_marginRight="8dp"
+                                android:id="@+id/StudentMailbox"
+                                />
+                        
+                            <!-- Combination Data -->
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                style="@style/ModListItemSecondaryText"
+                                android:text="26-48-12"
+                                android:id="@+id/StudentBoxCombination"
+                                />
+                    
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- See Combination Instructions Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="See Combination Instructions"
+                        android:id="@+id/BoxCombinationInstructions"
+                        />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- COLLEGIAN & LOCATION -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Collegian & Location Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Collegian &amp; Location"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Collegian Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Iota Chi Delta Stingrays"
+                            android:layout_marginRight="8dp"
+                            android:id="@+id/StudentCollegianName"
+                            />
+
+                        <!-- Location Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="AC 451"
+                            android:id="@+id/StudentCollegianLocation"
+                            />
+                       
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- CHAPEL SEAT -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Chapel Seat Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Chapel Seat"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Chapel Seat Line 1 Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Balcony Section C"
+                            android:id="@+id/StudentChapelSeatSection"
+                            />
+
+                        <!-- Chapel Seat Line 2 Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Row F Seat 14"
+                            android:id="@+id/StudentChapelSeatRowNumber"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 4. STUDENT CONTACT INFO -->
+
+            <!-- Student Contact Info Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Student Contact Info"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- Student Contact Info CardView -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentContactInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <!-- Student Contact Info Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    >
+                    
+                    <!-- STUDENT EMAIL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Email Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Student Email"
+                            />
+
+                        <!-- Email Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="maugello4332@students.pcci.edu"
+                            android:id="@+id/StudentEmail"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- ROOM PHONE -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Room Phone Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Room Phone Extension"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Room Phone Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="17-2168-1"
+                            android:id="@+id/StudentRoomPhone"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+                    
+                    <!-- See Messaging & Telephone Instructions Button -->
+                    <Button
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="See Messaging &amp; Telephone Instructions"
+                        />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- STUDENT ADDRESS -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Student Address Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Student Address"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Student Address Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Marcelino Augello\nPCC Box 1455\n250 Brent Lane\nPensacola, FL  32503-2287"
+                            android:id="@+id/StudentSchoolAddress"
+                            />
+
+                    </LinearLayout>
+                    
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 5. PERSONAL CONTACT INFO -->
+
+            <!-- Personal Contact Info Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Personal Contact Info"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+            
+            <!-- Personal Contact Info CardView-->
+            <android.support.v7.widget.CardView
+                android:id="@+id/PersonalContactInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="88dp"
+                >
+
+                <!-- Personal Contact Info Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <!-- PERSONAL EMAIL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Email Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Email"
+                            />
+
+                        <!-- Email Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="maugello7@gmail.com"
+                            android:id="@+id/StudentPersonalEmail"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- PHONE -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Phone Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Phone"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Personal Phone Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="C: 571-581-0518"
+                            android:id="@+id/StudentCellphone"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDividerWithMargins" />
+
+                    <!-- PERSONAL ADDRESS -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- Personal Address Title -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Address"
+                            android:layout_marginTop="4dp"
+                            />
+
+                        <!-- Personal Address Data -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            style="@style/ModListItemSecondaryText"
+                            android:text="Marcelino Augello\n3204 Golden Ct.\nWoodbridge, VA  22193"
+                            android:id="@+id/StudentHomeAddress"
+                            />
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Edit Button -->
+                    <Button
+                        android:textColor="?attr/colorPrimary"
+                        android:text="EDIT"
+                        style="@style/ModBorderlessButton"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="0dp"
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+  <TextView
+  android:id="@+id/gradeReportSenior"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:text="Senior Year"
+  android:gravity="center_horizontal"
+  android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+  <TextView
+  android:id="@+id/gradeReportJunior"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:text="Junior Year"
+  android:gravity="center_horizontal"
+  android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+  <TextView
+ android:id="@+id/gradeReportSophomore"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Sophomore Year"
+ android:gravity="center_horizontal"
+ android:textSize="30dp"
+     />
+
+  <View
+    style="@style/ModTextViewUnderline"
+    />
+
+
+  <TextView
+    android:id="@+id/gradeReportFreshman"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Freshman Year"
+    android:gravity="center_horizontal"
+    android:textSize="30dp"
+     />
+
+  <View 
+    style="@style/ModTextViewUnderline"
+    />
+
+
+ 
+  
+
+
+  
+ 
+</LinearLayout>
