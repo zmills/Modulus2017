@@ -9,7 +9,8 @@
         android:theme="?attr/modToolbarTheme"
         app:popupTheme="?attr/modToolbarPopupTheme"
         app:layout_scrollFlags="scroll|enterAlways|snap"
-        />
+        >
+</android.support.v7.widget.Toolbar>
         <!-- app:layout_scrollFlags="scroll|enterAlways" 
              Definition: The view becomes visible when scrolling up.
              Exposes the toolbar as soon as scrolling up takes place. -->

@@ -48,6 +48,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             currentPager.Adapter = 
                 new navigationAdapter(ChildFragmentManager, HomeFragments,
                                          App.Tabs.HomePage);
+           
 
             TabLayout = 
                 CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);

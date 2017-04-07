@@ -39,7 +39,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         { 
 
             CurrentView = 
-                inflater.Inflate(Resource.Layout.TabLayout, container, false);
+                inflater.Inflate(Resource.Layout.AccountFragmentLayout, container, false);
 
             CurrentPager = 
                 CurrentView.FindViewById<ViewPager>(Resource.Id.MainViewPager);
