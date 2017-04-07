@@ -36,7 +36,9 @@ namespace EaglesNestMobileApp.Android.Views.Account
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
+            //UserVisibleHint = true;
         }
+
 
         public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
@@ -69,7 +71,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             #endregion
             /*UI THREAD*/
 
-            //Activity.RunOnUiThread(()=>SetStudentInfo());
+            Activity.RunOnUiThread(()=>SetStudentInfo());
 
 
             /* Use this to return your custom view for this Fragment         */

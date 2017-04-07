@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--***************************************************************************
+* 
+* TabLayout.xml
+*
+* REFERENCES:
+*   Coordinator Layout:
+*       http://guides.codepath.com/android/handling-scrolls-with-coordinatorlayout
+*       https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml
+*
+****************************************************************************-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+  <!-- APPBAR LAYOUT -->
+  <android.support.design.widget.AppBarLayout
+      android:id="@+id/appbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+        >
+
+    
+
+    <!-- TOOLBAR -->
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/modToolbarColor"
+        android:theme="?attr/modToolbarTheme"
+        app:popupTheme="?attr/modToolbarPopupTheme"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        >
+      
+      <Spinner
+      android:id="@+id/DaySpinner"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:entries="@array/days"
+      android:visibility="gone"/>
+      
+    </android.support.v7.widget.Toolbar>
+
+    <!-- TABLAYOUT -->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/MainTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/modTabLayoutColor"
+        android:elevation="0dp"/>
+    <!--app:tabMode="scrollable" -->
+
+    <!-- Do NOT set app:layout_scrollFlags="scroll|enterAlways" here. -->
+    <!-- can also set app:tabTextColor, app:tabSelectedTextColor,
+                 app:tabIndicatorColor, and app:tabIndicatorHeight -->
+    <!-- app:tabMode="scrollable"
+                 Definition: allows the tabs to SCROLL instead of being fixed. -->
+
+  </android.support.design.widget.AppBarLayout>
+
+  <!-- VIEWPAGER -->
+  <android.support.v4.view.ViewPager
+      android:id="@+id/MainViewPager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+  <!-- setting app:layout_behavior makes the top of the list visible
+             (not coverd up by the toolbar and tablayout) -->
+
+  <!-- FAB -->
+  <!--<android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_done" />-->
+
+</android.support.design.widget.CoordinatorLayout>

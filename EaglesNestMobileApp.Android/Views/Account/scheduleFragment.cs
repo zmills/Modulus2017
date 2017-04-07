@@ -13,12 +13,14 @@ using GalaSoft.MvvmLight.Helpers;
 using System;
 using Android.Widget;
 using System.Collections.Generic;
+using Android.Support.Design.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
     public class scheduleFragment : Fragment
     {
         private View _scheduleFragmentView;
+        private View _parentView;
         private RecyclerView _recyclerview;
         private TextView _title;
         private ObservableRecyclerAdapter<ScheduleEvent, CachingViewHolder> _adapter;
@@ -31,7 +33,50 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            if(_parentView != null)
+                _parentView.Visibility = ViewStates.Visible;
             RetainInstance = true;
+            UserVisibleHint = true;
+        }
+
+        public override void OnPause()
+        {
+            ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner).Visibility = ViewStates.Gone;
+            base.OnPause();
+        }
+
+        public override void SetMenuVisibility(bool menuVisible)
+        {
+            base.SetMenuVisibility(menuVisible);
+
+            if (menuVisible)
+            {
+
+                System.Diagnostics.Debug.WriteLine("VISIBLE: VISIBLE");
+                if (FragmentManager.Fragments != null || _parentView != null)
+                {
+                    if (_parentView != null)
+                        _parentView.Visibility = ViewStates.Visible;
+                    else
+                        FragmentManager.Fragments[0].ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner).Visibility = ViewStates.Visible;
+                }
+
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("INVISIBLE");
+                if (FragmentManager.Fragments != null)
+                    FragmentManager.Fragments[0].ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner).Visibility = ViewStates.Gone;
+            }
+        }
+
+        public override void OnViewCreated(View view, Bundle savedInstanceState)
+        {
+            base.OnViewCreated(view, savedInstanceState);
+            if (IsMenuVisible)
+            {
+                _parentView.Visibility = ViewStates.Visible;
+            }
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -41,6 +86,11 @@ namespace EaglesNestMobileApp.Android.Views.Account
             _scheduleFragmentView = inflater.Inflate(Resource.Layout.ScheduleFragmentLayout, 
                 container, false);
 
+            _parentView = ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner);
+
+        
+           // _parentView.Visibility = ViewStates.Visible;
+
             _recyclerview = _scheduleFragmentView.FindViewById<RecyclerView>(Resource.Id.StudentScheduleRecyclerview);
 
             _adapter = ViewModel.Schedule[0].GetRecyclerAdapter
@@ -48,14 +98,10 @@ namespace EaglesNestMobileApp.Android.Views.Account
                     BindViewHolder, Resource.Layout.StudentScheduleRecyclerViewLayout
                 );
 
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Sunday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Monday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Tuesday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Wednesday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Thursday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Friday).Click += DayClicked;
-            _scheduleFragmentView.FindViewById<ImageButton>(Resource.Id.Saturday).Click += DayClicked;
+            
             _title = _scheduleFragmentView.FindViewById<TextView>(Resource.Id.StudentScheduleDay);
+
+            ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner).ItemSelected += DayClicked;
 
             _recyclerview.SetAdapter(_adapter);
 
@@ -64,11 +110,9 @@ namespace EaglesNestMobileApp.Android.Views.Account
             return _scheduleFragmentView;
         }
 
-        private void DayClicked(object sender, EventArgs e)
+        private void DayClicked(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            
-            System.Diagnostics.Debug.WriteLine((sender as View).Tag);
-            switch ((sender as View).Tag.ToString())
+            switch ((sender as Spinner).GetItemAtPosition(e.Position).ToString())
             {
                 case App.Days.Sunday:
                     {
