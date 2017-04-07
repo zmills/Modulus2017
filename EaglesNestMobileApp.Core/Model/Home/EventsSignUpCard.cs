@@ -8,6 +8,9 @@ namespace EaglesNestMobileApp.Core.Model.Home
 {
     public class EventsSignUpCard
     {
+        public string Id { get; set; }
+        public string Version { get; set; }
+        public DateTimeOffset UpdatedAt { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string ButtonText { get; set; }

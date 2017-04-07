@@ -26,7 +26,10 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 
         public async Task Initialize()
         {
-            Classes = await Database.GetCoursesAsync();
+            var courses = await Database.GetCoursesAsync();
+
+            foreach (Course current in courses)
+                Classes.Add(current);
         }
 
         public void InitializeStatic()
@@ -50,7 +53,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 
         private async void RefreshExamScheduleAsync()
         {
-            Classes = await Database.GetCoursesAsync();
+            var courses = await Database.GetCoursesAsync();
+
+            Classes.Clear();
+
+            foreach (Course current in courses)
+                Classes.Add(current);
         }
     }
 }

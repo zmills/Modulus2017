@@ -14,6 +14,7 @@ using Android.Support.Design.Widget;
 using Android.Widget;
 using static Android.Support.Design.Widget.TabLayout;
 using System.Collections.Generic;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -22,6 +23,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         private View _grabAndGoFragmentView;
         List<RecyclerView> RecyclerviewList;
         List<TextView> LineList;
+        ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder> _adapter;
         RecyclerView _currentRecyclerview;
         RecyclerView _previousRecyclerview;
         int _lineCount = 4;
@@ -34,6 +36,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -147,6 +150,41 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                );
 
             holder.SaveBinding(_textview, itemBinding);
+        }
+
+        public void SelectMealTime(string mealTime)
+        {
+            switch (mealTime)
+            {
+                case App.MealTimes.Lunch:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.GrabAndGoMenu.LunchMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+                case App.MealTimes.Dinner:
+                    {
+                        Activity.RunOnUiThread(() =>
+                        {
+                            for (int count = 0; count < _lineCount; count++)
+                            {
+                                _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
+                                _adapter.DataSource = ViewModel.GrabAndGoMenu.DinnerMenu[count];
+                                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.DinnerMenu[count][0].MealTheme}";
+                                _adapter.NotifyDataSetChanged();
+                            }
+                        });
+                    }
+                    break;
+            }
         }
     }
 }

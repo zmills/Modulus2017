@@ -15,6 +15,7 @@ using EaglesNestMobileApp.Core;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Helpers;
 using System;
+using Dialog = Android.App.Dialog;
 using System.Threading;
 using EaglesNestMobileApp.Core.ViewModel;
 
@@ -34,6 +35,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater,
@@ -42,10 +44,13 @@ namespace EaglesNestMobileApp.Android.Views.Account
             StudentInfoView = inflater.Inflate(Resource.Layout.StudentInfoFragmentLayout,
                 container, false);
 
+            StudentInfoView.FindViewById<Button>(Resource.Id.BoxCombinationInstructions).Click += ShowCombination;
+
             ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
             RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,
                     BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
             _drawable.CornerRadius = System.Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
+
             Activity.RunOnUiThread(() =>
             {
                 _accountPhotoView.SetImageDrawable(_drawable);
@@ -64,25 +69,25 @@ namespace EaglesNestMobileApp.Android.Views.Account
             #endregion
             /*UI THREAD*/
 
-            //SetStudentInfo();
+            //Activity.RunOnUiThread(()=>SetStudentInfo());
 
 
             /* Use this to return your custom view for this Fragment         */
             return StudentInfoView;
         }
 
+        private void ShowCombination(object sender, EventArgs e)
+        {
+            Dialog dialogBox = new Dialog(Activity, Resource.Style.Base_V7_Theme_AppCompat);
+            dialogBox.SetContentView(Resource.Layout.BoxCombinationDialogLayout);
+            dialogBox.FindViewById<TextView>(Resource.Id.BoxCombinationText).Text =
+                ViewModel.BoxCombinationInstructions;
+            dialogBox.Show();
+
+        }
+
         private void SetStudentInfo()
         {
-            /* Not sure we'll need to bind considering the student data is very rarely changed    */
-            //var _fullNameBinding = new Binding<string, string>
-            //    (
-            //        ViewModel.CurrentUser,
-            //        ()=> ViewModel.CurrentUser.FormattedName,
-            //        fullName,
-            //        ()=> fullName.Text
-            //    );
-
-            //_bindings.Add(_fullNameBinding);
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentFullName).Text = ViewModel.CurrentUser.FormattedName;
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentId).Text = ViewModel.CurrentUser.Id;
             StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMajor).Text = ViewModel.CurrentUser.MajorName;

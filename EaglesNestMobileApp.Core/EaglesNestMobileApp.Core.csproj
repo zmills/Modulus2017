@@ -50,7 +50,6 @@
     <Compile Include="Model\Campus\Facility.cs" />
     <Compile Include="Model\Food\FourWindsMenu.cs" />
     <Compile Include="Model\Food\GrabAndGoMenu.cs" />
-    <Compile Include="Model\Food\MenuItem.cs" />
     <Compile Include="Model\Food\VarsityMenu.cs" />
     <Compile Include="Model\Home\Card.cs" />
     <Compile Include="Model\Home\EventsSignUpCard.cs" />

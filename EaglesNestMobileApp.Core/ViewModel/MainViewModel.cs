@@ -11,7 +11,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             //App.Locator.Announcements.Initialize();
             App.Locator.Events.Initialize();
-            App.Locator.Grades.Initialize();
+            App.Locator.Grades.InitializeStatic();
+            //await App.Locator.Grades.InitializeAsync();
             //await App.Locator.Exams.Initialize();
             App.Locator.Exams.InitializeStatic();
             //await App.Locator.GrabAndGo.InitializeAsync();
@@ -22,6 +23,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             //await App.Locator.FourWinds.InitializeAsync();
             App.Locator.FourWinds.InitializeStatic();
             App.Locator.Attendance.InitializeStatic();
+            App.Locator.StudentSchedule.InitializeStatic();
         }
     }
 }

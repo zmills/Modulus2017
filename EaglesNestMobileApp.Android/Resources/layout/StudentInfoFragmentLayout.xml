@@ -96,7 +96,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegularSoft20"
                 android:text="Academic Info"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
@@ -206,7 +206,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegularSoft20"
                 android:text="Student Info"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
@@ -324,6 +324,7 @@
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="See Combination Instructions"
+                        android:id="@+id/BoxCombinationInstructions"
                         />
 
                     <!-- Divider Line -->
@@ -419,7 +420,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegularSoft20"
                 android:text="Student Contact Info"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
@@ -562,7 +563,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegularSoft20"
                 android:text="Personal Contact Info"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"

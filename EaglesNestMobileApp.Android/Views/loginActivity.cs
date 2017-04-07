@@ -17,7 +17,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", MainLauncher = true,
+    [Activity(Label = "The Nest", MainLauncher = true,
          Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */

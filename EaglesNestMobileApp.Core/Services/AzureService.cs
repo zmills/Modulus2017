@@ -6,6 +6,7 @@
 using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Helpers;
 using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Model.Food;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -75,26 +76,27 @@ namespace EaglesNestMobileApp.Core.Services
                 if (pullData)
                 {
                     /* Pull down student related tables                      */
-                    //await _assignmentTable.PullAsync("allAssignments",
-                    //    _assignmentTable.Where(assignment => 
-                    //        assignment.StudentId == _currentUser.Id));
+                    await _assignmentTable.PullAsync("allAssignments",
+                        _assignmentTable.Where(assignment =>
+                            assignment.StudentId == _currentUser.Id));
 
                     await _courseTable.PullAsync("allCourses",
                         _courseTable.Where(course =>
                             course.StudentId == _currentUser.Id));
 
+                    var list = _assignmentTable.ToListAsync();
+
+
                     await _studentTable.PullAsync("currentStudent",
                         _studentTable.Where(student =>
                             student.Id == _currentUser.Id));
 
-
                     /* Pull down non student related tables                 */
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
-                    await _fourWindsTable.PullAsync("firstPageFourWindsItems",
-                        _fourWindsTable.CreateQuery(), data);
+                    await _fourWindsTable.PullAsync("allFourWindsItems",
+                       _fourWindsTable.CreateQuery(), data);
 
-                    var num = await _fourWindsTable.ToListAsync();
                     await _varsityTable.PullAsync("allVarsityItems",
                         _varsityTable.CreateQuery());
 
@@ -114,7 +116,7 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         public void DefineTables()
         {
-            //_eagleDatabase.DefineTable<Assignment>();
+            _eagleDatabase.DefineTable<Assignment>();
             _eagleDatabase.DefineTable<Course>();
             _eagleDatabase.DefineTable<FourWindsItem>();
             _eagleDatabase.DefineTable<VarsityItem>();
@@ -129,12 +131,12 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         public void GetReferences()
         {
-            //_assignmentTable = _client.GetSyncTable<Assignment>();
-            _courseTable = _client.GetSyncTable<Course>();
-            _fourWindsTable = _client.GetSyncTable<FourWindsItem>();
-            _varsityTable = _client.GetSyncTable<VarsityItem>();
-            _grabAndGoTable = _client.GetSyncTable<GrabAndGoItem>();
-            _studentTable = _client.GetSyncTable<Student>();
+            _assignmentTable = _client.GetSyncTable<Assignment>();
+            _courseTable     = _client.GetSyncTable<Course>();
+            _fourWindsTable  = _client.GetSyncTable<FourWindsItem>();
+            _varsityTable    = _client.GetSyncTable<VarsityItem>();
+            _grabAndGoTable  = _client.GetSyncTable<GrabAndGoItem>();
+            _studentTable    = _client.GetSyncTable<Student>();
             _localTokenTable = _client.GetSyncTable<LocalToken>();
             _azureTokenTable = _client.GetSyncTable<AzureToken>();
         }
@@ -142,62 +144,55 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                        Get student assignments                    */
         /*********************************************************************/
-        public async Task<ObservableCollection<Assignment>> GetAssignmentsAsync()
+        public async Task<List<Assignment>> GetAssignmentsAsync()
         {
-            return await _assignmentTable.ToCollectionAsync();
+            return await _assignmentTable.ToListAsync();
         }
 
         /*********************************************************************/
         /*                         Get student courses                       */
         /*********************************************************************/
-        public async Task<ObservableCollection<Course>> GetCoursesAsync()
+        public async Task<List<Course>> GetCoursesAsync()
         {
-            return await _courseTable.ToCollectionAsync();
+            return await _courseTable.ToListAsync();
         }
 
         /*********************************************************************/
         /*                       Get the Four Winds items                    */
         /*********************************************************************/
-        public async Task<ObservableCollection<FourWindsItem>> GetFourWindsItemsAsync()
+        public async Task<List<FourWindsItem>> GetFourWindsItemsAsync()
         {
-            var num = await _fourWindsTable.ToListAsync();
-            Debug.WriteLine("\n\n\n\n\n\n FourWinds " + num.Count);
-
-            return await _fourWindsTable.ToCollectionAsync();
+            return await _fourWindsTable.ToListAsync();
         }
 
         /*********************************************************************/
         /*                         Get the Varsity items                     */
         /*********************************************************************/
-        public async Task<ObservableCollection<VarsityItem>> GetVarsityItemsAsync()
+        public async Task<List<VarsityItem>> GetVarsityItemsAsync()
         {
-            var num = await _varsityTable.ToListAsync();
-            Debug.WriteLine("\n\n\n\n\n\n Varsity " + num.Count);
-
-            return await _varsityTable.ToCollectionAsync();
+            return await _varsityTable.ToListAsync();
         }
 
         /*********************************************************************/
         /*                      Get the Grab and Go items                    */
         /*********************************************************************/
-        public async Task<ObservableCollection<GrabAndGoItem>> GetGrabAndGoItemsAsync()
+        public async Task<List<GrabAndGoItem>> GetGrabAndGoItemsAsync()
         {
-            var num = await _grabAndGoTable.ToListAsync();
-            Debug.WriteLine("\n\n\n\n\n\n Grab N' Go " + num.Count);
-
-            return await _grabAndGoTable.ToCollectionAsync();
+            return await _grabAndGoTable.ToListAsync();
         }
 
         /*********************************************************************/
         /*                       Get the logged in user                      */
         /*********************************************************************/
-        // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
+        /* The database must be purged once the user logs out                */
         public async Task<LocalToken> GetLocalTokenAsync()
         {
-            ObservableCollection<LocalToken> ObservableCollection = await _localTokenTable.ToCollectionAsync();
+            var _localToken = await _localTokenTable.ToListAsync();
 
-            if (ObservableCollection.Count != 0)
-                return ObservableCollection[0];
+            /* Return the current user so that the user does not need to log */
+            /* back in if they are still logged in                           */
+            if (_localToken.Count != 0)
+                return _localToken[0];
             else
                 return null;
         }
@@ -208,17 +203,12 @@ namespace EaglesNestMobileApp.Core.Services
         // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
         public async Task<AzureToken> GetAzureTokenAsync(LocalToken currentUser)
         {
+            List<AzureToken> _remoteToken = await _azureTokenTable.ToListAsync();
 
-            //APPARENTLY THIS DOES NOT WORK PROPERLY
-            await _azureTokenTable.PullAsync("loginUser",
-                _azureTokenTable.Where(user => user.Id == currentUser.Id));
-
-            ObservableCollection<AzureToken> ObservableCollection = await _azureTokenTable.Where(user =>
-                user.Id == currentUser.Id).ToCollectionAsync();
-
-            //DELETE THE LOGIN INFORMATION
+            /* Delete the information so that the user salt is not saved     */
             await _azureTokenTable.PurgeAsync();
-            return ObservableCollection[0];
+
+            return _remoteToken[0];
         }
 
         /*********************************************************************/
@@ -226,9 +216,8 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         public async Task<Student> GetStudentAsync()
         {
-            ObservableCollection<Student> ObservableCollection = await _studentTable.ToCollectionAsync();
-            List<Student> var = await _studentTable.ToListAsync();
-            return ObservableCollection[0];
+            List<Student> _students = await _studentTable.ToListAsync();
+            return _students[0];
         }
 
         /*********************************************************************/

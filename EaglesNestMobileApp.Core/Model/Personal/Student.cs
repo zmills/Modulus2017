@@ -1,9 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
+using System;
 
 namespace EaglesNestMobileApp.Core.Model
 {
     public class Student : ObservableObject
     {
+        public string Version { get; set; }
+        public DateTimeOffset UpdatedAt { get; set; }
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
