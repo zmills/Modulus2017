@@ -23,8 +23,8 @@ namespace EaglesNestMobileApp.Android.Views
    [Activity(Label = "EaglesNestMobileApp.Android", Icon = "@drawable/icon", Theme = "@style/AppCompatLightTheme")]
    public class mainActivity : AppCompatActivityBase // See loginActivity for base class explanation
    {
-      // Fragments corresponding to each navigation menu item
-      private homeFragment             _homePage = new homeFragment();
+        // Fragments corresponding to each navigation menu item
+        private homeFragment             _homePage = new homeFragment();
         private academicsFragment   _academicsPage = new academicsFragment();
         private campusLifeFragment _campusLifePage = new campusLifeFragment();
         private diningFragment         _diningPage = new diningFragment();
