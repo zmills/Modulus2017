@@ -9,6 +9,7 @@
         android:theme="?attr/modToolbarTheme"
         app:popupTheme="?attr/modToolbarPopupTheme"
         app:layout_scrollFlags="scroll|enterAlways|snap"
+        android:elevation="4dp"
         />
         
         <!--<TextView
