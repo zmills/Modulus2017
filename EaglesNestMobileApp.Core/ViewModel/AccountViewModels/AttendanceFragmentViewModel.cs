@@ -15,8 +15,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
         /* Abscences, then tardies           */
         public ObservableCollection<Course> Classes = new ObservableCollection<Course>();
 
-        private ObservableCollection<AttendanceViolation> Violations =
-            new ObservableCollection<AttendanceViolation>();
+        private List<AttendanceViolation> Violations =
+            new List<AttendanceViolation>();
 
         readonly IAzureService Database;
 
@@ -27,13 +27,17 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 
         public async Task Initialize()
         {
-            Classes = await Database.GetCoursesAsync();
+            var classList = await Database.GetCoursesAsync();
+
+            foreach (Course current in classList)
+                Classes.Add(current);
+             
             //Violations = await Database.GetAttendanceViolationsAsync();
 
             GetViolations(Violations);
         }
 
-        private void GetViolations(ObservableCollection<AttendanceViolation> attendanceViolations)
+        private void GetViolations(List<AttendanceViolation> attendanceViolations)
         {
             foreach (var violation in attendanceViolations)
             {

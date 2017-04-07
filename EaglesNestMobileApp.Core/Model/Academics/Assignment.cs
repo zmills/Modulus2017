@@ -9,8 +9,9 @@ namespace EaglesNestMobileApp.Core.Model
         public DateTimeOffset UpdatedAt { get; set; }
         public string Id { get; set; }
         public string CourseId { get; set; }
-        public string AssingmentName { get; set; }
-        public DateTimeOffset AssignmentDate { get; set; }
+        public string AssignmentName { get; set; }
+        public string AssignmentDate { get; set; }
+        //public DateTimeOffset AssignmentDate { get; set; }
         public string GradeScore { get; set; }
         public string StudentId { get; set; }
         public string FormattedAssignmentDate => AssignmentDate.ToString();

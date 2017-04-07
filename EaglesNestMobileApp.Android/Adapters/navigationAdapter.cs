@@ -4,6 +4,9 @@
 /*****************************************************************************/
 using Java.Lang;
 using Android.Support.V4.App;
+using EaglesNestMobileApp.Android.Helpers;
+using System;
+using Android.Content;
 
 namespace EaglesNestMobileApp.Android.Adapters
 {

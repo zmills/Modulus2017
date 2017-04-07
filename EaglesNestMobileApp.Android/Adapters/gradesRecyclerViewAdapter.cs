@@ -38,10 +38,12 @@ namespace EaglesNestMobileApp.Android.Adapters
             _context = context;
 
             /* Create rotate animation */
-            rotateArrow = new RotateAnimation(0, 180, Dimension.RelativeToSelf, 0.5f, Dimension.RelativeToSelf, 0.5f);
-            rotateArrow.Duration = 500;
-            rotateArrow.Interpolator = new AnticipateOvershootInterpolator();
-            rotateArrow.FillAfter = true;
+            rotateArrow = new RotateAnimation(0, 180, Dimension.RelativeToSelf, 0.5f, Dimension.RelativeToSelf, 0.5f)
+            {
+                Duration = 500,
+                Interpolator = new AnticipateOvershootInterpolator(),
+                FillAfter = true
+            };
 
             #region THE FOLLOWING TRANSITION IS NOT USED
             /*transitionSet = new TransitionSet();

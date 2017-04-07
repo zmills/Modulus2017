@@ -16,9 +16,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
     public class GrabAndGoFragmentViewModel : ViewModelBase
     {
         /* All the items being served in Grab And Go        */
-        private ObservableCollection<GrabAndGoItem> _grabAndGoItems 
-            = new ObservableCollection<GrabAndGoItem>();
-        protected ObservableCollection<GrabAndGoItem> GrabAndGoItems
+        private List<GrabAndGoItem> _grabAndGoItems = new List<GrabAndGoItem>();
+        protected List<GrabAndGoItem> GrabAndGoItems
         {
             get { return _grabAndGoItems; }
             set { Set(() => GrabAndGoItems, ref _grabAndGoItems, value); }
@@ -48,7 +47,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
         {
             try
             {
-                /* Initialize the localDb if not already present and sync  */
+                /* Pull down the new data                                 */
                 await Database.SyncAsync(pullData: true);
 
                 /* Get all the items for the dining Grab and Go            */
@@ -81,7 +80,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
             GetDiningMenus();
         }
 
-        /*------------------------------------------------------------------*/
+        /********************************************************************/
         /* THE FOLLOWING METHODS PROVIDE STATIC DATA                        */
         public void InitializeVm()
         {

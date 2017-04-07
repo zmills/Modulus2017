@@ -15,6 +15,8 @@ using Android.Widget;
 using static Android.Support.Design.Widget.TabLayout;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Core.ViewModel;
+using Android.Support.V4.View;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -168,7 +170,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             holder.SaveBinding(_textview, itemBinding);
         }
 
-        private void SelectMealTime(string mealTime)
+        public void SelectMealTime(string mealTime)
         {
             switch (mealTime)
             {
@@ -215,6 +217,11 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                     }
                     break;
             }
+        }
+
+        public void Navigate()
+        {
+           
         }
     }
 }

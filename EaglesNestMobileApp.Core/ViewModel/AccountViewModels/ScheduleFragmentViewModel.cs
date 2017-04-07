@@ -35,6 +35,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             Database = database;
         }
 
+        public async Task Initialize()
+        {
+            //Events = Database.GetScheduleEventsAsync();
+            SortEvents();
+        }
+
         public void InitializeStatic()
         {
             for (int count = 0; count < 7; count++)
