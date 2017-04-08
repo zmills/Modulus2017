@@ -18,7 +18,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
     public class eventsFragment : Fragment
     {
         /* This will bind to the list in the viewmodel                       */
-        private ObservableRecyclerAdapter<EventsSignUpCard, CachingViewHolder> _adapter;
+        private ObservableRecyclerAdapter<EventsSignUp, CachingViewHolder> _adapter;
         private RecyclerView _eventRecyclerView;
         private TabLayout _currentTabLayout;
         private View _eventSignUpView;
@@ -67,7 +67,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             Activity.RunOnUiThread(() => ViewModel.Refresh());
         }
 
-        private void BindViewHolder(CachingViewHolder Holder, EventsSignUpCard card, int position)
+        private void BindViewHolder(CachingViewHolder Holder, EventsSignUp card, int position)
         {
             _position = position;
 

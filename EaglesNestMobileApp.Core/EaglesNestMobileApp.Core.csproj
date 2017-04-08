@@ -52,7 +52,7 @@
     <Compile Include="Model\Food\GrabAndGoMenu.cs" />
     <Compile Include="Model\Food\VarsityMenu.cs" />
     <Compile Include="Model\Home\Card.cs" />
-    <Compile Include="Model\Home\EventsSignUpCard.cs" />
+    <Compile Include="Model\Home\EventsSignUp.cs" />
     <Compile Include="Model\LocalToken.cs" />
     <Compile Include="Model\Personal\AttendanceViolation.cs" />
     <Compile Include="Model\Personal\ScheduleEvent.cs" />
