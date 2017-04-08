@@ -1,11 +1,8 @@
 ﻿using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Model.Personal;
 using GalaSoft.MvvmLight;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
