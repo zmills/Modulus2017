@@ -1,6 +1,8 @@
 ﻿using EaglesNestMobileApp.Core.Model;
-using System.Threading.Tasks;
+using EaglesNestMobileApp.Core.Model.Home;
+using EaglesNestMobileApp.Core.Model.Personal;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.Contracts
 {
@@ -11,6 +13,10 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task<List<Assignment>> GetAssignmentsAsync();
 
         Task<List<Course>> GetCoursesAsync();
+
+        Task<List<EventsSignUp>> GetEventsAsync();
+
+        Task<List<ClassAttendance>> GetAttendanceViolationsAsync();
 
         Task<List<FourWindsItem>> GetFourWindsItemsAsync();
 

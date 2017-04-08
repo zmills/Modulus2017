@@ -1,5 +1,3 @@
-using EaglesNestMobileApp.Core.Contracts;
-using EaglesNestMobileApp.Core.Model;
 using GalaSoft.MvvmLight;
 using System.Threading.Tasks;
 
@@ -21,7 +19,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             //App.Locator.Varsity.InitializeStatic();
             await App.Locator.FourWinds.InitializeAsync();
             //App.Locator.FourWinds.InitializeStatic();
-            App.Locator.Attendance.InitializeStatic();
+            // App.Locator.Attendance.InitializeStatic();
+            await App.Locator.Attendance.InitializeAsync();
             App.Locator.StudentSchedule.InitializeStatic();
         }
     }

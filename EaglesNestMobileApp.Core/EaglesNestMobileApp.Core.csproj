@@ -54,7 +54,8 @@
     <Compile Include="Model\Home\Card.cs" />
     <Compile Include="Model\Home\EventsSignUp.cs" />
     <Compile Include="Model\LocalToken.cs" />
-    <Compile Include="Model\Personal\AttendanceViolation.cs" />
+    <Compile Include="Model\Personal\AttendanceCard.cs" />
+    <Compile Include="Model\Personal\ClassAttendance.cs" />
     <Compile Include="Model\Personal\ScheduleEvent.cs" />
     <Compile Include="Model\Personal\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

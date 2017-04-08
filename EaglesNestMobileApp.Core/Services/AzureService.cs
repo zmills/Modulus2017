@@ -6,13 +6,13 @@
 using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Helpers;
 using EaglesNestMobileApp.Core.Model;
-using EaglesNestMobileApp.Core.Model.Food;
+using EaglesNestMobileApp.Core.Model.Home;
+using EaglesNestMobileApp.Core.Model.Personal;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,12 +26,14 @@ namespace EaglesNestMobileApp.Core.Services
         private MobileServiceSQLiteStore _eagleDatabase;
         private IMobileServiceSyncTable<Assignment> _assignmentTable;
         private IMobileServiceSyncTable<Course> _courseTable;
+        private IMobileServiceSyncTable<EventsSignUp> _eventsSignUpTable;
         private IMobileServiceSyncTable<FourWindsItem> _fourWindsTable;
         private IMobileServiceSyncTable<VarsityItem> _varsityTable;
         private IMobileServiceSyncTable<GrabAndGoItem> _grabAndGoTable;
         private IMobileServiceSyncTable<LocalToken> _localTokenTable;
         private IMobileServiceSyncTable<AzureToken> _azureTokenTable;
         private IMobileServiceSyncTable<Student> _studentTable;
+        private IMobileServiceSyncTable<ClassAttendance> _attendanceTable;
         private SyncHandler _syncHandler;
         private LocalToken _currentUser = new LocalToken();
 
@@ -84,12 +86,15 @@ namespace EaglesNestMobileApp.Core.Services
                         _courseTable.Where(course =>
                             course.StudentId == _currentUser.Id));
 
-                    var list = _assignmentTable.ToListAsync();
-
 
                     await _studentTable.PullAsync("currentStudent",
                         _studentTable.Where(student =>
                             student.Id == _currentUser.Id));
+                    await _attendanceTable.PullAsync("AllAttendanceViolations",
+                        _attendanceTable.Where(attendance => attendance.StudentId == _currentUser.Id));
+
+                    var whateverVariable = await _attendanceTable.ToListAsync();
+                    System.Diagnostics.Debug.WriteLine("\n\n\n" + whateverVariable.Count);
 
                     /* Pull down non student related tables                 */
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
@@ -107,7 +112,7 @@ namespace EaglesNestMobileApp.Core.Services
             catch (Exception ex)
             {
                 Debug.WriteLine($"{ex.Message} in SyncAsync");
-                Debug.WriteLine("Please check your internet connection!");
+                Debug.WriteLine("Please check your Internet connection!");
             }
         }
 
@@ -124,6 +129,8 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<Student>();
             _eagleDatabase.DefineTable<AzureToken>();
             _eagleDatabase.DefineTable<LocalToken>();
+          //  _eagleDatabase.DefineTable<EventsSignUp>();
+            _eagleDatabase.DefineTable<ClassAttendance>();
         }
 
         /*********************************************************************/
@@ -132,13 +139,15 @@ namespace EaglesNestMobileApp.Core.Services
         public void GetReferences()
         {
             _assignmentTable = _client.GetSyncTable<Assignment>();
-            _courseTable     = _client.GetSyncTable<Course>();
-            _fourWindsTable  = _client.GetSyncTable<FourWindsItem>();
-            _varsityTable    = _client.GetSyncTable<VarsityItem>();
-            _grabAndGoTable  = _client.GetSyncTable<GrabAndGoItem>();
-            _studentTable    = _client.GetSyncTable<Student>();
+            _courseTable = _client.GetSyncTable<Course>();
+            _fourWindsTable = _client.GetSyncTable<FourWindsItem>();
+            _varsityTable = _client.GetSyncTable<VarsityItem>();
+            _grabAndGoTable = _client.GetSyncTable<GrabAndGoItem>();
+            _studentTable = _client.GetSyncTable<Student>();
             _localTokenTable = _client.GetSyncTable<LocalToken>();
             _azureTokenTable = _client.GetSyncTable<AzureToken>();
+          //  _eventsSignUpTable = _client.GetSyncTable<EventsSignUp>();
+            _attendanceTable = _client.GetSyncTable<ClassAttendance>();
         }
 
         /*********************************************************************/
@@ -260,6 +269,22 @@ namespace EaglesNestMobileApp.Core.Services
 
             await _azureTokenTable.PurgeAsync(null, null, true,
                 CancellationToken.None);
+        }
+
+        /*********************************************************************/
+        /*                         Get Events                                */
+        /*********************************************************************/
+        public async Task<List<EventsSignUp>> GetEventsAsync()
+        {
+            return await _eventsSignUpTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                         Get attendance violations                 */
+        /*********************************************************************/
+        public async Task<List<ClassAttendance>> GetAttendanceViolationsAsync()
+        {
+            return await _attendanceTable.ToListAsync();
         }
     }
 }
