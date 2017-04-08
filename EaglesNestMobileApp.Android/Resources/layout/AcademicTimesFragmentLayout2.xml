@@ -11,27 +11,6 @@
         layout="@layout/ToolbarDialogLayout"
         />
     
-    <!-- TOOLBAR -->
-    <!--<android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/modToolbarColor"
-        android:theme="?attr/modToolbarTheme"
-        app:popupTheme="?attr/modToolbarPopupTheme"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Academic"
-            />
-        
-    </android.support.v7.widget.Toolbar>-->
-    
     <!-- SCROLLVIEW -->
     <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -102,196 +81,62 @@
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- Offices Button -->
+                    <!-- Computer/Education Labs, Media Room Button -->
                     <Button
+                        android:id="@+id/ACLabs"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Classrooms"
+                        android:text="Computer/Education Labs, Media Room"
                         android:gravity="left"
                         />
                 
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- Practice Rooms Button -->
+                    <!-- Seminary Library Button -->
                     <Button
+                        android:id="@+id/ACSeminaryLibrary"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Practice Rooms"
+                        android:text="Seminary Library"
                         android:gravity="left"
                         />
 
-                    <!-- ROOM -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                            >
-
-                        <!-- Room Title -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemPrimaryText"
-                            android:text="Room"
-                                />
-
-                        <!-- Room Data -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="Coberly South 2168-1"
-                            android:id="@+id/StudentRoom"
-                                />
-
-                    </LinearLayout>
-
-                    <!-- Divider Line -->
-                    <View style="@style/ModDividerWithMargins" />
-
-                    <!-- MAILBOX & COMBINATION -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                            >
-
-                        <!-- Mailbox# & Combination Title -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemPrimaryText"
-                            android:text="Mailbox &amp; Combination"
-                            android:layout_marginTop="4dp"
-                                />
-
-                        <!-- Mailbox# & Combination Data Container -->
-                        <LinearLayout
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:orientation="horizontal"
-                                >
-
-                            <!-- Mailbox# Data -->
-                            <TextView
-                                android:layout_height="wrap_content"
-                                android:layout_width="wrap_content"
-                                style="@style/ModListItemSecondaryText"
-                                android:text="1455"
-                                android:layout_marginRight="8dp"
-                                android:id="@+id/StudentMailbox"
-                                    />
-
-                            <!-- Combination Data -->
-                            <TextView
-                                android:layout_height="wrap_content"
-                                android:layout_width="wrap_content"
-                                style="@style/ModListItemSecondaryText"
-                                android:text="26-48-12"
-                                android:id="@+id/StudentBoxCombination"
-                                    />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- See Combination Instructions Button -->
+                    <!-- Library Button -->
                     <Button
+                        android:id="@+id/ACLibrary"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="See Combination Instructions"
-                            />
+                        android:text="Library"
+                        android:gravity="left"
+                        />
 
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- COLLEGIAN & LOCATION -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                            >
-
-                        <!-- Collegian & Location Title -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemPrimaryText"
-                            android:text="Collegian &amp; Location"
-                            android:layout_marginTop="4dp"
-                                />
-
-                        <!-- Collegian Data -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="Iota Chi Delta Stingrays"
-                            android:layout_marginRight="8dp"
-                            android:id="@+id/StudentCollegianName"
-                                />
-
-                        <!-- Location Data -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="AC 451"
-                            android:id="@+id/StudentCollegianLocation"
-                                />
-
-                    </LinearLayout>
+                    <!-- Skype Button -->
+                    <Button
+                        android:id="@+id/ACSkype"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Skype"
+                        android:gravity="left"
+                        />
 
                     <!-- Divider Line -->
-                    <View style="@style/ModDividerWithMargins" />
+                    <View style="@style/ModDivider" />
 
-                    <!-- CHAPEL SEAT -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                            >
-
-                        <!-- Chapel Seat Title -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemPrimaryText"
-                            android:text="Chapel Seat"
-                            android:layout_marginTop="4dp"
-                                />
-
-                        <!-- Chapel Seat Line 1 Data -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="Balcony Section C"
-                            android:id="@+id/StudentChapelSeatSection"
-                                />
-
-                        <!-- Chapel Seat Line 2 Data -->
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            style="@style/ModListItemSecondaryText"
-                            android:text="Row F Seat 14"
-                            android:id="@+id/StudentChapelSeatRowNumber"
-                                />
-
-                    </LinearLayout>
+                    <!-- Testing Center Button -->
+                    <Button
+                        android:id="@+id/ACTestingCenter"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Testing Center—3rd Fl"
+                        android:gravity="left"
+                        />
 
                 </LinearLayout>
 
@@ -367,8 +212,68 @@
                         android:gravity="left"
                         />
 
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+<!-- ********************************************************************** -->
+<!-- CARD SEPARATOR -->
+<!-- ********************************************************************** -->
+            
+            <!-- 3. VISUAL & PERFORMING ARTS BUILDING -->
+
+            <!-- VPA Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Visual and Performing Arts"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!-- VPA Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <!-- VPA Building Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/VPAClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms and Upper/Lower Art Galleries"
+                        android:gravity="left"
+                        />
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
+
+                    <!-- Practice Rooms Button -->
+                    <Button
+                        android:id="@+id/VPAPracticeRooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Practice Rooms"
+                        android:gravity="left"
+                        />
 
                 </LinearLayout>
 

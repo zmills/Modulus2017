@@ -505,7 +505,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FacilityTimesAcademic.xml" />
+    <AndroidResource Include="Resources\layout\FacilityTimesAcademic.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FacilityTimesDining.xml" />
