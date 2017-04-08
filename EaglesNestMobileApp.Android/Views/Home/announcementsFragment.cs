@@ -40,9 +40,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             /* Get the announcements. Announcements would be set to the      */
             /* cards inside the viewmodel here                               */
-            InitializeAnnouncements();
+            InitializeAnnouncementsTest();
         }
-
+        
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup parent, Bundle savedInstanceState)
         {
@@ -126,7 +126,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             {
                 int index = counter % 5;
 
-                Card current = new Card("Item " + counter, _card_images[index]);
+                Card current = new Card(_card_images[index]);
                 Announcements.Add(current);
             }
             AnnouncementAdapter.NotifyDataSetChanged();
