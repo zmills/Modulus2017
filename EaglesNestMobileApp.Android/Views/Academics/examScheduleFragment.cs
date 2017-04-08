@@ -12,6 +12,7 @@ using EaglesNestMobileApp.Core.Model;
 using Android.Support.V7.Widget;
 using System;
 using Android.Widget;
+using Android.Support.Design.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -20,6 +21,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         private View _examScheduleFragmentView;
         private ObservableRecyclerAdapter<Course, CachingViewHolder> _adapter;
         private RecyclerView _recyclerView;
+        private int _position;
         public ExamScheduleFragmentViewModel ViewModel
         {
             get { return App.Locator.Exams; }
@@ -28,18 +30,22 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup container, Bundle savedInstanceState)
         {
             /* Use this to return your custom view for this Fragment         */
-            _examScheduleFragmentView = inflater.Inflate(Resource.Layout.ExamScheduleFragmentLayout, 
-                container, false);
+            _examScheduleFragmentView = inflater
+                .Inflate(Resource.Layout.ExamScheduleFragmentLayout, container, false);
 
-            Activity.RunOnUiThread(()=> _recyclerView =
+            _recyclerView =
                 _examScheduleFragmentView.FindViewById<RecyclerView>(
-                    Resource.Id.ExamScheduleRecyclerView));
+                    Resource.Id.ExamScheduleRecyclerView);
+
+            ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout)
+                .TabReselected += TabLayoutTabReselected;
 
             Activity.RunOnUiThread(() => _adapter =
                 ViewModel.Classes.GetRecyclerAdapter(BindViewHolder,
@@ -53,8 +59,24 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             return _examScheduleFragmentView;
         }
 
+        private void TabLayoutTabReselected(object sender,
+            TabLayout.TabReselectedEventArgs newEvent)
+        {
+            /* Scroll to the top when the tab is reselected                        */
+            if (newEvent.Tab.Text == App.Tabs.AcademicsPage[1].ToString())
+            {
+                if (_position > 10)
+                {
+                    Activity.RunOnUiThread(() => _recyclerView.ScrollToPosition(10));
+                }
+                Activity.RunOnUiThread(() => _recyclerView.SmoothScrollToPosition(0));
+            }
+        }
+
         private void BindViewHolder(CachingViewHolder holder, Course section, int position)
         {
+            _position = holder.AdapterPosition;
+
             TextView _courseNumber = holder.FindCachedViewById<TextView>(Resource.Id.examClassNumber);
             TextView _courseName = holder.FindCachedViewById<TextView>(Resource.Id.examClassName);
             TextView _examDate = holder.FindCachedViewById<TextView>(Resource.Id.examDate);
@@ -85,21 +107,21 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             holder.DeleteBinding(_examDate);
             var dateBinding = new Binding<string, string>(
                 section,
-                () => section.ExamDate,
+                () => section.ExamTime,
                 _examDate,
                 () => _examDate.Text,
                 BindingMode.OneWay);
             holder.SaveBinding(_examDate, dateBinding);
 
-            /* Set binding for exam time  */
-            holder.DeleteBinding(_examTime);
-            var timeBinding = new Binding<string, string>(
-                section,
-                () => section.ExamTime,
-                _examTime,
-                () => _examTime.Text,
-                BindingMode.OneWay);
-            holder.SaveBinding(_examTime, timeBinding);
+            ///* Set binding for exam time  */
+            //holder.DeleteBinding(_examTime);
+            //var timeBinding = new Binding<string, string>(
+            //    section,
+            //    () => section.ExamTime,
+            //    _examTime,
+            //    () => _examTime.Text,
+            //    BindingMode.OneWay);
+            //holder.SaveBinding(_examTime, timeBinding);
 
             /*Set the binding for the exam location*/
             holder.DeleteBinding(_examLocation);

@@ -110,6 +110,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         public static void ExpandTouchableByTagName(ViewGroup parentLayout,
                                                 string tagName)
         {
+            
             /* List of views                                                 */
             List<View> _viewArray = new List<View>();
 

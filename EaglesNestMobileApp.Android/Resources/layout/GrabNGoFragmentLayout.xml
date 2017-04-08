@@ -29,12 +29,13 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:animateLayoutChanges="true"
       android:orientation="vertical">
 
       <TextView
         android:id="@+id/grabNGoOption1"
         android:text="1 - Garden Salad Shaker Meal"
-        style="@style/ModFoodHeader"
+        style="@style/ModFoodLineHeader"
         android:clickable="true"
               />
       <include
@@ -45,7 +46,7 @@
       <TextView
         android:id="@+id/grabNGoOption2"
         android:text="2 - Chicken Ciabatta Meal"
-        style="@style/ModFoodHeader"
+        style="@style/ModFoodLineHeader"
         android:clickable="true"
               />
       <include
@@ -56,7 +57,7 @@
       <TextView
         android:id="@+id/grabNGoOption3"
         android:text="3 - PBJ Strawberry Meal"
-        style="@style/ModFoodHeader"
+        style="@style/ModFoodLineHeader"
         android:clickable="true"
               />
       <include
@@ -67,7 +68,7 @@
       <TextView
         android:id="@+id/grabNGoOption4"
         android:text="4 - Corn Dog Meal"
-        style="@style/ModFoodHeader"
+        style="@style/ModFoodLineHeader"
         android:clickable="true"
               />
       <include

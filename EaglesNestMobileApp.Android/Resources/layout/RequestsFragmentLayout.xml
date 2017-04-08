@@ -40,7 +40,9 @@
        android:layout_gravity="center_horizontal"
        cardview:cardElevation="4dp"
        cardview:cardCornerRadius="5dp"
-       android:id="@+id/approvedPassesCard">
+       android:id="@+id/approvedPassesCard"
+       android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
 
       <TextView
         android:id="@+id/approvedPassesStatus"
@@ -48,6 +50,7 @@
         android:layout_width="match_parent"
         android:text="No current approved passes"
         android:textSize="20dp"
+        android:padding="4dp"
         />
     </android.support.v7.widget.CardView>
 
@@ -58,6 +61,7 @@
       android:text="Pending Requests"
       android:gravity="center_horizontal"
       android:textSize="30dp"
+      
      />
 
     <View
@@ -70,7 +74,9 @@
        android:layout_gravity="center_horizontal"
        cardview:cardElevation="4dp"
        cardview:cardCornerRadius="5dp"
-       android:id="@+id/pendingPassesCard">
+       android:id="@+id/pendingPassesCard"
+       android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
 
       <TextView
         android:id="@+id/pendingPassesStatus"
@@ -78,6 +84,7 @@
         android:layout_width="match_parent"
         android:text="No current pending passes"
         android:textSize="20dp"
+        android:padding="4dp"
         />
     </android.support.v7.widget.CardView>
 

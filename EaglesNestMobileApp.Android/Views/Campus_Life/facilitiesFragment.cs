@@ -11,16 +11,25 @@ using Android.Support.Design.Widget;
 using System.Collections.Generic;
 using Android.Content;
 using EaglesNestMobileApp.Android.Views.Account;
+using System;
+using Dialog = Android.App.Dialog;
+using System.Threading.Tasks;
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Graphics.Drawables;
+using Android.Support.V7.App;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
     public class facilitiesFragment : Fragment
     {
         View view;
+        Dialog _dialogBox;
+        SupportToolbar dialogToolbar;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -30,52 +39,81 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
                 container, false);
 
-            Button _dining = view.FindViewById<Button>(Resource.Id.Dining);
-            Button _academics = view.FindViewById<Button>(Resource.Id.Academic);
-            Button _church = view.FindViewById<Button>(Resource.Id.Church);
-            Button _service = view.FindViewById<Button>(Resource.Id.Service);
-            Button _recreation = view.FindViewById<Button>(Resource.Id.Recreation);
-            Button _dorm = view.FindViewById<Button>(Resource.Id.Dorm);
+            //toolbarLayout = inflater.Inflate(Resource.Layout.ToolbarDialogLayout,
+            //    container, false);
+            
+            
+            //dialogToolbar.SetTitle(Resource.String.Academic);            
 
-            _dining.Click += LoadLayeredFragment;
-            _academics.Click += LoadLayeredFragment;
-            _church.Click += LoadLayeredFragment;
-            _service.Click += LoadLayeredFragment;
-            _recreation.Click += LoadLayeredFragment;
-            _dorm.Click += LoadLayeredFragment;
+            Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
 
-        private void LoadLayeredFragment(object sender, System.EventArgs e)
+        private void SetUpFacilitiesLayout()
         {
-            FragmentTransaction _transaction = Activity.SupportFragmentManager.BeginTransaction();
+            view.FindViewById<Button>(Resource.Id.Dining).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Academic).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Church).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Service).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Recreation).Click += LoadPopUpAsync;
+            view.FindViewById<Button>(Resource.Id.Dorm).Click += LoadPopUpAsync;
+        }
 
-            string _buttonName = (sender as Button).Text;
-            switch (_buttonName)
+        private async void LoadPopUpAsync(object sender, EventArgs e)
+        {
+            string title = (sender as Button).Text;
+
+            /* Disable the button                                            */
+            (sender as Button).Enabled = false;
+
+            /* Create the dialog box                                         */
+            _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+
+            /* ViewModel Text must be passed to all these layouts            */
+            switch (title)
             {
+
                 case AndroidApp.FacilityCategory.Academics:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.AcademicTimesFragmentLayout2);
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Church:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesChurch);
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Dining:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesDining);
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Dorm:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesDorm);
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Recreation:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesRecreation);
+                    }
                     break;
                 case AndroidApp.FacilityCategory.Service:
-                    _transaction.Replace(Resource.Id.MainFrameLayout, new facilitiesPopupFragment());
+                    {
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesService);
+                    }
                     break;
             }
-            _transaction.AddToBackStack("Layered");
-            _transaction.Commit();
-            View _view = Activity.FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar);
-            _view.Visibility = ViewStates.Gone;
+
+            dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+            dialogToolbar.Title = title;
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            dialogToolbar.NavigationClick += (navSender, navEvent) => { _dialogBox.Dismiss(); };
+            await Task.Delay(150);
+            _dialogBox.Show();
+            await Task.Delay(400);
+            (sender as Button).Enabled = true;
         }
     }
 }

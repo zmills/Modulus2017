@@ -8,7 +8,7 @@
     card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
     card_view:cardElevation="2dp"
     card_view:cardUseCompatPadding="false"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="16dp"
     >
 
     <LinearLayout
@@ -53,32 +53,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="8dp"
-                style="@style/ModRobotoRegular20"
+                style="@style/ModRobotoRegular16"
                 android:text="A+"
                 />
         
         </LinearLayout>
-        
-        <!-- Divider Line -->
-        <View style="@style/ModDivider" />
-
-        <!-- TEACHER INFO BUTTON -->
-        <Button
-            android:id="@+id/TeacherInfoButton"
-            android:textColor="?attr/modBorderlessButtonFullSpanColor"
-            android:text="Teacher Info"
-            style="@style/ModBorderlessButtonFullSpan"
-            />
-            <!--android:background="@drawable/border_thin"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"-->
-            
-
 
         <!-- Divider Line -->
-        <View style="@style/ModDivider" />
+        <!--<View style="@style/ModDividerWithMargins" />-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -88,25 +70,41 @@
             android:paddingBottom="16dp"
             android:animateLayoutChanges="true"
             >
-            
-            <!-- SHOW GRADES BUTTON -->
+
+            <!-- TEACHER INFO BUTTON -->
             <Button
-                android:id="@+id/ShowGradesButton"
-                android:textColor="?attr/colorPrimary"
-                android:text="SHOW GRADES"
+                android:id="@+id/TeacherInfoButton"
+                android:textColor="?attr/modBorderlessButtonTextColorPrimary"
+                android:text="TEACHER INFO"
                 style="@style/ModBorderlessButton"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 />
+            
+            <!-- SHOW GRADES BUTTON -->
+            <Button
+                android:id="@+id/ShowGradesButton"
+                android:textColor="?attr/modBorderlessButtonTextColorPrimary"
+                android:text="SHOW GRADES"
+                style="@style/ModBorderlessButton"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_toLeftOf="@+id/ShowGradesArrowIcon"
+                />
+            <!--android:layout_alignParentLeft="true"-->
 
-            <!-- SHOW GRADES ARROW -->
-            <TextView
+            <!-- SHOW GRADES ARROW ICON -->
+            <ImageView
+                android:id="@+id/ShowGradesArrowIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="^"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_up"
                 />
+                <!-- color assigned in @drawable/arrow_up -->
 
         </RelativeLayout>
         
@@ -119,35 +117,61 @@
             android:visibility="gone"
             >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grade 1"
-                />
+            <!-- GRADES TABLE HEADERS -->
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Grade 2"
-                />
+                android:minHeight="56dp"
+                android:weightSum="3"
+                android:padding="16dp"
+                android:orientation="horizontal"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grade 3"
-                />
-            <!--<android.support.v7.widget.RecyclerView
+                <!-- Assignment Header -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:layout_gravity="center"
+                    style="@style/ModRobotoMediumLightweight12"
+                    android:paddingLeft="8dp"
+                    />
+
+                <!-- Date Header -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    style="@style/ModRobotoMediumLightweight12"
+                    android:paddingRight="8dp"
+                    />
+
+                <!-- Grade Header -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Grade"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_gravity="center"
+                    style="@style/ModRobotoMediumLightweight12"
+                    android:paddingRight="8dp"
+                    />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
                 android:id="@+id/AssignmentsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="0dp"
-                android:paddingRight="16dp"
-                android:paddingLeft="16dp"
-                android:paddingBottom="16dp"
                 android:nestedScrollingEnabled="false"
-                />-->
-        
+                />
         </LinearLayout>
             
     </LinearLayout>

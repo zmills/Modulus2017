@@ -8,11 +8,15 @@
     cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
     cardview:cardElevation="2dp"
     cardview:cardUseCompatPadding="false"
-    android:layout_marginBottom="8dp"
+     android:layout_marginBottom="16dp"
     >
-  <RelativeLayout
+  <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+       android:layout_height="match_parent"
+       android:layout_marginLeft="8dp"
+       android:orientation="vertical">
+      
+      
     <TextView
       android:id="@+id/eventSignUpTitle"
       android:layout_width="match_parent"
@@ -22,21 +26,41 @@
       android:textSize="18dp"
       />
 
+      <TextView
+        android:id="@+id/eventSignUpDateTime"
+        android:text="Wednesday 5.6.72 8-5pm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:paddingLeft="10dp"
+        android:textStyle="italic"
+        />
+      
+      
     <TextView
      android:id="@+id/eventSignUpDescription"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:padding="10dp"
      android:textSize="14dp"
-     android:layout_below="@+id/eventSignUpTitle"/>
+     />
 
     <Button
       android:id="@+id/eventSignUpButton"
       android:layout_width="wrap_content"
       android:minWidth="0dp"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/eventSignUpTitle"
-      android:layout_toRightOf="@id/eventSignUpDescription"
+      android:text="YOLO SWAGGINS"
+      android:layout_gravity="right"
+     
       style="@style/Widget.AppCompat.Button.Borderless"/>
-    </RelativeLayout>
+    </LinearLayout>
   </android.support.v7.widget.CardView>
+
+<!-- 
+android:layout_marginBottom="8dp"
+
+android:layout_below="@+id/eventSignUpTitle"
+
+ android:layout_below="@+id/eventSignUpTitle"
+ android:layout_toRightOf="@id/eventSignUpDescription"
+-->

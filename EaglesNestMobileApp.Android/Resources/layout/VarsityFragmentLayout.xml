@@ -60,7 +60,7 @@
           <TextView
              android:id="@+id/varsityOption1"
              android:text="1 - Pizza Creations"
-             style="@style/ModFoodHeader"
+             style="@style/ModFoodLineHeader"
              android:clickable="true" />
           <include
                 android:id="@+id/VarsityLine1"
@@ -70,7 +70,7 @@
           <TextView
              android:id="@+id/varsityOption2"
              android:text="2 - Hot Deli"
-             style="@style/ModFoodHeader"
+             style="@style/ModFoodLineHeader"
              android:clickable="true" />
       
           <include
@@ -82,7 +82,7 @@
           <TextView
              android:id="@+id/varsityOption3"
              android:text="3 - Chicken Tenders"
-             style="@style/ModFoodHeader"
+             style="@style/ModFoodLineHeader"
             android:clickable="true" />
       
         <include
@@ -94,7 +94,7 @@
           <TextView
              android:id="@+id/varsityOption4"
              android:text="4 - Soup and Salad"
-             style="@style/ModFoodHeader"
+             style="@style/ModFoodLineHeader"
             android:clickable="true" />
               
                <include
@@ -105,7 +105,7 @@
           <TextView
                android:id="@+id/varsityOption5"
                android:text="5 - Mega Cereal Bar"
-               style="@style/ModFoodHeader"
+               style="@style/ModFoodLineHeader"
             android:clickable="true" />
     
             <include
