@@ -40,9 +40,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
         private RelayCommand _refreshCommand;
 
         public RelayCommand RefreshCommand => _refreshCommand ??
-            (_refreshCommand = 
+            (_refreshCommand =
                 new RelayCommand(async () => await RefreshGradesAsync()));
-       
+
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
@@ -120,10 +120,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
             Grades = new ObservableCollection<GradeCard>();
             for (int counter = 0; counter < 15; counter++)
             {
-                GradeCard current = new GradeCard ()
+                GradeCard current = new GradeCard()
                 {
                     CourseTitle = "CS 452 Software Engineering Project II",
-                    CourseGrade = "A+"
                 };
 
                 for (int index = 0; index < 4; index++)

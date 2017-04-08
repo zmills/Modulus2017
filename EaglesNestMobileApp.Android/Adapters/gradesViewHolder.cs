@@ -42,7 +42,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         /* Take in a gradesCard and assign its data to the viewholder's views */
         public void GetGradesCard(Card gradesCard)
         {
-            GradesClassName.Text = gradesCard.Title;
+            //GradesClassName.Text = gradesCard.Title;
         }
     }
 }
