@@ -123,7 +123,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 GradeCard current = new GradeCard ()
                 {
                     CourseTitle = "CS 452 Software Engineering Project II",
-                    CourseGrade = "A+"
+                    //CourseGrade = "A+"
                 };
 
                 for (int index = 0; index < 4; index++)
