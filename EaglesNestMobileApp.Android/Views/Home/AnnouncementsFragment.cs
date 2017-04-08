@@ -146,27 +146,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
         }
 
         /* THIS NEEDS TO BE MOVED TO THE VIEWMODEL                           */
-        private void InitializeAnnouncements()
-        {
-            Announcements = new List<Card>();
 
-            /* Create an array of images                                     */
-            int[] _card_images = new int[5];
-            _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[1] = Resource.Drawable.CLEvent1;
-            _card_images[2] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
-            _card_images[3] = Resource.Drawable.Nov28MissionPrayerBand1;
-            _card_images[4] = Resource.Drawable.SubmitStudentPhotosFall2;
-
-            /* Loop through inserting cards in the announcements list after  */
-            /* titling them and providing an image                           */
-            for (int counter = 0; counter < 40; counter++)
-            {
-                int index = counter % 5;
-
-                Card current = new Card("Item " + counter, _card_images[index]);
-                Announcements.Add(current);
-            }
-        }
     }
 }
