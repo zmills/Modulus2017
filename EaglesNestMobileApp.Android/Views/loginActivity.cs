@@ -9,6 +9,7 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using JimBobBennett.MvvmLight.AppCompat;
@@ -16,7 +17,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "Eaglesnest", MainLauncher = false,
+    [Activity(Label = "The Nest", MainLauncher = true,
          Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
@@ -40,8 +41,9 @@ namespace EaglesNestMobileApp.Android
             CurrentPlatform.Init();
 
             /* Set our view from the "main" layout resource                     */
-            SetContentView(Resource.Layout.LoginLayout);
-            RunOnUiThread(async ()=> await LoginViewModel.CheckUserAsync());
+            RunOnUiThread(() => SetContentView(Resource.Layout.LoginLayout));
+            //await App.Locator.FourWinds.RefreshMenusAsync();
+            RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
 
             /* Bind views to the viewmodel                                      */
             Username = FindViewById<EditText>(Resource.Id.UserId);
@@ -50,16 +52,19 @@ namespace EaglesNestMobileApp.Android
 
             /* This binds the input from the user to the current user token in  */
             /* the login viewmodel                                              */
-            LoginViewModel.CurrentUser.SetBinding(
-                () => LoginViewModel.CurrentUser.Id, Username,
-                () => Username.Text, BindingMode.TwoWay);
+            RunOnUiThread(() =>
+            {
+                LoginViewModel.CurrentUser.SetBinding(
+                    () => LoginViewModel.CurrentUser.Id, Username,
+                    () => Username.Text, BindingMode.TwoWay);
 
-            LoginViewModel.CurrentUser.SetBinding(
-                () => LoginViewModel.CurrentUser.Password, Password,
-                () => Password.Text, BindingMode.TwoWay);
+                LoginViewModel.CurrentUser.SetBinding(
+                    () => LoginViewModel.CurrentUser.Password, Password,
+                    () => Password.Text, BindingMode.TwoWay);
 
-            /* This command in the login viewmodel handles all the login logic  */
-            LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
+                /* This command in the login viewmodel handles all the login logic  */
+                LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
+            });
         }
     }
 }

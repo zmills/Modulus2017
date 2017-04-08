@@ -10,6 +10,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
     {
         private ObservableCollection<Course> _classes =
             new ObservableCollection<Course>();
+
         public ObservableCollection<Course> Classes
         {
             get { return _classes; }
@@ -23,12 +24,15 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
             this.Database = database;
         }
 
-        private async void Initialize()
+        public async Task Initialize()
         {
-            await Task.Run(() => RefreshExamScheduleAsync());
+            var courses = await Database.GetCoursesAsync();
+
+            foreach (Course current in courses)
+                Classes.Add(current);
         }
 
-        public void InitializeVm()
+        public void InitializeStatic()
         {
             for(int counter = 0; counter <= 6; counter++)
             {
@@ -49,7 +53,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 
         private async void RefreshExamScheduleAsync()
         {
-            Classes = await Database.GetCoursesAsync();
+            var courses = await Database.GetCoursesAsync();
+
+            Classes.Clear();
+
+            foreach (Course current in courses)
+                Classes.Add(current);
         }
     }
 }

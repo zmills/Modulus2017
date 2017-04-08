@@ -12,29 +12,32 @@
 
 <resources>
     <!-- LIGHT THEME COLOR PALETTE -->
-    <color name="primary">#1C53A3</color>                       <!-- Blue -->
-    <color name="primary_dark">#12355E</color>                  <!-- Dark Blue-->
-    <color name="primary_light">#4B90E2</color>                 <!-- Light Blue -->
-    <color name="accent">#FFC200</color>                        <!-- Yellow -->
-    <!--UNUSED--><color name="primary_text">#212121</color>     <!-- Grey 900 -->
-    <!--UNUSED--><color name="secondary_text">#757575</color>   <!-- Grey 600 -->
-    <color name="icons">#FFFFFF</color>                         <!-- White -->
-    <color name="divider">#BDBDBD</color>                       <!-- Grey (divider) -->
-    <color name="divider_light_theme">#E0E0E0</color>           <!-- Grey (divider light) -->
-    <color name="window_background">#E2E2E2</color>             <!-- Grey Background -->
-    <color name="body_text_light_theme">#424242</color>         <!--616161-->
-    <color name="body_text_soft_light_theme">#616161</color>    <!--757575-->
+    <color name="primary">#1C53A3</color>                                   <!-- Blue -->
+    <color name="primary_dark">#12355E</color>                              <!-- Dark Blue-->
+    <color name="primary_light">#4B90E2</color>                             <!-- Light Blue -->
+    <color name="accent">#FFC200</color>                                    <!-- Yellow -->
+    <!--UNUSED--><color name="primary_text">#212121</color>                 <!-- Grey 900 -->
+    <!--UNUSED--><color name="secondary_text">#757575</color>               <!-- Grey 600 -->
+    <color name="icons">#FFFFFF</color>                                     <!-- White -->
+    <color name="divider">#BDBDBD</color>                                   <!-- Grey (divider) -->
+    <color name="divider_light_theme">#E0E0E0</color>                       <!-- Grey (divider light) -->
+    <color name="window_background">#E2E2E2</color>                         <!-- Grey Background -->
+    <color name="body_text_light_theme">#424242</color>                     <!-- Grey 800 -->
+    <color name="body_text_soft_light_theme">#616161</color>                <!-- Grey 700 -->
+    <color name="body_text_lightweight_light_theme">#757575</color>         <!-- Grey 600 -->
     <color name="borderless_button_fullspan_light_theme">#1C53A3</color>
     
     <!-- DARK THEME COLOR PALETTE -->
-    <color name="mod_card_background_color_dark">#424242</color>    <!-- Grey 800 -->
-    <color name="mod_appbar_color_dark">#212121</color>             <!-- Grey 900 -->
-    <color name="body_text_dark_theme">#EEEEEE</color>              <!-- Grey 200 -->
-    <color name="body_text_soft_dark_theme">#E0E0E0</color>         <!-- Grey 300 -->
-    <color name="divider_dark_theme">#616161</color>                <!-- Grey 700 -->
+    <color name="mod_card_background_color_dark">#424242</color>        <!-- Grey 800 -->
+    <color name="mod_appbar_color_dark">#212121</color>                 <!-- Grey 900 -->
+    <color name="body_text_dark_theme">#EEEEEE</color>                  <!-- Grey 200 -->
+    <color name="body_text_soft_dark_theme">#E0E0E0</color>             <!-- Grey 300 -->
+    <color name="body_text_lightweight_dark_theme">#BDBDBD</color>      <!-- Grey 400 -->
+    <color name="divider_dark_theme">#616161</color>                    <!-- Grey 700 -->
     <color name="borderless_button_fullspan_dark_theme">#FFC200</color>
     
     <!-- OTHER COLORS -->
+    <color name="black">#000000</color>             <!-- Black -->
     <color name="clear">#0000</color>
     <color name="white">#FFFFFF</color>
     <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->

@@ -210,8 +210,6 @@
     <Compile Include="Adapters\FoodLinearLayoutManager.cs" />
     <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\gradesViewHolder.cs" />
-    <Compile Include="Adapters\MenuItemAdapter.cs" />
-    <Compile Include="Adapters\MenuItemViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
     <Compile Include="Adapters\varsityTabListener.cs" />
     <Compile Include="AndroidApp.cs" />
@@ -229,7 +227,6 @@
     <Compile Include="Views\Account\scheduleFragment.cs" />
     <Compile Include="Views\Campus_Life\campusLifeFragment.cs" />
     <Compile Include="Views\Campus_Life\facilitiesFragment.cs" />
-    <Compile Include="Views\Campus_Life\facilitiesPopupFragment.cs" />
     <Compile Include="Views\Campus_Life\requestsFragment.cs" />
     <Compile Include="Views\Campus_Life\studentCourtFragment.cs" />
     <Compile Include="Views\Dining\diningFragment.cs" />
@@ -290,7 +287,7 @@
     <AndroidResource Include="Resources\layout\StudentCourtFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\FourWindsFragment.xml">
+    <AndroidResource Include="Resources\layout\FourWindsFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\VarsityFragmentLayout.xml">
@@ -311,7 +308,7 @@
     <AndroidResource Include="Resources\layout\AnnouncementCardLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ClassAssignment.xml">
+    <AndroidResource Include="Resources\layout\BoxCombinationDialogLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -371,7 +368,9 @@
     <AndroidResource Include="Resources\menu\sample_home_menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml" />
+    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BroomHockeyAllStarCons1.jpg" />
@@ -402,9 +401,6 @@
     <AndroidResource Include="Resources\drawable\borderless_button.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\borderless_button_shape.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\StudentCourtInfractionCardLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -423,7 +419,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\BaseRecyclerView.xml" />
+    <AndroidResource Include="Resources\layout\BaseRecyclerView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\border.xml" />
@@ -477,13 +475,61 @@
     <AndroidResource Include="Resources\values\attrs.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FacilitiesPopupFragmentLayout.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\border_thin.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\up_arrow.xml" />
+    <AndroidResource Include="Resources\drawable\arrow_up.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\studentSchedule_dateButton.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\StudentScheduleRecyclerViewLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\move_fab.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\border_only_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\rotate_180_overshoot.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesChurch.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesAcademic.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesDining.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesDorm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\GradesAssignment.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout2.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\border_dining_line.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesService.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FacilityTimesRecreation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ToolbarDialogLayout.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\studentSchedule_dateButton.xml" />

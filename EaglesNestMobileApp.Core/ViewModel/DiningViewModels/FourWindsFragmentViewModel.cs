@@ -16,27 +16,13 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
     public class FourWindsFragmentViewModel: ViewModelBase
     {
         /* All the items being served in Four Winds         */
-        private ObservableCollection<FourWindsItem> _fourWindsItems = 
-            new ObservableCollection<FourWindsItem>();
-        public ObservableCollection<FourWindsItem> FourWindsItems
+        private List<FourWindsItem> _fourWindsItems = 
+            new List<FourWindsItem>();
+        protected List<FourWindsItem> FourWindsItems
         {
             get { return _fourWindsItems; }
             set { Set(() => FourWindsItems, ref _fourWindsItems, value); }
         }
-
-        //public RelayCommand<string> ShowMessageCommand
-        //{
-        //    get
-        //    {
-        //        return _showMessageCommand
-        //               ?? (_showMessageCommand = new RelayCommand<string>(
-        //                   message =>
-        //                   {
-        //                       _dialogService.ShowMessage(message, "Message:");
-        //                   },
-        //                   message => !string.IsNullOrEmpty(message)));
-        //    }
-        //}
 
         /* The FourWinds menu to be used by the views       */
         private FourWindsMenu _fourWindsMenu = new FourWindsMenu();
@@ -83,21 +69,27 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
             }
         }
 
-        public void GetDiningMenus()
+        protected void GetDiningMenus()
         {
-            /* Reset all the ObservableCollections so that we're not adding */
-            /* to existing items                                            */
-            FourWindsMenu.ClearLines();
-
             /* Format the Four Winds dining menus                           */
+
             foreach (var item in FourWindsItems)
             {
                 FourWindsMenu.AddItem(item);
             }
         }
 
-        /* This method provides STATIC DATA                                 */
-        public void InitializeVm()
+        public async Task InitializeAsync()
+        {
+            /* Get all the items for the dining facilities              */
+            FourWindsItems = await Database.GetFourWindsItemsAsync();
+
+            GetDiningMenus();
+        }
+
+        /*------------------------------------------------------------------*/
+        /* THE FOLLOWING METHODS PROVIDE STATIC DATA                        */
+        public void InitializeStatic()
         {
             /* Add breakfast items                                          */
             for (int count = 0; count < 40; count++)

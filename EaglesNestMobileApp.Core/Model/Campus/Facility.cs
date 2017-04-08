@@ -8,6 +8,8 @@ namespace EaglesNestMobileApp.Core.Model
 {
     public class Facility
     {
+        public string Version { get; set; }
+        public DateTimeOffset UpdatedAt { get; set; }
         public string Id { get; set; }
         public string BuildingId { get; set; }
         public string BuildingType { get; set; }

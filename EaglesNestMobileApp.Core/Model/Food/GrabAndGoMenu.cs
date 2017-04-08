@@ -7,26 +7,22 @@ namespace EaglesNestMobileApp.Core.Model.Food
 {
     public class GrabAndGoMenu : ObservableObject
     {
-        // MUST BE MADE PRIVATE
-        private ObservableCollection<GrabAndGoItem> LineOneLunch = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineTwoLunch = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineThreeLunch = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineFourLunch = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineOneDinner = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineTwoDinner = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineThreeDinner = new ObservableCollection<GrabAndGoItem>();
-        private ObservableCollection<GrabAndGoItem> LineFourDinner = new ObservableCollection<GrabAndGoItem>();
-        
-        public ObservableCollection<GrabAndGoItem> LineOne { get; set; } = new ObservableCollection<GrabAndGoItem>();
-        public ObservableCollection<GrabAndGoItem> LineTwo { get; private set; } = new ObservableCollection<GrabAndGoItem>();
-        public ObservableCollection<GrabAndGoItem> LineThree { get; private set; } = new ObservableCollection<GrabAndGoItem>();
-        public ObservableCollection<GrabAndGoItem> LineFour { get; private set; } = new ObservableCollection<GrabAndGoItem>();
-
-        public GrabAndGoMenu()
-        {
-            GetMealTime(App.MealTimes.Lunch);
-        }
-
+        public ObservableCollection<ObservableCollection<GrabAndGoItem>> LunchMenu
+            = new ObservableCollection<ObservableCollection<GrabAndGoItem>>
+            {
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>()
+            };
+        public ObservableCollection<ObservableCollection<GrabAndGoItem>> DinnerMenu
+            = new ObservableCollection<ObservableCollection<GrabAndGoItem>>
+            {
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>(),
+                new ObservableCollection<GrabAndGoItem>()
+            };
 
         public void AddItem(GrabAndGoItem item)
         {
@@ -41,16 +37,16 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LineOneLunch.Add(item);
+                    LunchMenu[0].Add(item);
                     break;
                 case App.LineKeys.LineTwo:
-                    LineTwoLunch.Add(item);
+                    LunchMenu[1].Add(item);
                     break;
                 case App.LineKeys.LineThree:
-                    LineThreeLunch.Add(item);
+                    LunchMenu[2].Add(item);
                     break;
                 case App.LineKeys.LineFour:
-                    LineFourLunch.Add(item);
+                    LunchMenu[3].Add(item);
                     break;
             }
         }
@@ -60,42 +56,16 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LineOneDinner.Add(item);
+                    DinnerMenu[0].Add(item);
                     break;
                 case App.LineKeys.LineTwo:
-                    LineTwoDinner.Add(item);
+                    DinnerMenu[1].Add(item);
                     break;
                 case App.LineKeys.LineThree:
-                    LineThreeDinner.Add(item);
+                    DinnerMenu[2].Add(item);
                     break;
                 case App.LineKeys.LineFour:
-                    LineFourDinner.Add(item);
-                    break;
-            }
-        }
-
-        public void GetMealTime(string mealTime)
-        {
-            switch (mealTime)
-            {
-                case App.MealTimes.Lunch:
-                    {
-                        LineOne = LineOneLunch;
-                        LineTwo = LineTwoLunch;
-                        LineThree = LineThreeLunch;
-                        LineFour = LineFourLunch;
-                    }
-                    break;
-                case App.MealTimes.Dinner:
-                    {
-                        LineOne = LineOneDinner;
-                        LineTwo = LineTwoDinner;
-                        LineThree = LineThreeDinner;
-                        LineFour = LineFourDinner;
-                    }
-                    break;
-                default:
-                    Debug.WriteLine("An incorrenct meal time was passed to the FourWindsMenu Class");
+                    DinnerMenu[3].Add(item);
                     break;
             }
         }

@@ -25,38 +25,58 @@ namespace EaglesNestMobileApp.Core
             client ?? (client = new MobileServiceClient("https://modulus.azurewebsites.net"));
 
         /* Local DataBase name.                                              */
-        public const string DatabaseName = "EagleDatabase12.db";
+        public const string DatabaseName = "1Database.db";
+
+        /* Attendance violation types                                        */
+        public static class ViolationTypes
+        {
+            public const string Absence = "A";
+            public const string Tardy   = "T";
+            public const string PendingAbsence = "PA";
+            public const string PendingTardy   = "PT";
+        }
+
+        public static class Days
+        {
+            public const string Sunday    = "Sunday";
+            public const string Monday    = "Monday";
+            public const string Tuesday   = "Tuesday";
+            public const string Wednesday = "Wednesday";
+            public const string Thursday  = "Thursday";
+            public const string Friday    = "Friday";
+            public const string Saturday  = "Saturday";
+        }
 
         /* Mealtimes                                                         */
         public static class MealTimes
         {
             public const string Breakfast = "Breakfast";
-            public const string Lunch = "Lunch";
+            public const string Lunch  = "Lunch";
             public const string Dinner = "Dinner";
         }
 
         /* Keys for the various food lines.                                  */
         public static class LineKeys
         {
-            public const string LineOne = "1";
-            public const string LineTwo = "2";
+            public const string LineOne   = "1";
+            public const string LineTwo   = "2";
             public const string LineThree = "3";
-            public const string LineFour = "4";
-            public const string LineFive = "5";
-            public const string LineSix = "6";
+            public const string LineFour  = "4";
+            public const string LineFive  = "5";
+            public const string LineSix   = "6";
             public const string LineSeven = "7";
         }
 
         /* Keys for the various activities and fragments                     */
         public static class PageKeys
         {
-            public const string MainPageKey = "MainPage";
-            public const string LoginPageKey = "LoginPage";
-            public const string HomePageKey = "Home";
-            public const string AcademicsPageKey = "Academics";
+            public const string MainPageKey       = "MainPage";
+            public const string LoginPageKey      = "LoginPage";
+            public const string HomePageKey       = "Home";
+            public const string AcademicsPageKey  = "Academics";
             public const string CampusLifePageKey = "Campus Life";
-            public const string DiningPageKey = "Dining";
-            public const string AccountPageKey = "Account";
+            public const string DiningPageKey     = "Dining";
+            public const string AccountPageKey    = "Account";
         }
 
         /* The titles for each tab in the pages                              */
@@ -87,14 +107,14 @@ namespace EaglesNestMobileApp.Core
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Facility Times",
-                "Pass Requests",
+                //"Pass Requests",
                 "Student Court"
             });
             public static ICharSequence[] AcademicsPage =
                CharSequence.ArrayFromStringArray(new[]
             {
                 "Class Grades",
-                "Grade Report",
+                //"Grade Report",
                 "Exam Schedule"
             });
         }

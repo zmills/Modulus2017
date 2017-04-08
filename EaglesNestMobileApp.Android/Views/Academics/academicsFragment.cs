@@ -25,13 +25,14 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         Fragment[] AcademicsFragments =
         {
             new gradesFragment(),
-            new gradeReportFragment(),
+            //new gradeReportFragment(),
             new examScheduleFragment()
         };
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, 

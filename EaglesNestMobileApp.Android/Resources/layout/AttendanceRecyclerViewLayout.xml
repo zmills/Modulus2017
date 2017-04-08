@@ -4,7 +4,7 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <!-- The class title-->
     <TextView
         android:id="@+id/attendanceClassName"
@@ -15,7 +15,7 @@
     <!-- the overall box for the entire 4 stubs-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
         <LinearLayout
@@ -47,9 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="8dp"
                 android:scrollbars="vertical"
                 android:layout_marginLeft="8dp"
+                android:visibility="visible"
             />
 
             <!-- Stub 2 Pending Unexcused abscences-->
@@ -64,7 +64,7 @@
                     android:text="Pending Unexcused Absences"
                     android:clickable="true" />
                 <TextView
-                    android:id="@+id/AttendingPendingUnexcusedNumber"
+                    android:id="@+id/AttendancePendingUnexcusedNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
@@ -77,9 +77,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="8dp"
                 android:scrollbars="vertical"
                 android:layout_marginLeft="8dp"
+                android:visibility="visible"
             />
 
             <!-- stub 3 Tardies-->
@@ -106,9 +106,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="8dp"
                 android:scrollbars="vertical"
                 android:layout_marginLeft="8dp"
+                android:visibility="visible"
             />
             <!-- Stub 4 Pending Tardies-->
             <LinearLayout
@@ -134,9 +134,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:paddingTop="8dp"
                 android:scrollbars="vertical"
                 android:layout_marginLeft="8dp"
+                android:visibility="visible"
             />
             </LinearLayout>
         </LinearLayout>

@@ -25,13 +25,14 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         Fragment[] CampusLifeFragments =
         {
             new facilitiesFragment(),
-            new requestsFragment(),
+            //new requestsFragment(),
             new studentCourtFragment(),
         };
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            RetainInstance = true;
         }
 
         /* Sets up the viewpager, tabs, and the titles of the tabs when the  */
