@@ -6,17 +6,17 @@ namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class EventsFragmentViewModel : ViewModelBase
     {
-        public ObservableCollection<EventsSignUpCard> Events { get; set; }
+        public ObservableCollection<EventsSignUp> Events { get; set; }
 
         public void Initialize()
         {
-            Events = new ObservableCollection<EventsSignUpCard>();
+            Events = new ObservableCollection<EventsSignUp>();
 
             /* Loop through inserting cards in the announcements list after  */
             /* titling them and providing an image                           */
             for (int counter = 0; counter < 20; counter++)
             {
-                EventsSignUpCard current = new EventsSignUpCard("Event " + counter,
+                EventsSignUp current = new EventsSignUp("Event " + counter,
                                             "Event Description", "SIGNUP");
                 Events.Add(current);
             }
@@ -28,7 +28,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
             for (int counter = 0; counter < 10; counter++)
             {
-                EventsSignUpCard current = new EventsSignUpCard("NEW CARD" + counter,
+                EventsSignUp current = new EventsSignUp("NEW CARD" + counter,
                                             "Event Description", "SIGNUP");
                 Events.Add(current);
             }
