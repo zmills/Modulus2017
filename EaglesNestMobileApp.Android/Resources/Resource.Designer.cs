@@ -2238,8 +2238,26 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f020056
 			public const int avd_hide_password = 2130837590;
 			
+			// aapt resource value: 0x7f02007f
+			public const int avd_hide_password_1 = 2130837631;
+			
+			// aapt resource value: 0x7f020080
+			public const int avd_hide_password_2 = 2130837632;
+			
+			// aapt resource value: 0x7f020081
+			public const int avd_hide_password_3 = 2130837633;
+			
 			// aapt resource value: 0x7f020057
 			public const int avd_show_password = 2130837591;
+			
+			// aapt resource value: 0x7f020082
+			public const int avd_show_password_1 = 2130837634;
+			
+			// aapt resource value: 0x7f020083
+			public const int avd_show_password_2 = 2130837635;
+			
+			// aapt resource value: 0x7f020084
+			public const int avd_show_password_3 = 2130837636;
 			
 			// aapt resource value: 0x7f020058
 			public const int border = 2130837592;
