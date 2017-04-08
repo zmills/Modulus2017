@@ -20,7 +20,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await App.Locator.Varsity.InitializeAsync();
             App.Locator.Varsity.InitializeStatic();
             await App.Locator.FourWinds.InitializeAsync();
-            App.Locator.FourWinds.InitializeStatic();
+            //App.Locator.FourWinds.InitializeStatic();
             App.Locator.Attendance.InitializeStatic();
             App.Locator.StudentSchedule.InitializeStatic();
         }
