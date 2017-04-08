@@ -17,8 +17,8 @@ namespace EaglesNestMobileApp.Android
         {
             public const string Dining = "Dining";
             public const string Academics = "Academic";
-            public const string Dorm = "Dorm";
-            public const string Service = "Service";
+            public const string Dorm = "Dorm and Shopping";
+            public const string Service = "Student Service";
             public const string Church = "Church";
             public const string Recreation = "Recreation";
         }
