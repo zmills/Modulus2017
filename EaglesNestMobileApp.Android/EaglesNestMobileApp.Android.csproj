@@ -460,13 +460,17 @@
     <AndroidResource Include="Resources\drawable-xhdpi\account_photo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AttendancePenaltyLayout.xml" />
+    <AndroidResource Include="Resources\layout\AttendancePenaltyLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ExamScheduleCardLayout.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AttendanceRecyclerViewLayout.xml" />
+    <AndroidResource Include="Resources\layout\AttendanceRecyclerViewLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\borderless_button_fullspan.xml" />
@@ -519,7 +523,9 @@
     <AndroidResource Include="Resources\layout\GradesAssignment.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout2.xml" />
+    <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout2.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\border_dining_line.xml" />
