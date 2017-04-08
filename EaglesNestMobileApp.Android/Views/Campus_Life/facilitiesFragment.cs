@@ -37,14 +37,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         {
             /* Use this to return your custom view for this Fragment         */
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
-                container, false);
-
-            //toolbarLayout = inflater.Inflate(Resource.Layout.ToolbarDialogLayout,
-            //    container, false);
+                container, false);            
             
-            
-            //dialogToolbar.SetTitle(Resource.String.Academic);            
-
             Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
@@ -68,6 +62,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             /* Create the dialog box                                         */
             _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            #region NOT NEEDED
+            /*_dialogBox.Window.RequestFeature(WindowFeatures.NoTitle);
+            _dialogBox.RequestWindowFeature(1);*/
+            #endregion
 
             /* ViewModel Text must be passed to all these layouts            */
             switch (title)
@@ -105,11 +103,16 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     break;
             }
 
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
             dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
-            dialogToolbar.Title = title;
-            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-            dialogToolbar.NavigationClick += (navSender, navEvent) => { _dialogBox.Dismiss(); };
+            dialogToolbar.Title = title;/* Or create a tag for each button and set its tag as the title */
+            dialogToolbar.NavigationClick += async (navSender, navEvent) =>
+            {
+                await Task.Delay(150);
+                _dialogBox.Dismiss();
+            };
+
             await Task.Delay(150);
             _dialogBox.Show();
             await Task.Delay(400);
