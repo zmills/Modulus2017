@@ -68,12 +68,36 @@
                     android:orientation="vertical"
                           >
 
-                    <!-- Four Winds Button -->
+                    <!-- Four Winds BreakfastButton -->
                     <Button
-                        android:id="@+id/FourWinds"
+                        android:id="@+id/FourWindsBreakfast"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Four Winds"
+                        android:text="Breakfast"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Four Winds Lunch Button -->
+                    <Button
+                        android:id="@+id/FourWindsLunch"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Lunch"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+                    
+                    <!-- Four Winds Dinner Button -->
+                    <Button
+                        android:id="@+id/FourWindsDinner"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Dinner"
                         android:gravity="left"
                               />
 
@@ -118,12 +142,36 @@
                     android:orientation="vertical"
                           >
 
-                    <!-- Varsity Button -->
+                    <!-- Varsity BreakfastButton -->
                     <Button
-                        android:id="@+id/Varsity"
+                        android:id="@+id/VarsitysBreakfast"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Varsity"
+                        android:text="Breakfast"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Varsity Lunch Button -->
+                    <Button
+                        android:id="@+id/VarsityLunch"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Lunch"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Varsity Dinner Button -->
+                    <Button
+                        android:id="@+id/VarsityDinner"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Dinner"
                         android:gravity="left"
                               />
 
@@ -168,12 +216,24 @@
                     android:orientation="vertical"
                           >
 
-                    <!-- Grab 'n Go Button -->
+                    <!-- Grab 'n Go Lunch Button -->
                     <Button
-                        android:id="@+id/GrabnGo"
+                        android:id="@+id/GrabnGoLunch"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Grab 'n Go"
+                        android:text="Lunch"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Grab 'n Go Dinner Button -->
+                    <Button
+                        android:id="@+id/GrabnGoDinner"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Dinner"
                         android:gravity="left"
                               />
 
