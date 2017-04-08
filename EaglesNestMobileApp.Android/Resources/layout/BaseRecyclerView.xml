@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
-    android:paddingTop="8dp"
-    android:paddingRight="8dp"
-    android:paddingLeft="8dp"
-    android:paddingBottom="0dp"
+   
     
     android:nestedScrollingEnabled="false"
     android:visibility="gone"
     />
 <!-- This controls the background of the list -->
 <!-- android:background="@color/primary_light"-->
+
+
+<!--android:paddingTop="8dp"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
+    android:paddingBottom="0dp"-->

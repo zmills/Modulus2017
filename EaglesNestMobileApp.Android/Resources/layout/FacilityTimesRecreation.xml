@@ -31,22 +31,24 @@
             android:paddingTop="8dp"
             >
 
-            <!-- 1. MACKENZIE BUILDING -->
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Sports Center BUILDING -->
 
-            <!-- MacKenzie Building Title -->
-            <!--android:id="@+id/"-->
+            <!-- Sports Center Building Title -->
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/ModRobotoRegularSoft20"
-                android:text="MacKenzie Building"
+                android:text="Sports Center"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                />
+                      />
 
-            <!-- MacKenzie Building CardView -->
+            <!-- Sports Center Building CardView -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,55 +59,176 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
-                >
+                      >
 
-                <!-- MacKenzie Building Layout -->
+                <!-- Sports Center Layout -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    >
+                          >
 
-                    <!-- Classrooms Button -->
+                    <!-- Sports Center General Button -->
                     <Button
-                        android:id="@+id/MKClassrooms"
+                        android:id="@+id/SportsCenterGeneral"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Classrooms, 1–6 Fls"
+                        android:text="Sports Center General"
                         android:gravity="left"
-                        />
+                              />
 
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- Classrooms Button -->
+                    <!-- Water Park (Men) Button -->
                     <Button
-                        android:id="@+id/MKLabs"
+                        android:id="@+id/WaterParkMen"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Nursing/Computer Lab, 3rd and 5th Fls"
+                        android:text="Water Park (Men)"
                         android:gravity="left"
-                        />
+                              />
 
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
-                    <!-- Classrooms Button -->
+                    <!-- Water Park (Women) Button -->
                     <Button
-                        android:id="@+id/MKPlanetarium"
+                        android:id="@+id/WaterParkWomen"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Planetarium, 6th Fl"
+                        android:text="Water Park (Women)"
                         android:gravity="left"
-                        />
+                              />
 
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
+
+                    <!-- Weight Room (Women) Button -->
+                    <Button
+                        android:id="@+id/WeightRoomWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Weight Room (Women)"
+                        android:gravity="left"
+                              />
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
-            
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Swim Center BUILDING -->
+
+            <!-- Swim Center Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Swim Center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Swim Center Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Swim Center Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Swim Center (Men) Button -->
+                    <Button
+                        android:id="@+id/SwimCenterMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Swim Center (Men)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Swim Center (Women) Button -->
+                    <Button
+                        android:id="@+id/SwimCenterWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Swim Center (Women)"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Field House BUILDING -->
+
+            <!-- Field House Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Field House"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Field House Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Field House Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Field House Button -->
+                    <Button
+                        android:id="@+id/FieldHouseMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Field House (Men)"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

@@ -518,7 +518,7 @@
                     <Button
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="See Messaging &amp; Telephone Instructions"
+                        android:text="See Messaging &amp; Telephone Instructions Yo diggity"
                         />
 
                     <!-- Divider Line -->
