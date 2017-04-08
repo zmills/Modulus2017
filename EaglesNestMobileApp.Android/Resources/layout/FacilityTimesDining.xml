@@ -5,9 +5,9 @@
     android:layout_width="match_parent">
 
 
-    <View
+    <!--<View
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content">-->
 
 
     <TextView
@@ -213,11 +213,11 @@
 
     
         
-    </View>
+    <!--</View>-->
 
-    <View
+    <!--<View
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content">-->
         
         
     <TextView
@@ -423,5 +423,5 @@
      android:layout_height="wrap_content"
      android:text="*Meal Card is required for admittance to the 11:30–Noon Sunday lunch shift."
       />
-    </View>
+    <!--</View>-->
 </LinearLayout>

@@ -4,141 +4,173 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    >
     <!-- The class title-->
     <TextView
         android:id="@+id/attendanceClassName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:textSize="16dp" />
+       style="@style/ModRobotoMedium20"
+        android:layout_marginLeft="8dp"/>
     <!-- the overall box for the entire 4 stubs-->
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/StudentInfoCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-        <LinearLayout
+        cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
+        cardview:cardElevation="2dp"
+        cardview:cardUseCompatPadding="false"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+       
+        >
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- Stub 1 Unexcused Absences-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/attendanceClassUnexcused"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Unexcused Absences"
-                    android:clickable="true" />
-                <TextView
-                    android:id="@+id/attendanceClassUnexcusedNumber"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+             android:padding="8dp"
+            >
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="right"
-                    android:layout_marginRight="64dp" />
-            </LinearLayout>
-            <!-- This will need to become a recycler view - The list of unexcused absences-->
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/AttendancePenaltyListRecyclerView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:scrollbars="vertical"
-                android:layout_marginLeft="8dp"
-                android:visibility="visible"
-            />
+                    android:orientation="vertical">
+                    <!-- Stub 1 Unexcused Absences-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/attendanceClassUnexcused"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unexcused Absences"
+                            android:clickable="true" 
+                             style="@style/ModListItemPrimaryText"/>
+                        <TextView
+                            android:id="@+id/attendanceClassUnexcusedNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:gravity="right"
+                            android:layout_marginRight="64dp"
+                             style="@style/ModListItemPrimaryText"/>
+                    </LinearLayout>
+                    <!-- This will need to become a recycler view - The list of unexcused absences-->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/AttendancePenaltyListRecyclerView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical"
+                        android:layout_marginLeft="8dp"
+                        android:visibility="visible"
+                />
 
-            <!-- Stub 2 Pending Unexcused abscences-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/AttendancePendingUnexcused"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pending Unexcused Absences"
-                    android:clickable="true" />
-                <TextView
-                    android:id="@+id/AttendancePendingUnexcusedNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="right"
-                    android:layout_marginRight="64dp" />
-            </LinearLayout>
-            <!-- This will need to become a recycler view - The list of pending unexcused absences-->
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/AttendancePenaltyListRecyclerView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:scrollbars="vertical"
-                android:layout_marginLeft="8dp"
-                android:visibility="visible"
-            />
+                    <!-- Stub 2 Pending Unexcused abscences-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/AttendancePendingUnexcused"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending Unexcused Absences"
+                            android:clickable="true" 
+                             style="@style/ModListItemPrimaryText"/>
+                        <TextView
+                            android:id="@+id/AttendancePendingUnexcusedNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:gravity="right"
+                            android:layout_marginRight="64dp" 
+                             style="@style/ModListItemPrimaryText"/>
+                    </LinearLayout>
+                    <!-- This will need to become a recycler view - The list of pending unexcused absences-->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/AttendancePenaltyListRecyclerView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical"
+                        android:layout_marginLeft="8dp"
+                        android:visibility="visible"
+                />
 
-            <!-- stub 3 Tardies-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/AttendanceTardies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tardies" />
-                <TextView
-                    android:id="@+id/AttendanceTardiesNumber"
+                    <!-- stub 3 Tardies-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/AttendanceTardies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tardies" 
+                             style="@style/ModListItemPrimaryText"/>
+                        <TextView
+                            android:id="@+id/AttendanceTardiesNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:gravity="right"
+                            android:layout_marginRight="64dp" 
+                             style="@style/ModListItemPrimaryText"/>
+                    </LinearLayout>
+                    <!-- This will need to become a recycler view - The list of pending unexcused absences-->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/AttendancePenaltyListRecyclerView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical"
+                        android:layout_marginLeft="8dp"
+                        android:visibility="visible"
+                />
+                    <!-- Stub 4 Pending Tardies-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                            <TextView
+                                android:id="@+id/AttendancePendingTardies"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pending Tardies" 
+                                 style="@style/ModListItemPrimaryText"
+                                />
+                            <TextView
+                                android:id="@+id/AttendancePendingTardiesNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                               
+                                android:textSize="15dp"
+                                android:gravity="right"
+                                android:layout_marginRight="64dp" 
+                                 style="@style/ModListItemPrimaryText"
+                                /> 
+                    </LinearLayout>
+                    <!-- This will need to become a recycler view - The list of pending unexcused absences-->
+                    <android.support.v7.widget.RecyclerView
+                    android:id="@+id/AttendancePenaltyListRecyclerView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="right"
-                    android:layout_marginRight="64dp" />
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="visible"
+                    />
+                  
+                </LinearLayout>
             </LinearLayout>
-            <!-- This will need to become a recycler view - The list of pending unexcused absences-->
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/AttendancePenaltyListRecyclerView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:scrollbars="vertical"
-                android:layout_marginLeft="8dp"
-                android:visibility="visible"
-            />
-            <!-- Stub 4 Pending Tardies-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/AttendancePendingTardies"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pending Tardies" />
-                <TextView
-                    android:id="@+id/AttendancePendingTardiesNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textSize="15dp"
-                    android:gravity="right"
-                    android:layout_marginRight="64dp" />
-                <!-- This will need to become a recycler view - The list of pending unexcused absences-->
-                <android.support.v7.widget.RecyclerView
-                android:id="@+id/AttendancePenaltyListRecyclerView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:scrollbars="vertical"
-                android:layout_marginLeft="8dp"
-                android:visibility="visible"
-            />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
