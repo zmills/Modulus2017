@@ -94,25 +94,46 @@ namespace EaglesNestMobileApp.Core.Model.Food
             switch (item.LineNumber.ToString())
             {
                 case App.LineKeys.LineOne:
-                    LunchMenu[0].Add(item);
+                    { 
+                        LunchMenu[0].Add(item);
+                        BreakfastMenu[0].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineTwo:
-                    LunchMenu[1].Add(item);
+                    {
+                        LunchMenu[1].Add(item);
+                        DinnerMenu[1].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineThree:
-                    LunchMenu[2].Add(item);
+                    {
+                        LunchMenu[2].Add(item);
+                        DinnerMenu[2].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineFour:
-                    LunchMenu[3].Add(item);
+                    {
+                        LunchMenu[3].Add(item);
+                        DinnerMenu[3].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineFive:
-                    LunchMenu[4].Add(item);
+                    {
+                        LunchMenu[4].Add(item);
+                        DinnerMenu[4].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineSix:
-                    LunchMenu[5].Add(item);
+                    {
+                        LunchMenu[5].Add(item);
+                        DinnerMenu[5].Add(item);
+                    }
                     break;
                 case App.LineKeys.LineSeven:
-                    LunchMenu[6].Add(item);
+                    {
+                        LunchMenu[6].Add(item);
+                        DinnerMenu[6].Add(item);
+                    }
                     break;
             }
         }
