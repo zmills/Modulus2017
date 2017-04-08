@@ -507,6 +507,5 @@ T, Th	11–11:50 a.m."
             android:layout_height="wrap_content"
             android:text="Sat	8:30 a.m.–10 p.m."
             />
-    <!--</View>-->
 
 </LinearLayout>

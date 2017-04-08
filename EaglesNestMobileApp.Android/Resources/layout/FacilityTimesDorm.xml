@@ -1,133 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-    <!--<View
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">-->
+    android:orientation="vertical"
+    >
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Residence Halls"
-      />
+    <!-- TOOLBAR -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolbarDialogLayout"
+        />
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Doors open at 5:45 a.m. (Sun 7 a.m.) and close at 10:25 p.m."
-      />
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Men's Dorms"
-      />
+    <!-- SCROLLVIEW -->
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Ballard Hall"
-      />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Campus House"
-      />
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Dorm BUILDING -->
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Coberly Hall"
-      />
+            <!-- Dorm Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Dorms"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Young Tower"
-      />
+            <!-- Dorm Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Women's Dorms"
-      />
+                <!-- Dorm Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Bradley Tower"
-      />
+                    <!-- Dorm Convenience Stores Button -->
+                    <Button
+                        android:id="@+id/DormConvenienceStores"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Dorm Convenience Stores (Gearbox) (Pelican)"
+                        android:gravity="left"
+                              />
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Dixon Tower"
-      />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Griffith Tower"
-      />
+                    <!-- Dorm Practice Rooms Button -->
+                    <Button
+                        android:id="@+id/DormPracticeRooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Dorm Practice Rooms"
+                        android:gravity="left"
+                              />
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Convenience Stores"
-      />
+                </LinearLayout>
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Gearbox (Men’s RH)"
-      />
+            </android.support.v7.widget.CardView>
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Pelican (Women’s RH)"
-      />
+        </LinearLayout>
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="M–Th	8–10:30 p.m."
-      />
+    </android.support.v4.widget.NestedScrollView>
 
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="F, Sat	8–11:45 p.m."
-      />
-
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Sun	7–10:30 p.m."
-      />
-
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Practice Rooms"
-      />
-
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Bradley Tower and Young Tower"
-      />
-
-
-        <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="M–Sun	5:45 a.m.–10:15 p.m."
-      />
-
-    <!--</View>-->
-
-
-    </LinearLayout>
+</LinearLayout>

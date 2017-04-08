@@ -1,427 +1,262 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-
-    <!--<View
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">-->
-
-
-    <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="Academy Bookstore"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	10 a.m.–5 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Commons"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	7 a.m.–10:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	closed 6:30–8 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	9 a.m.–10:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	11:15 a.m.–5:30 p.m., 7–10:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Campus Store"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	7:30 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	closed 6:30–8 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	9 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	7–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Convenience stores also located in each residence hall."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Common Grounds Café"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="click for menu"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	7 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	closed 6:30–8 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	9 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	7–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Palms Grille—click for menu"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	7 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	closed 6:30–8 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	9 a.m.–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	7–10 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Room Service"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="(850) 476-8000 ext. 6733 or 6733 from your campus phone"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M, T, Th, F, Sat	5–9pm "
-      />
-
-
-    <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W, Sun	After church–9 p.m."
-      />
-
-
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Post Office"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Package Window/Lost and Found"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	7:30 a.m.–5:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text=""
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	3–5 p.m."
-      />
-
-    
-        
-    <!--</View>-->
-
-    <!--<View
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">-->
-        
-        
-    <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Dining Halls"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Breakfast"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	5:45–8:30 a.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	Closed"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	7:30–8:30 a.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Lunch"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–Sat	10:45 a.m.–1:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	11:30–Noon*
-12:30–1 p.m."
-      />
-
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Dinner"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M, T, Th, F, Sat	4:45–6:30 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	4:15–6:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	4:30–5:15 p.m.
-7:15–7:45 p.m."
-      />
-
-
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Varsity"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Breakfast"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	Closed"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	6–10:30 a.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	Closed"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Lunch"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	10:45 a.m.–1:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	10:30 a.m.–3 p.m."
-      />
-
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	11:30–Noon*
-12:30–1 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Dinner	"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M, T, Th, F	4:45–6:30 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	4:15–6:15 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sat	3–6:30 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Sun	7:15–7:45 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Grab N Go (Available on class days only)"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Lunch"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	10:45 a.m.–3 p.m."
-      />
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="Dinner"
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="M–F	10:45 a.m.–6:30 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="W	closes at 6 p.m."
-      />
-
-        <TextView
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:text="*Meal Card is required for admittance to the 11:30–Noon Sunday lunch shift."
-      />
-    <!--</View>-->
+    android:orientation="vertical"
+    >
+
+    <!-- TOOLBAR -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolbarDialogLayout"
+        />
+
+    <!-- SCROLLVIEW -->
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Four Winds BUILDING -->
+
+            <!-- Four Winds Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Four Winds"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Four Winds Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Four Winds Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Four Winds Button -->
+                    <Button
+                        android:id="@+id/FourWinds"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Four Winds"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Varsity BUILDING -->
+
+            <!-- Varsity Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Varsity"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Varsity Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Varsity Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Varsity Button -->
+                    <Button
+                        android:id="@+id/Varsity"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Varsity"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Grab 'n Go BUILDING -->
+
+            <!-- Grab 'n Go Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Grab 'n Go"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Grab 'n Go Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Grab 'n Go Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Grab 'n Go Button -->
+                    <Button
+                        android:id="@+id/GrabnGo"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Grab 'n Go"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Commons BUILDING -->
+
+            <!-- Commons Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Commons"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Commons Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Commons Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Common Grounds Button -->
+                    <Button
+                        android:id="@+id/CommonGrounds"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Common Grounds"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Palms Grille Button -->
+                    <Button
+                        android:id="@+id/PalmsGrille"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Palms Grille"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Campus Store Button -->
+                    <Button
+                        android:id="@+id/CampusStore"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Campus Store"
+                        android:gravity="left"
+                              />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
 </LinearLayout>
