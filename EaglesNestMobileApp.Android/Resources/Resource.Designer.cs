@@ -2633,6 +2633,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f0a00d1
 			public const int CommonsGeneral = 2131362001;
 			
+			// aapt resource value: 0x7f0a00c8
+			public const int ConvenienceStores = 2131361992;
+			
 			// aapt resource value: 0x7f0a00f7
 			public const int CourseGrade = 2131362039;
 			
@@ -2653,9 +2656,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f0a00be
 			public const int Dorm = 2131361982;
-			
-			// aapt resource value: 0x7f0a00c8
-			public const int DormConvenienceStores = 2131361992;
 			
 			// aapt resource value: 0x7f0a00c9
 			public const int DormPracticeRooms = 2131361993;
