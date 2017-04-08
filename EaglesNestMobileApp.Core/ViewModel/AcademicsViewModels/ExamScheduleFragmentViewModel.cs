@@ -28,6 +28,8 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
         {
             var courses = await Database.GetCoursesAsync();
 
+            Classes.Clear();
+
             foreach (Course current in courses)
                 Classes.Add(current);
         }

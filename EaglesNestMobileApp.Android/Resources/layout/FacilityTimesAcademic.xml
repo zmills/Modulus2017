@@ -2,16 +2,17 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/modFacilityTimeBackground"
+    android:layout_height="match_parent"    
     >
 
-    <View
+    <!--<View
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
+        android:background="?attr/modFacilityTimeBackground"-->
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+         style="@style/ModListItemPrimaryText"
         android:text="Academic Offices Information"
         />
 
@@ -24,8 +25,7 @@
     <TextView
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
-       android:text="Dr. Raylene Cochran—Admin 1st Floor
-By appointment"
+       android:text="Dr. Raylene Cochran—Admin 1st Floor  By appointment"
         />
 
     <TextView
@@ -34,11 +34,7 @@ By appointment"
        android:text="Dean of Biblical Studies and Dean of Seminary"
         />
         
- <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text=""
-        />
+
 
     <TextView
        android:layout_height="wrap_content"
@@ -78,8 +74,7 @@ By appointment"
     <TextView
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
-       android:text="M, W	9–9:50 a.m.
-T, Th	1–1:50 p.m."
+       android:text="M, W	9–9:50 a.m. T, Th	1–1:50 p.m."
         />
 
     <TextView
@@ -96,8 +91,7 @@ T, Th	1–1:50 p.m."
     <TextView
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
-       android:text="W, F	9–9:50 a.m.
-Th	1–1:50 p.m."
+       android:text="W, F	9–9:50 a.m. Th	1–1:50 p.m."
         />
 
     <TextView
@@ -133,8 +127,7 @@ Th	1–1:50 p.m."
     <TextView
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
-       android:text="M, T	1–1:50 p.m.
-T, Th	9–9:50 a.m."
+       android:text="M, T	1–1:50 p.m. T, Th	9–9:50 a.m."
         />
 
     <TextView
@@ -208,16 +201,15 @@ T, Th	11–11:50 a.m."
     <TextView
        android:layout_height="wrap_content"
        android:layout_width="match_parent"
-       android:text="M, Th	9–9:50 a.m.
-T, W	2–2:50 p.m."
+       android:text="M, Th	9–9:50 a.m.T, W	2–2:50 p.m."
         />
 
         
-    </View>
+    <!--</View>-->
 
-    <View
+    <!--<View
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent">-->
 
 
         <TextView
@@ -289,8 +281,7 @@ T, W	2–2:50 p.m."
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter through Rebekah Horton Library
-M–F, 5–10 p.m. and Sat, 8:30 a.m.–10 p.m."
+            android:text="Enter through Rebekah Horton Library M–F, 5–10 p.m. and Sat, 8:30 a.m.–10 p.m."
             />
 
         <TextView
@@ -516,6 +507,6 @@ M–F, 5–10 p.m. and Sat, 8:30 a.m.–10 p.m."
             android:layout_height="wrap_content"
             android:text="Sat	8:30 a.m.–10 p.m."
             />
-    </View>
+    <!--</View>-->
 
 </LinearLayout>
