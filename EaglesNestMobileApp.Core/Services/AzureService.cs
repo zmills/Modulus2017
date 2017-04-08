@@ -57,7 +57,7 @@ namespace EaglesNestMobileApp.Core.Services
                 /* Get references to the tables                              */
                 GetReferences();
 
-                await SyncAsync(pullData:true);
+                //await SyncAsync(pullData:true);
             }
         }
 
