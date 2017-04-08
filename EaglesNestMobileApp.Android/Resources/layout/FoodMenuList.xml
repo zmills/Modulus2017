@@ -6,4 +6,5 @@
     style="@style/ModListItemPrimaryText"
     android:textSize="20sp"
     android:background="?attr/modCardBackgroundColor"
+          android:paddingLeft="56dp"
           />
