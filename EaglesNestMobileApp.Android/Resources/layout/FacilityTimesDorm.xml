@@ -70,10 +70,10 @@
 
                     <!-- Dorm Convenience Stores Button -->
                     <Button
-                        android:id="@+id/DormConvenienceStores"
+                        android:id="@+id/ConvenienceStores"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Dorm Convenience Stores (Gearbox) (Pelican)"
+                        android:text="Convenience Stores (Gearbox) (Pelican)"
                         android:gravity="left"
                               />
 
