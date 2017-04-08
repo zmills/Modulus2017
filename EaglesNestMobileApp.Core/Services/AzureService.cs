@@ -200,15 +200,19 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                    Get the Azure login credentials                */
         /*********************************************************************/
-        // DATABASE MUST BE PURGED ON WHEN USER LOGS OUT
         public async Task<AzureToken> GetAzureTokenAsync(LocalToken currentUser)
         {
-            List<AzureToken> _remoteToken = await _azureTokenTable.ToListAsync();
 
-            /* Delete the information so that the user salt is not saved     */
+            //APPARENTLY THIS DOES NOT WORK PROPERLY
+            await _azureTokenTable.PullAsync("loginUser",
+                _azureTokenTable.Where(user => user.Id == currentUser.Id));
+
+            List<AzureToken> _tokenList = await _azureTokenTable.Where(user =>
+                user.Id == currentUser.Id).ToListAsync();
+
+            //DELETE THE LOGIN INFORMATION
             await _azureTokenTable.PurgeAsync();
-
-            return _remoteToken[0];
+            return _tokenList[0];
         }
 
         /*********************************************************************/

@@ -53,7 +53,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             /* Set the current and previous recyclerviews */
             _currentRecyclerview = _previousRecyclerview =
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine1);
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView);
 
             /* Set up the recyclerviews and adapters for the fragment        */
             Activity.RunOnUiThread(()=> SetUpGrabAndGo());
@@ -68,19 +68,19 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             /* Add the recyclerviews to a list                               */
             RecyclerviewList = new List<RecyclerView>
             {
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine1),
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine2),
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine3),
-                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.GrabAndGoLine4)
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.Line2RecyclerView),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.Line3RecyclerView),
+                _grabAndGoFragmentView.FindViewById<RecyclerView>(Resource.Id.Line4RecyclerView)
             };
 
             /* Add the lines to a list                                       */
             LineList = new List<TextView>
             {
-                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption1),
-                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption2),
-                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption3),
-                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.grabNGoOption4)
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.line1),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.line2),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.line3),
+                _grabAndGoFragmentView.FindViewById<TextView>(Resource.Id.line4)
             };
            
             /* Set adapters, layout managers, and click handlers             */
@@ -97,7 +97,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
-                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme}";
+                LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
 
             }
         }
@@ -164,7 +164,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.GrabAndGoMenu.LunchMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
@@ -178,7 +178,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.GrabAndGoMenu.DinnerMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.GrabAndGoMenu.DinnerMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.GrabAndGoMenu.DinnerMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });

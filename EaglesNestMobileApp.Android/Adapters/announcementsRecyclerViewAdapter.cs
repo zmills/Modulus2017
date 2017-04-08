@@ -3,14 +3,8 @@ using Android.Views;
 using System.Collections.Generic;
 using EaglesNestMobileApp.Core.Model;
 using Android.Widget;
-using Android.OS;
-using System.Threading;
-using AppCompatButton = Android.Support.V7.Widget.AppCompatButton;
 using Android.Graphics;
 using EaglesNestMobileApp.Android.Helpers;
-using System.Collections.ObjectModel;
-using System;
-using Android.Content;
 using EaglesNestMobileApp.Android.Views;
 
 namespace EaglesNestMobileApp.Android.Adapters
@@ -85,7 +79,7 @@ namespace EaglesNestMobileApp.Android.Adapters
             // the ROOT VIEW can be used as the parameter
             // NOTE: THREADING DOES NOT WORK HERE
             #endregion
-            ExpandTouchableByTagName(_currentHolder.ParentLayout, "ExpandTouchable");
+            //ExpandTouchableByTagName(_currentHolder.ParentLayout, "ExpandTouchable");
             
             return _viewHolder;
         }
@@ -161,9 +155,9 @@ namespace EaglesNestMobileApp.Android.Adapters
             //_parentLayout.Post(() => ExpandTouchable(_parentLayout, _viewArray));
             /*DEBUG:*/Button sharebutton;
             /*DEBUG:*/Button signupbutton;
-            /*DEBUG:*/_viewArray.Add(sharebutton = (Button)parentLayout.FindViewById<View>(Resource.Id.ShareButton));
-            /*DEBUG:*/_viewArray.Add(signupbutton = (Button)parentLayout.FindViewById<View>(Resource.Id.SignUpButton));
-            /*DEBUG:*/parentLayout.Post(() => ExpandTouchable(parentLayout, _viewArray));
+            /*DEBUG:_viewArray.Add(sharebutton = (Button)parentLayout.FindViewById<View>(Resource.Id.ShareButton));
+            /*DEBUG:_viewArray.Add(signupbutton = (Button)parentLayout.FindViewById<View>(Resource.Id.SignUpButton));
+            /*DEBUG:parentLayout.Post(() => ExpandTouchable(parentLayout, _viewArray));*/
         }
 
         /*********************************************************************/

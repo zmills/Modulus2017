@@ -9,9 +9,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
     {
         public ObservableCollection<Card> Announcements { get; set; }
 
-        public static void Initialize()
+        private void InitializeAnnouncements()
         {
-
+           
         }
     }
 }

@@ -211,7 +211,6 @@
     <Compile Include="Adapters\gradesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\gradesViewHolder.cs" />
     <Compile Include="Adapters\navigationAdapter.cs" />
-    <Compile Include="Adapters\varsityTabListener.cs" />
     <Compile Include="AndroidApp.cs" />
     <Compile Include="AndroidApp.FacilityCategory.cs" />
     <Compile Include="Cards\OLDCard.cs" />
