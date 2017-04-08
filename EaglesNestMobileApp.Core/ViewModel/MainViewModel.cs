@@ -9,7 +9,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
     {
         public async Task InitializeViewModels()
         {
-            //App.Locator.Announcements.Initialize();
             App.Locator.Events.Initialize();
             App.Locator.Grades.InitializeStatic();
             //await App.Locator.Grades.InitializeAsync();

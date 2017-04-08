@@ -67,9 +67,17 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="1" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Breakfast Bar" />
+                        android:text="Breakfast Bar" 
+                        android:id="@+id/line1"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+          
+            <include
+                android:id="@+id/Line1RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
+          
             <!-- Divider Line -->
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
@@ -90,9 +98,15 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="2" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Contental Breakfast" />
+                        android:text="Contental Breakfast"
+                        android:id="@+id/line2"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <include
+                android:id="@+id/Line2RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -112,9 +126,15 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="3" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Mega Cereal Bar" />
+                        android:text="Mega Cereal Bar" 
+                        android:id="@+id/line3"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <include
+                android:id="@+id/Line3RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -134,9 +154,15 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="4" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Country Cooking" />
+                        android:text="Country Cooking" 
+                        android:id="@+id/line4"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <include
+                android:id="@+id/Line4RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -156,9 +182,16 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="5" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Breakfast Bar" />
+                        android:text="Breakfast Bar" 
+                        android:id="@+id/line5"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <include
+                android:id="@+id/Line5RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
+            
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -178,9 +211,15 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="6" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Healthy Choices" />
+                        android:text="Healthy Choices"
+                        android:id="@+id/line6"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <include
+                android:id="@+id/Line6RecyclerView"
+                layout="@layout/BaseRecyclerView"
+                />
+          
             <View style="@style/ModDivider" />
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -200,167 +239,14 @@
                     <TextView style="@style/ModDiningLineNumber"
                         android:text="7" />
                     <TextView style="@style/ModDiningLineTitle"
-                        android:text="Pancake and Waffle Bar" />
+                        android:text="Pancake and Waffle Bar" 
+                        android:id="@+id/line7"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-            <!-- LINE 1 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="1" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Breakfast Bar" />
-            </LinearLayout>
-            <!-- LINE 2 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="2" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Contental Breakfast" />
-            </LinearLayout>
-            <!-- LINE 3 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="3" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Mega Cereal Bar" />
-            </LinearLayout>
-            <!-- LINE 4 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="4" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Country Cooking" />
-            </LinearLayout>
-            <!-- LINE 5 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="5" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Breakfast Bar" />
-            </LinearLayout>
-            <!-- LINE 6 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="6" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Healthy Choices" />
-            </LinearLayout>
-            <!-- LINE 7 -->
-            <LinearLayout style="@style/ModDiningLineLayoutView" >
-                <TextView style="@style/ModDiningLineNumber"
-                    android:text="7" />
-                <TextView style="@style/ModDiningLineTitle"
-                    android:text="Pancake and Waffle Bar" />
-            </LinearLayout>
-            
-            
-            <!-- LINE 1 -->
-            
-            <TextView
-                android:id="@+id/line1"
-                android:text="1 - Breakfast Bar"
-                style="@style/ModFoodLineHeader"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line1RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                />
-
-            
-
-            <!-- LINE 2 -->
-            <TextView
-                android:id="@+id/line2"
-                style="@style/ModFoodLineHeader"
-                android:text="2 - Contental Breakfast"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line2RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                />
-
-            
-
-            <!-- LINE 3 -->
-            <TextView
-                android:id="@+id/line3"
-                style="@style/ModFoodLineHeader"
-                android:text="3 - Mega Cereal Bar"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line3RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                android:background="@color/primary"
-                />
-
-           
-
-            <!-- LINE 4 -->
-            <TextView
-                android:id="@+id/line4"
-                style="@style/ModFoodLineHeader"
-                android:text="4 - Country Cooking"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line4RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                />
-
-           
-
-            <!-- LINE 5 -->
-            <TextView
-                android:id="@+id/line5"
-                style="@style/ModFoodLineHeader"
-                android:text="5 - Breakfast Bar"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line5RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                />
-
-        
-
-            <!-- LINE 6 -->
-            <TextView
-                android:id="@+id/line6"
-                style="@style/ModFoodLineHeader"
-                android:text="6 - Healthy Choices"
-                android:clickable="true"
-                />
-
-            <include
-                android:id="@+id/Line6RecyclerView"
-                layout="@layout/BaseRecyclerView"
-                />
-
-          
-
-            <!-- LINE 7 -->
-            <TextView
-                android:id="@+id/line7"
-                style="@style/ModFoodLineHeader"
-                android:text="7 - Pancake and Waffle Bar"
-                android:clickable="true"
-                />
-
             <include
                 android:id="@+id/Line7RecyclerView"
                 layout="@layout/BaseRecyclerView"
                 />
-
         </LinearLayout>
-    
     </android.support.v4.widget.NestedScrollView>
-
 </LinearLayout>
