@@ -55,7 +55,7 @@
         
         <!--<item name="android:textColorHint">####</item>-->
         <!-- statusBarColor is automatically set to colorPrimaryDark -->
-        <!--<item name="android:statusBarColor">####</item>-->
+        <item name="android:statusBarColor">@color/red</item>
         <!-- Android says: When you customize the navigation and status bars,
              either make them both transparent or modify only the status bar.
              The navigation bar should remain black in all other cases. -->
