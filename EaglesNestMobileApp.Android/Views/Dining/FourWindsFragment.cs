@@ -210,7 +210,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.FourWindsMenu.DinnerMenu[count];
-                                LineList[count].Text = ViewModel.FourWindsMenu.DinnerMenu[count][0].MealTheme;                                _adapter.NotifyDataSetChanged();
+                                LineList[count].Text = ViewModel.FourWindsMenu.DinnerMenu[count][0].MealTheme;
+                               _adapter.NotifyDataSetChanged();
                             }
                         });
                     }

@@ -81,6 +81,13 @@
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
+                    <!--<TextView
+                        android:id="@+id/ACClassroomsData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="M–F	7:30 a.m.–5 p.m."
+                        />-->
+
                     <!-- Computer/Education Labs, Media Room Button -->
                     <Button
                         android:id="@+id/ACLabs"
@@ -89,7 +96,46 @@
                         android:text="Computer/Education Labs, Media Room"
                         android:gravity="left"
                         />
-                
+
+                    <LinearLayout
+                        android:id="@+id/ACLabsData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="32dp"
+                        android:paddingBottom="16dp"
+                        android:orientation="vertical"
+                        >
+                    
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:text="M–F  7:30 a.m.–10 p.m."
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:text="W   closed 6:30–8:15 p.m."
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:text="Sat   8:30 a.m.–10 p.m."
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/ModRobotoRegular16"
+                            android:text="W  closed 6:30–8:15 p.m."
+                            />
+                        
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
