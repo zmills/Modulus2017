@@ -76,6 +76,7 @@
             <include
                 android:id="@+id/Line1RecyclerView"
                 layout="@layout/BaseRecyclerView"
+           
                 />
           
           
@@ -104,8 +105,10 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <include
-                android:id="@+id/Line2RecyclerView"
+                android:id="@+id/Line2RecyclerView" 
+          
                 layout="@layout/BaseRecyclerView"
+               
                 />
           
             <View style="@style/ModDivider" />
