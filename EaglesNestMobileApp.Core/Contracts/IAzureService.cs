@@ -1,4 +1,5 @@
 ﻿using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Model.Campus;
 using EaglesNestMobileApp.Core.Model.Home;
 using EaglesNestMobileApp.Core.Model.Personal;
 using System.Collections.Generic;
@@ -24,11 +25,15 @@ namespace EaglesNestMobileApp.Core.Contracts
 
         Task<List<GrabAndGoItem>> GetGrabAndGoItemsAsync();
 
+        Task<List<Offense>> GetStudentCourtOffensesAsync();
+
         Task<LocalToken> GetLocalTokenAsync();
 
         Task<AzureToken> GetAzureTokenAsync(LocalToken user);
 
         Task<Student> GetStudentAsync();
+
+        Task<List<OffenseCategory>> GetStudentCourtCategoriesAsync();
 
         Task InsertLocalTokenAsync(LocalToken user);
 

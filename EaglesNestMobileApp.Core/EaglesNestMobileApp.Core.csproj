@@ -48,6 +48,9 @@
     <Compile Include="Model\Academics\GradeCard.cs" />
     <Compile Include="Model\AzureToken.cs" />
     <Compile Include="Model\Campus\Facility.cs" />
+    <Compile Include="Model\Campus\Offense.cs" />
+    <Compile Include="Model\Campus\OffenseCard.cs" />
+    <Compile Include="Model\Campus\OffenseCategory.cs" />
     <Compile Include="Model\Food\FourWindsMenu.cs" />
     <Compile Include="Model\Food\GrabAndGoMenu.cs" />
     <Compile Include="Model\Food\VarsityMenu.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="ViewModel\AccountViewModels\AttendanceFragmentViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModels\ScheduleFragmentViewModel.cs" />
     <Compile Include="ViewModel\CampusLifeViewModels\FacilitiesFragmentViewModel.cs" />
+    <Compile Include="ViewModel\CampusLifeViewModels\StudentCourtFragmentViewModel.cs" />
     <Compile Include="ViewModel\DiningViewModels\VarsityFragmentViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModels\StudentInfoFragmentViewModel.cs" />
     <Compile Include="ViewModel\DiningViewModels\FourWindsFragmentViewModel.cs" />
