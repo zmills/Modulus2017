@@ -87,7 +87,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         private void TabLayoutTabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(e.Tab.Text);
             if (e.Tab.Text == "Events Signup")
             {
                 if (_position > 10)

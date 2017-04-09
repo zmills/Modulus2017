@@ -57,7 +57,8 @@ namespace EaglesNestMobileApp.Core.Services
                 _syncHandler.Exclude<LocalToken>();
 
                 /* Sync or something                                         */
-                await _client.SyncContext.InitializeAsync(_eagleDatabase);
+                await _client.SyncContext.InitializeAsync(_eagleDatabase,
+                    _syncHandler);
 
                 /* Get references to the tables                              */
                 GetReferences();
@@ -77,7 +78,7 @@ namespace EaglesNestMobileApp.Core.Services
 
             try
             {
-                //await _client.SyncContext.PushAsync();
+                await _client.SyncContext.PushAsync();
                 if (pullData)
                 {
                     /* Pull down student related tables                      */
@@ -89,26 +90,22 @@ namespace EaglesNestMobileApp.Core.Services
                         _courseTable.Where(course =>
                             course.StudentId == _currentUser.Id));
 
-
                     await _studentTable.PullAsync("currentStudent",
                         _studentTable.Where(student =>
                             student.Id == _currentUser.Id));
+
                     await _attendanceTable.PullAsync("AllAttendanceViolations",
-                        _attendanceTable.Where(attendance => attendance.StudentId == _currentUser.Id));
+                        _attendanceTable.Where(attendance => 
+                        attendance.StudentId == _currentUser.Id));
 
                     await _offenseTable.PullAsync("AllStudentCourtOffenses",
-                        _offenseTable.Where(offense => offense.StudentId == _currentUser.Id));
+                        _offenseTable.Where(offense => 
+                        offense.StudentId == _currentUser.Id));
 
                     await _offenseCategoryTable.PullAsync("AllStudentCourtOffenseCategories",
-                        _offenseCategoryTable.Where(offense => offense.StudentId == _currentUser.Id));
-
-                    /******************************************************************************/
-                    /**/
-                    var whateverVariable = await _offenseTable.ToListAsync();          /**/
-                                                                                       /**/
-                    System.Diagnostics.Debug.WriteLine("\n\n\n" + whateverVariable.Count);/**/
-                                                                                          /******************************************************************************/
-                                                                                          /* Pull down non student related tables                 */
+                        _offenseCategoryTable.Where(offense => 
+                        offense.StudentId == _currentUser.Id));                                                                                   
+                                                                                          
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
                     await _fourWindsTable.PullAsync("allFourWindsItems",
@@ -261,6 +258,38 @@ namespace EaglesNestMobileApp.Core.Services
         }
 
         /*********************************************************************/
+        /*                              Get Events                           */
+        /*********************************************************************/
+        public async Task<List<EventsSignUp>> GetEventsAsync()
+        {
+            return await _eventsSignUpTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                      Get attendance violations                    */
+        /*********************************************************************/
+        public async Task<List<ClassAttendance>> GetAttendanceViolationsAsync()
+        {
+            return await _attendanceTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                      Get student court offenses                   */
+        /*********************************************************************/
+        public async Task<List<Offense>> GetStudentCourtOffensesAsync()
+        {
+            return await _offenseTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                 Get student court category totals                 */
+        /*********************************************************************/
+        public async Task<List<OffenseCategory>> GetStudentCourtCategoriesAsync()
+        {
+            return await _offenseCategoryTable.ToListAsync();
+        }
+
+        /*********************************************************************/
         /*                      Insert into local store                      */
         /*********************************************************************/
         public async Task PurgeDatabaseAsync()
@@ -288,35 +317,6 @@ namespace EaglesNestMobileApp.Core.Services
 
             await _azureTokenTable.PurgeAsync(null, null, true,
                 CancellationToken.None);
-        }
-
-        /*********************************************************************/
-        /*                              Get Events                           */
-        /*********************************************************************/
-        public async Task<List<EventsSignUp>> GetEventsAsync()
-        {
-            return await _eventsSignUpTable.ToListAsync();
-        }
-
-        /*********************************************************************/
-        /*                      Get attendance violations                    */
-        /*********************************************************************/
-        public async Task<List<ClassAttendance>> GetAttendanceViolationsAsync()
-        {
-            return await _attendanceTable.ToListAsync();
-        }
-
-        /*********************************************************************/
-        /*                      Get student court offenses                   */
-        /*********************************************************************/
-        public async Task<List<Offense>> GetStudentCourtOffensesAsync()
-        {
-            return await _offenseTable.ToListAsync();
-        }
-
-        public async Task<List<OffenseCategory>> GetStudentCourtCategoriesAsync()
-        {
-            return await _offenseCategoryTable.ToListAsync();
         }
     }
 }

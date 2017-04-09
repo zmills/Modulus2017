@@ -40,16 +40,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 StudentCourtView.FindViewById<SwipeRefreshLayout>(
                     Resource.Id.SwipeRefreshStudentCourt);*/
 
-           /* PendingHeader = StudentCourtView.FindViewById<TextView>(Resource.Id.studentCourtInfractionBanner);
-           PendingHeader.Visibility = ViewStates.Invisible;*/
-
-            /*StatusCard = StudentCourtView.FindViewById<CardView>(Resource.Id.StudentCourtCard);
-            Infraction = StudentCourtView.FindViewById<TextView>(Resource.Id.infraction1);
-            InfractionCard = StudentCourtView.FindViewById<CardView>(Resource.Id.infractionCard);
-            InfractionCard.Visibility = ViewStates.Invisible;*/
-
-
-
             /*RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
                 Resource.Color.accent, Resource.Color.primary_text,
                     Resource.Color.secondary_text);
