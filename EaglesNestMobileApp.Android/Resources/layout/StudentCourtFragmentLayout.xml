@@ -1,116 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/SwipeRefreshStudentCourt"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
-  
-  
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:cardview="http://schemas.android.com/apk/res-auto"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center_horizontal"
-      android:padding="5dp">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <!-- ScrollView can only have ONE direct child -->
 
-
-
-    <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#333333"
-      android:text="Status"
-      android:id="@+id/studentCourtBanner"
-      android:gravity="center_horizontal"
-      android:layout_marginLeft="5dp"
-      android:textSize="30dp" />
-
-
-    <android.support.v7.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        cardview:cardElevation="4dp"
-        cardview:cardCornerRadius="5dp"
-        cardview:cardBackgroundColor="@color/soft_green"
-        android:id="@+id/StudentCourtCard">
+        android:layout_height="match_parent"
+        >
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          android:padding="8dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="212dp"
+            android:background="@color/red"
+            />
 
-        <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="You are not required to go to student court."
-          android:id="@+id/infraction1"
-          android:layout_marginLeft="5dp"
-          android:textSize="20dp"
-          android:layout_below="@+id/studentCourtStatus" />
-      </RelativeLayout>
-    </android.support.v7.widget.CardView>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
 
-    <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Pending Report Slips"
-      android:id="@+id/studentCourtInfractionBanner"
-      android:gravity="center_horizontal"
-      android:layout_marginLeft="5dp"
-      android:textSize="30dp"
-      />
-    <android.support.v7.widget.CardView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center_horizontal"
-         cardview:cardElevation="4dp"
-         cardview:cardCornerRadius="5dp"
-         cardview:cardBackgroundColor="@color/window_background"
-         android:id="@+id/infractionCard">
+            <!-- 1. STUDENT PHOTO, NAME, ID -->
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:orientation="vertical"
-          android:padding="8dp" >
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoHeaderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
 
-        <TextView
-          android:id="@+id/infractionTitle"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Chewing Gum in CS 452 "
-          android:layout_marginLeft="5dp"
-          android:textSize="20dp"
-          android:layout_alignParentTop="true"
-          android:gravity="center"  />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    >
 
-        <TextView
-          android:id="@+id/infractionDate"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="02/20/2017"
-          android:layout_marginLeft="5dp"
-          android:textSize="15dp"
-          android:gravity="left"
-          android:layout_below="@+id/infractionTitle" />
+                    <!-- ACCOUNT PHOTO -->
+                    <!-- NOTE: android:src is set programmatically for this view -->
+                    <ImageView
+                        android:id="@+id/AccountPhoto"
+                        android:layout_width="112dp"
+                        android:layout_height="112dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/student_court_circle"
+                        android:padding="2dp"
+                    />
+                    <!-- android:adjustViewBounds="true"
+                             This causes the ImageView to resize itself to fit the
+                             shape of the rescaled image. INCLUDE THIS -->
+                    <!-- android:scaleType="centerCrop"
+                             This scales the image uniformly (maintain the image's
+                             aspect ratio), then centers it. -->
 
-        <TextView
-          android:id="@+id/infractionTime"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="3:30pm"
-          android:layout_marginLeft="5dp"
-          android:gravity="right"
-          android:textSize="15dp"
-          android:layout_below="@+id/infractionTitle"/>
-      </RelativeLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        >
+
+                        <!-- STUDENT NAME -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/StudentFullName"
+                            style="@style/ModRobotoMedium20"
+                            android:text="You are not required to attend Student Court."
+                            />
+
+                        <!-- STUDENT ID -->
+                        <!--<TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModRobotoRegular16"
+                        android:id="@+id/StudentId"
+                        android:text="123451"
+                            />-->
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 1. STUDENT PHOTO, NAME, ID -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoHeaderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    >
+
+                    <!-- ACCOUNT PHOTO -->
+                    <!-- NOTE: android:src is set programmatically for this view -->
+                    <ImageView
+                        android:id="@+id/AccountPhoto"
+                        android:layout_width="112dp"
+                        android:layout_height="112dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/account_circle"
+                        android:padding="2dp"
+                    />
+                    <!-- android:adjustViewBounds="true"
+                             This causes the ImageView to resize itself to fit the
+                             shape of the rescaled image. INCLUDE THIS -->
+                    <!-- android:scaleType="centerCrop"
+                             This scales the image uniformly (maintain the image's
+                             aspect ratio), then centers it. -->
+
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        >
+
+                        <!-- STUDENT NAME -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/StudentFullName"
+                            style="@style/ModRobotoMedium20"
+                            android:text="You are not required to attend Student Court."
+                            />
+
+                        <!-- STUDENT ID -->
+                        <!--<TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        style="@style/ModRobotoRegular16"
+                        android:id="@+id/StudentId"
+                        android:text="123451"
+                            />-->
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
         
-        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
-   
-
-  </LinearLayout>
-</android.support.v4.widget.SwipeRefreshLayout>
+</android.support.v4.widget.NestedScrollView>

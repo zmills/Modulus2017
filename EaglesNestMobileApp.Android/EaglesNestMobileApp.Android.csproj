@@ -283,7 +283,7 @@
     <AndroidResource Include="Resources\layout\RequestsFragmentLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\StudentCourtFragmentLayout.xml">
+    <AndroidResource Include="Resources\layout\StudentCourtFragmentLayoutOLD.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\FourWindsFragmentLayout.xml">
@@ -538,6 +538,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ToolbarDialogLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\StudentCourtFragmentLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\student_court_circle.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

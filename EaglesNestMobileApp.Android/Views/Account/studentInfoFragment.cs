@@ -71,7 +71,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             #endregion
             /*UI THREAD*/
 
-            //Activity.RunOnUiThread(()=>SetStudentInfo());
+            Activity.RunOnUiThread(()=>SetStudentInfo());
 
 
             /* Use this to return your custom view for this Fragment         */

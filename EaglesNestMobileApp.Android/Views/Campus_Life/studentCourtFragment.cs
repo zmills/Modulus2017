@@ -36,24 +36,24 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             StudentCourtView = inflater.Inflate(Resource.Layout.StudentCourtFragmentLayout,
                 container, false);
             /* "Pulling" down on the page will refresh the view              */
-            RefreshLayout =
+            /*RefreshLayout =
                 StudentCourtView.FindViewById<SwipeRefreshLayout>(
-                    Resource.Id.SwipeRefreshStudentCourt);
+                    Resource.Id.SwipeRefreshStudentCourt);*/
 
-            PendingHeader = StudentCourtView.FindViewById<TextView>(Resource.Id.studentCourtInfractionBanner);
-           PendingHeader.Visibility = ViewStates.Invisible;
+           /* PendingHeader = StudentCourtView.FindViewById<TextView>(Resource.Id.studentCourtInfractionBanner);
+           PendingHeader.Visibility = ViewStates.Invisible;*/
 
-            StatusCard = StudentCourtView.FindViewById<CardView>(Resource.Id.StudentCourtCard);
+            /*StatusCard = StudentCourtView.FindViewById<CardView>(Resource.Id.StudentCourtCard);
             Infraction = StudentCourtView.FindViewById<TextView>(Resource.Id.infraction1);
             InfractionCard = StudentCourtView.FindViewById<CardView>(Resource.Id.infractionCard);
-            InfractionCard.Visibility = ViewStates.Invisible;
+            InfractionCard.Visibility = ViewStates.Invisible;*/
 
 
 
-            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+            /*RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
                 Resource.Color.accent, Resource.Color.primary_text,
                     Resource.Color.secondary_text);
-            RefreshLayout.Refresh += RefreshLayoutRefresh;
+            RefreshLayout.Refresh += RefreshLayoutRefresh;*/
 
 
             /* Use this to return your custom view for this Fragment         */

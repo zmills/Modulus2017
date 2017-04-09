@@ -104,14 +104,14 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             }
 
             _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-            //dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
-            //dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
-            //dialogToolbar.Title = title;/* Or create a tag for each button and set its tag as the title */
-            //dialogToolbar.NavigationClick += async (navSender, navEvent) =>
-            //{
-            //    await Task.Delay(150);
-            //    _dialogBox.Dismiss();
-            //};
+            dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+            dialogToolbar.Title = title;/* Or create a tag for each button and set its tag as the title */
+            dialogToolbar.NavigationClick += async (navSender, navEvent) =>
+            {
+                await Task.Delay(150);
+                _dialogBox.Dismiss();
+            };
 
             await Task.Delay(150);
             _dialogBox.Show();
