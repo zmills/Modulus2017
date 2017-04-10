@@ -13,7 +13,7 @@ namespace EaglesNestMobileApp.Android.Adapters
 
         public announcementViewHolder(View view) : base(view)
         {
-            System.Diagnostics.Debug.Write("CALLED THE VIEWHOLDER!!!!!!!!!!!!!!!!!!!!!!!!");
+            //System.Diagnostics.Debug.Write("CALLED THE VIEWHOLDER!!!!!!!!!!!!!!!!!!!!!!!!");
 
            // Set the textview and the imageview to those in the cardviewlayout
             Image = view.FindViewById<ImageView>(Resource.Id.AnnouncementsCardImage);

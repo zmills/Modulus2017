@@ -31,8 +31,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public SwipeRefreshLayout RefreshLayout { get; set; }
         public TabLayout TabLayout { get; set; }
         
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
