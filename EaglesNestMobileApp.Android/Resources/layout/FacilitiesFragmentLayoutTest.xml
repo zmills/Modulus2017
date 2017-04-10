@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+        
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        >
+            
+        <!-- 1. ACADEMIC -->
+        <RelativeLayout
+            android:id="@+id/Academic"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            >
+            <!-- Aspect Ratio 1:1 -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/Nov28MissionPrayerBand1"
+                android:scaleType="centerCrop"
+                />
+                <!-- android:scaleType="centerCrop"
+                     - This will scale the image to the view's dimensions
+                       and then center it, cropping out any excess.
+                       When using centerCrop, set width/height to "match_parent"
+                       (combinations of "wrap_content" or "0dp" do not work) -->
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Academic"
+                />
+            
+        </RelativeLayout>
+            
+        <!-- 2. CHURCH -->
+        <RelativeLayout
+            android:id="@+id/Church"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:layout_toRightOf="@+id/Academic"
+            android:paddingLeft="2dp"
+            android:paddingBottom="4dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/SubmitStudentPhotosFall2"
+                android:scaleType="centerCrop"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Church"
+                />
+            
+        </RelativeLayout>
+              
+        <!-- 3. DINING & SHOPPING -->
+        <RelativeLayout
+            android:id="@+id/Dining"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:layout_below="@+id/Academic"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/FreshmanMidnightMadnessSignup1"
+                android:scaleType="centerCrop"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Dining &amp; Shopping"
+                />
+            
+        </RelativeLayout>
+            
+        <!-- 4. DORM -->
+        <RelativeLayout
+            android:id="@+id/Dorm"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:layout_below="@+id/Church"
+            android:layout_toRightOf="@+id/Dining"
+            android:paddingLeft="2dp"
+            android:paddingBottom="4dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/BroomHockeyAllStarCons1"
+                android:scaleType="centerCrop"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Dorm"
+                />
+            
+        </RelativeLayout>
+            
+        <!-- 5. RECREATION -->
+        <RelativeLayout
+            android:id="@+id/Recreation"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:layout_below="@+id/Dining"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/CLEvent1"
+                android:scaleType="centerCrop"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Recreation"
+                />
+            
+        </RelativeLayout>
+            
+        <!-- 6. STUDENT SERVICES -->
+        <RelativeLayout
+            android:id="@+id/Services"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_widthPercent="50%"
+            app:layout_aspectRatio="100%"
+            android:layout_toRightOf="@+id/Recreation"
+            android:layout_below="@+id/Dorm"
+            android:paddingLeft="2dp"
+            android:paddingBottom="4dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/Nov28MissionPrayerBand1"
+                android:scaleType="centerCrop"
+                />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                style="@style/ModSingleLineGridList"
+                android:text="Student Services"
+                />
+            
+        </RelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+    
+</android.support.v4.widget.NestedScrollView>

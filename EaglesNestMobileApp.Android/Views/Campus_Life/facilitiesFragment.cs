@@ -36,10 +36,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             ViewGroup container, Bundle savedInstanceState)
         {
             /* Use this to return your custom view for this Fragment         */
-            view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
+            view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayoutTest,
                 container, false);            
             
-            Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
+            //Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
 
