@@ -11,7 +11,6 @@ namespace EaglesNestMobileApp.Core.Model.Home
         public string EventTime { get; set; }
         public string EventDescription { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }
-
-
+        public bool IsSignedUp { get; set; }
     }
 }

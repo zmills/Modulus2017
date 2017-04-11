@@ -16,7 +16,7 @@ namespace EaglesNestMobileApp.Core.Contracts
 
         Task<List<Course>> GetCoursesAsync();
 
-        Task<ObservableCollection<Events>> GetEventsAsync();
+        Task<List<Events>> GetEventsAsync();
 
         Task<List<ClassAttendance>> GetAttendanceViolationsAsync();
 
@@ -41,6 +41,10 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task PurgeDatabaseAsync();
 
         Task SyncAsync(bool pullData = false);
+
+        Task<List<EventSlot>> GetEventSignupAsync();
+
+        Task InsertEventAsync(EventSlot eventSignup);
         //Task<ObservableCollection<AttendanceViolation>> GetAttendanceViolationsAsync();
     }
 }

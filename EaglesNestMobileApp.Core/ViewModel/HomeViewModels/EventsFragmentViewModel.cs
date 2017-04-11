@@ -1,6 +1,9 @@
 ﻿using EaglesNestMobileApp.Core.Contracts;
+using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Home;
 using GalaSoft.MvvmLight;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -16,6 +19,10 @@ namespace EaglesNestMobileApp.Core.ViewModel
             private set { Set(() => Events, ref _events, value); }
         }
 
+        private List<EventSlot> _eventSignup = new List<EventSlot>();
+        private List<Events> _tempEvents = new List<Events>();
+        private LocalToken _currentStudent;
+
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
@@ -26,34 +33,50 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task InitializeAsync()
         {
-            var list = await Database.GetEventsAsync();
-            foreach (var item in list)
+            _currentStudent = await Database.GetLocalTokenAsync();
+            _eventSignup    = await Database.GetEventSignupAsync();
+            _tempEvents    = await Database.GetEventsAsync();
+
+            AnalyzeEvents();
+        }
+
+        public async Task Signup(Events eventSignup)
+        {
+            await Database.InsertEventAsync
+            (
+                new EventSlot
+                {
+                    EventId = eventSignup.Id,
+                    StudentId = _currentStudent.Id,
+                    UpdatedAt = System.DateTimeOffset.Now
+                }
+            );
+
+            await Refresh();
+        }
+
+        public void AnalyzeEvents()
+        {
+            foreach (var item in _tempEvents)
+                foreach (var inner in _eventSignup)
+                    if(inner.EventId == item.Id)
+                        item.IsSignedUp = true;
+
+            Events.Clear();
+            foreach (var item in _tempEvents)
                 Events.Add(item);
         }
 
         public void Initialize()
         {
-            //Events = new ObservableCollection<Events>();
-
-            ///* Loop through inserting cards in the announcements ObservableCollection after  */
-            ///* titling them and providing an image                           */
-            //for (int counter = 0; counter < 20; counter++)
-            //{
-            //    Events current = new Events("Event " + counter,
-            //                                "Event Description", "SIGNUP");
-            //    Events.Add(current);
         }
 
 
         public async Task Refresh()
         {
-            await Database.SyncAsync(true);
-
-            Events.Clear();
-
-            var list = await Database.GetEventsAsync();
-            foreach (var item in list)
-                Events.Add(item);
+            await Database.SyncAsync(pullData: true);
+            await InitializeAsync();
+            AnalyzeEvents();
         }
     }
 }

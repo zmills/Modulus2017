@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 
 namespace EaglesNestMobileApp.Core.Model.Home
 {
-    public class EventSlot
+    public class EventSlot : ObservableObject
     {
         public string Id { get; set; }
         public string Version { get; set; }

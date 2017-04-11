@@ -74,6 +74,21 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TextView _eventName = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpTitle);
             TextView _eventTime = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpDateTime);
             TextView _eventDescription = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpDescription);
+            Button _eventSignupButton = Holder.FindCachedViewById<Button>(Resource.Id.eventSignUpButton);
+
+            if (card.IsSignedUp == true)
+            {
+                _eventSignupButton.Text = "Signed Up";
+                _eventSignupButton.Enabled = false;
+            }
+
+            _eventSignupButton.Click += (sender, clickEvent) =>
+            {
+                card.IsSignedUp = true;
+                _eventSignupButton.Text = "Signed Up";
+                _eventSignupButton.Enabled = false;
+                Activity.RunOnUiThread(async () => await ViewModel.Signup(card));
+            };
 
             Holder.DeleteBinding(_eventName);
             Holder.DeleteBinding(_eventTime);
