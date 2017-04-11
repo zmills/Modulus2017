@@ -34,21 +34,21 @@
             <!-- ********************************************************************** -->
             <!-- CARD SEPARATOR -->
             <!-- ********************************************************************** -->
-            <!-- 2. Crown Centre BUILDING -->
+            <!-- 2. Video Church BUILDING -->
 
-            <!-- Crown Centre Building Title -->
+            <!-- Video Church Building Title -->
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/ModRobotoRegularSoft20"
-                android:text="Crown Centre"
+                android:text="Video Church"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                       />
 
-            <!-- Crown Centre Building CardView -->
+            <!-- Church Facilities Building CardView -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,19 +61,31 @@
                 android:layout_marginBottom="16dp"
                       >
 
-                <!-- Crown Centre Layout -->
+                <!-- Church Facilities Layout -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                           >
 
-                    <!-- Crown Centre Button -->
+                    <!-- Crowne Centre Button -->
                     <Button
-                        android:id="@+id/CrownCentre"
+                        android:id="@+id/CrowneCentre"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="Crown Centre"
+                        android:text="Crowne Centre"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- DHA Button -->
+                    <Button
+                        android:id="@+id/DHA"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="DHA"
                         android:gravity="left"
                               />
 
@@ -84,21 +96,21 @@
             <!-- ********************************************************************** -->
             <!-- CARD SEPARATOR -->
             <!-- ********************************************************************** -->
-            <!-- 2. DHA BUILDING -->
+            <!-- 2. Video Church BUILDING -->
 
-            <!-- DHA Building Title -->
+            <!-- Video Church Title -->
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/ModRobotoRegularSoft20"
-                android:text="DHA"
+                android:text="Video Church"
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                       />
 
-            <!-- DHA Building CardView -->
+            <!-- Video Church Building CardView -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,19 +123,43 @@
                 android:layout_marginBottom="16dp"
                       >
 
-                <!-- DHA Layout -->
+                <!-- Video Church Layout -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                           >
 
-                    <!-- DHA Button -->
+                    <!-- Sunday Morning Service Button -->
                     <Button
-                        android:id="@+id/DHA"
+                        android:id="@+id/SundayMorningService"
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
-                        android:text="DHA"
+                        android:text="Sunday Morning Service"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Sunday Evening Service Button -->
+                    <Button
+                        android:id="@+id/SundayEveningService"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Sunday Evening Service"
+                        android:gravity="left"
+                              />
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Wednesday Evening Service Button -->
+                    <Button
+                        android:id="@+id/WednesdayEveningService"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Wednesday Evening Service"
                         android:gravity="left"
                               />
 
