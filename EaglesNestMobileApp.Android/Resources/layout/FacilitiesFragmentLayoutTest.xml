@@ -19,6 +19,8 @@
         <!-- 1. ACADEMIC -->
         <RelativeLayout
             android:id="@+id/Academic"
+            android:tag="Academic"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -31,7 +33,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/Nov28MissionPrayerBand1"
+                android:src="@drawable/academic"
                 android:scaleType="centerCrop"
                 />
                 <!-- android:scaleType="centerCrop"
@@ -42,10 +44,11 @@
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Academic"
+                android:gravity="center"
                 />
             
         </RelativeLayout>
@@ -53,6 +56,8 @@
         <!-- 2. CHURCH -->
         <RelativeLayout
             android:id="@+id/Church"
+            android:tag="Church"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -65,16 +70,17 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/SubmitStudentPhotosFall2"
+                android:src="@drawable/church"
                 android:scaleType="centerCrop"
                 />
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Church"
+                android:gravity="center"
                 />
             
         </RelativeLayout>
@@ -82,6 +88,8 @@
         <!-- 3. DINING & SHOPPING -->
         <RelativeLayout
             android:id="@+id/Dining"
+            android:tag="Dining"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -94,16 +102,17 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/FreshmanMidnightMadnessSignup1"
+                android:src="@drawable/dining"
                 android:scaleType="centerCrop"
                 />
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Dining &amp; Shopping"
+                android:gravity="center"
                 />
             
         </RelativeLayout>
@@ -111,6 +120,8 @@
         <!-- 4. DORM -->
         <RelativeLayout
             android:id="@+id/Dorm"
+            android:tag="Dorm"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -124,16 +135,17 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/BroomHockeyAllStarCons1"
+                android:src="@drawable/dorm"
                 android:scaleType="centerCrop"
                 />
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Dorm"
+                android:gravity="center"
                 />
             
         </RelativeLayout>
@@ -141,6 +153,8 @@
         <!-- 5. RECREATION -->
         <RelativeLayout
             android:id="@+id/Recreation"
+            android:tag="Recreation"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -153,23 +167,26 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/CLEvent1"
+                android:src="@drawable/recreation"
                 android:scaleType="centerCrop"
                 />
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Recreation"
+                android:gravity="center"
                 />
             
         </RelativeLayout>
             
         <!-- 6. STUDENT SERVICES -->
         <RelativeLayout
-            android:id="@+id/Services"
+            android:id="@+id/Service"
+            android:tag="Service"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_widthPercent="50%"
@@ -183,16 +200,17 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/Nov28MissionPrayerBand1"
+                android:src="@drawable/services"
                 android:scaleType="centerCrop"
                 />
             
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
                 android:text="Student Services"
+                android:gravity="center"
                 />
             
         </RelativeLayout>

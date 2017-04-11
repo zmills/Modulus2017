@@ -246,6 +246,11 @@
         <item name="android:textColor">?attr/modBodyTextColor</item>
     </style>
     <!-- <<16 sp>> -->
+    <style name="ModRobotoMedium16">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
     <style name="ModRobotoMediumSoft16">
         <item name="android:fontFamily">@string/roboto_medium</item>
         <item name="android:textSize">16sp</item>
@@ -303,7 +308,7 @@
         <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/black_opaque_80</item>
+        <item name="android:background">@drawable/ripple_white_on_opaque_solid</item>
         <item name="android:padding">16dp</item>
     </style>
     
@@ -342,9 +347,44 @@
         <item name="android:paddingBottom">8dp</item>        
     </style>
     
-    
+    <style name="ModTimesContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">32dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="ModDayOfWeekDataContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">right</item>
+    </style>
+    <style name="ModTimesDataContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <style name="ModWrapContentWrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="ModDayOfWeekData" parent="ModWrapContentWrapContent">
+        <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
+    <style name="ModTimesData" parent="ModWrapContentWrapContent">
+        <item name="android:fontFamily">@string/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/modBodyTextColor</item>
+    </style>
 
-<!--
+
+
+
+    <!--
 *******************************************************************************
 *
 *        NICK. CREATE HEADERS AND <subheaders> FOR YOUR STYLES. THANKS! 
