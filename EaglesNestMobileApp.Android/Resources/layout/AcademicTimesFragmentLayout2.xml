@@ -97,43 +97,30 @@
                         android:gravity="left"
                         />
 
-                    <LinearLayout
-                        android:id="@+id/ACLabsData"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="32dp"
-                        android:paddingBottom="16dp"
-                        android:orientation="vertical"
-                        >
-                    
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/ModRobotoRegular16"
-                            android:text="M–F  7:30 a.m.–10 p.m."
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/ModRobotoRegular16"
-                            android:text="W   closed 6:30–8:15 p.m."
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/ModRobotoRegular16"
-                            android:text="Sat   8:30 a.m.–10 p.m."
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/ModRobotoRegular16"
-                            android:text="W  closed 6:30–8:15 p.m."
-                            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACLabsTimes"
+                        style="@style/ModTimesContainer">
                         
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+                        
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <!-- Divider Line -->
