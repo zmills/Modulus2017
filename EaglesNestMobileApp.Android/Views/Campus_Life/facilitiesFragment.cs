@@ -36,7 +36,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             ViewGroup container, Bundle savedInstanceState)
         {
             /* Use this to return your custom view for this Fragment         */
-            view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayoutTest,
+            view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
                 container, false);            
             
             Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
@@ -62,7 +62,11 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             (sender as RelativeLayout).Enabled = false;
 
             /* Create the dialog box                                         */
+            System.Diagnostics.Debug.Write("AAAAAHHHHH" + Activity.Theme.ToString());
+            /*android.content.res.Resources$Theme@90857f1*/
+            /*Resource.Style.ModAppCompatLightTheme*/
             _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+          
             #region NOT NEEDED
             /*_dialogBox.Window.RequestFeature(WindowFeatures.NoTitle);
             _dialogBox.RequestWindowFeature(1);*/
@@ -74,7 +78,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
                 case AndroidApp.FacilityCategory.Academics:
                     {
-                        _dialogBox.Window.SetContentView(Resource.Layout.AcademicTimesFragmentLayout2);
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesAcademic);
                     }
                     break;
                 case AndroidApp.FacilityCategory.Church:
