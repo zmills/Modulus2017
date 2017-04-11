@@ -9,10 +9,10 @@ namespace EaglesNestMobileApp.Android.Adapters
     public class eventSignUpRecyclerViewAdapter : RecyclerView.Adapter
     {
         // List of annoucements to be displayed as cards
-        public List<EventsSignUp> Events { get; set; }
+        public List<Events> Events { get; set; }
         eventSignUpHolder currentHolder { get; set; }
 
-        public eventSignUpRecyclerViewAdapter(List<EventsSignUp> events)
+        public eventSignUpRecyclerViewAdapter(List<Events> events)
         {
             // Set the local list to whatever was passed in
             Events = events;
@@ -27,7 +27,7 @@ namespace EaglesNestMobileApp.Android.Adapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             // Find the correct card based off of its position in the recycler view and set its title and image
-            EventsSignUp card = Events[position];
+            Events card = Events[position];
             currentHolder = holder as eventSignUpHolder;
             currentHolder.GetCard(card);
         }

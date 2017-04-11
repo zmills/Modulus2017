@@ -3,6 +3,7 @@ using EaglesNestMobileApp.Core.Model.Campus;
 using EaglesNestMobileApp.Core.Model.Home;
 using EaglesNestMobileApp.Core.Model.Personal;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.Contracts
@@ -15,7 +16,7 @@ namespace EaglesNestMobileApp.Core.Contracts
 
         Task<List<Course>> GetCoursesAsync();
 
-        Task<List<EventsSignUp>> GetEventsAsync();
+        Task<ObservableCollection<Events>> GetEventsAsync();
 
         Task<List<ClassAttendance>> GetAttendanceViolationsAsync();
 
