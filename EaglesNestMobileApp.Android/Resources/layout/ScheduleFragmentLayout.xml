@@ -17,10 +17,10 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Sunday"
+      style="@style/ModRobotoRegularSoft20"
       android:id="@+id/StudentScheduleDay"
       android:gravity="center_horizontal"
-      android:layout_marginLeft="5dp"
-      android:textSize="30dp" />
+      android:layout_marginLeft="5dp" />
   <View
       style="@style/ModTextViewUnderline"
       android:layout_marginBottom="8dp"

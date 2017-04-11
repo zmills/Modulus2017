@@ -96,7 +96,7 @@ namespace EaglesNestMobileApp.Core.Model.Food
                 case App.LineKeys.LineOne:
                     { 
                         LunchMenu[0].Add(item);
-                        BreakfastMenu[0].Add(item);
+                        DinnerMenu[0].Add(item);
                     }
                     break;
                 case App.LineKeys.LineTwo:

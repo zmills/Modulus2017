@@ -12,26 +12,26 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             Events = new ObservableCollection<EventsSignUp>();
 
-            /* Loop through inserting cards in the announcements list after  */
-            /* titling them and providing an image                           */
-            for (int counter = 0; counter < 20; counter++)
-            {
-                EventsSignUp current = new EventsSignUp("Event " + counter,
-                                            "Event Description", "SIGNUP");
-                Events.Add(current);
-            }
+            ///* Loop through inserting cards in the announcements list after  */
+            ///* titling them and providing an image                           */
+            //for (int counter = 0; counter < 20; counter++)
+            //{
+            //    EventsSignUp current = new EventsSignUp("Event " + counter,
+            //                                "Event Description", "SIGNUP");
+            //    Events.Add(current);
+            //}
         }
 
         public void Refresh()
         {
             Events.Clear();
 
-            for (int counter = 0; counter < 10; counter++)
-            {
-                EventsSignUp current = new EventsSignUp("NEW CARD" + counter,
-                                            "Event Description", "SIGNUP");
-                Events.Add(current);
-            }
+            //for (int counter = 0; counter < 10; counter++)
+            //{
+            //    EventsSignUp current = new EventsSignUp("NEW CARD" + counter,
+            //                                "Event Description", "SIGNUP");
+            //    Events.Add(current);
+            //}
         }
     }
 }

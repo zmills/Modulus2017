@@ -16,6 +16,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string RoomNumber { get; set; }
         public string DegreeName { get; set; }
         public string MajorName { get; set; }
+        public string MinorName { get; set; }
         public string AddressLineOne { get; set; }
         public string AddressLineTwo { get; set; }
         public string City { get; set; }
@@ -28,6 +29,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string BoxNumber { get; set; }
         public string BoxCombination { get; set; }
         public string Section { get; set; }
+        public string Floor { get; set; }
         public string Row { get; set; }
         public string SeatNumber { get; set; }
         public string DoorNumber { get; set; }
@@ -66,8 +68,24 @@ namespace EaglesNestMobileApp.Core.Model
 
         /* These strings return the concatenated/ formatted version of data                 */
         public string FormattedName => $"{FullName} ({PreferredName})";
-        public string FormattedChapelSeat => $"{Section}, {Row}, {SeatNumber}";
-        public string FormattedAddress => $"{AddressLineOne}\n{City}, {State} {Zip}\n{Country}";
-        public string FormattedCollegian => $"{CollegianName} {CollegianMascot} ({CollegianLocation})";
+        public string FormattedRoom => $"{Dorm} {RoomNumber}-1";
+        public string FormattedRoomPhone => $"17-{RoomNumber}-1";
+        public string FormattedCellPhone => $"C: {CellPhone}";
+        public string FormattedStudentAddress => $"{FirstName} {LastName}\n" +
+            $"PCC Box {BoxNumber}\n250 Brent Lane\nPensacola, FL  32503-2287";
+        public string FormattedChapelRow => $"Row {Row}, Seat {SeatNumber}";
+        public string FormattedChapelSection {
+            get
+            {
+                if (Floor == "Main Floor")
+                    return $"{Floor} {Section}";
+                else
+                    return $"{Floor} Section {Section}";
+
+            }
+        }
+        public string FormattedAddress => $"{FirstName} {LastName}\n{AddressLineOne}\n" +
+                                          $"{City}, {State} {Zip}\n{Country}";
+        public string FormattedCollegian => $"{CollegianName} {CollegianMascot}";
     }
 }
