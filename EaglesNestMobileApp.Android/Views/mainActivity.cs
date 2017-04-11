@@ -90,6 +90,7 @@ namespace EaglesNestMobileApp.Android.Views
             else
             {
                 Finish();
+                FinishAffinity();
             }
         }
 
