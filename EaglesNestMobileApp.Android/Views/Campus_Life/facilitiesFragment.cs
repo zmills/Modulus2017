@@ -39,26 +39,27 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayoutTest,
                 container, false);            
             
-            //Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
+            Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
 
         private void SetUpFacilitiesLayout()
         {
-            view.FindViewById<Button>(Resource.Id.Dining).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Academic).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Church).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Service).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Recreation).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Dorm).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Dining).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Academic).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Church).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Service).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Recreation).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Dorm).Click += LoadPopUpAsync;
         }
 
         private async void LoadPopUpAsync(object sender, EventArgs e)
         {
-            string title = (sender as Button).Text;
+            //string title = (sender as Button).Text;
+            string title = (sender as RelativeLayout).Tag.ToString();
 
             /* Disable the button                                            */
-            (sender as Button).Enabled = false;
+            (sender as RelativeLayout).Enabled = false;
 
             /* Create the dialog box                                         */
             _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
@@ -116,7 +117,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             await Task.Delay(150);
             _dialogBox.Show();
             await Task.Delay(400);
-            (sender as Button).Enabled = true;
+            (sender as RelativeLayout).Enabled = true;
         }
     }
 }
