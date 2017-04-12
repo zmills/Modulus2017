@@ -113,8 +113,8 @@ namespace EaglesNestMobileApp.Core.Services
                         _offenseCategoryTable.Where(offense =>
                             offense.StudentId == _currentUser.Id));
 
-                    await _scheduleEventTable.PullAsync("AllStudentScheduleEvents",
-                        _scheduleEventTable.Where(scheduleEvent => scheduleEvent.StudentId == _currentUser.Id));
+                    //await _scheduleEventTable.PullAsync("AllStudentScheduleEvents",
+                    //    _scheduleEventTable.Where(scheduleEvent => scheduleEvent.StudentId == _currentUser.Id));
 
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
@@ -159,7 +159,7 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<ClassAttendance>();
             _eagleDatabase.DefineTable<Offense>();
             _eagleDatabase.DefineTable<OffenseCategory>();
-            _eagleDatabase.DefineTable<ScheduleEvent>();
+           // _eagleDatabase.DefineTable<ScheduleEvent>();
         }
 
         /*********************************************************************/
@@ -180,7 +180,7 @@ namespace EaglesNestMobileApp.Core.Services
             _attendanceTable = _client.GetSyncTable<ClassAttendance>();
             _offenseTable = _client.GetSyncTable<Offense>();
             _offenseCategoryTable = _client.GetSyncTable<OffenseCategory>();
-            _scheduleEventTable = _client.GetSyncTable<ScheduleEvent>();
+            //_scheduleEventTable = _client.GetSyncTable<ScheduleEvent>();
         }
 
         /*********************************************************************/
