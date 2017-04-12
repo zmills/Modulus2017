@@ -13,12 +13,16 @@ using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using Android.Support.Design.Widget;
 using EaglesNestMobileApp.Core;
+using Android.Support.V7.Widget;
+using System;
+using Uri = Android.Net.Uri;
+using Android.Content;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     /* This fragment loads the three tabs for the Home menu item and its     */
     /* viewpager                                                             */
-    public class homeFragment : Fragment
+    public class homeFragment : Fragment 
     {
         public TabLayout TabLayout { get; set; }
         public View CurrentView { get; set; }
@@ -33,6 +37,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
             RetainInstance = true;
         }
 
@@ -48,7 +53,13 @@ namespace EaglesNestMobileApp.Android.Views.Home
             currentPager.Adapter = 
                 new navigationAdapter(ChildFragmentManager, HomeFragments,
                                          App.Tabs.HomePage);
-           
+
+            Toolbar toolbar = CurrentView.FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar.InflateMenu(Resource.Menu.toolbar_menu);
+
+
+            toolbar.MenuItemClick += Toolbar_MenuItemClick;
+          
 
             TabLayout = 
                 CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
@@ -57,5 +68,22 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
             return CurrentView;
         }
+
+        private void Toolbar_MenuItemClick(object sender, Toolbar.MenuItemClickEventArgs e)
+        {
+            switch  (e.Item.ItemId)
+            {
+                case Resource.Id.email_button:
+                    StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://students.pcci.edu/owa/")));
+                    break;
+
+            }
+           
+        }
+
+       
+
+
+       
     }
 }

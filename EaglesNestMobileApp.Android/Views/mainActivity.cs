@@ -58,10 +58,18 @@ namespace EaglesNestMobileApp.Android.Views
             base.OnCreate(savedInstanceState);
             RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
+           
             /*( Set our view from the "main" layout resource                 */
             RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
             RunOnUiThread(() => InitializeNavigation());
         }
+
+        //public bool onPrepareOptionsMenu(Menu menu) 
+        //{
+        //    MenuInflater menuInflater = new MenuInflater();
+        //    menuInflater.inflate(Resource.menu.toolbar_menu, menu);
+        //    return true;
+        //}
 
         private void InitializeNavigation()
         {
@@ -69,6 +77,7 @@ namespace EaglesNestMobileApp.Android.Views
             RunOnUiThread(() => (BottomNavigationMenu =
                 FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
                     .NavigationItemSelected += NavItemSelected);
+            
 
             /* Loads up the main page                                        */
             RunOnUiThread(() => LoadHomeFragment());

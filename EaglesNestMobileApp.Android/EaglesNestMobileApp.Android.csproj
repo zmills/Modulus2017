@@ -375,10 +375,14 @@
     <AndroidResource Include="Resources\menu\bottom_nav_menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\sample_home_menu.xml" />
+    <AndroidResource Include="Resources\menu\sample_home_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml" />
+    <AndroidResource Include="Resources\menu\sample_photo_edit_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BroomHockeyAllStarCons1.jpg" />
@@ -545,7 +549,9 @@
     <AndroidResource Include="Resources\layout\FacilityTimesRecreation.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ToolbarDialogLayout.xml" />
+    <AndroidResource Include="Resources\layout\ToolbarDialogLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\StudentCourtFragmentLayout.xml">
@@ -562,6 +568,12 @@
     <AndroidResource Include="Resources\layout\FacilitiesFragmentLayoutTest.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\toolbar_menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_mail_outline_black_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
