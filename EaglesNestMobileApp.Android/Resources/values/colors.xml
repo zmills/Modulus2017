@@ -42,6 +42,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black_opaque_80">#CC000000</color>
     <color name="black_opaque_60">#99000000</color>
+    <color name="black_opaque_40">#66000000</color>
+    <color name="black_opaque_20">#33000000</color>
+    <color name="white_ripple">#40FFFFFF</color>
     <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->
     <color name="navigation_bar">#10154C</color>    <!-- Darker Blue than primary_dark_900 -->
     <color name="bright_green">#39e600</color>      <!--- super bright green-->

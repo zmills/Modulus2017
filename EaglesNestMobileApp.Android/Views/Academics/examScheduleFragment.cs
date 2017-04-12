@@ -122,6 +122,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 () => _examTime.Text,
                 BindingMode.OneWay);
             holder.SaveBinding(_examTime, timeBinding);
+            
 
             /*Set the binding for the exam location*/
             holder.DeleteBinding(_examLocation);

@@ -14,6 +14,7 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +28,8 @@ namespace EaglesNestMobileApp.Core.Services
         private MobileServiceSQLiteStore _eagleDatabase;
         private IMobileServiceSyncTable<Assignment> _assignmentTable;
         private IMobileServiceSyncTable<Course> _courseTable;
-        private IMobileServiceSyncTable<EventsSignUp> _eventsSignUpTable;
+        private IMobileServiceSyncTable<Events> _eventsTable;
+        private IMobileServiceSyncTable<EventSlot> _eventSignupTable;
         private IMobileServiceSyncTable<Offense> _offenseTable;
         private IMobileServiceSyncTable<OffenseCategory> _offenseCategoryTable;
         private IMobileServiceSyncTable<FourWindsItem> _fourWindsTable;
@@ -95,17 +97,21 @@ namespace EaglesNestMobileApp.Core.Services
                             student.Id == _currentUser.Id));
 
                     await _attendanceTable.PullAsync("AllAttendanceViolations",
-                        _attendanceTable.Where(attendance => 
-                        attendance.StudentId == _currentUser.Id));
+                        _attendanceTable.Where(attendance =>
+                            attendance.StudentId == _currentUser.Id));
 
                     await _offenseTable.PullAsync("AllStudentCourtOffenses",
-                        _offenseTable.Where(offense => 
-                        offense.StudentId == _currentUser.Id));
+                        _offenseTable.Where(offense =>
+                            offense.StudentId == _currentUser.Id));
+
+                    await _eventSignupTable.PullAsync("signed up events",
+                        _eventSignupTable.Where(eventSignup =>
+                            eventSignup.StudentId == _currentUser.Id));
 
                     await _offenseCategoryTable.PullAsync("AllStudentCourtOffenseCategories",
-                        _offenseCategoryTable.Where(offense => 
-                        offense.StudentId == _currentUser.Id));                                                                                   
-                                                                                          
+                        _offenseCategoryTable.Where(offense =>
+                            offense.StudentId == _currentUser.Id));
+
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
                     await _fourWindsTable.PullAsync("allFourWindsItems",
@@ -117,8 +123,11 @@ namespace EaglesNestMobileApp.Core.Services
                     await _grabAndGoTable.PullAsync("allGrabAndGoItems",
                         _grabAndGoTable.CreateQuery());
 
-                    //await _eventsSignUpTable.PullAsync("AllEvents",
-                    //    _eventsSignUpTable.CreateQuery());
+                    await _eventsTable.PullAsync("AllEvents",
+                        _eventsTable.CreateQuery());
+
+                    var list = await _eventsTable.ToCollectionAsync();
+                    System.Diagnostics.Debug.WriteLine($"\n\n\n{list.Count}");
                 }
             }
             catch (Exception ex)
@@ -141,7 +150,8 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<Student>();
             _eagleDatabase.DefineTable<AzureToken>();
             _eagleDatabase.DefineTable<LocalToken>();
-            //_eagleDatabase.DefineTable<EventsSignUp>();
+            _eagleDatabase.DefineTable<Events>();
+            _eagleDatabase.DefineTable<EventSlot>();
             _eagleDatabase.DefineTable<ClassAttendance>();
             _eagleDatabase.DefineTable<Offense>();
             _eagleDatabase.DefineTable<OffenseCategory>();
@@ -160,7 +170,8 @@ namespace EaglesNestMobileApp.Core.Services
             _studentTable = _client.GetSyncTable<Student>();
             _localTokenTable = _client.GetSyncTable<LocalToken>();
             _azureTokenTable = _client.GetSyncTable<AzureToken>();
-            // _eventsSignUpTable = _client.GetSyncTable<EventsSignUp>();
+            _eventsTable = _client.GetSyncTable<Events>();
+            _eventSignupTable = _client.GetSyncTable<EventSlot>();
             _attendanceTable = _client.GetSyncTable<ClassAttendance>();
             _offenseTable = _client.GetSyncTable<Offense>();
             _offenseCategoryTable = _client.GetSyncTable<OffenseCategory>();
@@ -260,9 +271,9 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                              Get Events                           */
         /*********************************************************************/
-        public async Task<List<EventsSignUp>> GetEventsAsync()
+        public async Task<List<Events>> GetEventsAsync()
         {
-            return await _eventsSignUpTable.ToListAsync();
+            return await _eventsTable.ToListAsync();
         }
 
         /*********************************************************************/
@@ -287,6 +298,20 @@ namespace EaglesNestMobileApp.Core.Services
         public async Task<List<OffenseCategory>> GetStudentCourtCategoriesAsync()
         {
             return await _offenseCategoryTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                 Get student the signed up events                  */
+        /*********************************************************************/
+        public async Task<List<EventSlot>> GetEventSignupAsync()
+        {
+            return await _eventSignupTable.ToListAsync();
+        }
+
+        public async Task InsertEventAsync(EventSlot eventSignup)
+        {
+            await _eventSignupTable.InsertAsync(eventSignup);
+            await SyncAsync(true);
         }
 
         /*********************************************************************/
