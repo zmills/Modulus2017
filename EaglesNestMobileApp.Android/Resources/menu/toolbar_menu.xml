@@ -9,7 +9,12 @@
 
     <item android:id="@+id/logout_menu"
           android:title="Log Out"
-          app:showAsAction="never"
+          app:showAsAction="never" />
           
-   />
+          <item android:id="@+id/theme_switch"
+          android:title="Switch Theme"
+          app:showAsAction="never"
+                />
+          
+  
 </menu>
