@@ -180,7 +180,7 @@
                             <TextView style="@style/ModTimesData"
                                 android:text="   4:45 p.m.–6:30 p.m." />
                             <TextView style="@style/ModTimesData"
-                                android:text="   4:15 p.m.-6:15 p.m." />
+                                android:text="   4:15 p.m.–6:15 p.m." />
                         </LinearLayout>
 
                     </LinearLayout>
