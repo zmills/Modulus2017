@@ -586,6 +586,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ripple_white_on_opaque_solid.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\toolbar_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
