@@ -76,7 +76,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 case Resource.Id.email_button:
                     StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://students.pcci.edu/owa/")));
                     break;
-
             }
            
         }
