@@ -244,6 +244,7 @@
     <Compile Include="Views\Home\calendarFragment.cs" />
     <Compile Include="Views\Home\eventsFragment.cs" />
     <Compile Include="Views\Home\homeFragment.cs" />
+    <Compile Include="Views\LoadingActivity.cs" />
     <Compile Include="Views\loginActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +320,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AccountFragmentLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SplashScreenLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

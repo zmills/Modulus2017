@@ -72,6 +72,7 @@ namespace EaglesNestMobileApp.Core
         {
             public const string MainPageKey = "MainPage";
             public const string LoginPageKey = "LoginPage";
+            public const string LoadingPageKey = "LoadingPage";
             public const string HomePageKey = "Home";
             public const string AcademicsPageKey = "Academics";
             public const string CampusLifePageKey = "Campus Life";

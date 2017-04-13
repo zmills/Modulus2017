@@ -4208,34 +4208,37 @@ namespace EaglesNestMobileApp.Android
 			public const int select_dialog_singlechoice_material = 2130903133;
 			
 			// aapt resource value: 0x7f03005e
-			public const int StudentCourtFragmentLayout = 2130903134;
+			public const int SplashScreenLayout = 2130903134;
 			
 			// aapt resource value: 0x7f03005f
-			public const int StudentCourtFragmentLayoutOLD = 2130903135;
+			public const int StudentCourtFragmentLayout = 2130903135;
 			
 			// aapt resource value: 0x7f030060
-			public const int StudentCourtInfractionCardLayout = 2130903136;
+			public const int StudentCourtFragmentLayoutOLD = 2130903136;
 			
 			// aapt resource value: 0x7f030061
-			public const int StudentInfoFragmentLayout = 2130903137;
+			public const int StudentCourtInfractionCardLayout = 2130903137;
 			
 			// aapt resource value: 0x7f030062
-			public const int StudentScheduleRecyclerViewLayout = 2130903138;
+			public const int StudentInfoFragmentLayout = 2130903138;
 			
 			// aapt resource value: 0x7f030063
-			public const int support_simple_spinner_dropdown_item = 2130903139;
+			public const int StudentScheduleRecyclerViewLayout = 2130903139;
 			
 			// aapt resource value: 0x7f030064
-			public const int TabLayout = 2130903140;
+			public const int support_simple_spinner_dropdown_item = 2130903140;
 			
 			// aapt resource value: 0x7f030065
-			public const int ToolbarDialogLayout = 2130903141;
+			public const int TabLayout = 2130903141;
 			
 			// aapt resource value: 0x7f030066
-			public const int ToolbarLayout = 2130903142;
+			public const int ToolbarDialogLayout = 2130903142;
 			
 			// aapt resource value: 0x7f030067
-			public const int VarsityFragmentLayout = 2130903143;
+			public const int ToolbarLayout = 2130903143;
+			
+			// aapt resource value: 0x7f030068
+			public const int VarsityFragmentLayout = 2130903144;
 			
 			static Layout()
 			{

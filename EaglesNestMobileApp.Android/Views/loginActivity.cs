@@ -15,6 +15,7 @@ using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android
 {
@@ -32,6 +33,8 @@ namespace EaglesNestMobileApp.Android
         public EditText Password { get; set; }
         public Button LoginButton { get; set; }
 
+        private ProgressDialog loading;
+
         /* Once this thing is created make sure we check for whether the user  */
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
@@ -39,12 +42,16 @@ namespace EaglesNestMobileApp.Android
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            CurrentPlatform.Init();
-           
+
             /* Set our view from the "main" layout resource                     */
-            RunOnUiThread(() => SetContentView(Resource.Layout.LoginLayout));
-            //await App.Locator.FourWinds.RefreshMenusAsync();
-            RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
+            SetContentView(Resource.Layout.LoginLayout);
+
+            loading = new ProgressDialog(this);
+            loading.SetTitle("Logging in");
+            loading.SetMessage("Please wait...");
+            loading.SetCancelable(false);
+
+            CurrentPlatform.Init();
 
             /* Bind views to the viewmodel                                      */
             Username = FindViewById<EditText>(Resource.Id.UserId);
@@ -53,19 +60,30 @@ namespace EaglesNestMobileApp.Android
 
             /* This binds the input from the user to the current user token in  */
             /* the login viewmodel                                              */
-            RunOnUiThread(() =>
-            {
-                LoginViewModel.CurrentUser.SetBinding(
-                    () => LoginViewModel.CurrentUser.Id, Username,
-                    () => Username.Text, BindingMode.TwoWay);
 
-                LoginViewModel.CurrentUser.SetBinding(
-                    () => LoginViewModel.CurrentUser.Password, Password,
-                    () => Password.Text, BindingMode.TwoWay);
+            LoginViewModel.CurrentUser.SetBinding(
+                () => LoginViewModel.CurrentUser.Id, Username,
+                () => Username.Text, BindingMode.TwoWay);
 
-                /* This command in the login viewmodel handles all the login logic  */
-                LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
-            });
+            LoginViewModel.CurrentUser.SetBinding(
+                () => LoginViewModel.CurrentUser.Password, Password,
+                () => Password.Text, BindingMode.TwoWay);
+
+            /* This command in the login viewmodel handles all the login logic  */
+            LoginButton.Click += LoginButton_Click;
+        }
+
+        private async void LoginButton_Click(object sender, System.EventArgs e)
+        {
+            loading.Show();
+            await Task.Delay(100);
+            await LoginViewModel.AttemptLoginAsync();
+        }
+
+        public override void OnBackPressed()
+        {
+            Finish();
+            FinishAffinity();
         }
     }
 }

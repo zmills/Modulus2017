@@ -59,18 +59,22 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* This function allows the user to login providing he has the       */
         /* correct credentials                                               */
         /*********************************************************************/
-        private async Task AttemptLoginAsync()
+        public async Task AttemptLoginAsync()
         {
+            //App.Locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
+
             /* Disable the login button                                      */
             EnableLoginButton = false;
+
+            /* Initialize the database                                       */
+            await Database.InitLocalStore();
 
             /* REMEMBER TO REMOVE BACKDOOR                                   */
             if (CurrentUser.Id == "123")
             {
                 CurrentUser.Id = "118965";
                 await Database.InsertLocalTokenAsync(CurrentUser);
-                await Database.SyncAsync(pullData: true);
-                NavigateToMainPage();
+                await App.Locator.Main.InitializeViewModels();
             }
             else
             {
@@ -94,15 +98,14 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         /* add the token to the database.                    */
                         CurrentUser.Password = string.Empty;
 
+                        EnableLoginButton = true;
+
                         /* Add the user to the database for future use and   */
                         /* also add a reference to the user for the          */
                         /* application lifecycle                             */
                         await Database.InsertLocalTokenAsync(CurrentUser);
-                        await Database.SyncAsync(pullData: true);
 
-                        /* Allow access to the application main page         */
-                        NavigateToMainPage();
-
+                        await App.Locator.Main.InitializeViewModels();
                     }
                 }
                 /* How are we going to signal to the user the  errors?       */
