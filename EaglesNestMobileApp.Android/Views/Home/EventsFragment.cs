@@ -13,6 +13,7 @@ using EaglesNestMobileApp.Core.Model.Home;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 
+
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class eventsFragment : Fragment
@@ -76,12 +77,11 @@ namespace EaglesNestMobileApp.Android.Views.Home
             TextView _eventDescription = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpDescription);
             Button _eventSignupButton = Holder.FindCachedViewById<Button>(Resource.Id.eventSignUpButton);
 
-            if (card.IsSignedUp == true)
+            if (card.IsSignedUp)
             {
                 _eventSignupButton.Text = "Signed Up";
                 _eventSignupButton.Enabled = false;
             }
-
             _eventSignupButton.Click += (sender, clickEvent) =>
             {
                 card.IsSignedUp = true;

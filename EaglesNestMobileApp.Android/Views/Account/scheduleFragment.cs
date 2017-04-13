@@ -23,7 +23,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         private View _parentView;
         private RecyclerView _recyclerview;
         private TextView _title;
-        private ObservableRecyclerAdapter<ScheduleEvent, CachingViewHolder> _adapter;
+        private ObservableRecyclerAdapter<StudentEvent, CachingViewHolder> _adapter;
 
         public ScheduleFragmentViewModel ViewModel
         {
@@ -161,7 +161,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             }
         }
 
-        private void BindViewHolder(CachingViewHolder holder, ScheduleEvent studentEvent, int position)
+        private void BindViewHolder(CachingViewHolder holder, StudentEvent studentEvent, int position)
         {
             TextView _time     = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTime);
             TextView _title    = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTitle);
@@ -174,7 +174,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             var _timeBinding = new Binding<string, string>
                 (
                     studentEvent,
-                    ()=> studentEvent.Time,
+                    ()=> studentEvent.BeginTime,
                     _time,
                     ()=>_time.Text
                 );

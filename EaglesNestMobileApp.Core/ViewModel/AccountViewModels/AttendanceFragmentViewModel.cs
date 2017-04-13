@@ -38,7 +38,6 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 });
             }
 
-
             Violations = await Database.GetAttendanceViolationsAsync();
             GetViolations();
         }

@@ -18,6 +18,8 @@ namespace EaglesNestMobileApp.Core.Contracts
 
         Task<List<Events>> GetEventsAsync();
 
+        Task<List<StudentEvent>> GetScheduleEventsAsync();
+
         Task<List<ClassAttendance>> GetAttendanceViolationsAsync();
 
         Task<List<FourWindsItem>> GetFourWindsItemsAsync();
@@ -45,6 +47,5 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task<List<EventSlot>> GetEventSignupAsync();
 
         Task InsertEventAsync(EventSlot eventSignup);
-        //Task<ObservableCollection<AttendanceViolation>> GetAttendanceViolationsAsync();
     }
 }
