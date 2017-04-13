@@ -39,6 +39,7 @@ namespace EaglesNestMobileApp.Core.Services
         private IMobileServiceSyncTable<LocalToken> _localTokenTable;
         private IMobileServiceSyncTable<AzureToken> _azureTokenTable;
         private IMobileServiceSyncTable<Student> _studentTable;
+        private IMobileServiceSyncTable<ScheduleEvent> _scheduleEventTable;
         private IMobileServiceSyncTable<ClassAttendance> _attendanceTable;
         private SyncHandler _syncHandler;
         private LocalToken _currentUser = new LocalToken();
@@ -117,6 +118,9 @@ namespace EaglesNestMobileApp.Core.Services
                         _offenseCategoryTable.Where(offense =>
                             offense.StudentId == _currentUser.Id));
 
+                    //await _scheduleEventTable.PullAsync("AllStudentScheduleEvents",
+                    //    _scheduleEventTable.Where(scheduleEvent => scheduleEvent.StudentId == _currentUser.Id));
+
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
                     await _fourWindsTable.PullAsync("allFourWindsItems",
@@ -162,6 +166,7 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<ClassAttendance>();
             _eagleDatabase.DefineTable<Offense>();
             _eagleDatabase.DefineTable<OffenseCategory>();
+           // _eagleDatabase.DefineTable<ScheduleEvent>();
         }
 
         /*********************************************************************/
@@ -183,6 +188,7 @@ namespace EaglesNestMobileApp.Core.Services
             _attendanceTable = _client.GetSyncTable<ClassAttendance>();
             _offenseTable = _client.GetSyncTable<Offense>();
             _offenseCategoryTable = _client.GetSyncTable<OffenseCategory>();
+            //_scheduleEventTable = _client.GetSyncTable<ScheduleEvent>();
         }
 
         /*********************************************************************/

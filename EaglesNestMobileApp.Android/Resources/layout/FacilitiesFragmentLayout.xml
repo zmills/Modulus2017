@@ -88,7 +88,7 @@
         <!-- 3. DINING & SHOPPING -->
         <RelativeLayout
             android:id="@+id/Dining"
-            android:tag="Dining"
+            android:tag="Dining &amp; Shopping"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -117,10 +117,10 @@
 
         </RelativeLayout>
 
-        <!-- 4. DORM -->
+        <!-- 4. RESIDENCE HALLS -->
         <RelativeLayout
             android:id="@+id/Dorm"
-            android:tag="Dorm"
+            android:tag="Residence Halls"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -144,7 +144,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 style="@style/ModSingleLineGridList"
-                android:text="Dorm"
+                android:text="Residence Halls"
                 android:gravity="center"
                 />
 
@@ -185,7 +185,7 @@
         <!-- 6. STUDENT SERVICES -->
         <RelativeLayout
             android:id="@+id/Service"
-            android:tag="Service"
+            android:tag="Student Services"
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="0dp"

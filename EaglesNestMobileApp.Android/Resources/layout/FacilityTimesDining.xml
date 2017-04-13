@@ -77,6 +77,32 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/FourWindsBreakfastTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–8:30 a.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   5:45 a.m.–8:30 a.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -89,6 +115,34 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/FourWindsLunchTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-S" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   11:30 a.m.–12:00 p.m.*" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   12:30 a.m.–1 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   10:45 a.m.–1:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   *Check Meal Card for availability" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
                     
@@ -100,6 +154,36 @@
                         android:text="Dinner"
                         android:gravity="left"
                               />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/FourWindsDinnerTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-S" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   4:30 p.m.–5:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:15 p.m.–7:45 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   4:45 p.m.–6:30 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   4:15 p.m.–6:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -151,6 +235,32 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VarsityBreakfastTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   6 a.m.–10:30 a.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -163,6 +273,38 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VarsityLunchTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   11:30 a.m.–12:00 p.m.*" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   12:30 a.m.–1 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   10:45 a.m.–1:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   10:30 a.m.–3 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   *Check Meal Card for availability" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -174,6 +316,36 @@
                         android:text="Dinner"
                         android:gravity="left"
                               />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VarsityDinnerTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:15 p.m.–7:45 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   4:45 p.m.–6:30 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   4:15 p.m.–6:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   3 p.m.-6:30 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -225,6 +397,24 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/GrabnGoLunchTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   10:45 a.m.–1:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -236,6 +426,28 @@
                         android:text="Dinner"
                         android:gravity="left"
                               />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VarsityLunchTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   3 p.m.–6:30 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closes at 6 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -287,6 +499,36 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/CommonGroundsTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30 p.m.–8 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   9 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -299,6 +541,36 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/PalmsGrilleTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30 p.m.–8 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   9 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -310,6 +582,36 @@
                         android:text="Campus Store"
                         android:gravity="left"
                               />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/CampusStoreTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30 p.m.–8 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   9 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
