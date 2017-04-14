@@ -39,6 +39,10 @@
     <!-- LIGHT THEME -->
     
     <style name="ModAppCompatLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <!-- <Theme Name> -->
+        <item name="modThemeName">@string/modAppCompatLightThemeName</item>
+        
         <!-- <item name="android:windowNoTitle">true</item> -->
         <!-- <item name="android:windowActionBar">false</item> -->
         <item name="windowActionModeOverlay">true</item>
@@ -106,6 +110,10 @@
     <!-- DARK THEME -->
     
     <style name="ModAppCompatDarkTheme" parent="Theme.AppCompat.NoActionBar">
+
+        <!-- <Theme Name> -->
+        <item name="modThemeName">@string/modAppCompatDarkThemeName</item>
+        
         <item name="windowActionModeOverlay">true</item>
         
         <!-- <Colors> -->
@@ -280,6 +288,11 @@
     <!-- <<12 sp>> -->
     <style name="ModRobotoMediumLightweight12">
         <item name="android:fontFamily">@string/roboto_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/modBodyTextColorLightweight</item>
+    </style>
+    <style name="ModRobotoRegularLightweight12">
+        <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?attr/modBodyTextColorLightweight</item>
     </style>
