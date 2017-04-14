@@ -77,6 +77,32 @@
                         android:gravity="left"
                               />
 
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ConvenienceStoresTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sun" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-T" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="F-S" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–10:30 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8 p.m.–10:30 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8 p.m.–11:45 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <!-- Divider Line -->
                     <View style="@style/ModDivider" />
 
@@ -88,6 +114,25 @@
                         android:text="Dorm Practice Rooms"
                         android:gravity="left"
                               />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/DormPracticeRoomsTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="S-S" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   5:45 a.m.–10:15 p.m." />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

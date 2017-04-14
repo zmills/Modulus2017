@@ -19,6 +19,7 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
+using Java.IO;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -56,11 +57,10 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
             /*( Set our view from the "main" layout resource                 */
-            RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
-            RunOnUiThread(() => InitializeNavigation());
+            SetContentView(Resource.Layout.BottomNavLayout);
+            InitializeNavigation();
         }
 
         private void InitializeNavigation()
@@ -69,6 +69,7 @@ namespace EaglesNestMobileApp.Android.Views
             RunOnUiThread(() => (BottomNavigationMenu =
                 FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
                     .NavigationItemSelected += NavItemSelected);
+            
 
             /* Loads up the main page                                        */
             RunOnUiThread(() => LoadHomeFragment());
@@ -90,6 +91,7 @@ namespace EaglesNestMobileApp.Android.Views
             else
             {
                 Finish();
+                FinishAffinity();
             }
         }
 

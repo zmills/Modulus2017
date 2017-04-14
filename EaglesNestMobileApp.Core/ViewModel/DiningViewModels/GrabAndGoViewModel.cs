@@ -112,5 +112,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
                 GrabAndGoMenu.AddItem(current);
             }
         }
+
+        public override void Cleanup()
+        {
+            GrabAndGoItems.Clear();
+            GrabAndGoMenu = new GrabAndGoMenu();
+            base.Cleanup();
+        }
     }
 }

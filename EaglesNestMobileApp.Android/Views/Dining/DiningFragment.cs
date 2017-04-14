@@ -9,6 +9,10 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using EaglesNestMobileApp.Android.Adapters;
 using EaglesNestMobileApp.Core;
+using Uri = Android.Net.Uri;
+using Android.Content;
+using Android.Support.V7.Widget;
+using Java.IO;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -52,6 +56,12 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             Activity.RunOnUiThread(() => TabLayout = 
                 CurrentView.FindViewById<TabLayout>(Resource.Id.MainTabLayout));
 
+            Toolbar toolbar = CurrentView.FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar.InflateMenu(Resource.Menu.toolbar_menu);
+
+
+            toolbar.MenuItemClick += Toolbar_MenuItemClick;
+
             /* Set the tablayout to fixed so that the titles aren't smashed  */
             /* together. REMINDER: BACKLIST: get width of tabLayout and set  */
             /* Fixed or Scrollable depending on the width                    */
@@ -59,6 +69,30 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             Activity.RunOnUiThread(() => TabLayout.SetupWithViewPager(CurrentPager));
             
             return CurrentView;
+        }
+
+        private void Toolbar_MenuItemClick(object sender, Toolbar.MenuItemClickEventArgs e)
+        {
+            switch (e.Item.ItemId)
+            {
+                case Resource.Id.email_button:
+                    StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://students.pcci.edu/owa/")));
+                    break;
+                case Resource.Id.logout_menu:
+                    {
+                        File documentsPath = new File(System.Environment.GetFolderPath(
+                            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
+
+                        if (documentsPath.Delete())
+                        {
+                            System.Diagnostics.Debug.WriteLine("DELETED");
+                            App.Locator.Main.LogoutAsync();
+                        }
+                        else
+                            System.Diagnostics.Debug.WriteLine("POKA!");
+                    }
+                    break;
+            }
         }
     }
 }

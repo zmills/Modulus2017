@@ -36,7 +36,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 
         public void InitializeStatic()
         {
-            for(int counter = 0; counter <= 6; counter++)
+            for (int counter = 0; counter <= 6; counter++)
             {
                 Course current = new Course
                 {
@@ -51,6 +51,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
                 Classes.Add(current);
             }
 
+        }
+
+        public override void Cleanup()
+        {
+            Classes.Clear();
+            base.Cleanup();
         }
 
         private async void RefreshExamScheduleAsync()

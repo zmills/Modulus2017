@@ -2,27 +2,30 @@
 /*                              eventsFragment                               */
 /*                                                                           */
 /*****************************************************************************/
+using ProgressDialog = Android.App.ProgressDialog;
 using Android.OS;
-using Android.Views;
+using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
-using Android.Support.Design.Widget;
-using EaglesNestMobileApp.Core.Model.Home;
-using GalaSoft.MvvmLight.Helpers;
-using EaglesNestMobileApp.Core.ViewModel;
-using EaglesNestMobileApp.Core;
+using Android.Views;
 using Android.Widget;
+using EaglesNestMobileApp.Core;
+using EaglesNestMobileApp.Core.Model.Home;
+using EaglesNestMobileApp.Core.ViewModel;
+using GalaSoft.MvvmLight.Helpers;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
     public class eventsFragment : Fragment
     {
-        /* This will bind to the list in the viewmodel                       */
-        private ObservableRecyclerAdapter<EventsSignUp, CachingViewHolder> _adapter;
+        /* This will bind to the list in the view-model                       */
+        private ObservableRecyclerAdapter<Events, CachingViewHolder> _adapter;
         private RecyclerView _eventRecyclerView;
         private TabLayout _currentTabLayout;
         private View _eventSignUpView;
         private int _position;
+        private ProgressDialog dialog;
 
         public EventsFragmentViewModel ViewModel
         {
@@ -35,16 +38,15 @@ namespace EaglesNestMobileApp.Android.Views.Home
             RetainInstance = true;
         }
 
-        public override View OnCreateView(LayoutInflater inflater, 
+        public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
             // Inflate the layout for the fragment
-            _eventSignUpView = 
-                inflater.Inflate(Resource.Layout.EventsFragmentLayout, 
+            _eventSignUpView =
+                inflater.Inflate(Resource.Layout.EventsFragmentLayout,
                                     container, false);
-
             /* Get the view pager                                            */
-            _eventRecyclerView = 
+            _eventRecyclerView =
                 _eventSignUpView.FindViewById<RecyclerView>(
                     Resource.Id.EventSignUpRecyclerView);
 
@@ -52,7 +54,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 BindViewHolder,
                 Resource.Layout.EventCardLayout,
                 OnItemClick);
-
+            
             _eventRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
             _eventRecyclerView.SetAdapter(_adapter);
 
@@ -64,25 +66,61 @@ namespace EaglesNestMobileApp.Android.Views.Home
 
         private void OnItemClick(int oldPosition, View oldView, int newPosition, View newView)
         {
-            Activity.RunOnUiThread(() => ViewModel.Refresh());
+            Activity.RunOnUiThread(async () => await ViewModel.Refresh());
         }
 
-        private void BindViewHolder(CachingViewHolder Holder, EventsSignUp card, int position)
+        private void BindViewHolder(CachingViewHolder Holder, Events card, int position)
         {
             _position = position;
 
-            var _textview = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpTitle);
+            TextView _eventName = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpTitle);
+            TextView _eventTime = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpDateTime);
+            TextView _eventDescription = Holder.FindCachedViewById<TextView>(Resource.Id.eventSignUpDescription);
+            Button _eventSignupButton = Holder.FindCachedViewById<Button>(Resource.Id.eventSignUpButton);
 
-            Holder.DeleteBinding(_textview);
+            if (card.IsSignedUp)
+            {
+                _eventSignupButton.Text = "Signed Up";
+                _eventSignupButton.Enabled = false;
+            }
+            _eventSignupButton.Click += (sender, clickEvent) =>
+            {
+                card.IsSignedUp = true;
+                _eventSignupButton.Text = "Signed Up";
+                _eventSignupButton.Enabled = false;
+                Activity.RunOnUiThread(async () => await ViewModel.Signup(card));
+            };
+
+            Holder.DeleteBinding(_eventName);
+            Holder.DeleteBinding(_eventTime);
+            Holder.DeleteBinding(_eventDescription);
 
             var nameBinding = new Binding<string, string>(
                 card,
-                () => card.Title,
-                _textview,
-                () => _textview.Text,
+                () => card.EventName,
+                _eventName,
+                () => _eventName.Text,
                 BindingMode.OneWay);
 
-            Holder.SaveBinding(_textview, nameBinding);
+            var timeBinding = new Binding<string, string>(
+                card,
+                () => card.EventTime,
+                _eventTime,
+                () => _eventTime.Text,
+                BindingMode.OneWay
+                );
+
+            var descriptionBinding = new Binding<string, string>(
+                card,
+                () => card.EventDescription,
+                _eventDescription,
+                () => _eventDescription.Text,
+                BindingMode.OneWay
+                );
+
+            Holder.SaveBinding(_eventName, nameBinding);
+            Holder.SaveBinding(_eventTime, timeBinding);
+            Holder.SaveBinding(_eventDescription, descriptionBinding);
         }
 
         private void TabLayoutTabReselected(object sender, TabLayout.TabReselectedEventArgs e)

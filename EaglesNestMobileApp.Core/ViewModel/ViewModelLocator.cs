@@ -20,8 +20,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class ViewModelLocator : ObservableObject
     {
-        private LocalToken _user;
-        public LocalToken User
+        private string _user = "";
+        public string User
         {
             get { return _user; }
             set { Set(() => User, ref _user, value); }
@@ -61,6 +61,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register(() => dialogService);
         }
 
+        public static void RegisterGetPreferences(ICheckLogin loginService)
+        {
+            SimpleIoc.Default.Register(() => loginService);
+        }
+
         /* The following returns the sigleton instance of the service/         */
         /* viewmodel                                                           */
         /* The following returns the sigleton instance of the service/         */
@@ -95,6 +100,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public INavigationService Navigator =>
         ServiceLocator.Current.GetInstance<INavigationService>();
 
+        public ICheckLogin CheckLogin =>
+       ServiceLocator.Current.GetInstance<ICheckLogin>();
+
         public MainViewModel Main =>
         ServiceLocator.Current.GetInstance<MainViewModel>();
 
@@ -106,7 +114,16 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public static void Cleanup()
         {
-            /* TODO Clear the ViewModels                                        */
+            ViewModelLocator _locator = App.Locator;
+            _locator.Attendance.Cleanup();
+            _locator.Events.Cleanup();
+            _locator.Exams.Cleanup();
+            _locator.FourWinds.Cleanup();
+            _locator.GrabAndGo.Cleanup();
+            _locator.Grades.Cleanup();
+            _locator.StudentInfo.Cleanup();
+            _locator.StudentSchedule.Cleanup();
+            _locator.Varsity.Cleanup();
         }
     }
 }

@@ -222,6 +222,7 @@
     <Compile Include="AndroidApp.cs" />
     <Compile Include="AndroidApp.FacilityCategory.cs" />
     <Compile Include="Cards\OLDCard.cs" />
+    <Compile Include="Helpers\ApplicationPreference.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
@@ -319,6 +320,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AccountFragmentLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SplashScreenLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -522,7 +526,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FacilityTimesDining.xml" />
+    <AndroidResource Include="Resources\layout\FacilityTimesDining.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FacilityTimesDorm.xml" />
@@ -539,9 +545,7 @@
     <AndroidResource Include="Resources\drawable\border_dining_line.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\FacilityTimesService.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FacilityTimesService.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FacilityTimesRecreation.xml" />
@@ -560,9 +564,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\gradient_student_court.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\gradient_student_court.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FacilitiesFragmentLayoutTest.xml">
@@ -591,7 +593,12 @@
     <AndroidResource Include="Resources\drawable\ripple_white_on_opaque_solid.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\circle.xml" />
+    <AndroidResource Include="Resources\menu\toolbar_menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_mail_outline_black_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
