@@ -121,5 +121,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 VarsityMenu.AddItem(current);
             }
         }
+
+        public override void Cleanup()
+        {
+            VarsityItems.Clear();
+            VarsityMenu = new VarsityMenu();
+            base.Cleanup();
+        }
     }
 }

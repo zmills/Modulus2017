@@ -12,6 +12,7 @@ using EaglesNestMobileApp.Android.Views;
 using EaglesNestMobileApp.Core.ViewModel;
 using EaglesNestMobileApp.Core;
 using JimBobBennett.MvvmLight.AppCompat;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android
 {
@@ -31,8 +32,11 @@ namespace EaglesNestMobileApp.Android
 
                     _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
                     _navigator.Configure(App.PageKeys.LoginPageKey, typeof(loginActivity));
-                    _navigator.Configure(App.PageKeys.LoadingPageKey, typeof(LoadingActivity)); 
+                    //_navigator.Configure(App.PageKeys.LoadingPageKey, typeof(LoadingActivity)); 
                     ViewModelLocator.RegisterNavigationService(_navigator);
+
+                    
+                    ViewModelLocator.RegisterGetPreferences(new ApplicationPreference());
 
                     _locator = new ViewModelLocator();
                 }

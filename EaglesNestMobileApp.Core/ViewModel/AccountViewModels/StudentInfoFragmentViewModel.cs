@@ -39,5 +39,11 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 $"{CurrentUser.BoxCombination.Substring(3, 2)}, then left and" +
                 $" stop at {CurrentUser.BoxCombination.Substring(5, 2)}.";
         }
+
+        public override void Cleanup()
+        {
+            CurrentUser = new Student();
+            base.Cleanup();
+        }
     }
 }

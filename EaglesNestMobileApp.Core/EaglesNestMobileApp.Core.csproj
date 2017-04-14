@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Contracts\IAzureService.cs" />
+    <Compile Include="Contracts\ICheckLogin.cs" />
     <Compile Include="Helpers\SyncHandler.cs" />
     <Compile Include="Model\Academics\Assignment.cs" />
     <Compile Include="Model\Academics\GradeCard.cs" />

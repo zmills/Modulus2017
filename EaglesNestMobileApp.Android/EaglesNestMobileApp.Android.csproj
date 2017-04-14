@@ -222,6 +222,7 @@
     <Compile Include="AndroidApp.cs" />
     <Compile Include="AndroidApp.FacilityCategory.cs" />
     <Compile Include="Cards\OLDCard.cs" />
+    <Compile Include="Helpers\ApplicationPreference.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
@@ -244,7 +245,6 @@
     <Compile Include="Views\Home\calendarFragment.cs" />
     <Compile Include="Views\Home\eventsFragment.cs" />
     <Compile Include="Views\Home\homeFragment.cs" />
-    <Compile Include="Views\LoadingActivity.cs" />
     <Compile Include="Views\loginActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

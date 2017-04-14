@@ -132,6 +132,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
                     {
                         _adapter.DataSource = ViewModel.Schedule[2];
                         _title.Text = App.Days.Tuesday;
+                        _adapter.NotifyDataSetChanged();
                     }
                     break;
                 case App.Days.Wednesday:

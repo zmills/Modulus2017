@@ -11,7 +11,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         private void InitializeAnnouncements()
         {
-           
+
+        }
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
         }
     }
 }

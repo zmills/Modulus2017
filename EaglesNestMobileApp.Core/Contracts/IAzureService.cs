@@ -12,6 +12,8 @@ namespace EaglesNestMobileApp.Core.Contracts
     {
         Task InitLocalStore();
 
+        Task InitExistingLocalStore();
+
         Task<List<Assignment>> GetAssignmentsAsync();
 
         Task<List<Course>> GetCoursesAsync();

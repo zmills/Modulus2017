@@ -86,7 +86,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                         if (documentsPath.Delete())
                         {
                             System.Diagnostics.Debug.WriteLine("DELETED");
-                            App.Locator.Main.Logout();
+                            App.Locator.Main.LogoutAsync();
                         }
                         else
                             System.Diagnostics.Debug.WriteLine("POKA!");

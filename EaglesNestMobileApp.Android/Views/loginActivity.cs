@@ -13,6 +13,7 @@ using Android.Widget;
 using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
+using Java.IO;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
@@ -33,8 +34,6 @@ namespace EaglesNestMobileApp.Android
         public EditText Password { get; set; }
         public Button LoginButton { get; set; }
 
-        private ProgressDialog loading;
-
         /* Once this thing is created make sure we check for whether the user  */
         /* is already logged in before we actually show him this layout. We    */
         /* can either use a different activity or wrap the contents of this    */
@@ -45,11 +44,6 @@ namespace EaglesNestMobileApp.Android
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
-
-            loading = new ProgressDialog(this);
-            loading.SetTitle("Logging in");
-            loading.SetMessage("Please wait...");
-            loading.SetCancelable(false);
 
             CurrentPlatform.Init();
 
@@ -71,12 +65,11 @@ namespace EaglesNestMobileApp.Android
 
             /* This command in the login viewmodel handles all the login logic  */
             LoginButton.Click += LoginButton_Click;
+            LoginViewModel.CheckUserAsync();
         }
 
         private async void LoginButton_Click(object sender, System.EventArgs e)
         {
-            loading.Show();
-            await Task.Delay(100);
             await LoginViewModel.AttemptLoginAsync();
         }
 

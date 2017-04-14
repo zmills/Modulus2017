@@ -139,5 +139,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 }
             }
         }
+
+        public override void Cleanup()
+        {
+            Events.Clear();
+            Schedule.Clear();
+            base.Cleanup();
+        }
     }
 }

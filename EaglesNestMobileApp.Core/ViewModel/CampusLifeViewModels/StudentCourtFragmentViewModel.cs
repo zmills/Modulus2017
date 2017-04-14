@@ -35,5 +35,11 @@ namespace EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels
             StudentOffenseCard = new OffenseCard(offenses, categories, 
                 unexcusedAbsences.ToString());
         }
+
+        public override void Cleanup()
+        {
+            StudentOffenseCard = new OffenseCard();
+            base.Cleanup();
+        }
     }
 }

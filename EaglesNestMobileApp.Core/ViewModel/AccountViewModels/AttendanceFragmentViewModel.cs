@@ -1,13 +1,14 @@
 ﻿using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Personal;
+using GalaSoft.MvvmLight;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 {
-    public class AttendanceFragmentViewModel
+    public class AttendanceFragmentViewModel : ViewModelBase
     {
         /* Absences, then tardies           */
         public List<Course> Classes = new List<Course>();
@@ -141,6 +142,14 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 Violations.Add(violation);
             }
             GetViolations();
+        }
+
+        public override void Cleanup()
+        {
+            AttendanceCards.Clear();
+            Violations.Clear();
+            Classes.Clear();
+            base.Cleanup();
         }
     }
 }
