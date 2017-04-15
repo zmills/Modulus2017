@@ -3,18 +3,20 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       android:id="@+id/menu_toolbar">
     <item android:id="@+id/email_button"
-          android:icon="@drawable/ic_mail_outline_black_24dp"
+          android:icon="@drawable/ic_mail_outline_white_24dp"
           android:title="Email"
           app:showAsAction="always"/>
 
-    <item android:id="@+id/logout_menu"
-          android:title="Log Out"
-          app:showAsAction="never" />
+  
           
-          <item android:id="@+id/theme_switch"
-          android:title="Switch Theme"
+          <item android:id="@+id/settings_button"
+          android:title="Settings"
           app:showAsAction="never"
                 />
+    
+      <item android:id="@+id/logout_menu"
+          android:title="Log Out"
+          app:showAsAction="never" />
           
   
 </menu>

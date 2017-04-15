@@ -9,8 +9,18 @@ namespace EaglesNestMobileApp.Core.Model.Campus
         public string OffenseDescription { get; set; }
         public string OffenseDate { get; set; }
         public string OffenseName { get; set; }
-        public float Demerits { get; set; }
+        public float  Demerits { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }
-        public string version { get; set; }
+        public string Version { get; set; }
+        public string OffenseTitle
+        {
+            get
+            {
+                if (OffenseName == "Write Up")
+                    return OffenseDescription;
+                else
+                    return OffenseName;
+            }
+        }
     }
 }

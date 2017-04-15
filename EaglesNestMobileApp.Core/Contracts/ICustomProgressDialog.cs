@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Widget;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace EaglesNestMobileApp.Core.Contracts
 {
     public interface ICustomProgressDialog
     {
-        void StartProgressDialog(string title, string message);
+        void StartProgressDialog(string title, string message, bool cancellable);
         void DismissProgressDialog();
+        void StartToast(string message, ToastLength length);
     }
 }

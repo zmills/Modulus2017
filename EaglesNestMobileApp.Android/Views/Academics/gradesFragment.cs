@@ -17,7 +17,6 @@ using System;
 using Dialog = Android.App.Dialog;
 using Android.Views.Animations;
 using Android.Support.Transitions;
-using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -60,7 +59,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             /* Create rotate animation */
             _rotateArrow = new RotateAnimation(0, 180, Dimension.RelativeToSelf, 0.5f, Dimension.RelativeToSelf, 0.5f)
             {
-                Duration = 500,
+                Duration = 550,
                 Interpolator = new AnticipateOvershootInterpolator(),
                 FillAfter = true
             };
@@ -78,9 +77,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 _gradesView.FindViewById<RecyclerView>(
                     Resource.Id.GradesRecyclerView);
 
-            Activity.RunOnUiThread(() => _gradesAdapter =
+            _gradesAdapter =
                 ViewModel.Grades.GetRecyclerAdapter(BindViewHolder,
-                    Resource.Layout.GradesCardLayout));
+                    Resource.Layout.GradesCardLayout);
 
             /* Setup the recyclerview with the created adapter and layout manager  */
             _gradesRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
@@ -116,8 +115,6 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             LinearLayout _expandArea =
                 holder.FindCachedViewById<LinearLayout>(Resource.Id.llExpandArea);
 
-       
-
             /* Handle the closing of the previous recyclerview */
             if (position == _expandedPosition)
             {
@@ -139,9 +136,20 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             TextView _courseGrade =
                 holder.FindCachedViewById<TextView>(Resource.Id.CourseGrade);
 
-            holder.FindCachedViewById<Button>(Resource.Id.TeacherInfoButton).Click += ShowTeacherInfo;
-            holder.FindCachedViewById<Button>(Resource.Id.ShowGradesButton).Tag = holder;
-            holder.FindCachedViewById<Button>(Resource.Id.ShowGradesButton).Click += ShowGrades;
+            Button _showTeacher =
+                holder.FindCachedViewById<Button>(Resource.Id.TeacherInfoButton);
+
+            if (!_showTeacher.HasOnClickListeners)
+                _showTeacher.Click += ShowTeacherInfo;
+
+            Button _showGrades = 
+                holder.FindCachedViewById<Button>(Resource.Id.ShowGradesButton);
+
+            if (!_showGrades.HasOnClickListeners)
+            {
+                _showGrades.Tag = holder;
+                _showGrades.Click += ShowGrades;
+            }
 
             /* Set up the child recyclerview for the assignments                       */
             _assignmentsRecyclerView =
@@ -149,10 +157,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                    Resource.Id.AssignmentsRecyclerView);
 
             /* Bind to the data                                                    */
-            Activity.RunOnUiThread(() => 
                 _assignmentAdapter =
                     gradeCard.ClassAssignments.GetRecyclerAdapter(ChildBindViewHolder,
-                        Resource.Layout.GradesAssignment));
+                        Resource.Layout.GradesAssignment);
 
             /* Set the nested recyclerview layout manager and adapter              */
             _assignmentsRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
@@ -201,17 +208,15 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _gradesAdapter.NotifyItemChanged(_expandedPosition);
         }
 
-        private async void ShowTeacherInfo(object sender, EventArgs e)
+        private void ShowTeacherInfo(object sender, EventArgs e)
         {
-            (sender as Button).Enabled = false;
-            Dialog _dialogBox = new Dialog(Activity/*, Resource.Style.ModAppCompatLightTheme*/);
-            _dialogBox.SetTitle("Teacher Info");
+            Dialog _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            _dialogBox.SetTitle("Teacher Information");
             _dialogBox.Window.SetContentView(Resource.Layout.BoxCombinationDialogLayout);
-            //_dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             _dialogBox.Show();
-
-            await Task.Delay(400);
-            (sender as Button).Enabled = true;
+            System.Diagnostics.Debug.WriteLine($"\n\n\n\n{_position}");
+            ///(sender as Button).Enabled = false;
         }
 
         private void ChildBindViewHolder(CachingViewHolder holder, 

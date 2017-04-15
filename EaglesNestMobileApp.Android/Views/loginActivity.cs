@@ -22,7 +22,8 @@ using System.Threading.Tasks;
 namespace EaglesNestMobileApp.Android
 {
     [Activity(Label = "The Nest", MainLauncher = false, ScreenOrientation = 
-        ScreenOrientation.Portrait, Icon = "@drawable/TheNestLogo1")]
+        ScreenOrientation.Portrait, Icon = "@drawable/TheNestLogo1",
+            Theme = "@style/ModAppCompatLightTheme")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
     public class loginActivity : AppCompatActivityBase

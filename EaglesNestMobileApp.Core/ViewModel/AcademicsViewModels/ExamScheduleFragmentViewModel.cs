@@ -24,7 +24,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
             this.Database = database;
         }
 
-        public async Task Initialize()
+        public async Task InitializeAsync()
         {
             var courses = await Database.GetCoursesAsync();
 

@@ -19,6 +19,10 @@ using Android.Graphics.Drawables;
 using Android.Support.V4.Content.Res;
 using Android.Util;
 using Android.Content.Res;
+using EaglesNestMobileApp.Core;
+using GalaSoft.MvvmLight.Helpers;
+using EaglesNestMobileApp.Core.Model.Campus;
+using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -30,20 +34,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         public CardView StatusCard { get; set; }
         public TextView Infraction { get; set; }
         public CardView InfractionCard { get; set; }
-
-        /* Progress bar multiplier for smoother animation                    */
-        const int PROG_BAR_MULTIPLIER = 1000;
-
-        /* Progress bar maximum values                                       */
-        const int MAX_DEMERITS              = 100 * PROG_BAR_MULTIPLIER;
-        const int MAX_DORM_INFRACTIONS      =  10 * PROG_BAR_MULTIPLIER;
-        const int MAX_ABSENCES              =  12 * PROG_BAR_MULTIPLIER;
-        const int MAX_LATE_DORM_INFRACTIONS =  10 * PROG_BAR_MULTIPLIER;
-
-        /* Infraction fines and penalties                                    */
-        const int DORM_INFRACTION_FINE      = 5;
-        const int ABSENCES_DEMERIT_PENALTY  = 10;
-        const int LATE_DORM_FINE            = 5;
+        public ObservableRecyclerAdapter<Offense, CachingViewHolder> _adapter;
 
         /* Progress bars to be displayed                                     */
         public ProgressBar DemeritsProgBar;
@@ -56,7 +47,11 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         public int TotalDormInfractions;
         public int TotalAbsences;
         public int TotalLateDorm;
-        
+
+        public StudentCourtFragmentViewModel ViewModel
+        {
+            get { return App.Locator.StudentCourt; }
+        }
 
         private Handler mHandler = new Handler();
 
@@ -85,6 +80,17 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             RefreshLayout.Refresh += RefreshLayoutRefresh;*/
             #endregion
 
+            RecyclerView _recyclerview =
+                StudentCourtView.FindViewById<RecyclerView>(Resource.Id.PendingReportSlips);
+
+            _adapter = ViewModel.StudentOffenseCard.Offenses.GetRecyclerAdapter
+                (
+                    BindViewHolder, Resource.Layout.StudentCourtInfractionCardLayout
+                );
+
+            _recyclerview.SetLayoutManager(new LinearLayoutManager(Activity));
+            _recyclerview.SetAdapter(_adapter);
+
             /* Student court progress bars                                   */
             DemeritsProgBar        = new ProgressBar(Activity);
             DormInfractionsProgBar = new ProgressBar(Activity);
@@ -101,10 +107,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 StudentCourtView.FindViewById<ProgressBar>(Resource.Id.LateDormProgressBar);
 
             /* Set max value for progress bars                               */
-            DemeritsProgBar.Max        = MAX_DEMERITS;
-            DormInfractionsProgBar.Max = MAX_DORM_INFRACTIONS;
-            AbsencesProgBar.Max        = MAX_ABSENCES;
-            LateDormProgBar.Max        = MAX_LATE_DORM_INFRACTIONS;
+            DemeritsProgBar.Max        = App.StudentCourt.MaxDemerits;
+            DormInfractionsProgBar.Max = App.StudentCourt.MaxDormInfractions;
+            AbsencesProgBar.Max        = App.StudentCourt.MaxAbsences;
+            LateDormProgBar.Max        = App.StudentCourt.MaxLateDormInfraction;
 
             StudentCourtView.Post(() => SetUpProgressBars());
 
@@ -119,7 +125,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             int endColor;
 
             /* Set text color for student court status                       */
-            StudentCourtView.FindViewById<TextView>(Resource.Id.StudentCourtStatusText).SetTextColor(startColorAndroidGraphics);
+            StudentCourtView.FindViewById<TextView>(Resource.Id.StudentCourtStatusText)
+                .SetTextColor(startColorAndroidGraphics);
 
             /* Get the name of the current theme                             */
             TypedValue attrValue = new TypedValue();
@@ -139,11 +146,50 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             /* Set the gradient's start and end colors                       */
             GradientDrawable gradient = new GradientDrawable(
                 GradientDrawable.Orientation.TopBottom, gradientColors);
-            StudentCourtView.FindViewById<ImageView>(Resource.Id.GradientStudentCourt).Background = gradient;
+            StudentCourtView.FindViewById<ImageView>(Resource.Id.GradientStudentCourt)
+                .Background = gradient;
             
 
             /* Use this to return your custom view for this Fragment         */
             return StudentCourtView;
+        }
+
+        private void BindViewHolder(CachingViewHolder holder, Offense offenseCard,
+            int position)
+        {
+            TextView _titleView = 
+                holder.FindCachedViewById<TextView>(Resource.Id.infractionTitle);
+
+            TextView _dateView =
+                holder.FindCachedViewById<TextView>(Resource.Id.infractionDate);
+
+            TextView _timeView =
+                holder.FindCachedViewById<TextView>(Resource.Id.infractionTime);
+
+            holder.DeleteBinding(_timeView);
+            holder.DeleteBinding(_dateView);
+            holder.DeleteBinding(_timeView);
+
+            var _titleBinding = new Binding<string, string>
+                (
+                    offenseCard,
+                    ()=> offenseCard.OffenseTitle,
+                    _titleView,
+                    ()=> _titleView.Text,
+                    BindingMode.OneWay
+                );
+
+            var _dateBinding = new Binding<string, string>
+                (
+                    offenseCard,
+                    () => offenseCard.OffenseDate,
+                    _dateView,
+                    () => _dateView.Text,
+                    BindingMode.OneWay
+                );
+
+            holder.SaveBinding(_titleView, _titleBinding);
+            holder.SaveBinding(_dateView, _dateBinding);
         }
 
         private void SetUpProgressBars()
@@ -156,10 +202,38 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                                             _lateDormProgBarAnim;
 
             /* Set student total demerits and infractions                    */
-            TotalDemerits        = 50 * PROG_BAR_MULTIPLIER;
-            TotalDormInfractions =  7 * PROG_BAR_MULTIPLIER;
-            TotalAbsences        =  5 * PROG_BAR_MULTIPLIER;
-            TotalLateDorm        =  6 * PROG_BAR_MULTIPLIER;
+            TotalDemerits        = 50 * App.StudentCourt.ProgBarMultiplier;
+            TotalDormInfractions =  7 * App.StudentCourt.ProgBarMultiplier;
+            TotalAbsences        =  5 * App.StudentCourt.ProgBarMultiplier;
+            TotalLateDorm        =  6 * App.StudentCourt.ProgBarMultiplier;
+            //HAVE TO BE BINDED
+            TextView _demerits = StudentCourtView.FindViewById<TextView>(Resource.Id.totalDemerits);
+            _demerits.Text = ViewModel.StudentOffenseCard.TotalDemerits;
+
+            TextView _resInfractions = StudentCourtView.FindViewById<TextView>(Resource.Id.totalResidenceHallInfractions);
+            _resInfractions.Text = ViewModel.StudentOffenseCard.TotalResidenceHallInfractions;
+
+            TextView _unexcusedAbsences = StudentCourtView.FindViewById<TextView>(Resource.Id.totalAbsences);
+            _unexcusedAbsences.Text = ViewModel.StudentOffenseCard.TotalUnexcusedAbsences;
+
+            TextView _resLateInfractions = StudentCourtView.FindViewById<TextView>(Resource.Id.totalLateResidenceHallInfractions);
+            _resLateInfractions.Text = ViewModel.StudentOffenseCard.TotalLateOutIntoInfractions;
+
+            TotalDemerits = 
+                int.Parse(ViewModel.StudentOffenseCard.TotalDemerits) * 
+                    App.StudentCourt.ProgBarMultiplier;
+
+            TotalDormInfractions = 
+                int.Parse(ViewModel.StudentOffenseCard.TotalResidenceHallInfractions) * 
+                    App.StudentCourt.ProgBarMultiplier;
+
+            TotalAbsences = 
+                int.Parse(ViewModel.StudentOffenseCard.TotalUnexcusedAbsences) * 
+                    App.StudentCourt.ProgBarMultiplier;
+
+            TotalLateDorm = 
+                int.Parse(ViewModel.StudentOffenseCard.TotalLateOutIntoInfractions) * 
+                    App.StudentCourt.ProgBarMultiplier;
 
             /* Set progress bar animations                                   */
             _demeritsProgBarAnim =

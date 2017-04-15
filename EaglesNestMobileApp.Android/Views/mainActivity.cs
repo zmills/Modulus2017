@@ -19,13 +19,12 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
-using Java.IO;
 
 namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "The Nest", Icon = "@drawable/TheNestLogo1",
        ScreenOrientation = ScreenOrientation.Portrait,
-           MainLauncher = false, Theme = "@style/ModAppCompatDarkTheme")]
+           MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
@@ -70,7 +69,6 @@ namespace EaglesNestMobileApp.Android.Views
                 FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
                     .NavigationItemSelected += NavItemSelected);
             
-
             /* Loads up the main page                                        */
             RunOnUiThread(() => LoadHomeFragment());
         }

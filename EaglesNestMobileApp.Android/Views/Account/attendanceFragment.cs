@@ -133,8 +133,8 @@ namespace EaglesNestMobileApp.Android.Views.Account
             {
                 holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView1),
                 holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView2),
-                holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView4),
-                holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView3)
+                holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView3),
+                holder.FindCachedViewById<RecyclerView>(Resource.Id.AttendancePenaltyListRecyclerView4)
             };
 
             /* Set adapters and linearlayoutmanagers to the recyclerviews */
