@@ -5,11 +5,11 @@ namespace EaglesNestMobileApp.Core.Model.Campus
 {
     public class OffenseCard
     {
-        public string TotalDemerits { get; set; }
-        public string TotalResidenceHallInfractions { get; set; }
-        public string TotalUnexcusedAbsences { get; set; }
-        public string TotalLateOutIntoInfractions { get; set; }
-        public string StudentCourtStatus { get; set; }
+        public string TotalDemerits { get; set; } = "0";
+        public string TotalResidenceHallInfractions { get; set; } = "0";
+        public string TotalUnexcusedAbsences { get; set; } = "0";
+        public string TotalLateOutIntoInfractions { get; set; } = "0";
+        public string StudentCourtStatus { get; set; } = "0";
         public ObservableCollection<Offense> Offenses { get; set; } =
             new ObservableCollection<Offense>();
 
@@ -20,10 +20,15 @@ namespace EaglesNestMobileApp.Core.Model.Campus
         {
             TotalUnexcusedAbsences = unexcusedAbsences;
 
+            float demerits = 0;
+
             foreach (var item in offenses)
             {
                 Offenses.Add(item);
+                demerits += item.Demerits;
             }
+
+            TotalDemerits = demerits.ToString();
 
             if (Offenses.Count == 0)
                 StudentCourtStatus = App.StudentCourtStatus.Green;

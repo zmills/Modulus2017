@@ -152,7 +152,7 @@
 
                         <!-- TOTAL: Demerits Data-->
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/totalDemerits"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/DemeritsInfoIcon"
@@ -220,7 +220,7 @@
 
                         <!-- TOTAL: Residence Hall Infractions Data-->
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/totalResidenceHallInfractions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/DormInfractionsInfoIcon"
@@ -288,7 +288,7 @@
 
                         <!-- TOTAL: Absences-->
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/totalAbsences"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/AbsencesInfoIcon"
@@ -356,7 +356,7 @@
 
                         <!-- TOTAL: Absences-->
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/totalLateResidenceHallInfractions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/LateDormInfoIcon"

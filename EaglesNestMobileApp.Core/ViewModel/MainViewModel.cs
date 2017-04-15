@@ -26,7 +26,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await _locator.Events.InitializeAsync();
             //_locator.Grades.InitializeStatic();
             await _locator.Grades.InitializeAsync();
-            await _locator.Exams.Initialize();
+            await _locator.Exams.InitializeAsync();
+            await _locator.StudentCourt.InitializeAsync();
             //_locator.Exams.InitializeStatic();
             await _locator.GrabAndGo.InitializeAsync();
             //_locator.GrabAndGo.InitializeVm();
@@ -51,7 +52,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await _locator.Events.InitializeAsync();
             //_locator.Grades.InitializeStatic();
             await _locator.Grades.InitializeAsync();
-            await _locator.Exams.Initialize();
+            await _locator.Exams.InitializeAsync();
             //_locator.Exams.InitializeStatic();
             await _locator.GrabAndGo.InitializeAsync();
             //_locator.GrabAndGo.InitializeVm();

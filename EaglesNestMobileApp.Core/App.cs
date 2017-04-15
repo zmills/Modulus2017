@@ -36,6 +36,23 @@ namespace EaglesNestMobileApp.Core
             public const string PendingTardy = "PT";
         }
 
+        public static class StudentCourt
+        {
+            /* Progress bar multiplier for smoother animation                    */
+            public const int ProgBarMultiplier = 1000;
+ 
+            /* Progress bar maximum values                                       */
+            public const int MaxDemerits           = 100 * ProgBarMultiplier;
+            public const int MaxDormInfractions    = 10 * ProgBarMultiplier;
+            public const int MaxAbsences           = 12 * ProgBarMultiplier;
+            public const int MaxLateDormInfraction = 10 * ProgBarMultiplier;
+ 
+            /* Infraction fines and penalties                                    */
+            public const int DormInfractionFine = 5;
+            public const int AbsencesDemeritPenalty = 10;
+            public const int LateDormFine = 5;
+        }
+
         public static class Days
         {
             public const string Sunday = "Sunday";

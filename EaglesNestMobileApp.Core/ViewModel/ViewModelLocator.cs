@@ -15,6 +15,7 @@ using Microsoft.Practices.ServiceLocation;
 using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels;
 using EaglesNestMobileApp.Core.ViewModel.DiningViewModels;
+using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -44,6 +45,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<ExamScheduleFragmentViewModel>();
             SimpleIoc.Default.Register<AttendanceFragmentViewModel>();
             SimpleIoc.Default.Register<ScheduleFragmentViewModel>();
+            SimpleIoc.Default.Register<StudentCourtFragmentViewModel>();
         }
 
         /* This method is used by the AndroidApp class to register the Android */
@@ -89,6 +91,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public StudentInfoFragmentViewModel StudentInfo =>
         ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
+
+        public StudentCourtFragmentViewModel StudentCourt =>
+        ServiceLocator.Current.GetInstance<StudentCourtFragmentViewModel>();
 
         public GrabAndGoFragmentViewModel GrabAndGo =>
         ServiceLocator.Current.GetInstance<GrabAndGoFragmentViewModel>();
