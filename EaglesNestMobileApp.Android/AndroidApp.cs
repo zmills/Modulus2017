@@ -37,7 +37,6 @@ namespace EaglesNestMobileApp.Android
 
                     _locator = new ViewModelLocator();
                 }
-
                 return _locator;
             }
         }
