@@ -56,7 +56,7 @@
                     android:padding="16dp"
                     >
 
-                    <!-- ACCOUNT PHOTO -->
+                    <!-- STUDENT COURT ICON -->
                     <!-- NOTE: android:src is set programmatically for this view -->
                     <ImageView
                         android:id="@+id/AccountPhoto"
@@ -402,6 +402,39 @@
 
                     </RelativeLayout>
                     
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- PENDING REPORT SLIPS -->
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/myCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardUseCompatPadding="false"
+                card_view:cardElevation="2dp"
+                card_view:cardCornerRadius="0dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/PendingReportSlips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        />
+
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
