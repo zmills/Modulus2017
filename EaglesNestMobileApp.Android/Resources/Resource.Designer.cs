@@ -3557,8 +3557,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07013a
 			public const int llExpandArea = 2131165498;
 			
-			// aapt resource value: 0x7f070195
-			public const int logout_menu = 2131165589;
+			// aapt resource value: 0x7f070196
+			public const int logout_menu = 2131165590;
 			
 			// aapt resource value: 0x7f07018b
 			public const int masked = 2131165579;
@@ -3704,6 +3704,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f070083
 			public const int select_dialog_listview = 2131165315;
 			
+			// aapt resource value: 0x7f070195
+			public const int settings_button = 2131165589;
+			
 			// aapt resource value: 0x7f07006d
 			public const int shortcut = 2131165293;
 			
@@ -3811,9 +3814,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f07000d
 			public const int textinput_error = 2131165197;
-			
-			// aapt resource value: 0x7f070196
-			public const int theme_switch = 2131165590;
 			
 			// aapt resource value: 0x7f07014e
 			public const int time = 2131165518;
