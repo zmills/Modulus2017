@@ -23,18 +23,23 @@ namespace EaglesNestMobileApp.Android.Helpers
             this._context = context;
         }
 
-        public void StartProgressDialog(string title, string message)
+        public void StartProgressDialog(string title, string message, bool cancellable)
         {
             _dialog = new ProgressDialog(_context);
             _dialog.SetTitle(title);
             _dialog.SetMessage(message);
-            _dialog.SetCancelable(false);
+            _dialog.SetCancelable(cancellable);
             _dialog.Show();
         }
 
         public void DismissProgressDialog()
         {
             _dialog.Dismiss();
+        }
+
+        public void StartToast(string message, ToastLength length)
+        {
+            Toast.MakeText(_context, message, length).Show();
         }
     }
 }

@@ -54,6 +54,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         /* Singleton instance of the database                                */
         private readonly IAzureService Database;
+        private ICustomProgressDialog Dialog;
 
         public LoginActivityViewModel(IAzureService database)
         {
@@ -63,6 +64,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task AttemptLoginAsync()
         {
+            Dialog = App.Locator.Dialog;
+            Dialog.StartProgressDialog(null, "Logging in. . .", false);
+
             if (CurrentUser.Id == "123")
             {
                 LoginAuthenticator.SaveLogin("USERNAME", "118965");
@@ -70,6 +74,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 await App.Locator.Main.InitializeNewUserAsync();
                 Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
                 EnableLoginButton = true;
+
+                Dialog.DismissProgressDialog();
             }
             else
             {
@@ -88,18 +94,38 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         {
                             LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
                             App.Locator.User = CurrentUser.Id;
+
+                            Dialog.DismissProgressDialog();
+
                             await App.Locator.Main.InitializeNewUserAsync();
                             Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
                         }
+                        else
+                        {
+                            Debug.WriteLine("\n\n\n\nWrong Credentials");
+                            Dialog.DismissProgressDialog();
+                            Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
+                        }
+
                     }
                     else
                     {
-                        Debug.WriteLine("\n\n\n\nWrong Credentials");
+                        Dialog.DismissProgressDialog();
+                        Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
                     }
                 }
-                catch (Exception internetConnectionEx)
+                catch (System.Net.Http.HttpRequestException internetConnectionEx)
                 {
                     Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
+                    Dialog.DismissProgressDialog();
+                    Dialog.StartToast("Please check your Internet connection.",
+                        Android.Widget.ToastLength.Long);
+                }
+                catch (ArgumentOutOfRangeException IncorrectCredentials)
+                {
+                    Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
+                    Dialog.DismissProgressDialog();
+                    Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
                 }
                 EnableLoginButton = true;
             }
