@@ -224,6 +224,7 @@
     <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Helpers\ApplicationPreference.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
+    <Compile Include="Helpers\ProgressDialogDependency.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\mainActivity.cs" />
+    <Compile Include="Views\SplashScreenActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -604,7 +606,7 @@
     <AndroidResource Include="Resources\drawable\circle.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\StudentCourtReportSlips.xml" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

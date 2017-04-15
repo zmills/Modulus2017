@@ -8,6 +8,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
     {
         private readonly IAzureService Database;
 
+        ViewModelLocator _locator = App.Locator;
+
         public MainViewModel(IAzureService database)
         {
             Database = database;
@@ -15,51 +17,53 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task InitializeNewUserAsync()
         {
-           // App.Locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
+            _locator.Dialog.StartProgressDialog("Loading", "Please wait...");
+            // _locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
             await Database.InitLocalStore();
             await Database.SyncAsync(pullData: true);
-            //App.Locator.Events.Initialize();
-            App.Locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
-            await App.Locator.Events.InitializeAsync();
-            //App.Locator.Grades.InitializeStatic();
-            await App.Locator.Grades.InitializeAsync();
-            await App.Locator.Exams.Initialize();
-            //App.Locator.Exams.InitializeStatic();
-            await App.Locator.GrabAndGo.InitializeAsync();
-            //App.Locator.GrabAndGo.InitializeVm();
-            await App.Locator.StudentInfo.InitializeAsync();
-            await App.Locator.Varsity.InitializeAsync();
-            //App.Locator.Varsity.InitializeStatic();
-            await App.Locator.FourWinds.InitializeAsync();
-            //App.Locator.FourWinds.InitializeStatic();
-            // App.Locator.Attendance.InitializeStatic();
-            await App.Locator.Attendance.InitializeAsync();
-            //App.Locator.StudentSchedule.InitializeStatic();
-            await App.Locator.StudentSchedule.InitializeAsync();
+            //_locator.Events.Initialize();
+            _locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
+            await _locator.Events.InitializeAsync();
+            //_locator.Grades.InitializeStatic();
+            await _locator.Grades.InitializeAsync();
+            await _locator.Exams.Initialize();
+            //_locator.Exams.InitializeStatic();
+            await _locator.GrabAndGo.InitializeAsync();
+            //_locator.GrabAndGo.InitializeVm();
+            await _locator.StudentInfo.InitializeAsync();
+            await _locator.Varsity.InitializeAsync();
+            //_locator.Varsity.InitializeStatic();
+            await _locator.FourWinds.InitializeAsync();
+            //_locator.FourWinds.InitializeStatic();
+            // _locator.Attendance.InitializeStatic();
+            await _locator.Attendance.InitializeAsync();
+            //_locator.StudentSchedule.InitializeStatic();
+            await _locator.StudentSchedule.InitializeAsync();
+            _locator.Dialog.DismissProgressDialog();
         }
 
         public async Task InitializeLoggedInUserAsync()
         {
-            // App.Locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
+            // _locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
             await Database.InitExistingLocalStore();
-            //App.Locator.Events.Initialize();
-            App.Locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
-            await App.Locator.Events.InitializeAsync();
-            //App.Locator.Grades.InitializeStatic();
-            await App.Locator.Grades.InitializeAsync();
-            await App.Locator.Exams.Initialize();
-            //App.Locator.Exams.InitializeStatic();
-            await App.Locator.GrabAndGo.InitializeAsync();
-            //App.Locator.GrabAndGo.InitializeVm();
-            await App.Locator.StudentInfo.InitializeAsync();
-            await App.Locator.Varsity.InitializeAsync();
-            //App.Locator.Varsity.InitializeStatic();
-            await App.Locator.FourWinds.InitializeAsync();
-            //App.Locator.FourWinds.InitializeStatic();
-            // App.Locator.Attendance.InitializeStatic();
-            await App.Locator.Attendance.InitializeAsync();
-            //App.Locator.StudentSchedule.InitializeStatic();
-            await App.Locator.StudentSchedule.InitializeAsync();
+            //_locator.Events.Initialize();
+            _locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
+            await _locator.Events.InitializeAsync();
+            //_locator.Grades.InitializeStatic();
+            await _locator.Grades.InitializeAsync();
+            await _locator.Exams.Initialize();
+            //_locator.Exams.InitializeStatic();
+            await _locator.GrabAndGo.InitializeAsync();
+            //_locator.GrabAndGo.InitializeVm();
+            await _locator.StudentInfo.InitializeAsync();
+            await _locator.Varsity.InitializeAsync();
+            //_locator.Varsity.InitializeStatic();
+            await _locator.FourWinds.InitializeAsync();
+            //_locator.FourWinds.InitializeStatic();
+            // _locator.Attendance.InitializeStatic();
+            await _locator.Attendance.InitializeAsync();
+            //_locator.StudentSchedule.InitializeStatic();
+            await _locator.StudentSchedule.InitializeAsync();
             await Database.SyncAsync(pullData: true);
         }
 
@@ -68,9 +72,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /*********************************************************************/
         public void LogoutAsync()
         {
-            App.Locator.CheckLogin.Logout("USERNAME");
+            _locator.CheckLogin.Logout("USERNAME");
             ViewModelLocator.Cleanup();
-            App.Locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
+            _locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
         }
 
         public async Task Purge()

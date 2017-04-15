@@ -6,10 +6,11 @@
 /* (loginActivityViewModel.cs) in the PCL.                                   */
 /*                                                                           */
 /*****************************************************************************/
-using Android.App;
 using Android.Content.PM;
+using Android.App;
 using Android.OS;
 using Android.Widget;
+using EaglesNestMobileApp.Android.Helpers;
 using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
@@ -20,8 +21,8 @@ using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "The Nest", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait,
-         Icon = "@drawable/TheNestLogo1")]
+    [Activity(Label = "The Nest", MainLauncher = false, ScreenOrientation = 
+        ScreenOrientation.Portrait, Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
     public class loginActivity : AppCompatActivityBase
@@ -44,6 +45,8 @@ namespace EaglesNestMobileApp.Android
 
             /* Set our view from the "main" layout resource                     */
             SetContentView(Resource.Layout.LoginLayout);
+            ViewModelLocator
+                .RegisterCustomDialogService(new CustomProgressDialog(this));
 
             CurrentPlatform.Init();
 
@@ -64,14 +67,9 @@ namespace EaglesNestMobileApp.Android
                 () => Password.Text, BindingMode.TwoWay);
 
             /* This command in the login viewmodel handles all the login logic  */
-            LoginButton.Click += LoginButton_Click;
-            LoginViewModel.CheckUserAsync();
+            LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
         }
 
-        private async void LoginButton_Click(object sender, System.EventArgs e)
-        {
-            await LoginViewModel.AttemptLoginAsync();
-        }
 
         public override void OnBackPressed()
         {
