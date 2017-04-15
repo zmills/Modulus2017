@@ -3,8 +3,13 @@
     android:id="@+id/listItem" 
     android:layout_width="match_parent"
     android:layout_height="wrap_content" 
-    style="@style/ModListItemPrimaryText"
-    android:textSize="20sp"
+    style="@style/ModRobotoRegular16"
+  
     android:background="?attr/modCardBackgroundColor"
-          android:paddingLeft="56dp"
-          />
+          android:layout_marginLeft="56dp"
+          android:paddingTop="4dp"
+          android:paddingBottom="4dp"
+          android:paddingLeft="24dp"
+          /> 
+
+ <!--android:textSize="16sp"-->
