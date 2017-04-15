@@ -108,7 +108,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /*********************************************************************/
         /*               Check if the user is still logged in                */
         /*********************************************************************/
-        public void CheckUserAsync()
+        public void CheckUser()
         {
             EnableLoginButton = false;
 
@@ -119,7 +119,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 NavigateToMainPage();
                 EnableLoginButton = true;
             }
-            EnableLoginButton = true;
+            else
+            {
+                App.Locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
+                EnableLoginButton = true;
+            }
         }
 
         /*********************************************************************/

@@ -32,7 +32,6 @@ namespace EaglesNestMobileApp.Android
 
                     _navigator.Configure(App.PageKeys.MainPageKey, typeof(mainActivity));
                     _navigator.Configure(App.PageKeys.LoginPageKey, typeof(loginActivity));
-                    //_navigator.Configure(App.PageKeys.LoadingPageKey, typeof(LoadingActivity)); 
                     ViewModelLocator.RegisterNavigationService(_navigator);
                     ViewModelLocator.RegisterGetPreferences(new ApplicationPreference());
 
