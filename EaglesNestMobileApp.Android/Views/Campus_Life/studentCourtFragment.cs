@@ -173,7 +173,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             var _titleBinding = new Binding<string, string>
                 (
                     offenseCard,
-                    ()=> offenseCard.OffenseName,
+                    ()=> offenseCard.OffenseTitle,
                     _titleView,
                     ()=> _titleView.Text,
                     BindingMode.OneWay

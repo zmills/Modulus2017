@@ -16,6 +16,7 @@ using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels;
 using EaglesNestMobileApp.Core.ViewModel.DiningViewModels;
 using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
+using System;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -71,6 +72,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public static void RegisterCustomDialogService(ICustomProgressDialog customDialogService)
         {
             SimpleIoc.Default.Register(() => customDialogService);
+        }
+
+        public static void UnregisterDialogService()
+        {
+            SimpleIoc.Default.Unregister<ICustomProgressDialog>();
         }
 
         /* The following returns the sigleton instance of the service/         */
