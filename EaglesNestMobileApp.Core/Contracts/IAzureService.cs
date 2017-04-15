@@ -12,11 +12,15 @@ namespace EaglesNestMobileApp.Core.Contracts
     {
         Task InitLocalStore();
 
+        Task InitExistingLocalStore();
+
         Task<List<Assignment>> GetAssignmentsAsync();
 
         Task<List<Course>> GetCoursesAsync();
 
         Task<List<Events>> GetEventsAsync();
+
+        Task<List<StudentEvent>> GetScheduleEventsAsync();
 
         Task<List<ClassAttendance>> GetAttendanceViolationsAsync();
 
@@ -45,6 +49,5 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task<List<EventSlot>> GetEventSignupAsync();
 
         Task InsertEventAsync(EventSlot eventSignup);
-        //Task<ObservableCollection<AttendanceViolation>> GetAttendanceViolationsAsync();
     }
 }

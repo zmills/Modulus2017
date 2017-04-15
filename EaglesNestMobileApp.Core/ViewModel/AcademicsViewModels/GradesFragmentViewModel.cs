@@ -60,7 +60,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             /* Sort the list of based off of the most recently updated one */
             Assignments.Sort
                 (
-                    (x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt)
+                        (x, y) => x.AssignmentDate.CompareTo(y.AssignmentDate)
                 );
 
             /* Format the student gradeCards for the separate views    */
@@ -83,7 +83,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* Sort the list of based off of the most recently updated one */
                 Assignments.Sort
                     (
-                        (x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt)
+                        (x, y) => x.AssignmentDate.CompareTo(y.AssignmentDate)
                     );
 
                 /* Format the student gradeCards for the separate views    */
@@ -112,7 +112,15 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 Grades.Add(current);
             }
             /* Sort the classes based off of the most recently updated assignment           */
-            // Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+            //Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+        }
+
+        public override void Cleanup()
+        {
+            Classes.Clear();
+            Assignments.Clear();
+            Grades.Clear();
+            base.Cleanup();
         }
 
         public void InitializeStatic()

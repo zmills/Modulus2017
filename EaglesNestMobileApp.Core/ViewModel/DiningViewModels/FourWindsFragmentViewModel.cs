@@ -124,5 +124,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.DiningViewModels
                 FourWindsMenu.AddItem(current);
             }
         }
+
+        public override void Cleanup()
+        {
+            FourWindsItems.Clear();
+            FourWindsMenu = new FourWindsMenu();
+            base.Cleanup();
+        }
     }
 }

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Contracts\IAzureService.cs" />
+    <Compile Include="Contracts\ICheckLogin.cs" />
+    <Compile Include="Contracts\ICustomProgressDialog.cs" />
     <Compile Include="Helpers\SyncHandler.cs" />
     <Compile Include="Model\Academics\Assignment.cs" />
     <Compile Include="Model\Academics\GradeCard.cs" />
@@ -60,7 +62,7 @@
     <Compile Include="Model\LocalToken.cs" />
     <Compile Include="Model\Personal\AttendanceCard.cs" />
     <Compile Include="Model\Personal\ClassAttendance.cs" />
-    <Compile Include="Model\Personal\ScheduleEvent.cs" />
+    <Compile Include="Model\Personal\StudentEvent.cs" />
     <Compile Include="Model\Personal\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Authenticator.cs" />

@@ -11,6 +11,9 @@
 ****************************************************************************-->
 
 <resources>
+    <string name="modAppCompatLightThemeName">ModAppCompatLightTheme</string>
+    <string name="modAppCompatDarkThemeName">ModAppCompatDarkTheme</string>
+    
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">EaglesNestMobileApp.Android</string>
     <string name="hello">Hello World, Click Me!</string>

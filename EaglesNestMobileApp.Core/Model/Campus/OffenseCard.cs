@@ -14,6 +14,8 @@ namespace EaglesNestMobileApp.Core.Model.Campus
             new ObservableCollection<Offense>();
 
 
+        public OffenseCard() { }
+
         public OffenseCard(List<Offense> offenses, List<OffenseCategory> infractions, string unexcusedAbsences)
         {
             TotalUnexcusedAbsences = unexcusedAbsences;

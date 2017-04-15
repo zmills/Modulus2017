@@ -6,20 +6,23 @@
 /* (loginActivityViewModel.cs) in the PCL.                                   */
 /*                                                                           */
 /*****************************************************************************/
-using Android.App;
 using Android.Content.PM;
+using Android.App;
 using Android.OS;
 using Android.Widget;
+using EaglesNestMobileApp.Android.Helpers;
 using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
+using Java.IO;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "The Nest", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait,
-         Icon = "@drawable/TheNestLogo1")]
+    [Activity(Label = "The Nest", MainLauncher = false, ScreenOrientation = 
+        ScreenOrientation.Portrait, Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
     public class loginActivity : AppCompatActivityBase
@@ -39,12 +42,13 @@ namespace EaglesNestMobileApp.Android
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            CurrentPlatform.Init();
-           
+
             /* Set our view from the "main" layout resource                     */
-            RunOnUiThread(() => SetContentView(Resource.Layout.LoginLayout));
-            //await App.Locator.FourWinds.RefreshMenusAsync();
-            RunOnUiThread(async () => await LoginViewModel.CheckUserAsync());
+            SetContentView(Resource.Layout.LoginLayout);
+            ViewModelLocator
+                .RegisterCustomDialogService(new CustomProgressDialog(this));
+
+            CurrentPlatform.Init();
 
             /* Bind views to the viewmodel                                      */
             Username = FindViewById<EditText>(Resource.Id.UserId);
@@ -53,19 +57,24 @@ namespace EaglesNestMobileApp.Android
 
             /* This binds the input from the user to the current user token in  */
             /* the login viewmodel                                              */
-            RunOnUiThread(() =>
-            {
-                LoginViewModel.CurrentUser.SetBinding(
-                    () => LoginViewModel.CurrentUser.Id, Username,
-                    () => Username.Text, BindingMode.TwoWay);
 
-                LoginViewModel.CurrentUser.SetBinding(
-                    () => LoginViewModel.CurrentUser.Password, Password,
-                    () => Password.Text, BindingMode.TwoWay);
+            LoginViewModel.CurrentUser.SetBinding(
+                () => LoginViewModel.CurrentUser.Id, Username,
+                () => Username.Text, BindingMode.TwoWay);
 
-                /* This command in the login viewmodel handles all the login logic  */
-                LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
-            });
+            LoginViewModel.CurrentUser.SetBinding(
+                () => LoginViewModel.CurrentUser.Password, Password,
+                () => Password.Text, BindingMode.TwoWay);
+
+            /* This command in the login viewmodel handles all the login logic  */
+            LoginButton.SetCommand("Click", LoginViewModel.LoginCommand);
+        }
+
+
+        public override void OnBackPressed()
+        {
+            Finish();
+            FinishAffinity();
         }
     }
 }

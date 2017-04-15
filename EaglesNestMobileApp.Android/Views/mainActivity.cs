@@ -19,12 +19,13 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
+using Java.IO;
 
 namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "The Nest", Icon = "@drawable/TheNestLogo1",
        ScreenOrientation = ScreenOrientation.Portrait,
-           MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
+           MainLauncher = false, Theme = "@style/ModAppCompatDarkTheme")]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
@@ -56,20 +57,11 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
-           
             /*( Set our view from the "main" layout resource                 */
-            RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
-            RunOnUiThread(() => InitializeNavigation());
+            SetContentView(Resource.Layout.BottomNavLayout);
+            InitializeNavigation();
         }
-
-        //public bool onPrepareOptionsMenu(Menu menu) 
-        //{
-        //    MenuInflater menuInflater = new MenuInflater();
-        //    menuInflater.inflate(Resource.menu.toolbar_menu, menu);
-        //    return true;
-        //}
 
         private void InitializeNavigation()
         {

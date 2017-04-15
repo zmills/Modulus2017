@@ -18,11 +18,6 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 
         public string BoxCombinationInstructions;
 
-        /* Command to be binded to the refresh event in the view */
-        private RelayCommand _logOutCommand;
-        public RelayCommand LogOutCommand => _logOutCommand ??
-            (_logOutCommand = new RelayCommand(async () => await LogoutAsync()));
-
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
@@ -45,13 +40,10 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 $" stop at {CurrentUser.BoxCombination.Substring(5, 2)}.";
         }
 
-        /*********************************************************************/
-        /*                      Starts the main activity                     */
-        /*********************************************************************/
-        public async Task LogoutAsync()
+        public override void Cleanup()
         {
-            await Database.PurgeDatabaseAsync();
-            App.Locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
+            CurrentUser = new Student();
+            base.Cleanup();
         }
     }
 }

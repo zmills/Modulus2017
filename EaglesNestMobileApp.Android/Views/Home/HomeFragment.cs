@@ -17,6 +17,8 @@ using Android.Support.V7.Widget;
 using System;
 using Uri = Android.Net.Uri;
 using Android.Content;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -76,13 +78,16 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 case Resource.Id.email_button:
                     StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://students.pcci.edu/owa/")));
                     break;
-            }
-           
+                case Resource.Id.logout_menu:
+                    {
+                        
+                        App.Locator.Main.LogoutAsync();
+
+                        File.Delete(System.Environment.GetFolderPath(
+                            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
+                    }
+                    break;
+            }  
         }
-
-       
-
-
-       
     }
 }

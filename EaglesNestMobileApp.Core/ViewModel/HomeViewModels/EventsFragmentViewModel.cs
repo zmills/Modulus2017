@@ -78,5 +78,13 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await InitializeAsync();
             AnalyzeEvents();
         }
+
+        public override void Cleanup()
+        {
+            Events.Clear();
+            _eventSignup.Clear();
+            _tempEvents.Clear();
+            base.Cleanup();
+        }
     }
 }

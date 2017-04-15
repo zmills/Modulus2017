@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <!-- THEME NAME -->
+    <attr name="modThemeName" format="string" />
 
     <!-- CARD -->
     <attr name="modCardBackgroundColor" format="reference" />
