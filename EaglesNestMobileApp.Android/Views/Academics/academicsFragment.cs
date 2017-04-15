@@ -15,7 +15,7 @@ using EaglesNestMobileApp.Core;
 using Uri = Android.Net.Uri;
 using Android.Content;
 using Android.Support.V7.Widget;
-using Java.IO;
+using System.IO;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -75,16 +75,11 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                     break;
                 case Resource.Id.logout_menu:
                     {
-                        File documentsPath = new File(System.Environment.GetFolderPath(
-                            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
 
-                        if (documentsPath.Delete())
-                        {
-                            System.Diagnostics.Debug.WriteLine("DELETED");
-                            App.Locator.Main.LogoutAsync();
-                        }
-                        else
-                            System.Diagnostics.Debug.WriteLine("POKA!");
+                        App.Locator.Main.LogoutAsync();
+
+                        File.Delete(System.Environment.GetFolderPath(
+                            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
                     }
                     break;
             }

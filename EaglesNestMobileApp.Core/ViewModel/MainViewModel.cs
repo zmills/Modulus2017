@@ -17,7 +17,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task InitializeNewUserAsync()
         {
-            _locator.Dialog.StartProgressDialog("Loading", "Please wait...");
+            // THIS SHOULD BE ANNOTHER SPLASH SCREEN"
             // _locator.Navigator.NavigateTo(App.PageKeys.LoadingPageKey);
             await Database.InitLocalStore();
             await Database.SyncAsync(pullData: true);
@@ -40,7 +40,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await _locator.Attendance.InitializeAsync();
             //_locator.StudentSchedule.InitializeStatic();
             await _locator.StudentSchedule.InitializeAsync();
-            _locator.Dialog.DismissProgressDialog();
         }
 
         public async Task InitializeLoggedInUserAsync()
@@ -53,6 +52,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             //_locator.Grades.InitializeStatic();
             await _locator.Grades.InitializeAsync();
             await _locator.Exams.InitializeAsync();
+            await _locator.StudentCourt.InitializeAsync();
+
             //_locator.Exams.InitializeStatic();
             await _locator.GrabAndGo.InitializeAsync();
             //_locator.GrabAndGo.InitializeVm();
