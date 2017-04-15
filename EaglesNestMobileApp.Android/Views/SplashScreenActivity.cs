@@ -1,25 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "SplashScreenActivity")]
+    [Activity(Label = "SplashScreenActivity", Theme = "@style/SplashScreenTheme", MainLauncher = true, NoHistory = true)]
     public class SplashScreenActivity : Activity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
-            base.OnCreate(savedInstanceState);
+            base.OnCreate(savedInstanceState, persistentState);
 
-            // Create your application here
         }
     }
 }

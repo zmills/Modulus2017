@@ -10,17 +10,14 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
-using EaglesNestMobileApp.Core;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
-using Java.IO;
 using JimBobBennett.MvvmLight.AppCompat;
 using Microsoft.WindowsAzure.MobileServices;
-using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android
 {
-    [Activity(Label = "The Nest", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait,
+    [Activity(Label = "The Nest", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait,
          Icon = "@drawable/TheNestLogo1")]
     /* This base class is a mashup of AppCompativity and Laurent's           */
     /* ActivityBase. It was taken from Jim Bob Bennett's Nuget package.      */
