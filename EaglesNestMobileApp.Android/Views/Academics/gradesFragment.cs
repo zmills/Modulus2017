@@ -17,6 +17,7 @@ using System;
 using Dialog = Android.App.Dialog;
 using Android.Views.Animations;
 using Android.Support.Transitions;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -115,6 +116,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             LinearLayout _expandArea =
                 holder.FindCachedViewById<LinearLayout>(Resource.Id.llExpandArea);
 
+       
+
             /* Handle the closing of the previous recyclerview */
             if (position == _expandedPosition)
             {
@@ -198,13 +201,17 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _gradesAdapter.NotifyItemChanged(_expandedPosition);
         }
 
-        private void ShowTeacherInfo(object sender, EventArgs e)
+        private async void ShowTeacherInfo(object sender, EventArgs e)
         {
-            Dialog _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
-            _dialogBox.SetTitle("Teacher Information");
+            (sender as Button).Enabled = false;
+            Dialog _dialogBox = new Dialog(Activity/*, Resource.Style.ModAppCompatLightTheme*/);
+            _dialogBox.SetTitle("Teacher Info");
             _dialogBox.Window.SetContentView(Resource.Layout.BoxCombinationDialogLayout);
-            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            //_dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             _dialogBox.Show();
+
+            await Task.Delay(400);
+            (sender as Button).Enabled = true;
         }
 
         private void ChildBindViewHolder(CachingViewHolder holder, 

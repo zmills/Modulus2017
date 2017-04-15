@@ -512,7 +512,9 @@
     <AndroidResource Include="Resources\anim\move_fab.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\border_only_button.xml" />
+    <AndroidResource Include="Resources\drawable\border_only_button.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\rotate_180_overshoot.xml" />
@@ -536,7 +538,9 @@
     <AndroidResource Include="Resources\layout\FacilityTimesDorm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\GradesAssignment.xml" />
+    <AndroidResource Include="Resources\layout\GradesAssignment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\AcademicTimesFragmentLayout2.xml">

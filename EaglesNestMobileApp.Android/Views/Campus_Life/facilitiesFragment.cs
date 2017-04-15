@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Graphics.Drawables;
 using Android.Support.V7.App;
+using Android.Util;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -61,11 +62,16 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             /* Disable the button                                            */
             (sender as RelativeLayout).Enabled = false;
 
-            /* Create the dialog box                                         */
-            System.Diagnostics.Debug.Write("AAAAAHHHHH" + Activity.Theme.ToString());
-            /*android.content.res.Resources$Theme@90857f1*/
-            /*Resource.Style.ModAppCompatLightTheme*/
-            _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            /* Find the current theme                                        */
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            /* Create the dialog box based on the current theme              */
+            if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            else
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatDarkTheme);
           
             #region NOT NEEDED
             /*_dialogBox.Window.RequestFeature(WindowFeatures.NoTitle);
