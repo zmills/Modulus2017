@@ -66,6 +66,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register(() => loginService);
         }
 
+        public static void RegisterCustomDialogService(ICustomProgressDialog customDialogService)
+        {
+            SimpleIoc.Default.Register(() => customDialogService);
+        }
+
         /* The following returns the sigleton instance of the service/         */
         /* viewmodel                                                           */
         /* The following returns the sigleton instance of the service/         */
@@ -102,6 +107,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public ICheckLogin CheckLogin =>
        ServiceLocator.Current.GetInstance<ICheckLogin>();
+
+        public ICustomProgressDialog Dialog =>
+       ServiceLocator.Current.GetInstance<ICustomProgressDialog>();
 
         public MainViewModel Main =>
         ServiceLocator.Current.GetInstance<MainViewModel>();

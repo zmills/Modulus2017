@@ -119,6 +119,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 NavigateToMainPage();
                 EnableLoginButton = true;
             }
+            EnableLoginButton = true;
         }
 
         /*********************************************************************/

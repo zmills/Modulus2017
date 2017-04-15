@@ -224,6 +224,7 @@
     <Compile Include="Cards\OLDCard.cs" />
     <Compile Include="Helpers\ApplicationPreference.cs" />
     <Compile Include="Helpers\ExpandTouchableArea.cs" />
+    <Compile Include="Helpers\ProgressDialogDependency.cs" />
     <Compile Include="Helpers\TouchDelegateComposite.cs" />
     <Compile Include="Views\Academics\academicsFragment.cs" />
     <Compile Include="Views\Academics\examScheduleFragment.cs" />
