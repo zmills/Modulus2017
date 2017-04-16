@@ -48,6 +48,8 @@
     <Compile Include="Helpers\SyncHandler.cs" />
     <Compile Include="Model\Academics\Assignment.cs" />
     <Compile Include="Model\Academics\GradeCard.cs" />
+    <Compile Include="Model\Academics\ProfessorTimes.cs" />
+    <Compile Include="Model\Academics\ProfessorCard.cs" />
     <Compile Include="Model\AzureToken.cs" />
     <Compile Include="Model\Campus\Facility.cs" />
     <Compile Include="Model\Campus\Offense.cs" />

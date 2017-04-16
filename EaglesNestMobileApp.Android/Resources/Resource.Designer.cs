@@ -2462,196 +2462,250 @@ namespace EaglesNestMobileApp.Android
 			public const int account_photo2 = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int arrow_up = 2130837591;
+			public const int announcement = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int avd_hide_password = 2130837592;
-			
-			// aapt resource value: 0x7f020091
-			public const int avd_hide_password_1 = 2130837649;
-			
-			// aapt resource value: 0x7f020092
-			public const int avd_hide_password_2 = 2130837650;
-			
-			// aapt resource value: 0x7f020093
-			public const int avd_hide_password_3 = 2130837651;
+			public const int announcement1 = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int avd_show_password = 2130837593;
-			
-			// aapt resource value: 0x7f020094
-			public const int avd_show_password_1 = 2130837652;
-			
-			// aapt resource value: 0x7f020095
-			public const int avd_show_password_2 = 2130837653;
-			
-			// aapt resource value: 0x7f020096
-			public const int avd_show_password_3 = 2130837654;
+			public const int announcement10 = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int border = 2130837594;
+			public const int announcement11 = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int border_dining_line = 2130837595;
+			public const int announcement12 = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int border_only_button = 2130837596;
+			public const int announcement13 = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int border_thin = 2130837597;
+			public const int announcement14 = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int borderless_button = 2130837598;
+			public const int announcement15 = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int borderless_button_fullspan = 2130837599;
+			public const int announcement16 = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int BroomHockeyAllStarCons1 = 2130837600;
+			public const int announcement17 = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int church = 2130837601;
+			public const int announcement18 = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int circle = 2130837602;
+			public const int announcement19 = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int CLEvent1 = 2130837603;
+			public const int announcement2 = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int design_bottom_navigation_item_background = 2130837604;
+			public const int announcement20 = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int design_fab_background = 2130837605;
+			public const int announcement21 = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int design_ic_visibility = 2130837606;
+			public const int announcement22 = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int design_ic_visibility_off = 2130837607;
+			public const int announcement23 = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int design_password_eye = 2130837608;
+			public const int announcement3 = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int design_snackbar_background = 2130837609;
+			public const int announcement4 = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int dining = 2130837610;
+			public const int announcement5 = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int dorm = 2130837611;
+			public const int announcement6 = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int FreshmanMidnightMadnessSignup1 = 2130837612;
+			public const int announcement7 = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int gradient_student_court = 2130837613;
+			public const int announcement8 = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int ic_account = 2130837614;
+			public const int announcement9 = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int ic_campus = 2130837615;
+			public const int arrow_up = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int ic_dining = 2130837616;
+			public const int avd_hide_password = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int ic_done = 2130837617;
+			public const int avd_show_password = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int ic_grades = 2130837618;
+			public const int border = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int ic_home = 2130837619;
+			public const int border_dining_line = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int ic_mail_outline_black_24dp = 2130837620;
+			public const int border_only_button = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_mail_outline_white_24dp = 2130837621;
+			public const int border_thin = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int Icon = 2130837622;
+			public const int borderless_button = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int logo = 2130837623;
+			public const int borderless_button_fullspan = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int navigation_empty_icon = 2130837624;
+			public const int BroomHockeyAllStarCons1 = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int NESTLOGO = 2130837625;
+			public const int church = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int notification_action_background = 2130837626;
+			public const int circle = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int notification_bg = 2130837627;
+			public const int CLEvent1 = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int notification_bg_low = 2130837628;
+			public const int design_bottom_navigation_item_background = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int notification_bg_low_normal = 2130837629;
+			public const int design_fab_background = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int notification_bg_low_pressed = 2130837630;
+			public const int design_ic_visibility = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int notification_bg_normal = 2130837631;
+			public const int design_ic_visibility_off = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int notification_bg_normal_pressed = 2130837632;
+			public const int design_password_eye = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int notification_icon_background = 2130837633;
-			
-			// aapt resource value: 0x7f02008f
-			public const int notification_template_icon_bg = 2130837647;
-			
-			// aapt resource value: 0x7f020090
-			public const int notification_template_icon_low_bg = 2130837648;
+			public const int design_snackbar_background = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int notification_tile_bg = 2130837634;
+			public const int dining = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int notify_panel_notification_icon_bg = 2130837635;
+			public const int dorm = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int Nov28MissionPrayerBand1 = 2130837636;
+			public const int FreshmanMidnightMadnessSignup1 = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int recreation = 2130837637;
+			public const int gradient_student_court = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ripple_white_on_opaque_solid = 2130837638;
+			public const int ic_account = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int services = 2130837639;
+			public const int ic_campus = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int splash_screen = 2130837640;
+			public const int ic_dining = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int student_court_circle = 2130837641;
+			public const int ic_done = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int studentSchedule_dateButton = 2130837642;
+			public const int ic_grades = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int SubmitStudentPhotosFall2 = 2130837643;
+			public const int ic_home = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int TheNestLogo1 = 2130837644;
+			public const int ic_mail_outline_black_24dp = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int TheNestLogo2 = 2130837645;
+			public const int ic_mail_outline_white_24dp = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int TheNestLogo3 = 2130837646;
+			public const int Icon = 2130837646;
+			
+			// aapt resource value: 0x7f02008f
+			public const int logo = 2130837647;
+			
+			// aapt resource value: 0x7f020090
+			public const int navigation_empty_icon = 2130837648;
+			
+			// aapt resource value: 0x7f020091
+			public const int NESTLOGO = 2130837649;
+			
+			// aapt resource value: 0x7f020092
+			public const int notification_action_background = 2130837650;
+			
+			// aapt resource value: 0x7f020093
+			public const int notification_bg = 2130837651;
+			
+			// aapt resource value: 0x7f020094
+			public const int notification_bg_low = 2130837652;
+			
+			// aapt resource value: 0x7f020095
+			public const int notification_bg_low_normal = 2130837653;
+			
+			// aapt resource value: 0x7f020096
+			public const int notification_bg_low_pressed = 2130837654;
+			
+			// aapt resource value: 0x7f020097
+			public const int notification_bg_normal = 2130837655;
+			
+			// aapt resource value: 0x7f020098
+			public const int notification_bg_normal_pressed = 2130837656;
+			
+			// aapt resource value: 0x7f020099
+			public const int notification_icon_background = 2130837657;
+			
+			// aapt resource value: 0x7f0200a7
+			public const int notification_template_icon_bg = 2130837671;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int notification_template_icon_low_bg = 2130837672;
+			
+			// aapt resource value: 0x7f02009a
+			public const int notification_tile_bg = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int notify_panel_notification_icon_bg = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int Nov28MissionPrayerBand1 = 2130837660;
+			
+			// aapt resource value: 0x7f02009d
+			public const int recreation = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int ripple_white_on_opaque_solid = 2130837662;
+			
+			// aapt resource value: 0x7f02009f
+			public const int services = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int splash_screen = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int student_court_circle = 2130837665;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int studentSchedule_dateButton = 2130837666;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int SubmitStudentPhotosFall2 = 2130837667;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int TheNestLogo1 = 2130837668;
+			
+			// aapt resource value: 0x7f0200a5
+			public const int TheNestLogo2 = 2130837669;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int TheNestLogo3 = 2130837670;
 			
 			static Drawable()
 			{

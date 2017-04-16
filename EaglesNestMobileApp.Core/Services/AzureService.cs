@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.Threading;
 using Java.IO;
 using System.Threading.Tasks;
+using EaglesNestMobileApp.Core.Model.Academics;
 
 namespace EaglesNestMobileApp.Core.Services
 {
@@ -27,20 +28,21 @@ namespace EaglesNestMobileApp.Core.Services
         /* Private member variables                                          */
         private MobileServiceClient _client = App.Client;
         private MobileServiceSQLiteStore _eagleDatabase;
-        private IMobileServiceSyncTable<Assignment> _assignmentTable;
-        private IMobileServiceSyncTable<Course> _courseTable;
-        private IMobileServiceSyncTable<Events> _eventsTable;
-        private IMobileServiceSyncTable<EventSlot> _eventSignupTable;
-        private IMobileServiceSyncTable<StudentEvent> _studentEventTable;
-        private IMobileServiceSyncTable<Offense> _offenseTable;
+        private IMobileServiceSyncTable<Assignment>      _assignmentTable;
+        private IMobileServiceSyncTable<Course>          _courseTable;
+        private IMobileServiceSyncTable<Events>          _eventsTable;
+        private IMobileServiceSyncTable<EventSlot>       _eventSignupTable;
+        private IMobileServiceSyncTable<StudentEvent>    _studentEventTable;
+        private IMobileServiceSyncTable<Offense>         _offenseTable;
         private IMobileServiceSyncTable<OffenseCategory> _offenseCategoryTable;
-        private IMobileServiceSyncTable<FourWindsItem> _fourWindsTable;
-        private IMobileServiceSyncTable<VarsityItem> _varsityTable;
-        private IMobileServiceSyncTable<GrabAndGoItem> _grabAndGoTable;
-        private IMobileServiceSyncTable<LocalToken> _localTokenTable;
-        private IMobileServiceSyncTable<AzureToken> _azureTokenTable;
-        private IMobileServiceSyncTable<Student> _studentTable;
+        private IMobileServiceSyncTable<FourWindsItem>   _fourWindsTable;
+        private IMobileServiceSyncTable<VarsityItem>     _varsityTable;
+        private IMobileServiceSyncTable<GrabAndGoItem>   _grabAndGoTable;
+        private IMobileServiceSyncTable<LocalToken>      _localTokenTable;
+        private IMobileServiceSyncTable<AzureToken>      _azureTokenTable;
+        private IMobileServiceSyncTable<Student>         _studentTable;
         private IMobileServiceSyncTable<ClassAttendance> _attendanceTable;
+        private IMobileServiceSyncTable<ProfessorTimes>   _professorTable;
         private SyncHandler _syncHandler;
         public string CurrentUser { get; set; }
 
@@ -109,7 +111,7 @@ namespace EaglesNestMobileApp.Core.Services
                         _offenseTable.Where(offense =>
                             offense.StudentId == CurrentUser));
 
-                    await _eventSignupTable.PullAsync("signed up events",
+                    await _eventSignupTable.PullAsync("SignedUpevents",
                         _eventSignupTable.Where(eventSignup =>
                             eventSignup.StudentId == CurrentUser));
 
@@ -132,12 +134,12 @@ namespace EaglesNestMobileApp.Core.Services
                     await _grabAndGoTable.PullAsync("allGrabAndGoItems",
                         _grabAndGoTable.CreateQuery());
 
-                    await _eventsTable.PullAsync("AllEvents",
+                    await _eventsTable.PullAsync("allEvents",
                         _eventsTable.CreateQuery());
 
 
                     var list = await _studentEventTable.ToCollectionAsync();
-                    System.Diagnostics.Debug.WriteLine($"\n\n\nStudent events: {list.Count}");
+                    Debug.WriteLine($"\n\n\nStudent events: {list.Count}");
                 }
             }
             catch (Exception ex)
@@ -166,6 +168,7 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<ClassAttendance>();
             _eagleDatabase.DefineTable<Offense>();
             _eagleDatabase.DefineTable<OffenseCategory>();
+            _eagleDatabase.DefineTable<ProfessorTimes>();
         }
 
         /*********************************************************************/
@@ -187,6 +190,7 @@ namespace EaglesNestMobileApp.Core.Services
             _attendanceTable = _client.GetSyncTable<ClassAttendance>();
             _offenseTable = _client.GetSyncTable<Offense>();
             _offenseCategoryTable = _client.GetSyncTable<OffenseCategory>();
+            _professorTable       = _client.GetSyncTable<ProfessorTimes>();
         }
 
         /*********************************************************************/
@@ -338,53 +342,25 @@ namespace EaglesNestMobileApp.Core.Services
         /*********************************************************************/
         /*                      Insert into local store                      */
         /*********************************************************************/
-        public async Task PurgeDatabaseAsync()
+        public void PurgeDatabaseAsync()
         {
+            CurrentUser = null;
+            _assignmentTable = null;
+            _courseTable = null;
+            _eventsTable = null;
+            _eventSignupTable = null;
+            _studentEventTable = null;
+            _offenseTable = null;
+            _offenseCategoryTable = null;
+            _fourWindsTable = null;
+            _varsityTable = null;
+            _grabAndGoTable = null;
+            _localTokenTable = null;
+            _azureTokenTable = null;
+            _studentTable = null;
+            _attendanceTable = null;
             _eagleDatabase = null;
-            _client = null;
-           // await _assignmentTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _courseTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _fourWindsTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _varsityTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _grabAndGoTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _studentTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _localTokenTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _azureTokenTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _eventsTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _studentEventTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _eventSignupTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _attendanceTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _offenseTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           // await _offenseCategoryTable.PurgeAsync("allfiles", null, true,
-           //     CancellationToken.None);
-
-           //await _client.LogoutAsync();
+            _syncHandler = null;
         }
     }
 }

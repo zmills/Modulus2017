@@ -162,6 +162,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public override void Cleanup()
         {
+            CurrentUser = new LocalToken();
             base.Cleanup();
         }
     }
