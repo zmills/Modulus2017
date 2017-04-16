@@ -127,9 +127,18 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             int startColor = Color.Transparent;
             int endColor;
-            Color startColorAndroidGraphics = new Color(Color.Transparent);
-            TextView statusText = StudentCourtView.FindViewById<TextView>
-                                      (Resource.Id.StudentCourtStatusText);
+            Color startColorAndroidGraphics;
+            TextView statusText =
+                StudentCourtView.FindViewById<TextView>(Resource.Id.StudentCourtStatusText);
+            ImageView studentCourtImage =
+                StudentCourtView.FindViewById<ImageView>(Resource.Id.StudentCourtCircle);
+            Drawable imageBackground = studentCourtImage.Background;
+
+            /* Convert dp stroke width to pixels for student court circle    */
+            int strokeWidthDp = 4;
+            DisplayMetrics displayMetrics = Resources.DisplayMetrics;
+            float strokeWidth = TypedValue.ApplyDimension(
+                ComplexUnitType.Dip, strokeWidthDp, displayMetrics);
 
             /* Set the start color for gradient                              */
             string screenColor = "Red";
@@ -140,7 +149,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.green_500, null);
-                        startColorAndroidGraphics = new Color(startColor);
                         statusText.Text =
                             "You are not required to attend Student Court.";
                     }
@@ -149,7 +157,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.body_text_soft_light_theme, null);
-                        startColorAndroidGraphics = new Color(startColor);
                         statusText.Text =
                             "You are not required to attend Student Court.";
                     }
@@ -158,12 +165,16 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.red_a700, null);
-                        startColorAndroidGraphics = new Color(startColor);
                         statusText.Text =
                             "You are required to attend Student Court.";
                     }
                     break;
             }
+
+            /* Set color for circle image                                    */
+            startColorAndroidGraphics = new Color(startColor);
+            GradientDrawable shapeDrawable = (GradientDrawable)imageBackground;
+            shapeDrawable.SetStroke((int)strokeWidth, startColorAndroidGraphics);
 
             /* Set text color for student court status                       */
             StudentCourtView.FindViewById<TextView>(Resource.Id.StudentCourtStatusText)

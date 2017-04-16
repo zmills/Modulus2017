@@ -59,7 +59,7 @@
                     <!-- STUDENT COURT ICON -->
                     <!-- NOTE: android:src is set programmatically for this view -->
                     <ImageView
-                        android:id="@+id/AccountPhoto"
+                        android:id="@+id/StudentCourtCircle"
                         android:layout_width="112dp"
                         android:layout_height="112dp"
                         android:adjustViewBounds="true"
