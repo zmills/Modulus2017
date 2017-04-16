@@ -42,12 +42,14 @@ namespace EaglesNestMobileApp.Core.Contracts
 
         Task InsertLocalTokenAsync(LocalToken user);
 
-        Task PurgeDatabaseAsync();
+        void PurgeDatabaseAsync();
 
         Task SyncAsync(bool pullData = false);
 
         Task<List<EventSlot>> GetEventSignupAsync();
 
         Task InsertEventAsync(EventSlot eventSignup);
+
+        string CurrentUser { get; set; }
     }
 }

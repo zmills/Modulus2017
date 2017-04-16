@@ -66,22 +66,24 @@ namespace EaglesNestMobileApp.Core.ViewModel
             await _locator.Attendance.InitializeAsync();
             //_locator.StudentSchedule.InitializeStatic();
             await _locator.StudentSchedule.InitializeAsync();
+
             await Database.SyncAsync(pullData: true);
         }
 
         /*********************************************************************/
         /*                      Starts the main activity                     */
         /*********************************************************************/
-        public void LogoutAsync()
+        public void Logout()
         {
+            Database.PurgeDatabaseAsync();
             _locator.CheckLogin.Logout("USERNAME");
             ViewModelLocator.Cleanup();
             _locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
         }
 
-        public async Task Purge()
+        public void Purge()
         {
-            await Database.PurgeDatabaseAsync();
+            Database.PurgeDatabaseAsync();
         }
     }
 }
