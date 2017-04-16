@@ -67,66 +67,76 @@ namespace EaglesNestMobileApp.Core.ViewModel
             Dialog = App.Locator.Dialog;
             Dialog.StartProgressDialog(null, "Logging in. . .", false);
 
-            if (CurrentUser.Id == "123")
+            try
             {
-                LoginAuthenticator.SaveLogin("USERNAME", "118965");
-                App.Locator.User = "118965";
-                await App.Locator.Main.InitializeNewUserAsync();
-                Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
-                EnableLoginButton = true;
-
-                Dialog.DismissProgressDialog();
-            }
-            else
-            {
-                try
+                if (CurrentUser.Id == "123")
                 {
-                    _azureTokenTable = App.Client.GetTable<AzureToken>();
+                    LoginAuthenticator.SaveLogin("USERNAME", "118965");
+                    App.Locator.User = "118965";
+                    await App.Locator.Main.InitializeNewUserAsync();
+                    Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+                    EnableLoginButton = true;
 
-                    var userTable = await _azureTokenTable
-                        .Where(user => user.Id == CurrentUser.Id).ToListAsync();
-
-                    if (userTable != null)
+                    Dialog.DismissProgressDialog();
+                }
+                else
+                {
+                    try
                     {
-                        Remote = userTable[0];
-                        if (Authenticator.VerifyPassword(CurrentUser.Password,
-                            Remote.HashedPassword, Remote.Salt))
+                        _azureTokenTable = App.Client.GetTable<AzureToken>();
+
+                        var userTable = await _azureTokenTable
+                            .Where(user => user.Id == CurrentUser.Id).ToListAsync();
+
+                        if (userTable != null)
                         {
-                            LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
-                            App.Locator.User = CurrentUser.Id;
+                            Remote = userTable[0];
+                            if (Authenticator.VerifyPassword(CurrentUser.Password,
+                                Remote.HashedPassword, Remote.Salt))
+                            {
+                                LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
+                                App.Locator.User = CurrentUser.Id;
 
-                            Dialog.DismissProgressDialog();
+                                Dialog.DismissProgressDialog();
 
-                            await App.Locator.Main.InitializeNewUserAsync();
-                            Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+                                await App.Locator.Main.InitializeNewUserAsync();
+                                Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+                            }
+                            else
+                            {
+                                Debug.WriteLine("\n\n\n\nWrong Credentials");
+                                Dialog.DismissProgressDialog();
+                                Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
+                            }
+
                         }
                         else
                         {
-                            Debug.WriteLine("\n\n\n\nWrong Credentials");
                             Dialog.DismissProgressDialog();
                             Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
                         }
-
                     }
-                    else
+                    catch (System.Net.Http.HttpRequestException internetConnectionEx)
                     {
+                        Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
+                        Dialog.DismissProgressDialog();
+                        Dialog.StartToast("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long);
+                    }
+                    catch (ArgumentOutOfRangeException IncorrectCredentials)
+                    {
+                        Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
                         Dialog.DismissProgressDialog();
                         Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
                     }
+                    EnableLoginButton = true;
                 }
-                catch (System.Net.Http.HttpRequestException internetConnectionEx)
-                {
-                    Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
-                    Dialog.DismissProgressDialog();
-                    Dialog.StartToast("Please check your Internet connection.",
-                        Android.Widget.ToastLength.Long);
-                }
-                catch (ArgumentOutOfRangeException IncorrectCredentials)
-                {
-                    Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
-                    Dialog.DismissProgressDialog();
-                    Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
-                }
+            }
+            catch (ArgumentNullException EmptyCredential)
+            {
+                Debug.WriteLine($"\n\n\n{EmptyCredential.Message}");
+                Dialog.DismissProgressDialog();
+                Dialog.StartProgressDialog("Login Error:", "Please input both username and password.", true);
                 EnableLoginButton = true;
             }
         }

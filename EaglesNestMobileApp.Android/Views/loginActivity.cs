@@ -74,8 +74,8 @@ namespace EaglesNestMobileApp.Android
 
         public override void OnBackPressed()
         {
-            Finish();
             FinishAffinity();
+            Finish();
         }
     }
 }

@@ -374,7 +374,7 @@
                             android:indeterminate="false"
                             android:progressBackgroundTint="?attr/android:windowBackground"
                             android:progressTint="@color/accent"
-                            android:layout_below="@+id/totalLateResidenceHallInfractions"
+                            android:layout_below="@+id/totalLateOut"
                             android:layout_toLeftOf="@+id/LateDormInfoIcon"
                             android:layout_marginTop="8dp"
                             android:layout_marginRight="8dp"
@@ -382,10 +382,12 @@
 
                         <!-- TITLE: Absences -->
                         <TextView
+                            android:id="@+id/totalLateOut"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_above="@+id/LateDormProgressBar"
                             android:text="Late Out/Into Residence Hall Infractions"
+                            android:layout_toLeftOf="@+id/totalLateResidenceHallInfractions"
+                            android:layout_alignParentTop="true"
                             style="@style/ModRobotoRegular16"
                             />
 
