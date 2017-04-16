@@ -50,6 +50,11 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         public int TotalAbsences;
         public int TotalLateDorm;
 
+        /* Constants                                                         */
+        public const string GREEN_SCREEN = "Green";
+        public const string GRAY_SCREEN  = "Gray";
+        public const string RED_SCREEN   = "Red";
+
         public StudentCourtFragmentViewModel ViewModel
         {
             get { return App.Locator.StudentCourt; }
@@ -120,11 +125,45 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             /* Create Student Court Gradient                                 */
             /*****************************************************************/
 
-            /* Set the start color for gradient                              */
-            int startColor = ResourcesCompat.GetColor(
-                Resources, Resource.Color.red, null); //NOTE: this could be red or green, or gray . . .
-            Color startColorAndroidGraphics = new Color(startColor);
+            int startColor = Color.Transparent;
             int endColor;
+            Color startColorAndroidGraphics = new Color(Color.Transparent);
+            TextView statusText = StudentCourtView.FindViewById<TextView>
+                                      (Resource.Id.StudentCourtStatusText);
+
+            /* Set the start color for gradient                              */
+            string screenColor = "Red";
+
+            switch (screenColor)
+            {
+                case GREEN_SCREEN:
+                    {
+                        startColor = ResourcesCompat.GetColor(
+                            Resources, Resource.Color.green_500, null);
+                        startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are not required to attend Student Court.";
+                    }
+                    break;
+                case GRAY_SCREEN:
+                    {
+                        startColor = ResourcesCompat.GetColor(
+                            Resources, Resource.Color.body_text_soft_light_theme, null);
+                        startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are not required to attend Student Court.";
+                    }
+                    break;
+                case RED_SCREEN:
+                    {
+                        startColor = ResourcesCompat.GetColor(
+                            Resources, Resource.Color.red_a700, null);
+                        startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are required to attend Student Court.";
+                    }
+                    break;
+            }
 
             /* Set text color for student court status                       */
             StudentCourtView.FindViewById<TextView>(Resource.Id.StudentCourtStatusText)
@@ -150,6 +189,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 GradientDrawable.Orientation.TopBottom, gradientColors);
             StudentCourtView.FindViewById<ImageView>(Resource.Id.GradientStudentCourt)
                 .Background = gradient;
+
 
 
             /*****************************************************************/

@@ -54,4 +54,6 @@
     <color name="red_screen"> #8a7c58</color>       <!-- UGLY RED-->
     <color name="red_screenaaa">#e62c2c</color>     <!-- UGLY RED-->
     <color name="red">#f44336</color>               <!-- Prime Red -->
+    <color name="red_a700">#D50000</color>
+    <color name="green_500">#4CAF50</color>
 </resources>
