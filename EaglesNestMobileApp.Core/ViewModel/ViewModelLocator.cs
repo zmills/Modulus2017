@@ -143,6 +143,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
             _locator.StudentInfo.Cleanup();
             _locator.StudentSchedule.Cleanup();
             _locator.Varsity.Cleanup();
+            _locator.Login.Cleanup();
+            UnregisterDialogService();
+            SimpleIoc.Default.Unregister<AzureService>();
         }
     }
 }

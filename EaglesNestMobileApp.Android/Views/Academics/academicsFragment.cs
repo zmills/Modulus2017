@@ -75,11 +75,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                     break;
                 case Resource.Id.logout_menu:
                     {
-
-                        App.Locator.Main.LogoutAsync();
+                        App.Locator.Main.Purge();
 
                         File.Delete(System.Environment.GetFolderPath(
                             System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
+
+                        App.Locator.Main.Logout();
                     }
                     break;
             }
