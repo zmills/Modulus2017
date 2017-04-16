@@ -166,7 +166,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             TextView _timeView =
                 holder.FindCachedViewById<TextView>(Resource.Id.infractionTime);
 
-            holder.DeleteBinding(_timeView);
+            holder.DeleteBinding(_titleView);
             holder.DeleteBinding(_dateView);
             holder.DeleteBinding(_timeView);
 
@@ -188,8 +188,18 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     BindingMode.OneWay
                 );
 
+            var _timeBinding = new Binding<string, string>
+                (
+                    offenseCard,
+                    () => offenseCard.OffenseTime,
+                    _timeView,
+                    () => _timeView.Text,
+                    BindingMode.OneWay
+                );
+
             holder.SaveBinding(_titleView, _titleBinding);
             holder.SaveBinding(_dateView, _dateBinding);
+            holder.SaveBinding(_timeView, _timeBinding);
         }
 
         private void SetUpProgressBars()
