@@ -2,29 +2,25 @@
 /*                           studentCourtFragment                            */
 /*                                                                           */
 /*****************************************************************************/
-using Android.OS;
-using Android.Views;
-using Android.Support.V4.App;
-using Android.Support.V4.Widget;
-using System;
-using Android.Widget;
-using Android.Support.V7.Widget;
-using Android.Content;
 using Android.Graphics;
-using AndroidAnimation = Android.Animation;
-using Android.Views.Animations;
-using Android.Support.Transitions;
-using Android.Support.V4.Content;
 using Android.Graphics.Drawables;
+using Android.OS;
+using Android.Support.V4.App;
 using Android.Support.V4.Content.Res;
+using Android.Support.V4.Widget;
+using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Util;
-using Android.Content.Res;
+using Android.Views;
+using Android.Views.Animations;
+using Android.Widget;
 using EaglesNestMobileApp.Core;
-using GalaSoft.MvvmLight.Helpers;
 using EaglesNestMobileApp.Core.Model.Campus;
 using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
-using Android.Support.V7.App;
+using GalaSoft.MvvmLight.Helpers;
+using System;
 using System.Threading.Tasks;
+using AndroidAnimation = Android.Animation;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -52,8 +48,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
         /* Constants                                                         */
         public const string GREEN_SCREEN = "Green";
-        public const string GRAY_SCREEN  = "Gray";
-        public const string RED_SCREEN   = "Red";
+        public const string GRAY_SCREEN = "Gray";
+        public const string RED_SCREEN = "Red";
 
         public StudentCourtFragmentViewModel ViewModel
         {
@@ -68,7 +64,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             RetainInstance = true;
         }
 
-        public override View OnCreateView(LayoutInflater inflater, 
+        public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
 
@@ -99,10 +95,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             _recyclerview.SetAdapter(_adapter);
 
             /* Student court progress bars                                   */
-            DemeritsProgBar        = new ProgressBar(Activity);
+            DemeritsProgBar = new ProgressBar(Activity);
             DormInfractionsProgBar = new ProgressBar(Activity);
-            AbsencesProgBar        = new ProgressBar(Activity);
-            LateDormProgBar        = new ProgressBar(Activity);
+            AbsencesProgBar = new ProgressBar(Activity);
+            LateDormProgBar = new ProgressBar(Activity);
 
             DemeritsProgBar =
                 StudentCourtView.FindViewById<ProgressBar>(Resource.Id.DemeritsProgressBar);
@@ -114,10 +110,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 StudentCourtView.FindViewById<ProgressBar>(Resource.Id.LateDormProgressBar);
 
             /* Set max value for progress bars                               */
-            DemeritsProgBar.Max        = App.StudentCourt.MaxDemerits;
+            DemeritsProgBar.Max = App.StudentCourt.MaxDemerits;
             DormInfractionsProgBar.Max = App.StudentCourt.MaxDormInfractions;
-            AbsencesProgBar.Max        = App.StudentCourt.MaxAbsences;
-            LateDormProgBar.Max        = App.StudentCourt.MaxLateDormInfraction;
+            AbsencesProgBar.Max = App.StudentCourt.MaxAbsences;
+            LateDormProgBar.Max = App.StudentCourt.MaxLateDormInfraction;
 
             StudentCourtView.Post(() => SetUpProgressBars());
 
@@ -143,9 +139,9 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             /* Set the start color for gradient                              */
             string screenColor = "Red";
 
-            switch (screenColor)
+            switch (ViewModel.StudentOffenseCard.StudentCourtStatus)
             {
-                case GREEN_SCREEN:
+                case App.StudentCourtStatus.Green:
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.green_500, null);
@@ -153,7 +149,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                             "You are not required to attend Student Court.";
                     }
                     break;
-                case GRAY_SCREEN:
+                case App.StudentCourtStatus.Gray:
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.body_text_soft_light_theme, null);
@@ -161,7 +157,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                             "You are not required to attend Student Court.";
                     }
                     break;
-                case RED_SCREEN:
+                case App.StudentCourtStatus.Red:
                     {
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.red_a700, null);
@@ -186,7 +182,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 Resource.Attribute.modThemeName, attrValue, true);
 
             /* Set the end color for gradient based on the current theme     */
-            if ( attrValue.String.ToString() == "ModAppCompatLightTheme" )
+            if (attrValue.String.ToString() == "ModAppCompatLightTheme")
                 endColor = ResourcesCompat.GetColor(
                     Resources, Resource.Color.window_background, null);
             else
@@ -194,7 +190,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     Resources, Resource.Color.window_background_dark_theme, null);
 
             int[] gradientColors = { startColor, endColor };
-            
+
             /* Set the gradient's start and end colors                       */
             GradientDrawable gradient = new GradientDrawable(
                 GradientDrawable.Orientation.TopBottom, gradientColors);
@@ -262,7 +258,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         private void BindViewHolder(CachingViewHolder holder, Offense offenseCard,
             int position)
         {
-            TextView _titleView = 
+            TextView _titleView =
                 holder.FindCachedViewById<TextView>(Resource.Id.infractionTitle);
 
             TextView _dateView =
@@ -278,9 +274,9 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             var _titleBinding = new Binding<string, string>
                 (
                     offenseCard,
-                    ()=> offenseCard.OffenseTitle,
+                    () => offenseCard.OffenseTitle,
                     _titleView,
-                    ()=> _titleView.Text,
+                    () => _titleView.Text,
                     BindingMode.OneWay
                 );
 
@@ -317,10 +313,10 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                                             _lateDormProgBarAnim;
 
             /* Set student total demerits and infractions                    */
-            TotalDemerits        = 50 * App.StudentCourt.ProgBarMultiplier;
-            TotalDormInfractions =  7 * App.StudentCourt.ProgBarMultiplier;
-            TotalAbsences        =  5 * App.StudentCourt.ProgBarMultiplier;
-            TotalLateDorm        =  6 * App.StudentCourt.ProgBarMultiplier;
+            TotalDemerits = 50 * App.StudentCourt.ProgBarMultiplier;
+            TotalDormInfractions = 7 * App.StudentCourt.ProgBarMultiplier;
+            TotalAbsences = 5 * App.StudentCourt.ProgBarMultiplier;
+            TotalLateDorm = 6 * App.StudentCourt.ProgBarMultiplier;
             //HAVE TO BE BINDED
             TextView _demerits = StudentCourtView.FindViewById<TextView>(Resource.Id.totalDemerits);
             _demerits.Text = ViewModel.StudentOffenseCard.TotalDemerits;
@@ -334,20 +330,20 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             TextView _resLateInfractions = StudentCourtView.FindViewById<TextView>(Resource.Id.totalLateResidenceHallInfractions);
             _resLateInfractions.Text = ViewModel.StudentOffenseCard.TotalLateOutIntoInfractions;
 
-            TotalDemerits = 
-                int.Parse(ViewModel.StudentOffenseCard.TotalDemerits) * 
+            TotalDemerits =
+                int.Parse(ViewModel.StudentOffenseCard.TotalDemerits) *
                     App.StudentCourt.ProgBarMultiplier;
 
-            TotalDormInfractions = 
-                int.Parse(ViewModel.StudentOffenseCard.TotalResidenceHallInfractions) * 
+            TotalDormInfractions =
+                int.Parse(ViewModel.StudentOffenseCard.TotalResidenceHallInfractions) *
                     App.StudentCourt.ProgBarMultiplier;
 
-            TotalAbsences = 
-                int.Parse(ViewModel.StudentOffenseCard.TotalUnexcusedAbsences) * 
+            TotalAbsences =
+                int.Parse(ViewModel.StudentOffenseCard.TotalUnexcusedAbsences) *
                     App.StudentCourt.ProgBarMultiplier;
 
-            TotalLateDorm = 
-                int.Parse(ViewModel.StudentOffenseCard.TotalLateOutIntoInfractions) * 
+            TotalLateDorm =
+                int.Parse(ViewModel.StudentOffenseCard.TotalLateOutIntoInfractions) *
                     App.StudentCourt.ProgBarMultiplier;
 
             /* Set progress bar animations                                   */
@@ -383,12 +379,12 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         {
             /* THIS NEEDS TO BE REMOVED                                      */
 
-            
+
             StatusCard.SetCardBackgroundColor(Resource.Color.red_screenaaa);
             Infraction.Text = "You are required to go to student court";
             PendingHeader.Visibility = ViewStates.Visible;
             InfractionCard.Visibility = ViewStates.Visible;
-            
+
 
             RefreshLayout.Refreshing = false;
         }
