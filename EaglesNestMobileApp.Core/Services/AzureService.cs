@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.Threading;
 using Java.IO;
 using System.Threading.Tasks;
+using EaglesNestMobileApp.Core.Model.Academics;
 
 namespace EaglesNestMobileApp.Core.Services
 {
@@ -41,6 +42,7 @@ namespace EaglesNestMobileApp.Core.Services
         private IMobileServiceSyncTable<AzureToken>      _azureTokenTable;
         private IMobileServiceSyncTable<Student>         _studentTable;
         private IMobileServiceSyncTable<ClassAttendance> _attendanceTable;
+        private IMobileServiceSyncTable<ProfessorTimes>   _professorTable;
         private SyncHandler _syncHandler;
         public string CurrentUser { get; set; }
 
@@ -166,6 +168,7 @@ namespace EaglesNestMobileApp.Core.Services
             _eagleDatabase.DefineTable<ClassAttendance>();
             _eagleDatabase.DefineTable<Offense>();
             _eagleDatabase.DefineTable<OffenseCategory>();
+            _eagleDatabase.DefineTable<ProfessorTimes>();
         }
 
         /*********************************************************************/
@@ -187,6 +190,7 @@ namespace EaglesNestMobileApp.Core.Services
             _attendanceTable = _client.GetSyncTable<ClassAttendance>();
             _offenseTable = _client.GetSyncTable<Offense>();
             _offenseCategoryTable = _client.GetSyncTable<OffenseCategory>();
+            _professorTable       = _client.GetSyncTable<ProfessorTimes>();
         }
 
         /*********************************************************************/

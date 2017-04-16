@@ -17,6 +17,8 @@ using System;
 using Dialog = Android.App.Dialog;
 using Android.Views.Animations;
 using Android.Support.Transitions;
+using Android.Support.V7.App;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -65,6 +67,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             };
         }
 
+        /*********************************************************************/
+        /* On CreateView                                                     */
+        /*********************************************************************/
         public override View OnCreateView(LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
         {
@@ -108,6 +113,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             }
         }
 
+        /*********************************************************************/
+        /* Bind ViewHolder                                                   */
+        /*********************************************************************/
         private void BindViewHolder(CachingViewHolder holder, GradeCard gradeCard, int position)
         {
             _position = position;
@@ -190,6 +198,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             holder.SaveBinding(_courseGrade, _gradeBinding);
         }
 
+        /*********************************************************************/
+        /* Show Grades                                                       */
+        /*********************************************************************/
         private void ShowGrades(object sender, EventArgs e)
         {
             _holder = (CachingViewHolder)(sender as View).Tag;
@@ -208,17 +219,45 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _gradesAdapter.NotifyItemChanged(_expandedPosition);
         }
 
-        private void ShowTeacherInfo(object sender, EventArgs e)
+        /*********************************************************************/
+        /* Show Teacher Info                                                 */
+        /*********************************************************************/
+        private async void ShowTeacherInfo(object sender, EventArgs e)
         {
-            Dialog _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
-            _dialogBox.SetTitle("Teacher Information");
-            _dialogBox.Window.SetContentView(Resource.Layout.BoxCombinationDialogLayout);
-            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-            _dialogBox.Show();
-            System.Diagnostics.Debug.WriteLine($"\n\n\n\n{_position}");
+            //Dialog _dialogBox = new Dialog(Activity);
+            //_dialogBox.SetTitle("Teacher Information");
+            (sender as Button).Enabled = false;
+
+            AlertDialog.Builder myDialogBuilder = new AlertDialog.Builder(Activity);
+            myDialogBuilder.SetView(Resource.Layout.GradesTeacherInfoLayout);
+
+
+            AlertDialog myDialog = myDialogBuilder.Create();
+            myDialog.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+
+            await Task.Delay(100);
+            myDialog.Show();
+            await Task.Delay(400);
+            (sender as Button).Enabled = true;
+
+            //_dialogBox.SetContentView(Resource.Layout.GradesTeacherInfoLayout);
+            ////_dialogBox.Window.SetLayout(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            ////_dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            //WindowManagerLayoutParams layoutParams = new WindowManagerLayoutParams();
+            //layoutParams.CopyFrom(_dialogBox.Window.Attributes);
+            //layoutParams.Width = ViewGroup.LayoutParams.WrapContent;
+            //layoutParams.Height = ViewGroup.LayoutParams.WrapContent;
+            //_dialogBox.AddContentView(Resource.Layout.GradesTeacherInfoLayout, layoutParams);
+            //_dialogBox.Show();
+            //_dialogBox.Window.Attributes = layoutParams;
+            //System.Diagnostics.Debug.WriteLine($"\n\n\n\n{_position}");
             ///(sender as Button).Enabled = false;
         }
 
+
+        /*********************************************************************/
+        /* Child BindViewHolder                                              */
+        /*********************************************************************/
         private void ChildBindViewHolder(CachingViewHolder holder, 
             Assignment assignment, int position)
         {
