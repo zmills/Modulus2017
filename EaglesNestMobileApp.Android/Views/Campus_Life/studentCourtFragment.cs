@@ -23,6 +23,8 @@ using EaglesNestMobileApp.Core;
 using GalaSoft.MvvmLight.Helpers;
 using EaglesNestMobileApp.Core.Model.Campus;
 using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
+using Android.Support.V7.App;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -148,10 +150,62 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 GradientDrawable.Orientation.TopBottom, gradientColors);
             StudentCourtView.FindViewById<ImageView>(Resource.Id.GradientStudentCourt)
                 .Background = gradient;
-            
+
+
+            /*****************************************************************/
+            /* Click events for info icons                                   */
+            /*****************************************************************/
+            StudentCourtView.FindViewById<ImageView>(Resource.Id.DormInfractionsInfoIcon).Click += ShowInfoIconDialog;
+            StudentCourtView.FindViewById<ImageView>(Resource.Id.AbsencesInfoIcon).Click += ShowInfoIconDialog;
+            StudentCourtView.FindViewById<ImageView>(Resource.Id.LateDormInfoIcon).Click += ShowInfoIconDialog;
 
             /* Use this to return your custom view for this Fragment         */
             return StudentCourtView;
+        }
+
+        private async void ShowInfoIconDialog(object sender, EventArgs e)
+        {
+            string tag = (sender as ImageView).Tag.ToString();
+
+            /* Disable the button                                            */
+            (sender as ImageView).Enabled = false;
+
+            /* Build and create the dialog                                   */
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Activity);
+            //dialogBuilder.SetView(Resource.Layout.GradesTeacherInfoLayout);
+            AlertDialog dialogBox = dialogBuilder.Create();
+
+            /* Set the dialog title and message                              */
+            switch (tag)
+            {
+                case "DormInfractionsInfoIcon":
+                    {
+                        dialogBox.SetTitle("Residence Hall Infractions");
+                        dialogBox.SetMessage("These records do not include pending report slips. For each residence hall violation after 10 cumulative incidents, a $5.00 fine will be assessed.");
+                    }
+                    break;
+                case "AbsencesInfoIcon":
+                    {
+                        dialogBox.SetTitle("Unexcused Class Absences");
+                        dialogBox.SetMessage("These records do not include pending report slips. For each unexcused absence after 12 cumulative unexcused absences in all classes, 10 demerits will be given.");
+                    }
+                    break;
+                case "LateDormInfoIcon":
+                    {
+                        dialogBox.SetTitle("Late Out/Into Residence Hall Infractions");
+                        dialogBox.SetMessage("These records do not include pending report slips. For each late out/into residence hall violation after 10 cumulative incidents, a $5.00 fine will be assessed.");
+                    }
+                    break;
+            }
+
+            /* Set dialog animation                                          */
+            dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+
+            /* Show the dialog                                               */
+            await Task.Delay(100);
+            dialogBox.Show();
+            await Task.Delay(400);
+            (sender as ImageView).Enabled = true;
         }
 
         private void BindViewHolder(CachingViewHolder holder, Offense offenseCard,

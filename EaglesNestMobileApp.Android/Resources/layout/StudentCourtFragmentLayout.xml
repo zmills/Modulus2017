@@ -143,12 +143,18 @@
                         <!-- INFO ICON: Demerits -->
                         <ImageView
                             android:id="@+id/DemeritsInfoIcon"
+                            android:tag="DemeritsInfoIcon"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/circle"
                             android:layout_marginTop="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="6dp"
                             />
+                            <!--android:src="@drawable/info_icon"
+                                android:background="@drawable/borderless_button_circle"-->
 
                         <!-- TOTAL: Demerits Data-->
                         <TextView
@@ -156,7 +162,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/DemeritsInfoIcon"
-                            android:text="50"
+                            android:text=""
                             style="@style/ModRobotoMedium20"
                             android:paddingRight="8dp"
                             />
@@ -211,11 +217,18 @@
                         <!-- INFO ICON: Residence Hall Infractions -->
                         <ImageView
                             android:id="@+id/DormInfractionsInfoIcon"
+                            android:tag="DormInfractionsInfoIcon"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/circle"
                             android:layout_marginTop="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="6dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
                             />
 
                         <!-- TOTAL: Residence Hall Infractions Data-->
@@ -224,7 +237,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/DormInfractionsInfoIcon"
-                            android:text="7"
+                            android:text=""
                             style="@style/ModRobotoMedium20"
                             android:paddingRight="8dp"
                             />
@@ -279,11 +292,18 @@
                         <!-- INFO ICON: Absences -->
                         <ImageView
                             android:id="@+id/AbsencesInfoIcon"
+                            android:tag="AbsencesInfoIcon"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/circle"
                             android:layout_marginTop="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="6dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
                             />
 
                         <!-- TOTAL: Absences-->
@@ -292,7 +312,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/AbsencesInfoIcon"
-                            android:text="5"
+                            android:text=""
                             style="@style/ModRobotoMedium20"
                             android:paddingRight="8dp"
                             />
@@ -321,7 +341,7 @@
                             style="@style/ModRobotoRegular16"
                             />
 
-                        <!-- MAX: Residence Hall Infractions -->
+                        <!-- MAX: Absences -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -344,28 +364,35 @@
                         android:paddingRight="16dp"
                         >
 
-                        <!-- INFO ICON: Absences -->
+                        <!-- INFO ICON: Late Out/Into Residence Hall -->
                         <ImageView
                             android:id="@+id/LateDormInfoIcon"
+                            android:tag="LateDormInfoIcon"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/circle"
                             android:layout_marginTop="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="6dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
                             />
 
-                        <!-- TOTAL: Absences-->
+                        <!-- TOTAL: Late Out/Into Residence Hall-->
                         <TextView
                             android:id="@+id/totalLateResidenceHallInfractions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/LateDormInfoIcon"
-                            android:text="6"
+                            android:text=""
                             style="@style/ModRobotoMedium20"
                             android:paddingRight="8dp"
                             />
 
-                        <!-- PROGRESS BAR: Absences -->
+                        <!-- PROGRESS BAR: Late Out/Into Residence Hall -->
                         <ProgressBar
                             android:id="@+id/LateDormProgressBar"
                             android:layout_width="match_parent"
@@ -380,7 +407,7 @@
                             android:layout_marginRight="8dp"
                             />
 
-                        <!-- TITLE: Absences -->
+                        <!-- TITLE: Late Out/Into Residence Hall -->
                         <TextView
                             android:id="@+id/totalLateOut"
                             android:layout_width="wrap_content"
@@ -391,7 +418,7 @@
                             style="@style/ModRobotoRegular16"
                             />
 
-                        <!-- MAX: Residence Hall Infractions -->
+                        <!-- MAX: Late Out/Into Residence Hall -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
