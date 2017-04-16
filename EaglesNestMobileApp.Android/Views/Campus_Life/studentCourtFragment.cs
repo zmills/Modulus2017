@@ -128,6 +128,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             int startColor = Color.Transparent;
             int endColor;
             Color startColorAndroidGraphics = new Color(Color.Transparent);
+            TextView statusText = StudentCourtView.FindViewById<TextView>
+                                      (Resource.Id.StudentCourtStatusText);
 
             /* Set the start color for gradient                              */
             string screenColor = "Red";
@@ -139,6 +141,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.green_500, null);
                         startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are not required to attend Student Court.";
                     }
                     break;
                 case GRAY_SCREEN:
@@ -146,6 +150,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.body_text_soft_light_theme, null);
                         startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are not required to attend Student Court.";
                     }
                     break;
                 case RED_SCREEN:
@@ -153,6 +159,8 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                         startColor = ResourcesCompat.GetColor(
                             Resources, Resource.Color.red_a700, null);
                         startColorAndroidGraphics = new Color(startColor);
+                        statusText.Text =
+                            "You are required to attend Student Court.";
                     }
                     break;
             }
@@ -181,6 +189,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                 GradientDrawable.Orientation.TopBottom, gradientColors);
             StudentCourtView.FindViewById<ImageView>(Resource.Id.GradientStudentCourt)
                 .Background = gradient;
+
 
 
             /*****************************************************************/
