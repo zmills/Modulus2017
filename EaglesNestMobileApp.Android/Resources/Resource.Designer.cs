@@ -825,6 +825,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f010136
 			public const int menu = 2130772278;
 			
+			// aapt resource value: 0x7f010183
+			public const int modBlackAndWhiteFontColor = 2130772355;
+			
 			// aapt resource value: 0x7f01017a
 			public const int modBodyTextColor = 2130772346;
 			
@@ -5107,14 +5110,17 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f080003
 			public const int CardView_Light = 2131230723;
 			
+			// aapt resource value: 0x7f0801a2
+			public const int DialogTitle = 2131231138;
+			
 			// aapt resource value: 0x7f08017d
 			public const int ModAppCompatDarkTheme = 2131231101;
 			
 			// aapt resource value: 0x7f08017c
 			public const int ModAppCompatLightTheme = 2131231100;
 			
-			// aapt resource value: 0x7f0801a3
-			public const int ModAttendanceCard = 2131231139;
+			// aapt resource value: 0x7f0801a4
+			public const int ModAttendanceCard = 2131231140;
 			
 			// aapt resource value: 0x7f080182
 			public const int ModBorderOnlyButton = 2131231106;
@@ -5155,8 +5161,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f080195
 			public const int ModDividerWithMargins24 = 2131231125;
 			
-			// aapt resource value: 0x7f0801a2
-			public const int ModFoodLineHeader = 2131231138;
+			// aapt resource value: 0x7f0801a3
+			public const int ModFoodLineHeader = 2131231139;
 			
 			// aapt resource value: 0x7f080185
 			public const int ModListItemPrimaryText = 2131231109;
@@ -5209,11 +5215,11 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f080196
 			public const int ModSingleLineGridList = 2131231126;
 			
-			// aapt resource value: 0x7f0801a5
-			public const int ModTextViewFullUnderline = 2131231141;
-			
 			// aapt resource value: 0x7f0801a6
-			public const int ModTextViewUnderline = 2131231142;
+			public const int ModTextViewFullUnderline = 2131231142;
+			
+			// aapt resource value: 0x7f0801a7
+			public const int ModTextViewUnderline = 2131231143;
 			
 			// aapt resource value: 0x7f08019a
 			public const int ModTimesContainer = 2131231130;
@@ -5227,8 +5233,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f08019c
 			public const int ModTimesDataContainer = 2131231132;
 			
-			// aapt resource value: 0x7f0801a4
-			public const int ModViewSpacing = 2131231140;
+			// aapt resource value: 0x7f0801a5
+			public const int ModViewSpacing = 2131231141;
 			
 			// aapt resource value: 0x7f08019d
 			public const int ModWrapContentWrapContent = 2131231133;

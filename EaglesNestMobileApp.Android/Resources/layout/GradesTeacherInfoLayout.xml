@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mr. Philip Holmes"
-            style="@style/ModRobotoMedium20"
+            style="@style/DialogTitle"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             />
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BA 403-4 Business Communications"
-            style="@style/ModRobotoRegularSoft16"
+            style="@style/ModRobotoRegular16"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             />

@@ -41,4 +41,7 @@
 
     <attr name="modFacilityTimeBackground" format="reference" />
 
+    <!-- BLACK & WHITE FONT COLOR -->
+    <attr name="modBlackAndWhiteFontColor" format="reference" />
+
 </resources>
