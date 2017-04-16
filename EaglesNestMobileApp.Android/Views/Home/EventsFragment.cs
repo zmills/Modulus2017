@@ -88,7 +88,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 card.IsSignedUp = true;
                 _eventSignupButton.Text = "Signed Up";
                 _eventSignupButton.Enabled = false;
-                Activity.RunOnUiThread(async () => await ViewModel.Signup(card));
+                Activity.RunOnUiThread(async ()=> await ViewModel.Signup(card));
             };
 
             Holder.DeleteBinding(_eventName);

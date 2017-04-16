@@ -18,6 +18,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string ProfessorFirstName { get; set; }
         public string ProfessorLastName { get; set; }
         public string ProfessorEmail { get; set; }
+        public string ProfessorId { get; set; }
         public string Location { get; set; }
         public string ExamEndTime { get; set; }
         public string ExamBeginTime { get; set; }

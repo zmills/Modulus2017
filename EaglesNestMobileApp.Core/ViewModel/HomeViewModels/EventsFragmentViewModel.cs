@@ -21,7 +21,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         private List<EventSlot> _eventSignup = new List<EventSlot>();
         private List<Events> _tempEvents = new List<Events>();
-        private LocalToken _currentStudent;
+        private string _currentStudent;
 
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
@@ -33,9 +33,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task InitializeAsync()
         {
-            _currentStudent = await Database.GetLocalTokenAsync();
+            _currentStudent = Database.CurrentUser;
             _eventSignup    = await Database.GetEventSignupAsync();
-            _tempEvents    = await Database.GetEventsAsync();
+            _tempEvents     = await Database.GetEventsAsync();
 
             AnalyzeEvents();
         }
@@ -47,7 +47,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 new EventSlot
                 {
                     EventId = eventSignup.Id,
-                    StudentId = _currentStudent.Id,
+                    StudentId = _currentStudent,
                     UpdatedAt = System.DateTimeOffset.Now
                 }
             );

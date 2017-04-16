@@ -327,6 +327,9 @@
     <AndroidResource Include="Resources\layout\SplashScreenLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\GradesTeacherInfoLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LoginLayout.xml">

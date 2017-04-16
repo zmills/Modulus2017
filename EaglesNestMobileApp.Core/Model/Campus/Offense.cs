@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 
 namespace EaglesNestMobileApp.Core.Model.Campus
 {
-    public class Offense
+    public class Offense : ObservableObject
     {
         public string Id { get; set; }
         public string StudentId { get; set; }
@@ -10,6 +11,7 @@ namespace EaglesNestMobileApp.Core.Model.Campus
         public string OffenseDate { get; set; }
         public string OffenseName { get; set; }
         public float  Demerits { get; set; }
+        public string OffenseTime { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }
         public string Version { get; set; }
         public string OffenseTitle
