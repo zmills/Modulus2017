@@ -19,6 +19,7 @@ using Android.Views.Animations;
 using Android.Support.Transitions;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
+using Android.Support.V4.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -48,6 +49,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         /* Arrow to be rotated along with its transition          */
         private RotateAnimation _rotateArrow;
         private TransitionSet _transitionSet;
+        public SwipeRefreshLayout RefreshLayout { get; set; }
 
         /* Get the instance of the Grades viewmodel                                */
         public GradesFragmentViewModel ViewModel
@@ -97,6 +99,16 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
             _currentTabLayout.TabReselected += TabLayoutTabReselected;
 
+            /* "Pulling" down on the page will refresh the view              */
+            RefreshLayout =
+                _gradesView.FindViewById<SwipeRefreshLayout>(
+                    Resource.Id.SwipeRefreshGrades);
+
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+                Resource.Color.accent, Resource.Color.primary_text,
+                    Resource.Color.secondary_text);
+            RefreshLayout.Refresh += RefreshLayoutRefresh;
+
             return _gradesView;
         }
 
@@ -112,6 +124,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 }
                 Activity.RunOnUiThread(() => _gradesRecyclerView.SmoothScrollToPosition(0));
             }
+        }
+
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
+        {
+            await Task.Delay(2000);
+            RefreshLayout.Refreshing = false;
         }
 
         /*********************************************************************/
