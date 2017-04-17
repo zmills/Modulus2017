@@ -44,4 +44,7 @@
     <!-- BLACK & WHITE FONT COLOR -->
     <attr name="modBlackAndWhiteFontColor" format="reference" />
 
+    <!-- NICK'S CARD -->
+    <attr name="modNicksCard" format="reference" />
+
 </resources>

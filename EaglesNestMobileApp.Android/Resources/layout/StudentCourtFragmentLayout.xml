@@ -73,7 +73,8 @@
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:background="@drawable/student_court_circle"
-                        android:padding="2dp"
+                        android:padding="24dp"
+                        android:src="@drawable/ic_gavel"
                     />
                     <!-- android:adjustViewBounds="true"
                              This causes the ImageView to resize itself to fit the
