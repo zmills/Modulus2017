@@ -43,6 +43,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
         /* Position for closing and reopening grades layout       */
         private int _expandedPosition = -1;
+        private int prev = -2;
 
         /* Arrow to be rotated along with its transition          */
         private RotateAnimation _rotateArrow;
@@ -126,15 +127,15 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             /* Handle the closing of the previous recyclerview */
             if (position == _expandedPosition)
             {
-                System.Diagnostics.Debug.Write("OPEN-POSITION(" + position + ")");
-                System.Diagnostics.Debug.Write("OPEN-VH.POSITION(" + holder.AdapterPosition + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-POSITION(" + position + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-VH.POSITION(" + holder.AdapterPosition + ")");
                 holder.FindCachedViewById<ImageView>(Resource.Id.ShowGradesArrowIcon).StartAnimation(_rotateArrow);
                 _expandArea.Visibility = ViewStates.Visible;
             }
             else
             {
-                System.Diagnostics.Debug.Write("CLOSE-POSITION(" + position + ")");
-                System.Diagnostics.Debug.Write("CLOSE-VH.POSITION(" + holder.AdapterPosition + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("CLOSE-POSITION(" + position + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("CLOSE-VH.POSITION(" + holder.AdapterPosition + ")");
                 Activity.RunOnUiThread(() => _expandArea.Visibility = ViewStates.Gone);
             }
 
@@ -208,18 +209,24 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         {
             _holder = (CachingViewHolder)(sender as View).Tag;
 
-            if (_expandedPosition >= 0)
-            {
-                int prev = _expandedPosition;
+                if (_expandedPosition >= 0)
+                {
+                    prev = _expandedPosition;
 
-                System.Diagnostics.Debug.Write("ITEM COUNT: " + _gradesAdapter.ItemCount);
-                System.Diagnostics.Debug.Write("PREV: " + prev + "VH.POSITION: " + _holder.AdapterPosition);
+                    /*DEBUG*///System.Diagnostics.Debug.Write("ITEM COUNT: " + _gradesAdapter.ItemCount);
+                    /*DEBUG*///System.Diagnostics.Debug.Write("PREV: " + prev + "VH.POSITION: " + _holder.AdapterPosition);
 
-                _gradesAdapter.NotifyItemChanged(prev);
-            }
-            _expandedPosition = _holder.AdapterPosition;
-            System.Diagnostics.Debug.Write("NOTIFY(EXPANDED_POSTION): " + _expandedPosition);
-            _gradesAdapter.NotifyItemChanged(_expandedPosition);
+                    _gradesAdapter.NotifyItemChanged(prev);
+                }
+                _expandedPosition = _holder.AdapterPosition;
+                if (prev != _expandedPosition)
+                    _gradesAdapter.NotifyItemChanged(_expandedPosition);
+                else
+                {
+                    _expandedPosition = -1;
+                    prev = -2;
+                }
+                /*DEBUG*///System.Diagnostics.Debug.Write("NOTIFY(EXPANDED_POSTION): " + _expandedPosition);
         }
 
         /*********************************************************************/
