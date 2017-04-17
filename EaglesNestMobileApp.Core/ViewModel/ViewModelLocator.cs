@@ -71,7 +71,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public static void RegisterCustomDialogService(ICustomProgressDialog customDialogService)
         {
-            SimpleIoc.Default.Register(() => customDialogService);
+
+            if(!SimpleIoc.Default.IsRegistered<ICustomProgressDialog>())
+                SimpleIoc.Default.Register(() => customDialogService);
         }
 
         public static void UnregisterDialogService()
