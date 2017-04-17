@@ -163,26 +163,26 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 _showGrades.Click += ShowGrades;
             }
 
-            /* Set up the child recyclerview for the assignments                       */
+            /* Set up the child recyclerview for the assignments             */
             _assignmentsRecyclerView =
                holder.FindCachedViewById<RecyclerView>(
                    Resource.Id.AssignmentsRecyclerView);
 
-            /* Bind to the data                                                    */
+            /* Bind to the data                                              */
                 _assignmentAdapter =
                     gradeCard.ClassAssignments.GetRecyclerAdapter(ChildBindViewHolder,
                         Resource.Layout.GradesAssignment);
 
-            /* Set the nested recyclerview layout manager and adapter              */
+            /* Set the nested recyclerview layout manager and adapter        */
             _assignmentsRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
 
             _assignmentsRecyclerView.SetAdapter(_assignmentAdapter);
 
-            /* Delete the binding for memory purposes                              */
+            /* Delete the binding for memory purposes                        */
             holder.DeleteBinding(_className);
             holder.DeleteBinding(_courseGrade);
 
-            /* Create new binding and bind the properties to the view              */
+            /* Create new binding and bind the properties to the view         */
             var _titleBinding = new Binding<string, string>(
                 gradeCard,
                 () => gradeCard.CourseTitle,
@@ -197,7 +197,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 () => _courseGrade.Text,
                 BindingMode.OneWay);
 
-            /* Save the binding; remember to delete it later                       */
+            /* Save the binding; remember to delete it later                 */
             holder.SaveBinding(_className, _titleBinding);
             holder.SaveBinding(_courseGrade, _gradeBinding);
         }
