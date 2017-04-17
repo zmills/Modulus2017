@@ -118,7 +118,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         /*********************************************************************/
         private void BindViewHolder(CachingViewHolder holder, GradeCard gradeCard, int position)
         {
-            _position = position;
+            _position = holder.AdapterPosition;
 
             LinearLayout _expandArea =
                 holder.FindCachedViewById<LinearLayout>(Resource.Id.llExpandArea);
@@ -148,7 +148,10 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 holder.FindCachedViewById<Button>(Resource.Id.TeacherInfoButton);
 
             if (!_showTeacher.HasOnClickListeners)
+            {
+                _showTeacher.Tag = holder;
                 _showTeacher.Click += ShowTeacherInfo;
+            }
 
             Button _showGrades = 
                 holder.FindCachedViewById<Button>(Resource.Id.ShowGradesButton);
@@ -226,20 +229,30 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         {
             //Dialog _dialogBox = new Dialog(Activity);
             //_dialogBox.SetTitle("Teacher Information");
+            _holder = (CachingViewHolder)(sender as View).Tag;
             (sender as Button).Enabled = false;
 
             AlertDialog.Builder myDialogBuilder = new AlertDialog.Builder(Activity);
             myDialogBuilder.SetView(Resource.Layout.GradesTeacherInfoLayout);
 
-
             AlertDialog myDialog = myDialogBuilder.Create();
+
             myDialog.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
 
             await Task.Delay(100);
             myDialog.Show();
+
+            myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorName).Text   = ViewModel.Grades[_holder.AdapterPosition].ProfessorName;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.ClassName).Text       = ViewModel.Grades[_holder.AdapterPosition].CourseTitle;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorOffice).Text = ViewModel.Grades[_holder.AdapterPosition].ProfessorOffice;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Day1).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[0].WeekDay;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Day2).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[1].WeekDay;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Time1).Text           = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[0].Time;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Time2).Text           = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[1].Time;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorEmail).Text  = ViewModel.Grades[_holder.AdapterPosition].ProfessorEmail;
+
             await Task.Delay(400);
             (sender as Button).Enabled = true;
-
             //_dialogBox.SetContentView(Resource.Layout.GradesTeacherInfoLayout);
             ////_dialogBox.Window.SetLayout(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
             ////_dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);

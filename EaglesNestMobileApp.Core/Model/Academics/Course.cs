@@ -19,11 +19,13 @@ namespace EaglesNestMobileApp.Core.Model
         public string ProfessorLastName { get; set; }
         public string ProfessorEmail { get; set; }
         public string ProfessorId { get; set; }
+        public string Office { get; set; }
         public string Location { get; set; }
         public string ExamEndTime { get; set; }
         public string ExamBeginTime { get; set; }
         public string ExamType { get; set; }
         public string ExamDate { get; set; }
+        public string ExamDay { get; set; } // This is soley for sorting purposes
         public string FormattedCourseCode { get { return $"{CourseCode}-{SectionNumber}"; } }
         public string ExamTime { get { return $"{ExamBeginTime}-{ExamEndTime}"; } }
         

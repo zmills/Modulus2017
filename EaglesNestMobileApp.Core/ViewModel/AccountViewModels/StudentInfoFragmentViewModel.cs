@@ -21,6 +21,17 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
+
+        /* Command to be binded to the refresh event in the view */
+        private RelayCommand _showChecksheetCommand;
+
+        public RelayCommand ShowChecksheetCommand => _showChecksheetCommand ??
+            (_showChecksheetCommand =
+                new RelayCommand(()=> 
+                    App.Locator.Dialog.StartToast("Imaginary checksheet download started",
+                        Android.Widget.ToastLength.Short)));
+
+
         public StudentInfoFragmentViewModel(IAzureService database)
         {
             Database = database;

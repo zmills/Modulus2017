@@ -1,4 +1,5 @@
 ﻿using EaglesNestMobileApp.Core.Model;
+using EaglesNestMobileApp.Core.Model.Academics;
 using EaglesNestMobileApp.Core.Model.Campus;
 using EaglesNestMobileApp.Core.Model.Home;
 using EaglesNestMobileApp.Core.Model.Personal;
@@ -49,6 +50,8 @@ namespace EaglesNestMobileApp.Core.Contracts
         Task<List<EventSlot>> GetEventSignupAsync();
 
         Task InsertEventAsync(EventSlot eventSignup);
+
+        Task<List<ProfessorTimes>> GetProfessorTimesAsync();
 
         string CurrentUser { get; set; }
     }

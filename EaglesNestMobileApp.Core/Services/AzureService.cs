@@ -123,6 +123,10 @@ namespace EaglesNestMobileApp.Core.Services
                         _offenseCategoryTable.Where(offense =>
                             offense.StudentId == CurrentUser));
 
+                    await _professorTable.PullAsync("allProfessorTimes",
+                        _professorTable.Where(professor => 
+                            professor.StudentId == CurrentUser));
+
                     PullOptions data = new PullOptions { MaxPageSize = 150 };
 
                     await _fourWindsTable.PullAsync("allFourWindsItems",
@@ -207,6 +211,14 @@ namespace EaglesNestMobileApp.Core.Services
         public async Task<List<Course>> GetCoursesAsync()
         {
             return await _courseTable.ToListAsync();
+        }
+
+        /*********************************************************************/
+        /*                          Get professors                           */
+        /*********************************************************************/
+        public async Task<List<ProfessorTimes>> GetProfessorTimesAsync()
+        {
+            return await _professorTable.ToListAsync();
         }
 
         /*********************************************************************/
@@ -347,6 +359,7 @@ namespace EaglesNestMobileApp.Core.Services
             CurrentUser = null;
             _assignmentTable = null;
             _courseTable = null;
+            _professorTable = null;
             _eventsTable = null;
             _eventSignupTable = null;
             _studentEventTable = null;

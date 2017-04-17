@@ -20,6 +20,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             get { return _assignments; }
             private set { Set(() => Assignments, ref _assignments, value); }
         }
+
         /* The list of classes the student is taking */
         private List<Course> _classes = new List<Course>();
         protected List<Course> Classes
@@ -27,6 +28,14 @@ namespace EaglesNestMobileApp.Core.ViewModel
             get { return _classes; }
             set { Set(() => Classes, ref _classes, value); }
         }
+
+        private List<ProfessorTimes> _professorsHours = new List<ProfessorTimes>();
+        protected List<ProfessorTimes> ProfessorsHours
+        {
+            get { return _professorsHours; }
+            set { Set(() => ProfessorsHours, ref _professorsHours, value); }
+        }
+
         /* Grade cards to be passed to the views */
         private ObservableCollection<GradeCard> _grades =
             new ObservableCollection<GradeCard>();
@@ -54,6 +63,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public async Task InitializeAsync()
         {
             Classes = await Database.GetCoursesAsync();
+
+            ProfessorsHours = await Database.GetProfessorTimesAsync();
 
             Assignments = await Database.GetAssignmentsAsync();
 
@@ -109,17 +120,29 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     if (assignment.CourseId == current.CourseId)
                         current.AddAssignment(assignment);
                 }
+
+                foreach (var hour in ProfessorsHours)
+                {
+                    if (current.ProfessorId == hour.ProfessorId)
+                        current.ProfessorsHours.Add(hour);
+
+                    if (current.ProfessorsHours.Count == 2)
+                        break;
+                }
+
                 Grades.Add(current);
             }
             /* Sort the classes based off of the most recently updated assignment           */
             //Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
         }
 
+
         public override void Cleanup()
         {
             Classes.Clear();
             Assignments.Clear();
             Grades.Clear();
+            ProfessorsHours.Clear();
             base.Cleanup();
         }
 

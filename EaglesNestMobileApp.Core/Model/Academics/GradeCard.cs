@@ -13,9 +13,21 @@ namespace EaglesNestMobileApp.Core.Model.Academics
             private set { Set(() => ClassAssignments, ref _classAssignments, value); }
         }
 
+        private ObservableCollection<ProfessorTimes> _professorsHours = 
+            new ObservableCollection<ProfessorTimes>();
+        public ObservableCollection<ProfessorTimes> ProfessorsHours
+        {
+            get { return _professorsHours; }
+            set { Set(() => ProfessorsHours, ref _professorsHours, value); }
+        }
+
         public string CourseTitle { get; set; }
         public string CourseGrade { get { return GetCurrentGrade(); } }
         public string CourseId { get; set; }
+        public string ProfessorName { get; set; }
+        public string ProfessorEmail { get; set; }
+        public string ProfessorId { get; set; }
+        public string ProfessorOffice { get; set; }
         public int AssignmentCount => ClassAssignments.Count;
 
         public GradeCard(Course section)
@@ -23,6 +35,11 @@ namespace EaglesNestMobileApp.Core.Model.Academics
             ClassAssignments = new ObservableCollection<Assignment>();
             CourseTitle = section.GetFullCourseName;
             CourseId = section.Id;
+            ProfessorName = $"{section.ProfessorTitle} " +
+                $"{section.ProfessorFirstName} {section.ProfessorLastName}";
+            ProfessorEmail = section.ProfessorEmail;
+            ProfessorOffice = section.Office;
+            ProfessorId = section.ProfessorId;
         }
 
         public GradeCard() { }

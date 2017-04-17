@@ -194,6 +194,7 @@
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="Checksheet/Plan of Study"
+                        android:id="@+id/StudentChecksheet"
                         />
 
                 </LinearLayout>
