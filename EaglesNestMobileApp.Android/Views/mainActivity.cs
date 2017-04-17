@@ -24,7 +24,7 @@ using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "The Nest", Icon = "@drawable/TheNestLogo1",
+    [Activity(Label = "The Nest", Icon = "@drawable/nest_app_icon",
        ScreenOrientation = ScreenOrientation.Portrait,
            MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
 
