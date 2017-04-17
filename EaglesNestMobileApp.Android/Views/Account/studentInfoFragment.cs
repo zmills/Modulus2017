@@ -80,9 +80,40 @@ namespace EaglesNestMobileApp.Android.Views.Account
             ImageView _accountPhotoView =
                 StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
 
-            RoundedBitmapDrawable _drawable = 
-                RoundedBitmapDrawableFactory.Create(Resources, 
-                    BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
+            RoundedBitmapDrawable _drawable = null;
+
+            switch (userIdNumber)
+            {
+                case "130000":
+                    {
+                        _drawable = RoundedBitmapDrawableFactory.Create(
+                            Resources, BitmapFactory.DecodeResource(
+                                Resources, Resource.Drawable.abby));
+                    }
+                    break;
+                case "124801":
+                    {
+                        _drawable = RoundedBitmapDrawableFactory.Create(
+                            Resources, BitmapFactory.DecodeResource(
+                                Resources, Resource.Drawable.becki));
+                    }
+                    break;
+                case "118965":
+                    {
+                        _drawable = RoundedBitmapDrawableFactory.Create(
+                            Resources, BitmapFactory.DecodeResource(
+                                Resources, Resource.Drawable.account_photo));
+                    }
+                    break;
+                case "123456":
+                    {
+                        _drawable = RoundedBitmapDrawableFactory.Create(
+                            Resources, BitmapFactory.DecodeResource(
+                                Resources, Resource.Drawable.nick));
+                    }
+                    break;
+
+            }
 
             _drawable.CornerRadius = Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
 

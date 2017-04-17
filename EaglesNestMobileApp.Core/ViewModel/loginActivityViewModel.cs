@@ -116,8 +116,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
                             {
                                 Debug.WriteLine("\n\n\n\nWrong Credentials");
                                 Dialog.DismissProgressDialog();
-                                Dialog.StartProgressDialog("Error:",
-                                    "\nIncorrect username or password.\n", true);
+                                await Dialog.StartDialogAsync("Error:",
+                                    "\nIncorrect username or password.\n", true, 0);
                             }
 
                         }
