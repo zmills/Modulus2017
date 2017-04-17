@@ -44,6 +44,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public LocalToken CurrentUser { get; set; } = new LocalToken();
 
         public ICheckLogin LoginAuthenticator { get; set; } = App.Locator.CheckLogin;
+        public ViewModelLocator _locator = App.Locator;
 
         private AzureToken _remote;
         public AzureToken Remote
@@ -64,17 +65,24 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public async Task AttemptLoginAsync()
         {
-            Dialog = App.Locator.Dialog;
-            Dialog.StartProgressDialog(null, "Logging in. . .", false);
+            Dialog = _locator.Dialog;
+            Dialog.StartProgressDialog("Logging in", "Please wait . . .", false);
+            EnableLoginButton = false;
 
             try
             {
                 if (CurrentUser.Id == "123")
                 {
                     LoginAuthenticator.SaveLogin("USERNAME", "118965");
-                    App.Locator.User = "118965";
-                    await App.Locator.Main.InitializeNewUserAsync();
+
+                    _locator.User = "118965";
+
+                    Dialog.ChangeDialogText("Loading", "Please wait. . .");
+
+                    await _locator.Main.InitializeNewUserAsync();
+
                     Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+
                     EnableLoginButton = true;
 
                     Dialog.DismissProgressDialog();
@@ -95,48 +103,53 @@ namespace EaglesNestMobileApp.Core.ViewModel
                                 Remote.HashedPassword, Remote.Salt))
                             {
                                 LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
-                                App.Locator.User = CurrentUser.Id;
+                                _locator.User = CurrentUser.Id;
 
+                                Dialog.ChangeDialogText("Loading", "Please wait. . .");
+
+                                await _locator.Main.InitializeNewUserAsync();
                                 Dialog.DismissProgressDialog();
-
-                                await App.Locator.Main.InitializeNewUserAsync();
-                                Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+                                Debug.WriteLine($"\n\nCredentials:" +
+                                    $"{LoginAuthenticator.GetLogin("USERNAME")}");
                             }
                             else
                             {
                                 Debug.WriteLine("\n\n\n\nWrong Credentials");
                                 Dialog.DismissProgressDialog();
-                                Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
+                                Dialog.StartProgressDialog("Error:",
+                                    "\nIncorrect username or password.\n", true);
                             }
 
                         }
                         else
                         {
                             Dialog.DismissProgressDialog();
-                            Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
+                            await Dialog.StartDialogAsync("Error:", 
+                                "\nIncorrect username or password.\n", true, 0);
                         }
                     }
                     catch (System.Net.Http.HttpRequestException internetConnectionEx)
                     {
                         Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
                         Dialog.DismissProgressDialog();
-                        Dialog.StartToast("Please check your Internet connection.",
-                            Android.Widget.ToastLength.Long);
+                        await Dialog.StartToastAsync("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long, 150);
                     }
 
                     catch (System.Net.WebException internetConnectionEx)
                     {
                         Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
                         Dialog.DismissProgressDialog();
-                        Dialog.StartToast("Please check your Internet connection.",
-                            Android.Widget.ToastLength.Long);
+                        await Dialog.StartToastAsync("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long, 150);
                     }
 
                     catch (ArgumentOutOfRangeException IncorrectCredentials)
                     {
                         Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
                         Dialog.DismissProgressDialog();
-                        Dialog.StartProgressDialog("Login Error:", "Incorrect username or password.", true);
+                        await Dialog.StartDialogAsync("Error:",
+                            "Incorrect username or password.\n", true, 0);
                     }
                     EnableLoginButton = true;
                 }
@@ -145,7 +158,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             {
                 Debug.WriteLine($"\n\n\n{EmptyCredential.Message}");
                 Dialog.DismissProgressDialog();
-                Dialog.StartProgressDialog("Login Error:", "Please input both username and password.", true);
+                await Dialog.StartDialogAsync("Error:",
+                    "Please input both username and password.", true, 0);
                 EnableLoginButton = true;
             }
         }
@@ -160,13 +174,13 @@ namespace EaglesNestMobileApp.Core.ViewModel
             var userName = LoginAuthenticator.GetLogin("USERNAME");
             if (userName != null)
             {
-                App.Locator.User = userName;
+                _locator.User = userName;
                 NavigateToMainPage();
                 EnableLoginButton = true;
             }
             else
             {
-                App.Locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
+                _locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
                 EnableLoginButton = true;
             }
         }
@@ -176,7 +190,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /*********************************************************************/
         public async void NavigateToMainPage()
         {
-            await App.Locator.Main.InitializeLoggedInUserAsync();
+            await _locator.Main.InitializeLoggedInUserAsync();
         }
 
         public override void Cleanup()

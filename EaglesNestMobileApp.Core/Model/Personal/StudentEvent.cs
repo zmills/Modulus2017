@@ -10,8 +10,8 @@ namespace EaglesNestMobileApp.Core.Model.Personal
         public string Id { get; set; }
         public string StudentId { get; set; }
         public string Title { get; set; }
-        public string BeginTime { get; set; }
-        public string EndTime { get; set; }
+        public float BeginTime { get; set; }
+        public string EventTime { get; set; }
         public string Location { get; set; }
         public string Day { get; set; }
     }

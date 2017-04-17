@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -74,6 +75,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         (x, y) => x.AssignmentDate.CompareTo(y.AssignmentDate)
                 );
 
+            Assignments.Reverse();
+
+            
             /* Format the student gradeCards for the separate views    */
             GetGradeCards();
         }
@@ -110,7 +114,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* Add each assignment to the appropriate card                     */
         public void GetGradeCards()
         {
-            Grades.Clear();
 
             foreach (var course in Classes)
             {
@@ -129,9 +132,16 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     if (current.ProfessorsHours.Count == 2)
                         break;
                 }
-
                 Grades.Add(current);
             }
+
+            var _tempGrades = 
+                new ObservableCollection<GradeCard>(Grades.OrderByDescending(x => x.ClassAssignments[0].AssignmentDate));
+            
+            
+            Grades.Clear();
+            foreach (var item in _tempGrades)
+                Grades.Add(item);
             /* Sort the classes based off of the most recently updated assignment           */
             //Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
         }

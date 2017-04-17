@@ -175,7 +175,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             var _timeBinding = new Binding<string, string>
                 (
                     studentEvent,
-                    ()=> studentEvent.BeginTime,
+                    ()=> studentEvent.EventTime,
                     _time,
                     ()=>_time.Text
                 );

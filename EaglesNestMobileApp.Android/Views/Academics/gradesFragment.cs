@@ -19,6 +19,7 @@ using Android.Views.Animations;
 using Android.Support.Transitions;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
+using Android.Support.V4.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -46,7 +47,9 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
         /* Arrow to be rotated along with its transition          */
         private RotateAnimation _rotateArrow;
-        private TransitionSet _transitionSet;
+
+        /* Refreshing the page                                    */
+        public SwipeRefreshLayout RefreshLayout { get; set; }
 
         /* Get the instance of the Grades viewmodel                                */
         public GradesFragmentViewModel ViewModel
@@ -90,6 +93,16 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _gradesRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
             _gradesRecyclerView.SetAdapter(_gradesAdapter);
 
+            /* "Pulling" down on the page will refresh the view              */
+            RefreshLayout =
+                _gradesView.FindViewById<SwipeRefreshLayout>(
+                    Resource.Id.SwipeRefreshGrades);
+
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+                Resource.Color.accent, Resource.Color.primary_text,
+                    Resource.Color.secondary_text);
+            RefreshLayout.Refresh += RefreshLayoutRefresh;
+
             /* Get the tablayout so we can scroll back up                          */
             _currentTabLayout =
                 ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
@@ -97,6 +110,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _currentTabLayout.TabReselected += TabLayoutTabReselected;
 
             return _gradesView;
+        }
+
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
+        {
+            await Task.Delay(2000);
+            RefreshLayout.Refreshing = false;
         }
 
         private void TabLayoutTabReselected(object sender,
@@ -162,7 +181,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 _showGrades.Click += ShowGrades;
             }
 
-            /* Set up the child recyclerview for the assignments                       */
+            /* Set up the child recyclerview for the assignments                   */
             _assignmentsRecyclerView =
                holder.FindCachedViewById<RecyclerView>(
                    Resource.Id.AssignmentsRecyclerView);

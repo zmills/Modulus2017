@@ -18,6 +18,8 @@ using System;
 using Dialog = Android.App.Dialog;
 using System.Threading;
 using EaglesNestMobileApp.Core.ViewModel;
+using Android.Support.Design.Widget;
+using Android.Support.V4.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -32,11 +34,31 @@ namespace EaglesNestMobileApp.Android.Views.Account
             get { return App.Locator.StudentInfo; }
         }
 
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
+        private string userIdNumber;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            //UserVisibleHint = true;
+            userIdNumber = ViewModel.CurrentUser.Id;
         }
 
 
@@ -46,19 +68,29 @@ namespace EaglesNestMobileApp.Android.Views.Account
             StudentInfoView = inflater.Inflate(Resource.Layout.StudentInfoFragmentLayout,
                 container, false);
 
-            StudentInfoView.FindViewById<Button>(Resource.Id.BoxCombinationInstructions).Click += ShowCombination;
-            StudentInfoView.FindViewById<Button>(Resource.Id.StudentChecksheet).SetCommand("Click", ViewModel.ShowChecksheetCommand);
+            StudentInfoView.FindViewById<Button>(Resource.Id.BoxCombinationInstructions)
+                .SetCommand("Click", ViewModel.ShowBoxCombinationCommand);
 
-            ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
-            RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,
+            StudentInfoView.FindViewById<Button>(Resource.Id.StudentChecksheet)
+                .SetCommand("Click", ViewModel.ShowChecksheetCommand);
+
+            StudentInfoView.FindViewById<Button>(Resource.Id.MessagingAndTelephoneInstructions)
+                .SetCommand("Click", ViewModel.ShowTelephoneInstructionsCommand);
+
+            ImageView _accountPhotoView =
+                StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
+
+            RoundedBitmapDrawable _drawable = 
+                RoundedBitmapDrawableFactory.Create(Resources, 
                     BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo));
-            _drawable.CornerRadius = System.Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
+
+            _drawable.CornerRadius = Math.Min(_drawable.MinimumWidth, _drawable.MinimumHeight);
 
             Activity.RunOnUiThread(() =>
             {
                 _accountPhotoView.SetImageDrawable(_drawable);
             });
-            
+
             //Resources _resources = Resources;
             //Bitmap _accountPhotoBitmap = BitmapFactory.DecodeResource(Resources, Resource.Drawable.account_photo);
             ///*SEPARATE THREAD*/ ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
@@ -70,44 +102,61 @@ namespace EaglesNestMobileApp.Android.Views.Account
             //     Replace _drawable.CorderRadius = ... with
             //     _drawable.Circular = true;
             #endregion
-            /*UI THREAD*/
 
-            Activity.RunOnUiThread(()=>SetStudentInfo());
+            ParentFragment.View.FindViewById<TabLayout>(
+                Resource.Id.MainTabLayout).TabReselected += TabReselected;
 
+            SetStudentInfo();
 
             /* Use this to return your custom view for this Fragment         */
             return StudentInfoView;
         }
 
-        private void ShowCombination(object sender, EventArgs e)
+        private void TabReselected(object sender,
+           TabLayout.TabReselectedEventArgs e)
         {
-            Dialog dialogBox = new Dialog(Activity, Resource.Style.Base_V7_Theme_AppCompat);
-            dialogBox.SetContentView(Resource.Layout.BoxCombinationDialogLayout);
-            dialogBox.FindViewById<TextView>(Resource.Id.BoxCombinationText).Text =
-                ViewModel.BoxCombinationInstructions;
-            dialogBox.Show();
-
+            if (e.Tab.Text == "Student Info")
+            {
+                StudentInfoView.FindViewById<NestedScrollView>(Resource.Id.StudentScrollview).SmoothScrollTo(0, 0);
+            }
         }
 
         private void SetStudentInfo()
         {
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentFullName).Text = ViewModel.CurrentUser.FormattedName;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentId).Text = ViewModel.CurrentUser.Id;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMajor).Text = ViewModel.CurrentUser.MajorName;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMinor).Text = ViewModel.CurrentUser.MinorName;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoom).Text = ViewModel.CurrentUser.FormattedRoom;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMailbox).Text = ViewModel.CurrentUser.BoxNumber;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentBoxCombination).Text = ViewModel.CurrentUser.BoxCombination;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianName).Text = ViewModel.CurrentUser.FormattedCollegian;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianLocation).Text = ViewModel.CurrentUser.CollegianLocation;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatSection).Text = ViewModel.CurrentUser.FormattedChapelSection;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatRowNumber).Text = ViewModel.CurrentUser.FormattedChapelRow;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentEmail).Text = ViewModel.CurrentUser.StudentEmail;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoomPhone).Text = ViewModel.CurrentUser.FormattedRoomPhone;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentSchoolAddress).Text = ViewModel.CurrentUser.FormattedStudentAddress;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentPersonalEmail).Text = ViewModel.CurrentUser.PersonalEmail;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCellphone).Text = ViewModel.CurrentUser.FormattedCellPhone;
-            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentHomeAddress).Text = ViewModel.CurrentUser.FormattedAddress;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentFullName)
+                .Text = ViewModel.CurrentUser.FormattedName;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentId)
+                .Text = ViewModel.CurrentUser.Id;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMajor)
+                .Text = ViewModel.CurrentUser.MajorName;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMinor)
+                .Text = ViewModel.CurrentUser.MinorName;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoom)
+                .Text = ViewModel.CurrentUser.FormattedRoom;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentMailbox)
+                .Text = ViewModel.CurrentUser.BoxNumber;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentBoxCombination)
+                .Text = ViewModel.CurrentUser.BoxCombination;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianName)
+                .Text = ViewModel.CurrentUser.FormattedCollegian;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCollegianLocation)
+                .Text = ViewModel.CurrentUser.CollegianLocation;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatSection)
+                .Text = ViewModel.CurrentUser.FormattedChapelSection;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentChapelSeatRowNumber)
+                .Text = ViewModel.CurrentUser.FormattedChapelRow;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentEmail)
+                .Text = ViewModel.CurrentUser.StudentEmail;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentRoomPhone)
+                .Text = ViewModel.CurrentUser.FormattedRoomPhone;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentSchoolAddress)
+                .Text = ViewModel.CurrentUser.FormattedStudentAddress;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentPersonalEmail)
+                .Text = ViewModel.CurrentUser.PersonalEmail;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentCellphone)
+                .Text = ViewModel.CurrentUser.FormattedCellPhone;
+            StudentInfoView.FindViewById<TextView>(Resource.Id.StudentHomeAddress)
+                .Text = ViewModel.CurrentUser.FormattedAddress;
         }
     }
 }

@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/SwipeRefreshStudentCourt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,6 +13,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
+    android:id="@+id/StudentCourtScrollView"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
     <!-- ScrollView can only have ONE direct child -->
@@ -473,3 +481,4 @@
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

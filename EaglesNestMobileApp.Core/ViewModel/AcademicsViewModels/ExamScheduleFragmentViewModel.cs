@@ -3,6 +3,7 @@ using EaglesNestMobileApp.Core.Model;
 using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 {
@@ -28,9 +29,10 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
         {
             var courses = await Database.GetCoursesAsync();
 
-            Classes.Clear();
+            var sortedCourses = courses.OrderBy(x => x.ExamDate)
+                .ThenBy(x => x.SortTime).ToList();
 
-            foreach (Course current in courses)
+            foreach (Course current in sortedCourses)
                 Classes.Add(current);
         }
 

@@ -26,6 +26,7 @@ namespace EaglesNestMobileApp.Core.Model
         public string ExamType { get; set; }
         public string ExamDate { get; set; }
         public string ExamDay { get; set; } // This is soley for sorting purposes
+        public float SortTime { get; set; }
         public string FormattedCourseCode { get { return $"{CourseCode}-{SectionNumber}"; } }
         public string ExamTime { get { return $"{ExamBeginTime}-{ExamEndTime}"; } }
         
