@@ -19,7 +19,6 @@ using Android.Views.Animations;
 using Android.Support.Transitions;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
-using Android.Support.V4.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -44,12 +43,11 @@ namespace EaglesNestMobileApp.Android.Views.Academics
 
         /* Position for closing and reopening grades layout       */
         private int _expandedPosition = -1;
+        private int prev = -2;
 
         /* Arrow to be rotated along with its transition          */
         private RotateAnimation _rotateArrow;
-
-        /* Refreshing the page                                    */
-        public SwipeRefreshLayout RefreshLayout { get; set; }
+        private TransitionSet _transitionSet;
 
         /* Get the instance of the Grades viewmodel                                */
         public GradesFragmentViewModel ViewModel
@@ -93,16 +91,6 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _gradesRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
             _gradesRecyclerView.SetAdapter(_gradesAdapter);
 
-            /* "Pulling" down on the page will refresh the view              */
-            RefreshLayout =
-                _gradesView.FindViewById<SwipeRefreshLayout>(
-                    Resource.Id.SwipeRefreshGrades);
-
-            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
-                Resource.Color.accent, Resource.Color.primary_text,
-                    Resource.Color.secondary_text);
-            RefreshLayout.Refresh += RefreshLayoutRefresh;
-
             /* Get the tablayout so we can scroll back up                          */
             _currentTabLayout =
                 ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout);
@@ -110,12 +98,6 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             _currentTabLayout.TabReselected += TabLayoutTabReselected;
 
             return _gradesView;
-        }
-
-        private async void RefreshLayoutRefresh(object sender, EventArgs e)
-        {
-            await Task.Delay(2000);
-            RefreshLayout.Refreshing = false;
         }
 
         private void TabLayoutTabReselected(object sender,
@@ -145,15 +127,15 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             /* Handle the closing of the previous recyclerview */
             if (position == _expandedPosition)
             {
-                System.Diagnostics.Debug.Write("OPEN-POSITION(" + position + ")");
-                System.Diagnostics.Debug.Write("OPEN-VH.POSITION(" + holder.AdapterPosition + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-POSITION(" + position + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-VH.POSITION(" + holder.AdapterPosition + ")");
                 holder.FindCachedViewById<ImageView>(Resource.Id.ShowGradesArrowIcon).StartAnimation(_rotateArrow);
                 _expandArea.Visibility = ViewStates.Visible;
             }
             else
             {
-                System.Diagnostics.Debug.Write("CLOSE-POSITION(" + position + ")");
-                System.Diagnostics.Debug.Write("CLOSE-VH.POSITION(" + holder.AdapterPosition + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("CLOSE-POSITION(" + position + ")");
+                /*DEBUG*///System.Diagnostics.Debug.Write("CLOSE-VH.POSITION(" + holder.AdapterPosition + ")");
                 Activity.RunOnUiThread(() => _expandArea.Visibility = ViewStates.Gone);
             }
 
@@ -181,26 +163,26 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 _showGrades.Click += ShowGrades;
             }
 
-            /* Set up the child recyclerview for the assignments                   */
+            /* Set up the child recyclerview for the assignments             */
             _assignmentsRecyclerView =
                holder.FindCachedViewById<RecyclerView>(
                    Resource.Id.AssignmentsRecyclerView);
 
-            /* Bind to the data                                                    */
+            /* Bind to the data                                              */
                 _assignmentAdapter =
                     gradeCard.ClassAssignments.GetRecyclerAdapter(ChildBindViewHolder,
                         Resource.Layout.GradesAssignment);
 
-            /* Set the nested recyclerview layout manager and adapter              */
+            /* Set the nested recyclerview layout manager and adapter        */
             _assignmentsRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
 
             _assignmentsRecyclerView.SetAdapter(_assignmentAdapter);
 
-            /* Delete the binding for memory purposes                              */
+            /* Delete the binding for memory purposes                        */
             holder.DeleteBinding(_className);
             holder.DeleteBinding(_courseGrade);
 
-            /* Create new binding and bind the properties to the view              */
+            /* Create new binding and bind the properties to the view         */
             var _titleBinding = new Binding<string, string>(
                 gradeCard,
                 () => gradeCard.CourseTitle,
@@ -215,7 +197,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 () => _courseGrade.Text,
                 BindingMode.OneWay);
 
-            /* Save the binding; remember to delete it later                       */
+            /* Save the binding; remember to delete it later                 */
             holder.SaveBinding(_className, _titleBinding);
             holder.SaveBinding(_courseGrade, _gradeBinding);
         }
@@ -227,18 +209,24 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         {
             _holder = (CachingViewHolder)(sender as View).Tag;
 
-            if (_expandedPosition >= 0)
-            {
-                int prev = _expandedPosition;
+                if (_expandedPosition >= 0)
+                {
+                    prev = _expandedPosition;
 
-                System.Diagnostics.Debug.Write("ITEM COUNT: " + _gradesAdapter.ItemCount);
-                System.Diagnostics.Debug.Write("PREV: " + prev + "VH.POSITION: " + _holder.AdapterPosition);
+                    /*DEBUG*///System.Diagnostics.Debug.Write("ITEM COUNT: " + _gradesAdapter.ItemCount);
+                    /*DEBUG*///System.Diagnostics.Debug.Write("PREV: " + prev + "VH.POSITION: " + _holder.AdapterPosition);
 
-                _gradesAdapter.NotifyItemChanged(prev);
-            }
-            _expandedPosition = _holder.AdapterPosition;
-            System.Diagnostics.Debug.Write("NOTIFY(EXPANDED_POSTION): " + _expandedPosition);
-            _gradesAdapter.NotifyItemChanged(_expandedPosition);
+                    _gradesAdapter.NotifyItemChanged(prev);
+                }
+                _expandedPosition = _holder.AdapterPosition;
+                if (prev != _expandedPosition)
+                    _gradesAdapter.NotifyItemChanged(_expandedPosition);
+                else
+                {
+                    _expandedPosition = -1;
+                    prev = -2;
+                }
+                /*DEBUG*///System.Diagnostics.Debug.Write("NOTIFY(EXPANDED_POSTION): " + _expandedPosition);
         }
 
         /*********************************************************************/
