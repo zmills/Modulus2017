@@ -735,7 +735,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\nick.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_gavel.png" />
+    <AndroidResource Include="Resources\drawable\ic_gavel.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

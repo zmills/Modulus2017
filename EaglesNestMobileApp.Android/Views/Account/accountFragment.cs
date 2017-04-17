@@ -14,6 +14,8 @@ using Android.Content;
 using Android.Support.V7.Widget;
 using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using System.IO;
+using EaglesNestMobileApp.Core.ViewModel;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -41,6 +43,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
+            ViewModelLocator.RegisterCustomDialogService(new CustomProgressDialog(Activity));
         }
 
         /* Sets up the viewpager and the tabs along with their titles        */
