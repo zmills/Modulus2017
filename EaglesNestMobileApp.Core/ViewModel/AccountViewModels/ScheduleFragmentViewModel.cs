@@ -140,9 +140,16 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             }
         }
 
+        private void ClearSchedule()
+        {
+            foreach (var item in Schedule)
+                item.Clear();
+        }
+
         public override void Cleanup()
         {
             Events.Clear();
+            ClearSchedule();
             base.Cleanup();
         }
     }

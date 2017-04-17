@@ -102,6 +102,8 @@
         <!-- <<borderless button colors>> -->
         <item name="modBorderlessButtonTextColorPrimary">@color/primary</item>
         <item name="modBorderlessButtonTextColorSecondary">@color/black</item>
+        <!-- <<black and white font color>>-->
+        <item name="modBlackAndWhiteFontColor">@color/black</item>
     </style>
 
 
@@ -150,6 +152,8 @@
         <!-- <<standard button color>> -->
         <item name="modBorderlessButtonTextColorPrimary">@color/accent</item>
         <item name="modBorderlessButtonTextColorSecondary">@color/white</item>
+        <!-- <<black and white font color>>-->
+        <item name="modBlackAndWhiteFontColor">@color/white</item>
     </style>
 
 
@@ -415,7 +419,13 @@
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@string/roboto_regular</item>
     </style>
-
+    
+    <!-- <Titles>-->
+    <!-- <<Full Black and White Titles>> -->
+    <style name="DialogTitle" parent="ModRobotoMedium20">
+        <item name="android:textColor">?attr/modBlackAndWhiteFontColor</item>
+    </style>
+    
 
 
 

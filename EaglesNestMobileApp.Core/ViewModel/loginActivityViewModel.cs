@@ -123,6 +123,15 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         Dialog.StartToast("Please check your Internet connection.",
                             Android.Widget.ToastLength.Long);
                     }
+
+                    catch (System.Net.WebException internetConnectionEx)
+                    {
+                        Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
+                        Dialog.DismissProgressDialog();
+                        Dialog.StartToast("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long);
+                    }
+
                     catch (ArgumentOutOfRangeException IncorrectCredentials)
                     {
                         Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
