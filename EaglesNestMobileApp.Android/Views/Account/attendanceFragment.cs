@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Helpers;
 using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Personal;
 using EaglesNestMobileApp.Core;
+using Android.Support.Design.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -50,6 +51,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
                 BindViewHolder, Resource.Layout.AttendanceRecyclerViewLayout
             );
 
+            ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout).TabReselected += TabReselected;
             Activity.RunOnUiThread( ()=>
                 {
                     _recyclerview.SetLayoutManager(new LinearLayoutManager(Activity));
@@ -57,6 +59,15 @@ namespace EaglesNestMobileApp.Android.Views.Account
                 });
 
             return _attendanceView;
+        }
+
+        private void TabReselected(object sender,
+            TabLayout.TabReselectedEventArgs e)
+        {
+            if (e.Tab.Text == "Attendance")
+            {
+                _recyclerview.SmoothScrollToPosition(0);
+            }
         }
 
         private void BindViewHolder(CachingViewHolder holder, AttendanceCard course, int position)

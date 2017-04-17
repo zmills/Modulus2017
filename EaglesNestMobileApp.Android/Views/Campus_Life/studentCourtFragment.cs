@@ -5,6 +5,7 @@
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.Content.Res;
 using Android.Support.V4.Widget;
@@ -91,8 +92,20 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     BindViewHolder, Resource.Layout.StudentCourtInfractionCardLayout
                 );
 
+            /* "Pulling" down on the page will refresh the view              */
+            RefreshLayout =
+                StudentCourtView.FindViewById<SwipeRefreshLayout>(
+                    Resource.Id.SwipeRefreshStudentCourt);
+
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+                Resource.Color.accent, Resource.Color.primary_text,
+                    Resource.Color.secondary_text);
+            RefreshLayout.Refresh += RefreshLayoutRefresh;
+
             _recyclerview.SetLayoutManager(new LinearLayoutManager(Activity));
             _recyclerview.SetAdapter(_adapter);
+
+            ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout).TabReselected += TabReselected;
 
             /* Student court progress bars                                   */
             DemeritsProgBar = new ProgressBar(Activity);
@@ -135,9 +148,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             DisplayMetrics displayMetrics = Resources.DisplayMetrics;
             float strokeWidth = TypedValue.ApplyDimension(
                 ComplexUnitType.Dip, strokeWidthDp, displayMetrics);
-
-            /* Set the start color for gradient                              */
-            string screenColor = "Red";
 
             switch (ViewModel.StudentOffenseCard.StudentCourtStatus)
             {
@@ -208,6 +218,22 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
             /* Use this to return your custom view for this Fragment         */
             return StudentCourtView;
+        }
+
+
+        private void TabReselected(object sender,
+            TabLayout.TabReselectedEventArgs e)
+        {
+            if (e.Tab.Text == "Student Court")
+            {
+                StudentCourtView.FindViewById<NestedScrollView>(Resource.Id.StudentCourtScrollView).SmoothScrollTo(0, 0);
+            }
+        }
+
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
+        {
+            await Task.Delay(2000);
+            RefreshLayout.Refreshing = false;
         }
 
         private async void ShowInfoIconDialog(object sender, EventArgs e)
@@ -373,20 +399,6 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             _dormInfractionsProgBarAnim.Start();
             _absencesProgBarAnim.Start();
             _lateDormProgBarAnim.Start();
-        }
-
-        private void RefreshLayoutRefresh(object sender, EventArgs e)
-        {
-            /* THIS NEEDS TO BE REMOVED                                      */
-
-
-            StatusCard.SetCardBackgroundColor(Resource.Color.red_screenaaa);
-            Infraction.Text = "You are required to go to student court";
-            PendingHeader.Visibility = ViewStates.Visible;
-            InfractionCard.Visibility = ViewStates.Visible;
-
-
-            RefreshLayout.Refreshing = false;
         }
     }
 }

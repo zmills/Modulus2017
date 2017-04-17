@@ -107,7 +107,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             holder.DeleteBinding(_examDate);
             var dateBinding = new Binding<string, string>(
                 section,
-                () => section.ExamDate,
+                () => section.ExamDay,
                 _examDate,
                 () => _examDate.Text,
                 BindingMode.OneWay);

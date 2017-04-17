@@ -16,6 +16,7 @@ using Java.Lang;
 using System.Threading;
 using Android.Graphics;
 using Android.Widget;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -91,10 +92,9 @@ namespace EaglesNestMobileApp.Android.Views.Home
             return AnnouncementsView;
         }
 
-        private void RefreshLayoutRefresh(object sender, EventArgs e)
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
         {
-            /* THIS NEEDS TO BE REMOVED                                      */
-            InitializeAnnouncementsTEST();
+            await Task.Delay(2000);
             RefreshLayout.Refreshing = false;
         }
 

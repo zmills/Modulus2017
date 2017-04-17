@@ -55,6 +55,9 @@ namespace EaglesNestMobileApp.Core.Model.Campus
                 }
 
             }
+
+            if (demerits == 25)
+                StudentCourtStatus = App.StudentCourtStatus.Red;
         }
     }
 }

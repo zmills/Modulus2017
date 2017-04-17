@@ -14,6 +14,9 @@ using EaglesNestMobileApp.Core.Model.Home;
 using EaglesNestMobileApp.Core.ViewModel;
 using GalaSoft.MvvmLight.Helpers;
 using EaglesNestMobileApp.Android.Helpers;
+using Android.Support.V4.Widget;
+using System;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -25,7 +28,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
         private TabLayout _currentTabLayout;
         private View _eventSignUpView;
         private int _position;
-        private ProgressDialog dialog;
+        public SwipeRefreshLayout RefreshLayout { get; set; }
 
         public EventsFragmentViewModel ViewModel
         {
@@ -54,7 +57,19 @@ namespace EaglesNestMobileApp.Android.Views.Home
                 BindViewHolder,
                 Resource.Layout.EventCardLayout,
                 OnItemClick);
-            
+
+
+            /* "Pulling" down on the page will refresh the view              */
+            RefreshLayout =
+                _eventSignUpView.FindViewById<SwipeRefreshLayout>(
+                    Resource.Id.SwipeRefreshEvents);
+
+            RefreshLayout.SetColorSchemeResources(Resource.Color.primary,
+                Resource.Color.accent, Resource.Color.primary_text,
+                    Resource.Color.secondary_text);
+            RefreshLayout.Refresh += RefreshLayoutRefresh;
+
+
             _eventRecyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
             _eventRecyclerView.SetAdapter(_adapter);
 
@@ -62,6 +77,12 @@ namespace EaglesNestMobileApp.Android.Views.Home
             _currentTabLayout.TabReselected += TabLayoutTabReselected;
 
             return _eventSignUpView;
+        }
+
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
+        {
+            await Task.Delay(2000);
+            RefreshLayout.Refreshing = false;
         }
 
         private void OnItemClick(int oldPosition, View oldView, int newPosition, View newView)

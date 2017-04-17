@@ -35,6 +35,13 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
         public async Task InitializeAsync()
         {
             Events = await Database.GetScheduleEventsAsync();
+
+            /* Sort the events by begin time               */
+            Events.Sort
+                (
+                    (x, y) => x.BeginTime.CompareTo(y.BeginTime)
+                );
+
             SortEvents();
         }
 
@@ -45,7 +52,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var studentEvent = new StudentEvent
                 {
                     Title = $"My Sunday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Sunday"
                 };
@@ -54,7 +61,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student2Event = new StudentEvent
                 {
                     Title = $"My Monday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Monday"
                 };
@@ -63,7 +70,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student3Event = new StudentEvent
                 {
                     Title = $"My Tuesday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Tuesday"
                 };
@@ -72,7 +79,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student4Event = new StudentEvent
                 {
                     Title = $"My Wednesday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Wednesday"
                 };
@@ -81,7 +88,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student5Event = new StudentEvent
                 {
                     Title = $"My Thursday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Thursday"
                 };
@@ -90,7 +97,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student6Event = new StudentEvent
                 {
                     Title = $"My Friday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Friday"
                 };
@@ -99,7 +106,7 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                 var student7Event = new StudentEvent
                 {
                     Title = $"My Saturday Event {count}",
-                    BeginTime = $"{count}:00 - {count + 1}:00",
+                    EventTime = $"{count}:00 - {count + 1}:00",
                     Location = "Field House",
                     Day = "Saturday"
                 };
