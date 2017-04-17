@@ -47,6 +47,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
                 container, false);
 
             StudentInfoView.FindViewById<Button>(Resource.Id.BoxCombinationInstructions).Click += ShowCombination;
+            StudentInfoView.FindViewById<Button>(Resource.Id.StudentChecksheet).SetCommand("Click", ViewModel.ShowChecksheetCommand);
 
             ImageView _accountPhotoView = StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
             RoundedBitmapDrawable _drawable = RoundedBitmapDrawableFactory.Create(Resources,

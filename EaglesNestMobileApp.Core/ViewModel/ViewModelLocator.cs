@@ -78,9 +78,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             SimpleIoc.Default.Unregister<ICustomProgressDialog>();
         }
-
-        /* The following returns the sigleton instance of the service/         */
-        /* viewmodel                                                           */
+                                                        
         /* The following returns the sigleton instance of the service/         */
         /* viewmodel                                                           */
         public LoginActivityViewModel Login =>

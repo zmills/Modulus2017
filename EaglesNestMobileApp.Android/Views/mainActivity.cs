@@ -19,6 +19,8 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
+using EaglesNestMobileApp.Core.ViewModel;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views
 {
@@ -58,6 +60,9 @@ namespace EaglesNestMobileApp.Android.Views
             base.OnCreate(savedInstanceState);
 
             /*( Set our view from the "main" layout resource                 */
+            ViewModelLocator
+                .RegisterCustomDialogService(new CustomProgressDialog(this));
+
             SetContentView(Resource.Layout.BottomNavLayout);
             InitializeNavigation();
         }

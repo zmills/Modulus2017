@@ -509,7 +509,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\StudentScheduleRecyclerViewLayout.xml" />
+    <AndroidResource Include="Resources\layout\StudentScheduleRecyclerViewLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\move_fab.xml" />
