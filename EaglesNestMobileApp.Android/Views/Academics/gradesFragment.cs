@@ -245,8 +245,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorName).Text   = ViewModel.Grades[_holder.AdapterPosition].ProfessorName;
             myDialog.Window.FindViewById<TextView>(Resource.Id.ClassName).Text       = ViewModel.Grades[_holder.AdapterPosition].CourseTitle;
             myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorOffice).Text = ViewModel.Grades[_holder.AdapterPosition].ProfessorOffice;
-            myDialog.Window.FindViewById<TextView>(Resource.Id.Day1).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[0].WeekDay;
-            myDialog.Window.FindViewById<TextView>(Resource.Id.Day2).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[1].WeekDay;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Day1).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[0].Day;
+            myDialog.Window.FindViewById<TextView>(Resource.Id.Day2).Text            = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[1].Day;
             myDialog.Window.FindViewById<TextView>(Resource.Id.Time1).Text           = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[0].Time;
             myDialog.Window.FindViewById<TextView>(Resource.Id.Time2).Text           = ViewModel.Grades[_holder.AdapterPosition].ProfessorsHours[1].Time;
             myDialog.Window.FindViewById<TextView>(Resource.Id.ProfessorEmail).Text  = ViewModel.Grades[_holder.AdapterPosition].ProfessorEmail;
