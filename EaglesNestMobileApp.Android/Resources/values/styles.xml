@@ -154,6 +154,7 @@
         <item name="modBorderlessButtonTextColorSecondary">@color/white</item>
         <!-- <<black and white font color>>-->
         <item name="modBlackAndWhiteFontColor">@color/white</item>
+        <item name="modWhiteAndBlackFontColor">@color/black</item>
     </style>
 
 
@@ -363,7 +364,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:fontFamily">@string/roboto_regular</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/white</item>
+      <item name="android:textColor">?attr/modWhiteAndBlackFontColor</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">8dp</item>
         <item name="android:background">?attr/colorPrimary</item>

@@ -44,4 +44,7 @@
     <!-- BLACK & WHITE FONT COLOR -->
     <attr name="modBlackAndWhiteFontColor" format="reference" />
 
+  <!-- BLACK & WHITE FONT COLOR -->
+  <attr name="modWhiteAndBlackFontColor" format="reference" />
+
 </resources>
