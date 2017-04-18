@@ -2,5 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="EaglesNestMobileApp.Android.EaglesNestMobileApp.Android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<application android:label="EaglesNestMobileApp.Android" android:icon="@drawable/nest_app_icon" android:theme="@style/ModAppCompatDarkTheme"></application>
+	<application android:label="EaglesNestMobileApp.Android" android:icon="@drawable/nest_app_icon" android:theme="@style/ModAppCompatLightTheme"></application>
 </manifest>

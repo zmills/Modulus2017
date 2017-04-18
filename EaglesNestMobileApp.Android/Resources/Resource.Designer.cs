@@ -861,8 +861,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f010182
 			public const int modFacilityTimeBackground = 2130772354;
 			
-			// aapt resource value: 0x7f010184
-			public const int modNicksCard = 2130772356;
+			// aapt resource value: 0x7f010185
+			public const int modNicksCard = 2130772357;
 			
 			// aapt resource value: 0x7f01017f
 			public const int modRefreshLayoutIconColor = 2130772351;
@@ -881,6 +881,9 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f010175
 			public const int modToolbarTheme = 2130772341;
+			
+			// aapt resource value: 0x7f010184
+			public const int modWhiteAndBlackFontColor = 2130772356;
 			
 			// aapt resource value: 0x7f010040
 			public const int multiChoiceItemLayout = 2130772032;
@@ -3764,8 +3767,8 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07013b
 			public const int llExpandArea = 2131165499;
 			
-			// aapt resource value: 0x7f0701b4
-			public const int logout_menu = 2131165620;
+			// aapt resource value: 0x7f0701b3
+			public const int logout_menu = 2131165619;
 			
 			// aapt resource value: 0x7f0701a9
 			public const int masked = 2131165609;
@@ -3910,9 +3913,6 @@ namespace EaglesNestMobileApp.Android
 			
 			// aapt resource value: 0x7f070083
 			public const int select_dialog_listview = 2131165315;
-			
-			// aapt resource value: 0x7f0701b3
-			public const int settings_button = 2131165619;
 			
 			// aapt resource value: 0x7f07006d
 			public const int shortcut = 2131165293;
