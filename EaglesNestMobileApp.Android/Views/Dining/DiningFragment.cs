@@ -37,9 +37,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            //Activity.RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
-            //Activity.RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
-            //Activity.RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -92,23 +89,12 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                     break;
                 case Resource.Id.settings_button:
                     {
-                        TypedValue attrValue = new TypedValue();
-                        Activity.Theme.ResolveAttribute(
-                            Resource.Attribute.modThemeName, attrValue, true);
-
-                        if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+                        if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
                         {
-                            //Set dark theme in pref
-                            //string theme = ThemeSwitcher.GetTheme("THEME");
-
-                            //if (theme == "ModAppCompatLightTheme")
-                            //{
-                                ThemeSwitcher.DeleteTheme("THEME");
-                                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
-                                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
-                                Activity.Recreate();
-                            //}
-                            
+                            ThemeSwitcher.DeleteTheme("THEME");
+                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
+                            Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
+                            Activity.Recreate();
                         }
                         else
                         {

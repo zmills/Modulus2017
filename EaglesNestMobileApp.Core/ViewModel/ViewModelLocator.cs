@@ -4,8 +4,6 @@
 /* viewmodel. Accessors to singleton instances are also provided.            */
 /*                                                                           */
 /*****************************************************************************/
-
-using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Services;
 using EaglesNestMobileApp.Core.Contracts;
 using GalaSoft.MvvmLight;
@@ -117,10 +115,10 @@ namespace EaglesNestMobileApp.Core.ViewModel
         ServiceLocator.Current.GetInstance<INavigationService>();
 
         public ICheckLogin CheckLogin =>
-       ServiceLocator.Current.GetInstance<ICheckLogin>();
+        ServiceLocator.Current.GetInstance<ICheckLogin>();
 
         public ICustomProgressDialog Dialog =>
-       ServiceLocator.Current.GetInstance<ICustomProgressDialog>();
+        ServiceLocator.Current.GetInstance<ICustomProgressDialog>();
 
         public MainViewModel Main =>
         ServiceLocator.Current.GetInstance<MainViewModel>();
