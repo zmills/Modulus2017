@@ -21,12 +21,13 @@ using Android.Widget;
 using Android.Content.PM;
 using EaglesNestMobileApp.Core.ViewModel;
 using EaglesNestMobileApp.Android.Helpers;
+using EaglesNestMobileApp.Core.Contracts;
 
 namespace EaglesNestMobileApp.Android.Views
 {
     [Activity(Label = "The Nest", Icon = "@drawable/nest_app_icon",
        ScreenOrientation = ScreenOrientation.Portrait,
-           MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
+           MainLauncher = false/*, Theme = "@style/ModAppCompatLightTheme"*/)]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
@@ -35,6 +36,7 @@ namespace EaglesNestMobileApp.Android.Views
         private bool _isHome;
         private int _backStackCount;
         private string _fragmentTag;
+        ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
 
         /* Public accessors for member variables                             */
         public homeFragment HomePage
@@ -63,19 +65,38 @@ namespace EaglesNestMobileApp.Android.Views
             ViewModelLocator
                 .RegisterCustomDialogService(new CustomProgressDialog(this));
 
+            if (ThemeSwitcher.GetTheme("THEME") == null)
+                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
+
+            //Check pref theme, and set that theme
+            if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
+                SetTheme(Resource.Style.ModAppCompatLightTheme);
+            else
+                SetTheme(Resource.Style.ModAppCompatDarkTheme);
+
             SetContentView(Resource.Layout.BottomNavLayout);
+
             InitializeNavigation();
+
+            BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
+        }
+
+        public override void Recreate()
+        {
+            base.Recreate();
+            BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
         }
 
         private void InitializeNavigation()
         {
             /* Set up the event handler for the bottom navigation menu       */
-            RunOnUiThread(() => (BottomNavigationMenu =
+            (BottomNavigationMenu =
                 FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
-                    .NavigationItemSelected += NavItemSelected);
+                    .NavigationItemSelected += NavItemSelected;
             
+
             /* Loads up the main page                                        */
-            RunOnUiThread(() => LoadHomeFragment());
+            LoadHomeFragment();
         }
 
         public override void OnBackPressed()
