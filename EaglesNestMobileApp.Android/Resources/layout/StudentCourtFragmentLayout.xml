@@ -1,116 +1,485 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <android.support.v4.widget.SwipeRefreshLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/SwipeRefreshStudentCourt"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
-  
-  
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:cardview="http://schemas.android.com/apk/res-auto"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center_horizontal"
-      android:padding="5dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/SwipeRefreshStudentCourt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:id="@+id/StudentCourtScrollView"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <!-- ScrollView can only have ONE direct child -->
 
-
-
-    <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#333333"
-      android:text="Status"
-      android:id="@+id/studentCourtBanner"
-      android:gravity="center_horizontal"
-      android:layout_marginLeft="5dp"
-      android:textSize="30dp" />
-
-
-    <android.support.v7.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        cardview:cardElevation="4dp"
-        cardview:cardCornerRadius="5dp"
-        cardview:cardBackgroundColor="@color/soft_green"
-        android:id="@+id/StudentCourtCard">
+        android:layout_height="match_parent"
+        >
+        <!-- Relative Layout used for gradient -->
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          android:padding="8dp">
+        <!-- GRADIENT CONTAINER -->
+        <ImageView
+            android:id="@+id/GradientStudentCourt"
+            android:layout_width="match_parent"
+            android:layout_height="212dp"
+            
+            />
+            <!--android:background="@drawable/gradient_student_court"-->
+            <!-- NOTE: this is also set programmatically-->
 
-        <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="You are not required to go to student court."
-          android:id="@+id/infraction1"
-          android:layout_marginLeft="5dp"
-          android:textSize="20dp"
-          android:layout_below="@+id/studentCourtStatus" />
-      </RelativeLayout>
-    </android.support.v7.widget.CardView>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
 
-    <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Pending Report Slips"
-      android:id="@+id/studentCourtInfractionBanner"
-      android:gravity="center_horizontal"
-      android:layout_marginLeft="5dp"
-      android:textSize="30dp"
-      />
-    <android.support.v7.widget.CardView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_gravity="center_horizontal"
-         cardview:cardElevation="4dp"
-         cardview:cardCornerRadius="5dp"
-         cardview:cardBackgroundColor="@color/window_background"
-         android:id="@+id/infractionCard">
+            <!-- STUDENT COURT STATUS NOTIFICATION -->
+            
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoHeaderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:orientation="vertical"
-          android:padding="8dp" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    >
 
-        <TextView
-          android:id="@+id/infractionTitle"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Chewing Gum in CS 452 "
-          android:layout_marginLeft="5dp"
-          android:textSize="20dp"
-          android:layout_alignParentTop="true"
-          android:gravity="center"  />
+                    <!-- STUDENT COURT ICON -->
+                    <!-- NOTE: android:src is set programmatically for this view -->
+                    <ImageView
+                        android:id="@+id/StudentCourtCircle"
+                        android:layout_width="112dp"
+                        android:layout_height="112dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/student_court_circle"
+                        android:padding="24dp"
+                        android:src="@drawable/ic_gavel"
+                    />
+                    <!-- android:adjustViewBounds="true"
+                             This causes the ImageView to resize itself to fit the
+                             shape of the rescaled image. INCLUDE THIS -->
+                    <!-- android:scaleType="centerCrop"
+                             This scales the image uniformly (maintain the image's
+                             aspect ratio), then centers it. -->
 
-        <TextView
-          android:id="@+id/infractionDate"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="02/20/2017"
-          android:layout_marginLeft="5dp"
-          android:textSize="15dp"
-          android:gravity="left"
-          android:layout_below="@+id/infractionTitle" />
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        >
 
-        <TextView
-          android:id="@+id/infractionTime"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="3:30pm"
-          android:layout_marginLeft="5dp"
-          android:gravity="right"
-          android:textSize="15dp"
-          android:layout_below="@+id/infractionTitle"/>
-      </RelativeLayout>
+                        <!-- STUDENT COURT STATUS -->
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/StudentCourtStatusText"
+                            style="@style/ModRobotoMedium20"
+                            android:text="You are required to attend Student Court."
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- TOTALS CARDVIEW -->
+            
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/myCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardUseCompatPadding="false"
+                card_view:cardElevation="2dp"
+                card_view:cardCornerRadius="0dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <!-- CARD TITLE: Totals -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ModRobotoRegular20"
+                        android:text="Totals"
+                        android:padding="16dp"
+                        />
+
+                    <View style="@style/ModDivider"/>
+
+            <!-- 1. DEMERITS -->
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- INFO ICON: Demerits -->
+                        <ImageView
+                            android:id="@+id/DemeritsInfoIcon"
+                            android:tag="DemeritsInfoIcon"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="10dp"
+                            />
+                            <!--android:src="@drawable/info_icon"
+                                android:background="@drawable/borderless_button_circle"-->
+
+                        <!-- TOTAL: Demerits Data-->
+                        <TextView
+                            android:id="@+id/totalDemerits"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/DemeritsInfoIcon"
+                            android:text=""
+                            style="@style/ModRobotoMedium20"
+                            android:paddingRight="8dp"
+                            />
+
+                        <!-- PROGRESS BAR: Demerits -->
+                        <ProgressBar
+                            android:id="@+id/DemeritsProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:indeterminate="false"
+                            android:progressBackgroundTint="?attr/android:windowBackground"
+                            android:progressTint="@color/accent"
+                            android:layout_below="@+id/totalDemerits"
+                            android:layout_toLeftOf="@+id/DemeritsInfoIcon"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            />
+
+                        <!-- TITLE: Demerits -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/DemeritsProgressBar"
+                            android:text="Demerits"
+                            style="@style/ModRobotoRegular16"
+                            />
+                        
+                        <!-- MAX: Demerits -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/DemeritsProgressBar"
+                            android:layout_toLeftOf="@+id/DemeritsInfoIcon"
+                            android:paddingRight="8dp"
+                            android:text="MAX 100"
+                            style="@style/ModRobotoRegularLightweight12"
+                            />
+
+                    </RelativeLayout>
+
+            <!-- 2. RESIDENCE HALL INFRACTIONS -->
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- INFO ICON: Residence Hall Infractions -->
+                        <ImageView
+                            android:id="@+id/DormInfractionsInfoIcon"
+                            android:tag="DormInfractionsInfoIcon"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="10dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
+                            />
+
+                        <!-- TOTAL: Residence Hall Infractions Data-->
+                        <TextView
+                            android:id="@+id/totalResidenceHallInfractions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/DormInfractionsInfoIcon"
+                            android:text=""
+                            style="@style/ModRobotoMedium20"
+                            android:paddingRight="8dp"
+                            />
+
+                        <!-- PROGRESS BAR: Residence Hall Infractions -->
+                        <ProgressBar
+                            android:id="@+id/DormInfractionsProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:indeterminate="false"
+                            android:progressBackgroundTint="?attr/android:windowBackground"
+                            android:progressTint="@color/accent"
+                            android:layout_below="@+id/totalResidenceHallInfractions"
+                            android:layout_toLeftOf="@+id/DormInfractionsInfoIcon"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            />
+
+                        <!-- TITLE: Residence Hall Infractions -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/DormInfractionsProgressBar"
+                            android:text="Residence Hall Infractions"
+                            style="@style/ModRobotoRegular16"
+                            />
+
+                        <!-- MAX: Residence Hall Infractions -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/DormInfractionsProgressBar"
+                            android:layout_toLeftOf="@+id/DormInfractionsInfoIcon"
+                            android:paddingRight="8dp"
+                            android:text="MAX 10"
+                            style="@style/ModRobotoRegularLightweight12"
+                            />
+
+                    </RelativeLayout>
+
+            <!-- 3. ABSENCES -->
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- INFO ICON: Absences -->
+                        <ImageView
+                            android:id="@+id/AbsencesInfoIcon"
+                            android:tag="AbsencesInfoIcon"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="10dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
+                            />
+
+                        <!-- TOTAL: Absences-->
+                        <TextView
+                            android:id="@+id/totalAbsences"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/AbsencesInfoIcon"
+                            android:text=""
+                            style="@style/ModRobotoMedium20"
+                            android:paddingRight="8dp"
+                            />
+
+                        <!-- PROGRESS BAR: Absences -->
+                        <ProgressBar
+                            android:id="@+id/AbsencesProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:indeterminate="false"
+                            android:progressBackgroundTint="?attr/android:windowBackground"
+                            android:progressTint="@color/accent"
+                            android:layout_below="@+id/totalAbsences"
+                            android:layout_toLeftOf="@+id/AbsencesInfoIcon"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            />
+
+                        <!-- TITLE: Absences -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/AbsencesProgressBar"
+                            android:text="Unexcused Class Absences"
+                            style="@style/ModRobotoRegular16"
+                            />
+
+                        <!-- MAX: Absences -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/AbsencesProgressBar"
+                            android:layout_toLeftOf="@+id/AbsencesInfoIcon"
+                            android:paddingRight="8dp"
+                            android:text="MAX 12"
+                            style="@style/ModRobotoRegularLightweight12"
+                            />
+
+                    </RelativeLayout>
+
+            <!-- 4. LATE OUT/INTO RESIDENCE HALL -->
+            
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+
+                        <!-- INFO ICON: Late Out/Into Residence Hall -->
+                        <ImageView
+                            android:id="@+id/LateDormInfoIcon"
+                            android:tag="LateDormInfoIcon"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="10dp"
+                            android:src="@drawable/info_icon"
+                            android:background="@drawable/borderless_button_circle"
+                            android:clickable="true"
+                            />
+
+                        <!-- TOTAL: Late Out/Into Residence Hall-->
+                        <TextView
+                            android:id="@+id/totalLateResidenceHallInfractions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/LateDormInfoIcon"
+                            android:text=""
+                            style="@style/ModRobotoMedium20"
+                            android:paddingRight="8dp"
+                            />
+
+                        <!-- PROGRESS BAR: Late Out/Into Residence Hall -->
+                        <ProgressBar
+                            android:id="@+id/LateDormProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:indeterminate="false"
+                            android:progressBackgroundTint="?attr/android:windowBackground"
+                            android:progressTint="@color/accent"
+                            android:layout_below="@+id/totalLateOut"
+                            android:layout_toLeftOf="@+id/LateDormInfoIcon"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
+                            />
+
+                        <!-- TITLE: Late Out/Into Residence Hall -->
+                        <TextView
+                            android:id="@+id/totalLateOut"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Late Out/Into Residence Hall Infractions"
+                            android:layout_toLeftOf="@+id/totalLateResidenceHallInfractions"
+                            android:layout_alignParentTop="true"
+                            style="@style/ModRobotoRegular16"
+                            />
+
+                        <!-- MAX: Late Out/Into Residence Hall -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/LateDormProgressBar"
+                            android:layout_toLeftOf="@+id/LateDormInfoIcon"
+                            android:paddingRight="8dp"
+                            android:text="MAX 10"
+                            style="@style/ModRobotoRegularLightweight12"
+                            />
+
+                    </RelativeLayout>
+                    
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- PENDING REPORT SLIPS -->
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/myCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardUseCompatPadding="false"
+                card_view:cardElevation="2dp"
+                card_view:cardCornerRadius="0dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/PendingReportSlips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
         
-        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
-   
-
-  </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>

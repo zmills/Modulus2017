@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
@@ -20,6 +21,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             get { return _assignments; }
             private set { Set(() => Assignments, ref _assignments, value); }
         }
+
         /* The list of classes the student is taking */
         private List<Course> _classes = new List<Course>();
         protected List<Course> Classes
@@ -27,6 +29,14 @@ namespace EaglesNestMobileApp.Core.ViewModel
             get { return _classes; }
             set { Set(() => Classes, ref _classes, value); }
         }
+
+        private List<ProfessorTimes> _professorsHours = new List<ProfessorTimes>();
+        protected List<ProfessorTimes> ProfessorsHours
+        {
+            get { return _professorsHours; }
+            set { Set(() => ProfessorsHours, ref _professorsHours, value); }
+        }
+
         /* Grade cards to be passed to the views */
         private ObservableCollection<GradeCard> _grades =
             new ObservableCollection<GradeCard>();
@@ -40,9 +50,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
         private RelayCommand _refreshCommand;
 
         public RelayCommand RefreshCommand => _refreshCommand ??
-            (_refreshCommand = 
+            (_refreshCommand =
                 new RelayCommand(async () => await RefreshGradesAsync()));
-       
+
         /* Singleton instance of the database                    */
         private readonly IAzureService Database;
 
@@ -55,14 +65,19 @@ namespace EaglesNestMobileApp.Core.ViewModel
         {
             Classes = await Database.GetCoursesAsync();
 
+            ProfessorsHours = await Database.GetProfessorTimesAsync();
+
             Assignments = await Database.GetAssignmentsAsync();
 
             /* Sort the list of based off of the most recently updated one */
             Assignments.Sort
                 (
-                    (x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt)
+                        (x, y) => x.AssignmentDate.CompareTo(y.AssignmentDate)
                 );
 
+            Assignments.Reverse();
+
+            
             /* Format the student gradeCards for the separate views    */
             GetGradeCards();
         }
@@ -83,7 +98,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                 /* Sort the list of based off of the most recently updated one */
                 Assignments.Sort
                     (
-                        (x, y) => DateTimeOffset.Compare(x.UpdatedAt, y.UpdatedAt)
+                        (x, y) => x.AssignmentDate.CompareTo(y.AssignmentDate)
                     );
 
                 /* Format the student gradeCards for the separate views    */
@@ -99,7 +114,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* Add each assignment to the appropriate card                     */
         public void GetGradeCards()
         {
-            Grades.Clear();
 
             foreach (var course in Classes)
             {
@@ -109,10 +123,37 @@ namespace EaglesNestMobileApp.Core.ViewModel
                     if (assignment.CourseId == current.CourseId)
                         current.AddAssignment(assignment);
                 }
+
+                foreach (var hour in ProfessorsHours)
+                {
+                    if (current.ProfessorId == hour.ProfessorId)
+                        current.ProfessorsHours.Add(hour);
+
+                    if (current.ProfessorsHours.Count == 2)
+                        break;
+                }
                 Grades.Add(current);
             }
+
+            var _tempGrades = 
+                new ObservableCollection<GradeCard>(Grades.OrderByDescending(x => x.ClassAssignments[0].AssignmentDate));
+            
+            
+            Grades.Clear();
+            foreach (var item in _tempGrades)
+                Grades.Add(item);
             /* Sort the classes based off of the most recently updated assignment           */
-            // Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+            //Grades.Sort((x, y) => DateTimeOffset.Compare(x.ClassAssignments[0].UpdatedAt, y.ClassAssignments[0].UpdatedAt));
+        }
+
+
+        public override void Cleanup()
+        {
+            Classes.Clear();
+            Assignments.Clear();
+            Grades.Clear();
+            ProfessorsHours.Clear();
+            base.Cleanup();
         }
 
         public void InitializeStatic()
@@ -120,10 +161,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
             Grades = new ObservableCollection<GradeCard>();
             for (int counter = 0; counter < 15; counter++)
             {
-                GradeCard current = new GradeCard ()
+                GradeCard current = new GradeCard()
                 {
                     CourseTitle = "CS 452 Software Engineering Project II",
-                    CourseGrade = "A+"
                 };
 
                 for (int index = 0; index < 4; index++)

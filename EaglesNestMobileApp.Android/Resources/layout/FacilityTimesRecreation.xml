@@ -23,6 +23,392 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Sports Center BUILDING -->
+
+            <!-- Sports Center Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Sports Center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Sports Center Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Sports Center Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Sports Center General Button -->
+                    <Button
+                        android:id="@+id/SportsCenterGeneral"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Sports Center General"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/SportsCenterGeneralTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="MTThF" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat  " />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat  " />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 p.m.–10:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   12 p.m.–4 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–10:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Water Park (Men) Button -->
+                    <Button
+                        android:id="@+id/WaterParkMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Water Park (Men)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/WaterParkMenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="T,Th" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat " />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat " />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 p.m.–10:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   12 p.m.–2 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 p.m.–10:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Water Park (Women) Button -->
+                    <Button
+                        android:id="@+id/WaterParkWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Water Park (Women)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/WaterParkWomenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M,F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 p.m.–10:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   2:15 p.m.–4 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7 p.m.–8:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Weight Room (Women) Button -->
+                    <Button
+                        android:id="@+id/WeightRoomWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Weight Room (Women)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/WeightRoomWomenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 p.m.–10:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30 p.m.–8 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Swim Center BUILDING -->
+
+            <!-- Swim Center Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Swim Center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Swim Center Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Swim Center Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Swim Center (Men) Button -->
+                    <Button
+                        android:id="@+id/SwimCenterMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Swim Center (Men)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/SwimCenterMenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M,F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   6 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   1 p.m.–4 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   6:30 p.m.–8:15 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Swim Center (Women) Button -->
+                    <Button
+                        android:id="@+id/SwimCenterWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Swim Center (Women)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/SwimCenterWomenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="T,Th" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat " />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat " />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   6 p.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   9 a.m.–12 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 p.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. Field House BUILDING -->
+
+            <!-- Field House Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Field House"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                      />
+
+            <!-- Field House Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                      >
+
+                <!-- Field House Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                          >
+
+                    <!-- Field House Button -->
+                    <Button
+                        android:id="@+id/FieldHouseMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Field House (Men)"
+                        android:gravity="left"
+                              />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/FieldHouseMenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-S" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Wed" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   5:45 a.m.–10:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30 p.m.–8 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
     </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

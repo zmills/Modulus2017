@@ -15,12 +15,12 @@ namespace EaglesNestMobileApp.Android
     {
         public static class FacilityCategory
         {
-            public const string Dining = "Dining";
             public const string Academics = "Academic";
-            public const string Dorm = "Dorm";
-            public const string Service = "Service";
             public const string Church = "Church";
+            public const string Dining = "Dining & Shopping";
+            public const string Dorm = "Residence Halls";
             public const string Recreation = "Recreation";
+            public const string Service = "Student Services";
         }
     }
 }

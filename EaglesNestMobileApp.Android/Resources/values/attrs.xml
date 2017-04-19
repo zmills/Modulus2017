@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <!-- THEME NAME -->
+    <attr name="modThemeName" format="string" />
 
     <!-- CARD -->
     <attr name="modCardBackgroundColor" format="reference" />
@@ -37,5 +40,14 @@
     <attr name="modBorderlessButtonTextColorSecondary" format="reference" />
 
     <attr name="modFacilityTimeBackground" format="reference" />
+
+    <!-- BLACK & WHITE FONT COLOR -->
+    <attr name="modBlackAndWhiteFontColor" format="reference" />
+
+  <!-- BLACK & WHITE FONT COLOR -->
+  <attr name="modWhiteAndBlackFontColor" format="reference" />
+
+    <!-- NICK'S CARD -->
+    <attr name="modNicksCard" format="reference" />
 
 </resources>

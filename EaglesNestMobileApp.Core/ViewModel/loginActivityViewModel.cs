@@ -9,9 +9,11 @@ using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+
 namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class LoginActivityViewModel : ViewModelBase
@@ -29,6 +31,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
             }
         }
 
+        private IMobileServiceTable<AzureToken> _azureTokenTable;
+
         /* This command handles the login event                                */
         private RelayCommand _loginCommand;
         public RelayCommand LoginCommand => _loginCommand ??
@@ -39,6 +43,8 @@ namespace EaglesNestMobileApp.Core.ViewModel
         /* whether the user logged out on startup.                             */
         public LocalToken CurrentUser { get; set; } = new LocalToken();
 
+        public ICheckLogin LoginAuthenticator { get; set; } = App.Locator.CheckLogin;
+        public ViewModelLocator _locator = App.Locator;
 
         private AzureToken _remote;
         public AzureToken Remote
@@ -49,112 +55,148 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         /* Singleton instance of the database                                */
         private readonly IAzureService Database;
+        private ICustomProgressDialog Dialog;
 
         public LoginActivityViewModel(IAzureService database)
         {
             Database = database;
         }
 
-        /*********************************************************************/
-        /* This function allows the user to login providing he has the       */
-        /* correct credentials                                               */
-        /*********************************************************************/
-        private async Task AttemptLoginAsync()
+
+        public async Task AttemptLoginAsync()
         {
-            /* Disable the login button                                      */
+            Dialog = _locator.Dialog;
+            Dialog.StartProgressDialog("Logging in", "Please wait . . .", false);
             EnableLoginButton = false;
 
-            /* REMEMBER TO REMOVE BACKDOOR                                   */
-            if (CurrentUser.Id == "123")
+            try
             {
-                CurrentUser.Id = "118965";
-                await Database.InsertLocalTokenAsync(CurrentUser);
-                await Database.SyncAsync(pullData: true);
-                NavigateToMainPage();
-            }
-            else
-            {
-                /* This will take a while depending on the connection speed. */
-                /* Consider giving the user some indication.                 */
-                try
+                if (CurrentUser.Id == "123")
                 {
-                    Remote = await Database.GetAzureTokenAsync(CurrentUser);
+                    LoginAuthenticator.SaveLogin("USERNAME", "118965");
 
-                    Debug.WriteLine(Remote.Id);
-                    /* Compare the given credentials with the one gotten     */
-                    /* from Azure and navigate to the mainpage. The plan is  */
-                    /* to save CurrentUser in the database as a TOKEN so     */
-                    /* that we can query using the id number whenever we     */
-                    /* need to get information related to that student.      */
-                    if (Authenticator.VerifyPassword(CurrentUser.Password,
-                           Remote.HashedPassword, Remote.Salt))
+                    _locator.User = "118965";
+
+                    Dialog.ChangeDialogText("Loading", "Please wait. . .");
+
+                    await _locator.Main.InitializeNewUserAsync();
+
+                    Debug.WriteLine($"\n\n\n\nCredentials:{LoginAuthenticator.GetLogin("USERNAME")}");
+
+                    EnableLoginButton = true;
+
+                    Dialog.DismissProgressDialog();
+                }
+                else
+                {
+                    try
                     {
-                        /* Set the password to empty so that no sensitive    */
-                        /* information is actually stored on the phone. Then */
-                        /* add the token to the database.                    */
-                        CurrentUser.Password = string.Empty;
+                        _azureTokenTable = App.Client.GetTable<AzureToken>();
 
-                        /* Add the user to the database for future use and   */
-                        /* also add a reference to the user for the          */
-                        /* application lifecycle                             */
-                        await Database.InsertLocalTokenAsync(CurrentUser);
-                        await Database.SyncAsync(pullData: true);
+                        var userTable = await _azureTokenTable
+                            .Where(user => user.Id == CurrentUser.Id).ToListAsync();
 
-                        /* Allow access to the application main page         */
-                        NavigateToMainPage();
+                        if (userTable != null)
+                        {
+                            Remote = userTable[0];
+                            if (Authenticator.VerifyPassword(CurrentUser.Password,
+                                Remote.HashedPassword, Remote.Salt))
+                            {
+                                LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
+                                _locator.User = CurrentUser.Id;
 
+                                Dialog.ChangeDialogText("Loading", "Please wait. . .");
+
+                                await _locator.Main.InitializeNewUserAsync();
+                                Dialog.DismissProgressDialog();
+                                Debug.WriteLine($"\n\nCredentials:" +
+                                    $"{LoginAuthenticator.GetLogin("USERNAME")}");
+                            }
+                            else
+                            {
+                                Debug.WriteLine("\n\n\n\nWrong Credentials");
+                                Dialog.DismissProgressDialog();
+                                await Dialog.StartDialogAsync("Error:",
+                                    "\nIncorrect username or password.\n", true, 0);
+                            }
+
+                        }
+                        else
+                        {
+                            Dialog.DismissProgressDialog();
+                            await Dialog.StartDialogAsync("Error:", 
+                                "\nIncorrect username or password.\n", true, 0);
+                        }
                     }
-                }
-                /* How are we going to signal to the user the  errors?       */
-                /* NO INTERNET ACCESS, BAD CREDENTIALS!                      */
-                /* Should we check for Internet access once the app loads    */
-                /* loads and warn them there?                                */
-                catch (Exception NoConnection)
-                {
-                    Debug.WriteLine($"{CurrentUser.Id}, " +
-                        $"{CurrentUser.Password}, " +
-                        $" {NoConnection.ToString()}");
-                    CurrentUser.LoggedIn = true;
-                }
-                finally
-                {
+                    catch (System.Net.Http.HttpRequestException internetConnectionEx)
+                    {
+                        Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
+                        Dialog.DismissProgressDialog();
+                        await Dialog.StartToastAsync("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long, 150);
+                    }
+
+                    catch (System.Net.WebException internetConnectionEx)
+                    {
+                        Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
+                        Dialog.DismissProgressDialog();
+                        await Dialog.StartToastAsync("Please check your Internet connection.",
+                            Android.Widget.ToastLength.Long, 150);
+                    }
+
+                    catch (ArgumentOutOfRangeException IncorrectCredentials)
+                    {
+                        Debug.WriteLine($"\n\n\n{IncorrectCredentials.Message}");
+                        Dialog.DismissProgressDialog();
+                        await Dialog.StartDialogAsync("Error:",
+                            "Incorrect username or password.\n", true, 0);
+                    }
                     EnableLoginButton = true;
                 }
+            }
+            catch (ArgumentNullException EmptyCredential)
+            {
+                Debug.WriteLine($"\n\n\n{EmptyCredential.Message}");
+                Dialog.DismissProgressDialog();
+                await Dialog.StartDialogAsync("Error:",
+                    "Please input both username and password.", true, 0);
+                EnableLoginButton = true;
             }
         }
 
         /*********************************************************************/
         /*               Check if the user is still logged in                */
         /*********************************************************************/
-        public async Task CheckUserAsync()
+        public void CheckUser()
         {
-            /* Disable the login button                                      */
             EnableLoginButton = false;
 
-            /* Initialize the database                                       */
-            await Database.InitLocalStore();
-
-            /* Navigate to main page if the user is still logged ing         */
-            LocalToken _temporaryToken = await Database.GetLocalTokenAsync();
-            if (_temporaryToken != null)
+            var userName = LoginAuthenticator.GetLogin("USERNAME");
+            if (userName != null)
             {
-                /* Allow access to the application main page                 */
-                App.Locator.User = _temporaryToken;
-
-                await Database.SyncAsync(pullData:true);
-
+                _locator.User = userName;
                 NavigateToMainPage();
+                EnableLoginButton = true;
             }
             else
+            {
+                _locator.Navigator.NavigateTo(App.PageKeys.LoginPageKey);
                 EnableLoginButton = true;
+            }
         }
 
         /*********************************************************************/
         /*                      Starts the main activity                     */
         /*********************************************************************/
-        private void NavigateToMainPage()
+        public async void NavigateToMainPage()
         {
-            App.Locator.Navigator.NavigateTo(App.PageKeys.MainPageKey);
+            await _locator.Main.InitializeLoggedInUserAsync();
+        }
+
+        public override void Cleanup()
+        {
+            CurrentUser = new LocalToken();
+            base.Cleanup();
         }
     }
 }

@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Graphics.Drawables;
 using Android.Support.V7.App;
+using Android.Util;
 
 namespace EaglesNestMobileApp.Android.Views.Campus_Life
 {
@@ -37,37 +38,45 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
         {
             /* Use this to return your custom view for this Fragment         */
             view = inflater.Inflate(Resource.Layout.FacilitiesFragmentLayout,
-                container, false);
-
-            //toolbarLayout = inflater.Inflate(Resource.Layout.ToolbarDialogLayout,
-            //    container, false);
+                container, false);            
             
-            
-            //dialogToolbar.SetTitle(Resource.String.Academic);            
-
             Activity.RunOnUiThread(() => SetUpFacilitiesLayout());
             return view;
         }
 
         private void SetUpFacilitiesLayout()
         {
-            view.FindViewById<Button>(Resource.Id.Dining).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Academic).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Church).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Service).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Recreation).Click += LoadPopUpAsync;
-            view.FindViewById<Button>(Resource.Id.Dorm).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Dining).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Academic).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Church).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Service).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Recreation).Click += LoadPopUpAsync;
+            view.FindViewById<RelativeLayout>(Resource.Id.Dorm).Click += LoadPopUpAsync;
         }
 
         private async void LoadPopUpAsync(object sender, EventArgs e)
         {
-            string title = (sender as Button).Text;
+            //string title = (sender as Button).Text;
+            string title = (sender as RelativeLayout).Tag.ToString();
 
             /* Disable the button                                            */
-            (sender as Button).Enabled = false;
+            (sender as RelativeLayout).Enabled = false;
 
-            /* Create the dialog box                                         */
-            _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            /* Find the current theme                                        */
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            /* Create the dialog box based on the current theme              */
+            if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            else
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatDarkTheme);
+          
+            #region NOT NEEDED
+            /*_dialogBox.Window.RequestFeature(WindowFeatures.NoTitle);
+            _dialogBox.RequestWindowFeature(1);*/
+            #endregion
 
             /* ViewModel Text must be passed to all these layouts            */
             switch (title)
@@ -75,7 +84,7 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
 
                 case AndroidApp.FacilityCategory.Academics:
                     {
-                        _dialogBox.Window.SetContentView(Resource.Layout.AcademicTimesFragmentLayout2);
+                        _dialogBox.Window.SetContentView(Resource.Layout.FacilityTimesAcademic);
                     }
                     break;
                 case AndroidApp.FacilityCategory.Church:
@@ -105,15 +114,20 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
                     break;
             }
 
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
             dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
-            dialogToolbar.Title = title;
-            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
-            dialogToolbar.NavigationClick += (navSender, navEvent) => { _dialogBox.Dismiss(); };
+            dialogToolbar.Title = title;/* Or create a tag for each button and set its tag as the title */
+            dialogToolbar.NavigationClick += async (navSender, navEvent) =>
+            {
+                await Task.Delay(150);
+                _dialogBox.Dismiss();
+            };
+
             await Task.Delay(150);
             _dialogBox.Show();
             await Task.Delay(400);
-            (sender as Button).Enabled = true;
+            (sender as RelativeLayout).Enabled = true;
         }
     }
 }

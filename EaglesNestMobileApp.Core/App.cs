@@ -25,58 +25,89 @@ namespace EaglesNestMobileApp.Core
             client ?? (client = new MobileServiceClient("https://modulus.azurewebsites.net"));
 
         /* Local DataBase name.                                              */
-        public const string DatabaseName = "1Database.db";
+        public const string DatabaseName = "EDatabase.db";
 
         /* Attendance violation types                                        */
         public static class ViolationTypes
         {
             public const string Absence = "A";
-            public const string Tardy   = "T";
+            public const string Tardy = "T";
             public const string PendingAbsence = "PA";
-            public const string PendingTardy   = "PT";
+            public const string PendingTardy = "PT";
+        }
+
+        public static class StudentCourt
+        {
+            /* Progress bar multiplier for smoother animation                    */
+            public const int ProgBarMultiplier = 1000;
+ 
+            /* Progress bar maximum values                                       */
+            public const int MaxDemerits           = 100 * ProgBarMultiplier;
+            public const int MaxDormInfractions    = 10 * ProgBarMultiplier;
+            public const int MaxAbsences           = 12 * ProgBarMultiplier;
+            public const int MaxLateDormInfraction = 10 * ProgBarMultiplier;
+ 
+            /* Infraction fines and penalties                                    */
+            public const int DormInfractionFine = 5;
+            public const int AbsencesDemeritPenalty = 10;
+            public const int LateDormFine = 5;
         }
 
         public static class Days
         {
-            public const string Sunday    = "Sunday";
-            public const string Monday    = "Monday";
-            public const string Tuesday   = "Tuesday";
+            public const string Sunday = "Sunday";
+            public const string Monday = "Monday";
+            public const string Tuesday = "Tuesday";
             public const string Wednesday = "Wednesday";
-            public const string Thursday  = "Thursday";
-            public const string Friday    = "Friday";
-            public const string Saturday  = "Saturday";
+            public const string Thursday = "Thursday";
+            public const string Friday = "Friday";
+            public const string Saturday = "Saturday";
         }
 
         /* Mealtimes                                                         */
         public static class MealTimes
         {
             public const string Breakfast = "Breakfast";
-            public const string Lunch  = "Lunch";
+            public const string Lunch = "Lunch";
             public const string Dinner = "Dinner";
         }
 
         /* Keys for the various food lines.                                  */
         public static class LineKeys
         {
-            public const string LineOne   = "1";
-            public const string LineTwo   = "2";
+            public const string LineOne = "1";
+            public const string LineTwo = "2";
             public const string LineThree = "3";
-            public const string LineFour  = "4";
-            public const string LineFive  = "5";
-            public const string LineSix   = "6";
+            public const string LineFour = "4";
+            public const string LineFive = "5";
+            public const string LineSix = "6";
             public const string LineSeven = "7";
         }
 
         /* Keys for the various activities and fragments                     */
         public static class PageKeys
         {
-            public const string MainPageKey       = "MainPage";
-            public const string LoginPageKey      = "LoginPage";
-            public const string HomePageKey       = "Home";
-            public const string AcademicsPageKey  = "Academics";
+            public const string MainPageKey = "MainPage";
+            public const string LoginPageKey = "LoginPage";
+            public const string LoadingPageKey = "LoadingPage";
+            public const string HomePageKey = "Home";
+            public const string AcademicsPageKey = "Academics";
             public const string CampusLifePageKey = "Campus Life";
-            public const string DiningPageKey     = "Dining";
-            public const string AccountPageKey    = "Account";
+            public const string DiningPageKey = "Dining";
+            public const string AccountPageKey = "Account";
+        }
+
+        public static class InfractionCategory
+        {
+            public const string LateOutIntoInfraction = "1666";
+            public const string ResidenceHallInfraction = "4666";
+        }
+
+        public static class StudentCourtStatus
+        {
+            public const string Green = "Green";
+            public const string Gray = "Gray";
+            public const string Red = "Red";
         }
 
         /* The titles for each tab in the pages                              */

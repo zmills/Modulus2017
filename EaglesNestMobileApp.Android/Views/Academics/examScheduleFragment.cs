@@ -107,21 +107,22 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             holder.DeleteBinding(_examDate);
             var dateBinding = new Binding<string, string>(
                 section,
-                () => section.ExamTime,
+                () => section.ExamDay,
                 _examDate,
                 () => _examDate.Text,
                 BindingMode.OneWay);
             holder.SaveBinding(_examDate, dateBinding);
 
-            ///* Set binding for exam time  */
-            //holder.DeleteBinding(_examTime);
-            //var timeBinding = new Binding<string, string>(
-            //    section,
-            //    () => section.ExamTime,
-            //    _examTime,
-            //    () => _examTime.Text,
-            //    BindingMode.OneWay);
-            //holder.SaveBinding(_examTime, timeBinding);
+            /* Set binding for exam time  */
+            holder.DeleteBinding(_examTime);
+            var timeBinding = new Binding<string, string>(
+                section,
+                () => section.ExamTime,
+                _examTime,
+                () => _examTime.Text,
+                BindingMode.OneWay);
+            holder.SaveBinding(_examTime, timeBinding);
+            
 
             /*Set the binding for the exam location*/
             holder.DeleteBinding(_examLocation);

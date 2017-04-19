@@ -3,7 +3,7 @@
       xmlns:cardview="http://schemas.android.com/apk/res-auto"
       android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       android:gravity="center_horizontal"
       android:padding="5dp">
   
@@ -13,7 +13,7 @@
          android:layout_gravity="center_horizontal"
          cardview:cardElevation="4dp"
          cardview:cardCornerRadius="5dp"
-         cardview:cardBackgroundColor="@color/window_background"
+         cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
          android:id="@+id/infractionCard">
 
     <RelativeLayout

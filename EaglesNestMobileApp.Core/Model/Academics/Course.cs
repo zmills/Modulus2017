@@ -18,32 +18,22 @@ namespace EaglesNestMobileApp.Core.Model
         public string ProfessorFirstName { get; set; }
         public string ProfessorLastName { get; set; }
         public string ProfessorEmail { get; set; }
+        public string ProfessorId { get; set; }
+        public string Office { get; set; }
         public string Location { get; set; }
         public string ExamEndTime { get; set; }
         public string ExamBeginTime { get; set; }
         public string ExamType { get; set; }
         public string ExamDate { get; set; }
+        public string ExamDay { get; set; } // This is soley for sorting purposes
+        public float SortTime { get; set; }
         public string FormattedCourseCode { get { return $"{CourseCode}-{SectionNumber}"; } }
         public string ExamTime { get { return $"{ExamBeginTime}-{ExamEndTime}"; } }
-       
-        public string Absences { get { return AttendanceViolations[0].Count.ToString(); } }
-        public string PendingAbsences { get { return AttendanceViolations[1].Count.ToString(); } }
-        public string Tardies { get { return AttendanceViolations[2].Count.ToString(); } }
-        public string PendingTardies { get { return AttendanceViolations[3].Count.ToString(); } }
-
+        
         public string GetFullCourseName
         {
             get { return $"{CourseCode}-{SectionNumber} {CourseName}"; }
         }
 
-
-        public ObservableCollection<ObservableCollection<AttendanceViolation>> AttendanceViolations = 
-            new ObservableCollection<ObservableCollection<AttendanceViolation>>
-        {
-            new ObservableCollection<AttendanceViolation>(),
-            new ObservableCollection<AttendanceViolation>(),
-            new ObservableCollection<AttendanceViolation>(),
-            new ObservableCollection<AttendanceViolation>()
-        };
     }
 }

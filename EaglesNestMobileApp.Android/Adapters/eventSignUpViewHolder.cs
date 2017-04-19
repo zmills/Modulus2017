@@ -22,11 +22,11 @@ namespace EaglesNestMobileApp.Android.Adapters
         }
 
         // This takes in a card and does the assignment to the textview and imageview
-        public void GetCard(EventsSignUpCard eventSignUp)
+        public void GetCard(Events eventSignUp)
         {
-            Title.Text =  eventSignUp.Title;
-            Description.Text = eventSignUp.Description; //eventSignUp.Description;
-            SignUp.Text = eventSignUp.ButtonText;
+            //Title.Text =  eventSignUp.Title;
+            //Description.Text = eventSignUp.Description; //eventSignUp.Description;
+            //SignUp.Text = eventSignUp.ButtonText;
         }
     }
 }

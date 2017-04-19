@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="24dp"
+    android:minWidth="56dp"
+    android:minHeight="56dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        >
+
+        <!-- PROFESSOR NAME -->
+        <TextView
+            android:id="@+id/ProfessorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mr. Philip Holmes"
+            style="@style/DialogTitle"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            />
+
+        <!-- CLASS NAME -->
+        <TextView
+            android:id="@+id/ClassName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BA 403-4 Business Communications"
+            style="@style/ModRobotoRegular16"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            />
+
+    </LinearLayout>
+
+    <!-- Divider Line -->
+    <View style="@style/ModDivider" />
+
+    <!-- OFFICE TITLE -->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/ModListItemPrimaryText"
+        android:text="Office"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        />
+
+    <!-- OFFICE LOCATION -->
+    <TextView
+        android:id="@+id/ProfessorOffice"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/ModListItemSecondaryText"
+        android:text="AC 408"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        />
+
+    <!-- Divider Line -->
+    <!--<View style="@style/ModDividerWithMargins24" />-->
+
+    <!-- Hours Title -->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/ModListItemPrimaryText"
+        android:text="Hours"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        />
+        
+    <!-- Day/Hour Container -->
+    <LinearLayout
+        android:id="@+id/ACClassroomsTimes"
+        style="@style/ModTimesContainer"
+        android:paddingLeft="24dp"
+        >
+
+        <!-- DAY OF WEEK -->
+        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                
+            <TextView
+                style="@style/ModDayOfWeekData14"
+                android:id="@+id/Day1"
+                android:text="M"
+                />
+                
+            <TextView
+                style="@style/ModDayOfWeekData14"
+                android:id="@+id/Day2"
+                android:text="Th"
+                />
+                
+        </LinearLayout>
+
+        <!-- HOURS DATA -->
+        <LinearLayout
+            style="@style/ModTimesDataContainer"
+            android:paddingLeft="0dp"
+            >
+                
+            <TextView
+                style="@style/ModTimesData14"
+                android:id="@+id/Time1"
+                android:text="   11 a.m.–11:50 a.m."
+                />
+                
+            <TextView
+                style="@style/ModTimesData14"
+                android:id="@+id/Time2"
+                android:text="   3 p.m.–3:50 p.m."
+                />
+                
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Divider Line -->
+    <!--<View style="@style/ModDividerWithMargins24" />-->
+
+    <!-- Email Title -->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/ModListItemPrimaryText"
+        android:text="Email"
+        android:layout_marginTop="0dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        />
+
+    <!-- EMAIL DATA -->
+    <TextView
+        android:id="@+id/ProfessorEmail"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/ModListItemSecondaryText"
+        android:text="pHolmes@faculty.pcci.edu"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        />
+
+</LinearLayout>

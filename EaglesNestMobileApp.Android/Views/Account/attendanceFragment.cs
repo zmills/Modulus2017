@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Helpers;
 using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Personal;
 using EaglesNestMobileApp.Core;
+using Android.Support.Design.Widget;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -22,7 +23,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         View _attendanceView;
         List<RecyclerView> RecyclerviewList = new List<RecyclerView>();
         RecyclerView _recyclerview;
-        ObservableRecyclerAdapter<Course, CachingViewHolder> _adapter;
+        ObservableRecyclerAdapter<AttendanceCard, CachingViewHolder> _adapter;
 
         public AttendanceFragmentViewModel ViewModel
         {
@@ -45,11 +46,12 @@ namespace EaglesNestMobileApp.Android.Views.Account
             _recyclerview =
                     _attendanceView.FindViewById<RecyclerView>(Resource.Id.AttendanceRecyclerView);
 
-            _adapter = ViewModel.Classes.GetRecyclerAdapter
+            _adapter = ViewModel.AttendanceCards.GetRecyclerAdapter
             (
                 BindViewHolder, Resource.Layout.AttendanceRecyclerViewLayout
             );
 
+            ParentFragment.View.FindViewById<TabLayout>(Resource.Id.MainTabLayout).TabReselected += TabReselected;
             Activity.RunOnUiThread( ()=>
                 {
                     _recyclerview.SetLayoutManager(new LinearLayoutManager(Activity));
@@ -59,7 +61,16 @@ namespace EaglesNestMobileApp.Android.Views.Account
             return _attendanceView;
         }
 
-        private void BindViewHolder(CachingViewHolder holder, Course course, int position)
+        private void TabReselected(object sender,
+            TabLayout.TabReselectedEventArgs e)
+        {
+            if (e.Tab.Text == "Attendance")
+            {
+                _recyclerview.SmoothScrollToPosition(0);
+            }
+        }
+
+        private void BindViewHolder(CachingViewHolder holder, AttendanceCard course, int position)
         {
             TextView _classNameTextView    = holder.FindCachedViewById<TextView>(Resource.Id.attendanceClassName);
             TextView _absenceNumber        = holder.FindCachedViewById<TextView>(Resource.Id.attendanceClassUnexcusedNumber);
@@ -126,7 +137,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             holder.SaveBinding(_pendingTardyNumber, _pendingTardyNumberBinding);
         }
 
-        private void SetUpRecyclerViews(CachingViewHolder holder, Course course)
+        private void SetUpRecyclerViews(CachingViewHolder holder, AttendanceCard course)
         {
            
             RecyclerviewList = new List<RecyclerView>
@@ -155,7 +166,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
             });
         }
 
-        private void BindChildViewHolder(CachingViewHolder holder, AttendanceViolation violation, int position)
+        private void BindChildViewHolder(CachingViewHolder holder, ClassAttendance violation, int position)
         {
             TextView _violation = holder.FindCachedViewById<TextView>(Resource.Id.AttendancePenaltyListItem);
 

@@ -51,11 +51,11 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             /* Set up the tablayout for the meal times                       */
             TabLayout _tabLayout =
-                _varsityFragmentView.FindViewById<TabLayout>(Resource.Id.varsityTabs);
+                _varsityFragmentView.FindViewById<TabLayout>(Resource.Id.VarsityTabLayout);
 
             /* Set the current and previous recyclerviews */
             _currentRecyclerview = _previousRecyclerview =
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine1);
+                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView);
 
             /* Set up the recyclerviews and adapters for the fragment        */
             Activity.RunOnUiThread(() => SetUpVarsity());
@@ -70,21 +70,19 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             /* Add the recyclerviews to a list                               */
             RecyclerviewList = new List<RecyclerView>
             {
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine1),
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine2),
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine3),
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine4),
-                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.VarsityLine5)
+                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.Line1RecyclerView),
+                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.Line2RecyclerView),
+                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.Line3RecyclerView),
+                _varsityFragmentView.FindViewById<RecyclerView>(Resource.Id.Line4RecyclerView)
             };
 
             /* Add the lines to a list                                       */
             LineList = new List<TextView>
             {
-                _varsityFragmentView.FindViewById<TextView>(Resource.Id.varsityOption1),
-                _varsityFragmentView.FindViewById<TextView>(Resource.Id.varsityOption2),
-                _varsityFragmentView.FindViewById<TextView>(Resource.Id.varsityOption3),
-                _varsityFragmentView.FindViewById<TextView>(Resource.Id.varsityOption4),
-                _varsityFragmentView.FindViewById<TextView>(Resource.Id.varsityOption5)
+                _varsityFragmentView.FindViewById<TextView>(Resource.Id.line1),
+                _varsityFragmentView.FindViewById<TextView>(Resource.Id.line2),
+                _varsityFragmentView.FindViewById<TextView>(Resource.Id.line3),
+                _varsityFragmentView.FindViewById<TextView>(Resource.Id.line4),
             };
 
             /* Set adapters, layout managers, and click handlers             */
@@ -101,7 +99,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
-                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme}";
+                LineList[count].Text = ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme;
             }
         }
 
@@ -167,7 +165,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.VarsityMenu.BreakfastMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.BreakfastMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.VarsityMenu.BreakfastMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
@@ -181,7 +179,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.VarsityMenu.LunchMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.VarsityMenu.LunchMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
@@ -195,7 +193,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<VarsityItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.VarsityMenu.DinnerMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.VarsityMenu.DinnerMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.VarsityMenu.DinnerMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });

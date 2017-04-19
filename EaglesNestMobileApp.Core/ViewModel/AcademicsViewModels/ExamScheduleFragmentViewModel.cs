@@ -3,6 +3,7 @@ using EaglesNestMobileApp.Core.Model;
 using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
 {
@@ -24,17 +25,20 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
             this.Database = database;
         }
 
-        public async Task Initialize()
+        public async Task InitializeAsync()
         {
             var courses = await Database.GetCoursesAsync();
 
-            foreach (Course current in courses)
+            var sortedCourses = courses.OrderBy(x => x.ExamDate)
+                .ThenBy(x => x.SortTime).ToList();
+
+            foreach (Course current in sortedCourses)
                 Classes.Add(current);
         }
 
         public void InitializeStatic()
         {
-            for(int counter = 0; counter <= 6; counter++)
+            for (int counter = 0; counter <= 6; counter++)
             {
                 Course current = new Course
                 {
@@ -49,6 +53,12 @@ namespace EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels
                 Classes.Add(current);
             }
 
+        }
+
+        public override void Cleanup()
+        {
+            Classes.Clear();
+            base.Cleanup();
         }
 
         private async void RefreshExamScheduleAsync()

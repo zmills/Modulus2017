@@ -21,13 +21,14 @@
     <color name="icons">#FFFFFF</color>                                     <!-- White -->
     <color name="divider">#BDBDBD</color>                                   <!-- Grey (divider) -->
     <color name="divider_light_theme">#E0E0E0</color>                       <!-- Grey (divider light) -->
-    <color name="window_background">#E2E2E2</color>                         <!-- Grey Background -->
+    <color name="window_background">#E0E0E0</color>                         <!-- Grey Background -->
     <color name="body_text_light_theme">#424242</color>                     <!-- Grey 800 -->
     <color name="body_text_soft_light_theme">#616161</color>                <!-- Grey 700 -->
     <color name="body_text_lightweight_light_theme">#757575</color>         <!-- Grey 600 -->
     <color name="borderless_button_fullspan_light_theme">#1C53A3</color>
     
     <!-- DARK THEME COLOR PALETTE -->
+    <color name="window_background_dark_theme">#303030</color>          <!-- Default window background for dark theme -->
     <color name="mod_card_background_color_dark">#424242</color>        <!-- Grey 800 -->
     <color name="mod_appbar_color_dark">#212121</color>                 <!-- Grey 900 -->
     <color name="body_text_dark_theme">#EEEEEE</color>                  <!-- Grey 200 -->
@@ -40,6 +41,11 @@
     <color name="black">#000000</color>             <!-- Black -->
     <color name="clear">#0000</color>
     <color name="white">#FFFFFF</color>
+    <color name="black_opaque_80">#CC000000</color>
+    <color name="black_opaque_60">#99000000</color>
+    <color name="black_opaque_40">#66000000</color>
+    <color name="black_opaque_20">#33000000</color>
+    <color name="white_ripple">#40FFFFFF</color>
     <color name="primary_dark_900">#1A237E</color>  <!-- Darker Blue than primary_dark -->
     <color name="navigation_bar">#10154C</color>    <!-- Darker Blue than primary_dark_900 -->
     <color name="bright_green">#39e600</color>      <!--- super bright green-->
@@ -48,4 +54,6 @@
     <color name="red_screen"> #8a7c58</color>       <!-- UGLY RED-->
     <color name="red_screenaaa">#e62c2c</color>     <!-- UGLY RED-->
     <color name="red">#f44336</color>               <!-- Prime Red -->
+    <color name="red_a700">#D50000</color>
+    <color name="green_500">#4CAF50</color>
 </resources>

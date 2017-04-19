@@ -15,13 +15,15 @@ using Microsoft.Practices.ServiceLocation;
 using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using EaglesNestMobileApp.Core.ViewModel.AcademicsViewModels;
 using EaglesNestMobileApp.Core.ViewModel.DiningViewModels;
+using EaglesNestMobileApp.Core.ViewModel.CampusLifeViewModels;
+using System;
 
 namespace EaglesNestMobileApp.Core.ViewModel
 {
     public class ViewModelLocator : ObservableObject
     {
-        private LocalToken _user;
-        public LocalToken User
+        private string _user = "";
+        public string User
         {
             get { return _user; }
             set { Set(() => User, ref _user, value); }
@@ -44,6 +46,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register<ExamScheduleFragmentViewModel>();
             SimpleIoc.Default.Register<AttendanceFragmentViewModel>();
             SimpleIoc.Default.Register<ScheduleFragmentViewModel>();
+            SimpleIoc.Default.Register<StudentCourtFragmentViewModel>();
         }
 
         /* This method is used by the AndroidApp class to register the Android */
@@ -61,8 +64,23 @@ namespace EaglesNestMobileApp.Core.ViewModel
             SimpleIoc.Default.Register(() => dialogService);
         }
 
-        /* The following returns the sigleton instance of the service/         */
-        /* viewmodel                                                           */
+        public static void RegisterGetPreferences(ICheckLogin loginService)
+        {
+            SimpleIoc.Default.Register(() => loginService);
+        }
+
+        public static void RegisterCustomDialogService(ICustomProgressDialog customDialogService)
+        {
+
+            if(!SimpleIoc.Default.IsRegistered<ICustomProgressDialog>())
+                SimpleIoc.Default.Register(() => customDialogService);
+        }
+
+        public static void UnregisterDialogService()
+        {
+            SimpleIoc.Default.Unregister<ICustomProgressDialog>();
+        }
+                                                        
         /* The following returns the sigleton instance of the service/         */
         /* viewmodel                                                           */
         public LoginActivityViewModel Login =>
@@ -80,6 +98,9 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public StudentInfoFragmentViewModel StudentInfo =>
         ServiceLocator.Current.GetInstance<StudentInfoFragmentViewModel>();
 
+        public StudentCourtFragmentViewModel StudentCourt =>
+        ServiceLocator.Current.GetInstance<StudentCourtFragmentViewModel>();
+
         public GrabAndGoFragmentViewModel GrabAndGo =>
         ServiceLocator.Current.GetInstance<GrabAndGoFragmentViewModel>();
 
@@ -95,6 +116,12 @@ namespace EaglesNestMobileApp.Core.ViewModel
         public INavigationService Navigator =>
         ServiceLocator.Current.GetInstance<INavigationService>();
 
+        public ICheckLogin CheckLogin =>
+       ServiceLocator.Current.GetInstance<ICheckLogin>();
+
+        public ICustomProgressDialog Dialog =>
+       ServiceLocator.Current.GetInstance<ICustomProgressDialog>();
+
         public MainViewModel Main =>
         ServiceLocator.Current.GetInstance<MainViewModel>();
 
@@ -106,7 +133,19 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
         public static void Cleanup()
         {
-            /* TODO Clear the ViewModels                                        */
+            ViewModelLocator _locator = App.Locator;
+            _locator.Attendance.Cleanup();
+            _locator.Events.Cleanup();
+            _locator.Exams.Cleanup();
+            _locator.FourWinds.Cleanup();
+            _locator.GrabAndGo.Cleanup();
+            _locator.Grades.Cleanup();
+            _locator.StudentInfo.Cleanup();
+            _locator.StudentSchedule.Cleanup();
+            _locator.Varsity.Cleanup();
+            _locator.Login.Cleanup();
+            UnregisterDialogService();
+            SimpleIoc.Default.Unregister<AzureService>();
         }
     }
 }

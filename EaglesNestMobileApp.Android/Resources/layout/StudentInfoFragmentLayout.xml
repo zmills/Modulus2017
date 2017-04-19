@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
+    android:id="@+id/StudentScrollview"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
     <!-- ScrollView can only have ONE direct child -->
@@ -194,6 +195,7 @@
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="Checksheet/Plan of Study"
+                        android:id="@+id/StudentChecksheet"
                         />
 
                 </LinearLayout>
@@ -519,6 +521,7 @@
                         android:textColor="?attr/modBorderlessButtonFullSpanColor"
                         style="@style/ModBorderlessButtonFullSpan"
                         android:text="See Messaging &amp; Telephone Instructions"
+                        android:id="@+id/MessagingAndTelephoneInstructions"
                         />
 
                     <!-- Divider Line -->

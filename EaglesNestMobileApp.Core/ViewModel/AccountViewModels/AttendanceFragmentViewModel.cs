@@ -1,22 +1,23 @@
 ﻿using EaglesNestMobileApp.Core.Contracts;
 using EaglesNestMobileApp.Core.Model;
 using EaglesNestMobileApp.Core.Model.Personal;
-using System;
+using GalaSoft.MvvmLight;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 {
-    public class AttendanceFragmentViewModel
+    public class AttendanceFragmentViewModel : ViewModelBase
     {
-        /* Abscences, then tardies           */
-        public ObservableCollection<Course> Classes = new ObservableCollection<Course>();
+        /* Absences, then tardies           */
+        public List<Course> Classes = new List<Course>();
 
-        private List<AttendanceViolation> Violations =
-            new List<AttendanceViolation>();
+        public ObservableCollection<AttendanceCard> AttendanceCards =
+            new ObservableCollection<AttendanceCard>();
+
+        private List<ClassAttendance> Violations =
+            new List<ClassAttendance>();
 
         readonly IAzureService Database;
 
@@ -25,31 +26,39 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
             Database = database;
         }
 
-        public async Task Initialize()
+        public async Task InitializeAsync()
         {
-            var classList = await Database.GetCoursesAsync();
+            Classes = await Database.GetCoursesAsync();
 
-            foreach (Course current in classList)
-                Classes.Add(current);
-             
-            //Violations = await Database.GetAttendanceViolationsAsync();
+            foreach (var course in Classes)
+            {
+                AttendanceCards.Add(new AttendanceCard
+                {
+                    CourseName = course.CourseName,
+                    CourseId = course.Id
+                });
+            }
 
-            GetViolations(Violations);
+            Violations = await Database.GetAttendanceViolationsAsync();
+            GetViolations();
         }
 
-        private void GetViolations(List<AttendanceViolation> attendanceViolations)
+        private void GetViolations()
         {
-            foreach (var violation in attendanceViolations)
+            foreach (var violation in Violations)
             {
                 switch (violation.ViolationType)
                 {
                     /* List of absences           */
                     case App.ViolationTypes.Absence:
                         {
-                            foreach (var course in Classes)
+                            foreach (var course in AttendanceCards)
                             {
-                                if (course.Id == violation.CourseId)
+                                if (course.CourseId == violation.CourseId)
+                                {
                                     course.AttendanceViolations[0].Add(violation);
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -57,10 +66,13 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                     /* List of pending absences           */
                     case App.ViolationTypes.PendingAbsence:
                         {
-                            foreach (var course in Classes)
+                            foreach (var course in AttendanceCards)
                             {
-                                if (course.Id == violation.CourseId)
+                                if (course.CourseId == violation.CourseId)
+                                {
                                     course.AttendanceViolations[1].Add(violation);
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -68,10 +80,13 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                     /* List of tardies          */
                     case App.ViolationTypes.Tardy:
                         {
-                            foreach (var course in Classes)
+                            foreach (var course in AttendanceCards)
                             {
-                                if (course.Id == violation.CourseId)
+                                if (course.CourseId == violation.CourseId)
+                                {
                                     course.AttendanceViolations[2].Add(violation);
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -79,10 +94,13 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
                     /* List of pending tardies           */
                     case App.ViolationTypes.PendingTardy:
                         {
-                            foreach (var course in Classes)
+                            foreach (var course in AttendanceCards)
                             {
-                                if (course.Id == violation.CourseId)
+                                if (course.CourseId == violation.CourseId)
+                                {
                                     course.AttendanceViolations[3].Add(violation);
+                                    break;
+                                }
                             }
                         }
                         break;
@@ -102,28 +120,36 @@ namespace EaglesNestMobileApp.Core.ViewModel.AccountViewModels
 
             for (int inner = 0; inner < 4; inner++)
             {
-                AttendanceViolation violation = new AttendanceViolation { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.Absence };
+                ClassAttendance violation = new ClassAttendance { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.Absence };
                 Violations.Add(violation);
             }
 
             for (int inner = 0; inner < 4; inner++)
             {
-                AttendanceViolation violation = new AttendanceViolation { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.PendingAbsence };
+                ClassAttendance violation = new ClassAttendance { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.PendingAbsence };
                 Violations.Add(violation);
             }
 
             for (int inner = 0; inner < 4; inner++)
             {
-                AttendanceViolation violation = new AttendanceViolation { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.Tardy };
+                ClassAttendance violation = new ClassAttendance { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.Tardy };
                 Violations.Add(violation);
             }
 
             for (int inner = 0; inner < 4; inner++)
             {
-                AttendanceViolation violation = new AttendanceViolation { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.PendingTardy };
+                ClassAttendance violation = new ClassAttendance { CourseId = "1", Date = "May 10", ViolationType = App.ViolationTypes.PendingTardy };
                 Violations.Add(violation);
             }
-            GetViolations(Violations);
+            GetViolations();
+        }
+
+        public override void Cleanup()
+        {
+            AttendanceCards.Clear();
+            Violations.Clear();
+            Classes.Clear();
+            base.Cleanup();
         }
     }
 }

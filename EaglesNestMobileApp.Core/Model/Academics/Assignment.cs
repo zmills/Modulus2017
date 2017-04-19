@@ -13,6 +13,8 @@ namespace EaglesNestMobileApp.Core.Model
         public string AssignmentDate { get; set; }
         //public DateTimeOffset AssignmentDate { get; set; }
         public string GradeScore { get; set; }
+        public float PointsEarned { get; set; }
+        public float PointsPossible { get; set; }
         public string StudentId { get; set; }
         public string FormattedAssignmentDate => AssignmentDate.ToString();
     }

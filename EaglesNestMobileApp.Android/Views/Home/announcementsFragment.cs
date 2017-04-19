@@ -16,6 +16,7 @@ using Java.Lang;
 using System.Threading;
 using Android.Graphics;
 using Android.Widget;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Home
 {
@@ -31,8 +32,6 @@ namespace EaglesNestMobileApp.Android.Views.Home
         public SwipeRefreshLayout RefreshLayout { get; set; }
         public TabLayout TabLayout { get; set; }
         
-
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -42,7 +41,7 @@ namespace EaglesNestMobileApp.Android.Views.Home
             /* cards inside the viewmodel here                               */
             InitializeAnnouncements();
         }
-
+        
         public override View OnCreateView(LayoutInflater inflater, 
             ViewGroup parent, Bundle savedInstanceState)
         {
@@ -89,47 +88,39 @@ namespace EaglesNestMobileApp.Android.Views.Home
             AnnouncementRecyclerView.SetLayoutManager(AnnouncementLayoutManager);
             AnnouncementRecyclerView.SetAdapter(AnnouncementAdapter);
 
-            /* Notifies Adapter that the data set has changed (Important)    */
-            //AnnouncementAdapter.NotifyDataSetChanged();
-            //AnnouncementRecyclerView.GetAdapter().NotifyDataSetChanged();
-            /* (Important)                                                   */
-            //AnnouncementRecyclerView.Post(() => AnnouncementAdapter.NotifyDataSetChanged());
-            //AnnouncementRecyclerView.Post(() => AnnouncementRecyclerView.GetAdapter().NotifyDataSetChanged());
-            
-           
+ 
             return AnnouncementsView;
         }
 
-        private void RefreshLayoutRefresh(object sender, EventArgs e)
+        private async void RefreshLayoutRefresh(object sender, EventArgs e)
         {
-            /* THIS NEEDS TO BE REMOVED                                      */
-            InitializeAnnouncementsTEST();
+            await Task.Delay(2000);
             RefreshLayout.Refreshing = false;
         }
 
         private void InitializeAnnouncementsTEST()
         {
-            Announcements.Clear();
+            //Announcements.Clear();
             
 
-            /* Create an array of images                                     */
-            int[] _card_images = new int[5];
-            _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[1] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
-            _card_images[2] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[3] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
-            _card_images[4] = Resource.Drawable.BroomHockeyAllStarCons1;
+            ///* Create an array of images                                     */
+            //int[] _card_images = new int[5];
+            //_card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
+            //_card_images[1] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
+            //_card_images[2] = Resource.Drawable.BroomHockeyAllStarCons1;
+            //_card_images[3] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
+            //_card_images[4] = Resource.Drawable.BroomHockeyAllStarCons1;
 
-            /* Loop through inserting cards in the announcements list after  */
-            /* titling them and providing an image                           */
-            for (int counter = 0; counter < 40; counter++)
-            {
-                int index = counter % 5;
+            ///* Loop through inserting cards in the announcements list after  */
+            ///* titling them and providing an image                           */
+            //for (int counter = 0; counter < 40; counter++)
+            //{
+            //    int index = counter % 5;
 
-                Card current = new Card("Item " + counter, _card_images[index]);
-                Announcements.Add(current);
-            }
-            AnnouncementAdapter.NotifyDataSetChanged();
+            //    Card current = new Card(_card_images[index]);
+            //    Announcements.Add(current);
+            //}
+            //AnnouncementAdapter.NotifyDataSetChanged();
         }
 
         /* Scroll up to the top of the page if the "Announcements" layout is */
@@ -151,20 +142,37 @@ namespace EaglesNestMobileApp.Android.Views.Home
             Announcements = new List<Card>();
 
             /* Create an array of images                                     */
-            int[] _card_images = new int[5];
-            _card_images[0] = Resource.Drawable.BroomHockeyAllStarCons1;
-            _card_images[1] = Resource.Drawable.CLEvent1;
-            _card_images[2] = Resource.Drawable.FreshmanMidnightMadnessSignup1;
-            _card_images[3] = Resource.Drawable.Nov28MissionPrayerBand1;
-            _card_images[4] = Resource.Drawable.SubmitStudentPhotosFall2;
+            int[] _card_images = new int[24];
+            _card_images[0] = Resource.Drawable.announcement;
+            _card_images[1] = Resource.Drawable.announcement1;
+            _card_images[2] = Resource.Drawable.announcement2;
+            _card_images[3] = Resource.Drawable.announcement3;
+            _card_images[4] = Resource.Drawable.announcement4;
+            _card_images[5] = Resource.Drawable.announcement5;
+            _card_images[6] = Resource.Drawable.announcement6;
+            _card_images[7] = Resource.Drawable.announcement7;
+            _card_images[8] = Resource.Drawable.announcement8;
+            _card_images[9] = Resource.Drawable.announcement9;
+            _card_images[10] = Resource.Drawable.announcement10;
+            _card_images[11] = Resource.Drawable.announcement11;
+            _card_images[12] = Resource.Drawable.announcement12;
+            _card_images[13] = Resource.Drawable.announcement13;
+            _card_images[14] = Resource.Drawable.announcement14;
+            _card_images[15] = Resource.Drawable.announcement15;
+            _card_images[16] = Resource.Drawable.announcement16;
+            _card_images[17] = Resource.Drawable.announcement17;
+            _card_images[18] = Resource.Drawable.announcement18;
+            _card_images[19] = Resource.Drawable.announcement19;
+            _card_images[20] = Resource.Drawable.announcement20;
+            _card_images[21] = Resource.Drawable.announcement21;
+            _card_images[22] = Resource.Drawable.announcement22;
+            _card_images[23] = Resource.Drawable.announcement23;
 
             /* Loop through inserting cards in the announcements list after  */
             /* titling them and providing an image                           */
-            for (int counter = 0; counter < 40; counter++)
+            for (int counter = 0; counter < 24; counter++)
             {
-                int index = counter % 5;
-
-                Card current = new Card("Item " + counter, _card_images[index]);
+                Card current = new Card(_card_images[counter]);
                 Announcements.Add(current);
             }
         }

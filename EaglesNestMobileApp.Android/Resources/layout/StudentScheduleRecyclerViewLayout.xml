@@ -1,49 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <android.support.v7.widget.CardView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:cardview="http://schemas.android.com/apk/res-auto"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:layout_gravity="center_horizontal"
-  cardview:cardElevation="4dp"
-  cardview:cardCornerRadius="5dp"
-  android:layout_marginBottom="16dp"
-  cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
-  android:id="@+id/studentScheduleEvent"
-  >
-
-    <LinearLayout
-    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myCardView"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="3">
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+    card_view:cardUseCompatPadding="false"
+    card_view:cardElevation="2dp"
+    card_view:cardCornerRadius="2dp"
+    android:layout_marginBottom="8dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
         <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:layout_width="96dp"
         android:text="8:00 - 8:50"
-        android:background="@color/primary"
-        android:textSize="24dp"
+        android:background="?attr/modNicksCard"
+        style="@style/ModRobotoRegular20"
         android:textColor="@color/accent"
-        android:padding="8dp"
+        android:padding="16dp"
         android:gravity="center"
         android:id="@+id/studentScheduleEventTime"
+        android:layout_alignParentLeft="true"
         />
 
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="?attr/modCardBackgroundColor">
+        android:background="?attr/modCardBackgroundColor"
+        android:layout_toRightOf="@+id/studentScheduleEventTime"
+        >
 
             <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_weight="1"
             android:text="Event Title"
             style="@style/ModListItemPrimaryText"
-            android:padding="8dp"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:id="@+id/studentScheduleEventTitle"
             />
 
@@ -52,13 +54,11 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="Event location"
-            android:layout_weight="2"
-            android:padding="4dp"
-            android:layout_marginLeft="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             android:id="@+id/studentScheduleEventDescription"
             />
-            </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>
-
-

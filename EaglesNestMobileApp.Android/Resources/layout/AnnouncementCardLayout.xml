@@ -44,7 +44,7 @@
             />
             <!-- adjustViewBounds gets rid of unnecessary top/bottom padding -->
 
-        <RelativeLayout
+      <!--  <RelativeLayout
             android:id="@+id/AnnouncementsCardRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                     android:layout_marginLeft="8dp"
                     />
                     
-        </RelativeLayout>        
+        </RelativeLayout>   -->     
                 
     </LinearLayout>
     

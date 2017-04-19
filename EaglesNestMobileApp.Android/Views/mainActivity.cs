@@ -19,12 +19,14 @@ using JimBobBennett.MvvmLight.AppCompat;
 using EaglesNestMobileApp.Core;
 using Android.Widget;
 using Android.Content.PM;
+using EaglesNestMobileApp.Core.ViewModel;
+using EaglesNestMobileApp.Android.Helpers;
 
 namespace EaglesNestMobileApp.Android.Views
 {
-    [Activity(Label = "The Nest", Icon = "@drawable/TheNestLogo1",
+    [Activity(Label = "The Nest", Icon = "@drawable/nest_app_icon",
        ScreenOrientation = ScreenOrientation.Portrait,
-           MainLauncher = false, Theme = "@style/ModAppCompatDarkTheme")]
+           MainLauncher = false, Theme = "@style/ModAppCompatLightTheme")]
 
     /* See loginActivity for base class explanation                          */
     public class mainActivity : AppCompatActivityBase
@@ -56,11 +58,13 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            RunOnUiThread(async () => await App.Locator.Main.InitializeViewModels());
 
             /*( Set our view from the "main" layout resource                 */
-            RunOnUiThread(() => SetContentView(Resource.Layout.BottomNavLayout));
-            RunOnUiThread(() => InitializeNavigation());
+            ViewModelLocator
+                .RegisterCustomDialogService(new CustomProgressDialog(this));
+
+            SetContentView(Resource.Layout.BottomNavLayout);
+            InitializeNavigation();
         }
 
         private void InitializeNavigation()
@@ -69,7 +73,7 @@ namespace EaglesNestMobileApp.Android.Views
             RunOnUiThread(() => (BottomNavigationMenu =
                 FindViewById<BottomNavigationView>(Resource.Id.BottomNavBar))
                     .NavigationItemSelected += NavItemSelected);
-
+            
             /* Loads up the main page                                        */
             RunOnUiThread(() => LoadHomeFragment());
         }
@@ -89,6 +93,7 @@ namespace EaglesNestMobileApp.Android.Views
             }
             else
             {
+                FinishAffinity();
                 Finish();
             }
         }

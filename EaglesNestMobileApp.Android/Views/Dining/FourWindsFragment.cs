@@ -113,7 +113,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
-                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme}";
+                LineList[count].Text = ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme;
             }
         }
 
@@ -182,7 +182,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                         {
                             _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
                             _adapter.DataSource = ViewModel.FourWindsMenu.BreakfastMenu[count];
-                            LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme}";
+                            LineList[count].Text = ViewModel.FourWindsMenu.BreakfastMenu[count][0].MealTheme;
                             _adapter.NotifyDataSetChanged();
                         }
                         });
@@ -196,7 +196,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.FourWindsMenu.LunchMenu[count];
-                                LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.LunchMenu[count][0].MealTheme}";
+                                LineList[count].Text = ViewModel.FourWindsMenu.LunchMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
@@ -210,8 +210,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<FourWindsItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.FourWindsMenu.DinnerMenu[count];
-                                //LineList[count].Text = $"{count + 1}-{ViewModel.FourWindsMenu.DinnerMenu[count][0].MealTheme}";
-                                _adapter.NotifyDataSetChanged();
+                                LineList[count].Text = ViewModel.FourWindsMenu.DinnerMenu[count][0].MealTheme;
+                               _adapter.NotifyDataSetChanged();
                             }
                         });
                     }

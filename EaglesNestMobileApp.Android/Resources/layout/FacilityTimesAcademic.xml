@@ -1,521 +1,513 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/modFacilityTimeBackground"
+    android:orientation="vertical"
     >
 
-    <View
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    <TextView
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolbarDialogLayout"
+        />
+
+    <!-- SCROLLVIEW -->
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:text="Academic Offices Information"
-        />
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="The following is a list of academic officials and their office locations and hours."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Raylene Cochran—Admin 1st Floor
-By appointment"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dean of Biblical Studies and Dean of Seminary"
-        />
-        
- <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text=""
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Dan Rushing"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Admin 1st Floor"
-        />
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, W	2–2:50 p.m"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="T, Th	8–8:50 a.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Chair of Education"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Mr. Eric Bryant—Admin 1st Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, W	9–9:50 a.m.
-T, Th	1–1:50 p.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dean of Visual and Performing Arts/Chair of Performing Arts"
-        />
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Amy Bombard—VPA 2nd Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="W, F	9–9:50 a.m.
-Th	1–1:50 p.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Chair of Visual Arts"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Mr. Shawn Thayer—VPA 2nd Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, T, F	11–11:50 a.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dean of Arts and Sciences/Chair of Nursing"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Denise McCollim—MK 3rd Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, T	1–1:50 p.m.
-T, Th	9–9:50 a.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Chair of Engineering"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Joel Porcher—MK 5th Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, Th	9–9:50 a.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Chair of Humanities"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Mrs. Marie Thompson—MK 4th Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, F	11–11:50 a.m.
-T, Th	3–3:50 p.m"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Chair of Natural Sciences"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Dr. Shane Smith—MK 4th Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, F	1–1:50 p.m.
-T, Th	11–11:50 a.m."
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Registrar"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="Mrs. Linda Troutman—Admin 1st Floor"
-        />
-
-    <TextView
-       android:layout_height="wrap_content"
-       android:layout_width="match_parent"
-       android:text="M, Th	9–9:50 a.m.
-T, W	2–2:50 p.m."
-        />
-
-        
-    </View>
-
-    <View
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Academic Buildings"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Labs and classrooms are not available during class times."
-            />
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Academic Center"
-            />
+            <!-- 1. ACADEMIC CENTER -->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Classrooms"
-            />
+            <!-- Academic Center Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Academic Center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:30 a.m.–5 p.m."
-            />
+            <!-- Academic Center CardView -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/StudentInfoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Computer/Education Labs, Media Room"
-            />
+                <!-- Academic Center Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:30 a.m.–10 p.m."
-            />
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/ACClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 6:30–8:15 p.m."
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACClassroomsTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seminary Library"
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–5 p.m." />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:30 a.m.–5 p.m."
-            />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enter through Rebekah Horton Library
-M–F, 5–10 p.m. and Sat, 8:30 a.m.–10 p.m."
-            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Library"
-            />
+                    <!--<TextView
+                        android:id="@+id/ACClassroomsData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="M–F	7:30 a.m.–5 p.m."
+                        />-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:30 a.m.–10 p.m."
-            />
+                    <!-- Computer/Education Labs, Media Room Button -->
+                    <Button
+                        android:id="@+id/ACLabs"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Computer/Education Labs, Media Room"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 5:30–8:15 p.m."
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACLabsTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Labs close 15 min. before Library closes."
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
 
-      
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bible Manuscript Room/One-Room Schoolhouse"
-            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="See Circulation Desk for tours.
-"
-            />
+                    <!-- Seminary Library Button -->
+                    <Button
+                        android:id="@+id/ACSeminaryLibrary"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Seminary Library"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Skype"
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACSeminaryLibraryTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="2nd Fl—Sign up at Circulation Desk during regular library hours."
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Testing Center—3rd Fl"
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–5 p.m." />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	10 a.m. and 2 p.m. Closed 12/10 and 4/29"
-            />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MacKenzie Building"
-            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Classrooms, 1–6 Fls"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:45 a.m.–5 p.m."
-            />
+                    <!-- Library Button -->
+                    <Button
+                        android:id="@+id/ACLibrary"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Library"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nursing/Computer Lab, 3rd and 5th Fls"
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACLibraryTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:45 a.m.–10 p.m."
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 6:30 p.m.–8:15 p.m"
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:30 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 5:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Planetarium, 6th Fl"
-            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="click for times"
-            />
+                    <!-- Testing Center Button -->
+                    <Button
+                        android:id="@+id/ACTestingCenter"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Testing Center—3rd Fl"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Visual and Performing Arts"
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/ACTestingCenterTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Classrooms and Upper/Lower Art Galleries"
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	7:45 a.m.–10 p.m"
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   10 a.m. and 2 p.m." />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 6:30–8:15 p.m"
-            />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="**Students should begin preparing to leave at 9:45 p.m. each evening and must exit the building before 10:00 p.m."
-            />
+            </android.support.v7.widget.CardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Practice Rooms"
-            />
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+            <!-- 2. MACKENZIE BUILDING -->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Women"
-            />
+            <!-- MacKenzie Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="MacKenzie Building"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	6 a.m.–10 p.m."
-            />
+            <!-- MacKenzie Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 6:30–8:15 p.m."
-            />
+                <!-- MacKenzie Building Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/MKClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms, 1–6 Fls"
+                        android:gravity="left"
+                        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Men and Mixed Groups"
-            />
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/MKClassroomsTimes"
+                        style="@style/ModTimesContainer">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="(Practice Rooms N—X only)"
-            />
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	8 a.m.–5 p.m. (Men)"
-            />
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 a.m.–5 p.m." />
+                        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="M–F	5–10 p.m. (Mixed Groups)"
-            />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="W	closed 6:30–8:15 p.m"
-            />
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sat	8:30 a.m.–10 p.m."
-            />
-    </View>
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/MKLabs"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Nursing/Computer Lab, 3rd and 5th Fls"
+                        android:gravity="left"
+                        />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/MKLabsTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- ********************************************************************** -->
+            <!-- CARD SEPARATOR -->
+            <!-- ********************************************************************** -->
+
+            <!-- 3. VISUAL & PERFORMING ARTS BUILDING -->
+
+            <!-- VPA Building Title -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/ModRobotoRegularSoft20"
+                android:text="Visual and Performing Arts"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!-- VPA Building CardView -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="?attr/modCardBackgroundColor"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                >
+
+                <!-- VPA Building Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <!-- Classrooms Button -->
+                    <Button
+                        android:id="@+id/VPAClassrooms"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Classrooms and Upper/Lower Art Galleries"
+                        android:gravity="left"
+                        />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VPAClassroomsTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   7:45 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Practice Rooms Button -->
+                    <Button
+                        android:id="@+id/VPAPracticeRoomsWomen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Practice Rooms (Women)"
+                        android:gravity="left"
+                        />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VPAPracticeRoomsWomenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   6 a.m.–10 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider Line -->
+                    <View style="@style/ModDivider" />
+
+                    <!-- Practice Rooms Button -->
+                    <Button
+                        android:id="@+id/VPAPracticeRoomsMen"
+                        android:textColor="?attr/modBorderlessButtonFullSpanColor"
+                        style="@style/ModBorderlessButtonFullSpan"
+                        android:text="Practice Rooms (Men and Mixed Groups)"
+                        android:gravity="left"
+                        />
+
+                    <!-- Times Container -->
+                    <LinearLayout android:id="@+id/VPAPracticeRoomsMenTimes"
+                        style="@style/ModTimesContainer">
+
+                        <!-- Day of Week Data -->
+                        <LinearLayout style="@style/ModDayOfWeekDataContainer">
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="M-F" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="W" />
+                            <TextView style="@style/ModDayOfWeekData"
+                                android:text="Sat" />
+                        </LinearLayout>
+
+                        <!-- Times Data -->
+                        <LinearLayout style="@style/ModTimesDataContainer">
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8 a.m.–5 p.m. (Men)" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   5 a.m.–10 p.m. (Mixed Groups)" />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   closed 6:30–8:15 p.m." />
+                            <TextView style="@style/ModTimesData"
+                                android:text="   8:30 a.m.–10 p.m." />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>
