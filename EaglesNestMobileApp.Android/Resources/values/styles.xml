@@ -104,6 +104,8 @@
         <item name="modBorderlessButtonTextColorSecondary">@color/black</item>
         <!-- <<black and white font color>>-->
         <item name="modBlackAndWhiteFontColor">@color/black</item>
+        <item name="modWhiteAndBlackFontColor">@color/white</item>
+        
         <!-- <<nick's card>>-->
         <item name="modNicksCard">@color/primary</item>
 
