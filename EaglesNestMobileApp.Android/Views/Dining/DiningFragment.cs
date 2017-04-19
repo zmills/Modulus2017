@@ -59,7 +59,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             Toolbar toolbar = CurrentView.FindViewById<Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.toolbar_menu);
 
-
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
 
             /* Set the tablayout to fixed so that the titles aren't smashed  */
