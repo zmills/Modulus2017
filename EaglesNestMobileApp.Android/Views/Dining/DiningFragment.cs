@@ -13,6 +13,8 @@ using Uri = Android.Net.Uri;
 using Android.Content;
 using Android.Support.V7.Widget;
 using System.IO;
+using Android.Util;
+using EaglesNestMobileApp.Core.Contracts;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -21,6 +23,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         TabLayout TabLayout { get; set; }
         View CurrentView { get; set; }
         ViewPager CurrentPager { get; set; }
+        ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
 
         Fragment[] DiningFragments =
         {
@@ -86,6 +89,35 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
 
                         App.Locator.Main.Logout();
+                    }
+                    break;
+                case Resource.Id.settings_button:
+                    {
+                        TypedValue attrValue = new TypedValue();
+                        Activity.Theme.ResolveAttribute(
+                            Resource.Attribute.modThemeName, attrValue, true);
+
+                        if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+                        {
+                            //Set dark theme in pref
+                            //string theme = ThemeSwitcher.GetTheme("THEME");
+
+                            //if (theme == "ModAppCompatLightTheme")
+                            //{
+                                ThemeSwitcher.DeleteTheme("THEME");
+                                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
+                                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
+                                Activity.Recreate();
+                            //}
+                            
+                        }
+                        else
+                        {
+                            ThemeSwitcher.DeleteTheme("THEME");
+                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
+                            Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
+                            Activity.Recreate();
+                        }
                     }
                     break;
             }

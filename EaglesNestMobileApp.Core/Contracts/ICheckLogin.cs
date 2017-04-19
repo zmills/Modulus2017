@@ -11,5 +11,8 @@ namespace EaglesNestMobileApp.Core.Contracts
         void SaveLogin(string key, string value);
         string GetLogin(string key);
         void Logout(string key);
+        void SaveTheme(string key, string value);
+        string GetTheme(string key);
+        void DeleteTheme(string key);
     }
 }
