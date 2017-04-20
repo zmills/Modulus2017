@@ -60,7 +60,6 @@ namespace EaglesNestMobileApp.Android.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            OverridePendingTransition(Resource.Animation.abc_fade_in,Resource.Animation.abc_fade_out);
 
             /*( Set our view from the "main" layout resource                 */
             ViewModelLocator
@@ -84,7 +83,6 @@ namespace EaglesNestMobileApp.Android.Views
 
         public override void Recreate()
         {
-            OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
             base.Recreate();
             BottomNavigationMenu.Menu.GetItem(0).SetChecked(true);
         }
