@@ -166,7 +166,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 SetTheme(_themeToChange);
         }
 
-        private void SetTheme(string newTheme)
+        private async void SetTheme(string newTheme)
         {
             if (newTheme == "ModAppCompatLightTheme")
                 Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
@@ -177,6 +177,7 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             
             Intent intent = new Intent(Activity, Activity.Class);
             Activity.Finish();
+            await Task.Delay(100);
             StartActivity(intent);
             Activity.OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
 
