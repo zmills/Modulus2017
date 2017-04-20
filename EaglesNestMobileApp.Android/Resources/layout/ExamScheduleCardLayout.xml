@@ -9,6 +9,7 @@
         cardview:cardElevation="2dp"
         cardview:cardUseCompatPadding="false"
         android:layout_marginBottom="16dp"
+
         >
 
         <LinearLayout

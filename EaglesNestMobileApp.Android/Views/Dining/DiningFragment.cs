@@ -18,6 +18,8 @@ using EaglesNestMobileApp.Core.Contracts;
 using Dialog = Android.App.Dialog;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using System.Threading.Tasks;
+using Switch = Android.Widget.Switch;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -29,6 +31,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
         Dialog _dialogBox;
         SupportToolbar dialogToolbar;
+        string _theme;
 
 
         Fragment[] DiningFragments =
@@ -96,22 +99,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                 case Resource.Id.settings_button:
                     {
                         OpenSettingsPage();
-
-                        /*if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
-                        {
-                            ThemeSwitcher.DeleteTheme("THEME");
-                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
-                            Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
-                            Activity.Recreate();
-                        }
-                        else
-                        {
-                            ThemeSwitcher.DeleteTheme("THEME");
-                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
-                            Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
-                            Activity.Recreate();
-                        }*/
-
                     }
                     break;
             }
@@ -124,8 +111,10 @@ namespace EaglesNestMobileApp.Android.Views.Dining
             Activity.Theme.ResolveAttribute(
                 Resource.Attribute.modThemeName, attrValue, true);
 
+            _theme = attrValue.String.ToString();
+
             /* Create the dialog box based on the current theme              */
-            if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+            if (_theme == "ModAppCompatLightTheme")
                 _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
             else
                 _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatDarkTheme);
@@ -134,17 +123,74 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
             dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+
+            Switch _themeSwitch = _dialogBox.Window.FindViewById<Switch>(Resource.Id.ThemeSwitch);
+
+            if (_theme == "ModAppCompatLightTheme")
+                _themeSwitch.Checked = false;
+            else
+                _themeSwitch.Checked = true;
+
+            _themeSwitch.CheckedChange += ChangeTheme;
+
             dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
             dialogToolbar.Title = "Settings";
+
             dialogToolbar.NavigationClick += async (navSender, navEvent) =>
             {
                 await Task.Delay(150);
                 _dialogBox.Dismiss();
             };
 
+
+            _dialogBox.DismissEvent += DismisDialogBox;
+
             await Task.Delay(150);
             _dialogBox.Show();
             await Task.Delay(400);
+        }
+
+        private void DismisDialogBox(object sender, System.EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("\n\n\n\n\nDialog being dismissed");
+
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            string _currentTheme = attrValue.String.ToString();
+            string _themeToChange = ThemeSwitcher.GetTheme("THEME");
+
+            System.Diagnostics.Debug.WriteLine($"\n\n\n\n\nCurrent Theme: {_currentTheme}");
+            System.Diagnostics.Debug.WriteLine($"\nTheme to change to: {_themeToChange}");
+
+            if (_currentTheme != _themeToChange)
+                SetTheme(_themeToChange);
+        }
+
+        private void SetTheme(string newTheme)
+        {
+            if(newTheme == "ModAppCompatLightTheme")
+                Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
+            else
+                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
+
+            //Activity.Recreate();
+            Intent intent = new Intent(Activity, Activity.Class);
+            Activity.Finish();
+            StartActivity(intent);
+            Activity.OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
+
+        }
+
+        private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)
+        {
+            ThemeSwitcher.DeleteTheme("THEME");
+
+            if (e.IsChecked == true)
+                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
+            else
+                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
         }
     }
 }
