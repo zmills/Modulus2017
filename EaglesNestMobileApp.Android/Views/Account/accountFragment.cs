@@ -12,10 +12,14 @@ using EaglesNestMobileApp.Core;
 using Uri = Android.Net.Uri;
 using Android.Content;
 using Android.Support.V7.Widget;
-using EaglesNestMobileApp.Core.ViewModel.AccountViewModels;
 using System.IO;
-using EaglesNestMobileApp.Core.ViewModel;
-using EaglesNestMobileApp.Android.Helpers;
+using Android.Util;
+using EaglesNestMobileApp.Core.Contracts;
+using Dialog = Android.App.Dialog;
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+using System.Threading.Tasks;
+using Switch = Android.Widget.Switch;
+using System;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -25,10 +29,10 @@ namespace EaglesNestMobileApp.Android.Views.Account
         public View CurrentView { get; set; }
         public ViewPager CurrentPager { get; set; }
 
-        public StudentInfoFragmentViewModel ViewModel
-        {
-            get { return App.Locator.StudentInfo; }
-        }
+        private ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
+        private Dialog _dialogBox;
+        private SupportToolbar dialogToolbar;
+        private string _theme;
 
         // Fragments to be used as tabs for the viewpager
         Fragment[] AccountFragments =
@@ -43,7 +47,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            ViewModelLocator.RegisterCustomDialogService(new CustomProgressDialog(Activity));
         }
 
         /* Sets up the viewpager and the tabs along with their titles        */
@@ -92,7 +95,97 @@ namespace EaglesNestMobileApp.Android.Views.Account
                         App.Locator.Main.Logout();
                     }
                     break;
+                case Resource.Id.settings_button:
+                    {
+                        OpenSettingsPage();
+                    }
+                    break;
             }
         }
+
+        private async void OpenSettingsPage()
+        {
+            /* Find the current theme                                        */
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            _theme = attrValue.String.ToString();
+
+            /* Create the dialog box based on the current theme              */
+            if (_theme == "ModAppCompatLightTheme")
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            else
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatDarkTheme);
+
+            _dialogBox.Window.SetContentView(Resource.Layout.SettingsLayout);
+
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+
+            Switch _themeSwitch = _dialogBox.Window.FindViewById<Switch>(Resource.Id.ThemeSwitch);
+
+            if (_theme == "ModAppCompatLightTheme")
+                _themeSwitch.Checked = false;
+            else
+                _themeSwitch.Checked = true;
+
+            _themeSwitch.CheckedChange += ChangeTheme;
+
+            dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+            dialogToolbar.Title = "Settings";
+
+            dialogToolbar.NavigationClick += async (navSender, navEvent) =>
+            {
+                await Task.Delay(150);
+                _dialogBox.Dismiss();
+            };
+
+
+            _dialogBox.DismissEvent += DismisDialogBox;
+
+            await Task.Delay(150);
+            _dialogBox.Show();
+            await Task.Delay(400);
+        }
+
+        private void DismisDialogBox(object sender, System.EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("\n\n\n\n\nDialog being dismissed");
+
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            string _currentTheme = attrValue.String.ToString();
+            string _themeToChange = ThemeSwitcher.GetTheme("THEME");
+
+            System.Diagnostics.Debug.WriteLine($"\n\n\n\n\nCurrent Theme: {_currentTheme}");
+            System.Diagnostics.Debug.WriteLine($"\nTheme to change to: {_themeToChange}");
+
+            if (_currentTheme != _themeToChange)
+                SetTheme(_themeToChange);
+        }
+
+        private void SetTheme(string newTheme)
+        {
+            if (newTheme == "ModAppCompatLightTheme")
+                Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
+            else
+                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
+
+            Activity.Recreate();
+        }
+
+        private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)
+        {
+            ThemeSwitcher.DeleteTheme("THEME");
+
+            if (e.IsChecked == true)
+                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
+            else
+                ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
+        }
+
     }
 }
