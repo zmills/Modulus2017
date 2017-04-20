@@ -20,6 +20,7 @@ using Android.Support.Transitions;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Android.Support.V4.Widget;
+using Android.Graphics.Drawables;
 
 namespace EaglesNestMobileApp.Android.Views.Academics
 {
@@ -147,7 +148,8 @@ namespace EaglesNestMobileApp.Android.Views.Academics
             {
                 /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-POSITION(" + position + ")");
                 /*DEBUG*///System.Diagnostics.Debug.Write("OPEN-VH.POSITION(" + holder.AdapterPosition + ")");
-                holder.FindCachedViewById<ImageView>(Resource.Id.ShowGradesArrowIcon).StartAnimation(_rotateArrow);
+                holder.FindCachedViewById<ImageView>(Resource.Id.ShowGradesArrowIcon)
+                    .StartAnimation(_rotateArrow);
                 _expandArea.Visibility = ViewStates.Visible;
             }
             else
