@@ -8,9 +8,9 @@
           android:title="Email"
           app:showAsAction="always"/>  
           
-    <item android:id="@+id/settings_button"
+    <!--<item android:id="@+id/settings_button"
           android:title="Settings"
-          app:showAsAction="never"/>
+          app:showAsAction="never"/>-->
     
       <item android:id="@+id/logout_menu"
           android:title="Log Out"
