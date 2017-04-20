@@ -19,7 +19,7 @@ using Dialog = Android.App.Dialog;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using System.Threading.Tasks;
 using Switch = Android.Widget.Switch;
-using System;
+using CompoundButton = Android.Widget.CompoundButton;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -182,7 +182,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
         }
 
-        private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)
+        private void ChangeTheme(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
             ThemeSwitcher.DeleteTheme("THEME");
 
