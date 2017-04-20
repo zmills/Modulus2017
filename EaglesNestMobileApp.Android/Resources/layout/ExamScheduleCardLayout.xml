@@ -8,7 +8,7 @@
         cardview:cardBackgroundColor="?attr/modCardBackgroundColor"
         cardview:cardElevation="2dp"
         cardview:cardUseCompatPadding="false"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         >
 
         <LinearLayout
@@ -17,18 +17,29 @@
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:paddingBottom="8dp"
             android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:layout_marginBottom="8dp"
             >
-
+            
+            <!-- COURSE NAME -->
             <TextView
+                android:id="@+id/examClassName"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingBottom="0dp"
+                style="@style/ModRobotoMedium20"
+                android:layout_marginBottom="8dp"
+                />
+
+            <View style="@style/ModDivider"/>
+
+            <!--<TextView
                 android:id="@+id/examClassNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-              
-                android:textSize="24dp"
+                style="@style/ModRobotoMedium20"
                 android:gravity="center"
                 />
 
@@ -37,8 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="16dp"
-                />
+                style="@style/ModRobotoRegular16"
+                />-->
 
 
             <LinearLayout
@@ -53,17 +64,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tue. May 1"
-                    android:textSize="15dp"
+                    style="@style/ModRobotoRegular16"
                     android:layout_weight="1"
-                    android:layout_marginLeft="8dp"
                     />
 
                 <TextView
                     android:id="@+id/examTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                  
-                    android:textSize="15dp"
+                    android:gravity="center_horizontal"
+                    style="@style/ModRobotoRegular16"
                     android:layout_weight="1"
                     />
 
@@ -71,8 +81,9 @@
                     android:id="@+id/examRoomLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    style="@style/ModRobotoRegular16"
                     android:layout_weight="1"
+                    android:gravity="right"
                     />
 
             </LinearLayout>

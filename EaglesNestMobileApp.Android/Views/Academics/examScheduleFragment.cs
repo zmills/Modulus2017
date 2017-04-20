@@ -77,27 +77,27 @@ namespace EaglesNestMobileApp.Android.Views.Academics
         {
             _position = holder.AdapterPosition;
 
-            TextView _courseNumber = holder.FindCachedViewById<TextView>(Resource.Id.examClassNumber);
+            //TextView _courseNumber = holder.FindCachedViewById<TextView>(Resource.Id.examClassNumber);
             TextView _courseName = holder.FindCachedViewById<TextView>(Resource.Id.examClassName);
             TextView _examDate = holder.FindCachedViewById<TextView>(Resource.Id.examDate);
             TextView _examTime = holder.FindCachedViewById<TextView>(Resource.Id.examTime);
             TextView _examLocation = holder.FindCachedViewById<TextView>(Resource.Id.examRoomLocation);
             
             /* Set the binding for the course code */
-            holder.DeleteBinding(_courseNumber);
-            var numberBinding = new Binding<string, string>(
-                section,
-                () => section.FormattedCourseCode,
-                _courseNumber,
-                () => _courseNumber.Text,
-                BindingMode.OneWay);
-            holder.SaveBinding(_courseNumber, numberBinding);
+            //holder.DeleteBinding(_courseNumber);
+            //var numberBinding = new Binding<string, string>(
+            //    section,
+            //    () => section.FormattedCourseCode,
+            //    _courseNumber,
+            //    () => _courseNumber.Text,
+            //    BindingMode.OneWay);
+            //holder.SaveBinding(_courseNumber, numberBinding);
 
             /* Set binding for the coursename            */
             holder.DeleteBinding(_courseName);
             var nameBinding = new Binding<string, string>(
                 section,
-                () => section.CourseName,
+                () => section.GetFullCourseName,
                 _courseName,
                 () => _courseName.Text,
                 BindingMode.OneWay);

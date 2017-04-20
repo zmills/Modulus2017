@@ -73,7 +73,10 @@
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
                         android:background="@drawable/student_court_circle"
-                        android:padding="24dp"
+                        android:paddingTop="24dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="24dp"
+                        android:paddingBottom="30dp"
                         android:src="@drawable/ic_gavel"
                     />
                     <!-- android:adjustViewBounds="true"
