@@ -138,7 +138,7 @@
         <!-- <<toolbar>> -->
         <item name="modToolbarColor">@color/mod_appbar_color_dark</item>
         <item name="modToolbarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
-        <item name="modToolbarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="modToolbarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
         <!-- <<tablayout>>-->
         <item name="modTabLayoutColor">@color/mod_appbar_color_dark</item>
         <!-- <<bottom nav bar>>-->

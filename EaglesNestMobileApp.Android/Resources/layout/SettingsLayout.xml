@@ -11,7 +11,7 @@
         layout="@layout/ToolbarDialogLayout"
         />
 
-    <!-- SCROLLVIEW -->
+    <!-- NESTED SCROLLVIEW -->
     <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="?attr/modCardBackgroundColor"
         >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,19 +30,71 @@
             android:orientation="vertical"
             android:paddingTop="8dp"
             >
-
-            <View style="@style/ModDivider"/>
             
-            <Switch
-                android:id="@+id/ThemeSwitch"
+            <!-- DARK THEME SETTING -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dark Theme"
-                android:checked="false"
-                android:gravity="left"
-                />
-                <!--android:textOn="YES"
-                android:textOff="NO"-->
+                android:minHeight="56dp"
+                >
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    >
+
+                    <!-- SWITCH CONTAINER: Dark Theme -->
+                    <LinearLayout
+                        android:id="@+id/ThemeSwitchContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingTop="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingBottom="16dp"
+                        android:layout_alignParentRight="true"
+                        >
+
+                        <Switch
+                            android:id="@+id/ThemeSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:layout_gravity="center_vertical"
+                            />
+                            <!--android:textOn="YES"
+                                android:textOff="NO"-->
+
+                    </LinearLayout>
+
+                    <!-- DESCRIPTION CONTAINER: Dark Theme -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="16dp"
+                        android:layout_toLeftOf="@+id/ThemeSwitchContainer"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        >
+
+                        <!-- PRIMARY TEXT: Dark Theme -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/ModListItemPrimaryText"
+                            android:text="Dark Theme"
+                            android:layout_gravity="center_vertical"
+                            />
+                            <!--android:layout_gravity="center_vertical"-->
+
+                    </LinearLayout>
+                
+                </RelativeLayout>
+            
+            </LinearLayout>
 
             <View style="@style/ModDivider"/>
             
