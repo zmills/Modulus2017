@@ -20,6 +20,8 @@ using System.Threading;
 using EaglesNestMobileApp.Core.ViewModel;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
+using Android.Support.V7.App;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Account
 {
@@ -34,24 +36,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
             get { return App.Locator.StudentInfo; }
         }
 
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
-        //MARCELINO USE THIS TO DECIDE WHICH PICTURE TO LOAD
         private string userIdNumber;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -69,13 +53,14 @@ namespace EaglesNestMobileApp.Android.Views.Account
                 container, false);
 
             StudentInfoView.FindViewById<Button>(Resource.Id.BoxCombinationInstructions)
-                .SetCommand("Click", ViewModel.ShowBoxCombinationCommand);
+                .Click += ShowBoxInstructions;
+
 
             StudentInfoView.FindViewById<Button>(Resource.Id.StudentChecksheet)
                 .SetCommand("Click", ViewModel.ShowChecksheetCommand);
 
             StudentInfoView.FindViewById<Button>(Resource.Id.MessagingAndTelephoneInstructions)
-                .SetCommand("Click", ViewModel.ShowTelephoneInstructionsCommand);
+                .Click += ShowTelephoneInstructions;
 
             ImageView _accountPhotoView =
                 StudentInfoView.FindViewById<ImageView>(Resource.Id.AccountPhoto);
@@ -143,13 +128,55 @@ namespace EaglesNestMobileApp.Android.Views.Account
             return StudentInfoView;
         }
 
-        private void TabReselected(object sender,
-           TabLayout.TabReselectedEventArgs e)
+        private async void ShowTelephoneInstructions(object sender, EventArgs e)
+        {
+            (sender as Button).Enabled = false;
+
+            await Task.Delay(100);
+
+            ShowDialog(ViewModel.TelephoneTitle, ViewModel.TelephoneMessage);
+
+            await Task.Delay(400);
+
+            (sender as Button).Enabled = true;
+        }
+
+        private async void ShowBoxInstructions(object sender, EventArgs e)
+        {
+            (sender as Button).Enabled = false;
+
+            await Task.Delay(100);
+
+            ShowDialog(ViewModel.BoxCombinationTitle, ViewModel.BoxCombinationMessage);
+
+            await Task.Delay(400);
+
+            (sender as Button).Enabled = true;
+        }
+
+        private void TabReselected(object sender, TabLayout.TabReselectedEventArgs e)
         {
             if (e.Tab.Text == "Student Info")
             {
                 StudentInfoView.FindViewById<NestedScrollView>(Resource.Id.StudentScrollview).SmoothScrollTo(0, 0);
             }
+        }
+
+        private void ShowDialog(string title, string message)
+        {
+            /* Build and create the dialog                                   */
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Activity);
+            AlertDialog dialogBox = dialogBuilder.Create();
+
+            /* Set up the dialog box text                                    */
+            dialogBox.SetTitle(title);
+            dialogBox.SetMessage(message);
+            
+            /* Set dialog animation                                          */
+            dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+
+            /* Show the dialog                                               */
+            dialogBox.Show();
         }
 
         private void SetStudentInfo()
