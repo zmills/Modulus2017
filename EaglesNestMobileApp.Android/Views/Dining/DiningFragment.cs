@@ -15,6 +15,9 @@ using Android.Support.V7.Widget;
 using System.IO;
 using Android.Util;
 using EaglesNestMobileApp.Core.Contracts;
+using Dialog = Android.App.Dialog;
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -24,6 +27,9 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         View CurrentView { get; set; }
         ViewPager CurrentPager { get; set; }
         ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
+        Dialog _dialogBox;
+        SupportToolbar dialogToolbar;
+
 
         Fragment[] DiningFragments =
         {
@@ -89,7 +95,9 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                     break;
                 case Resource.Id.settings_button:
                     {
-                        if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
+                        OpenSettingsPage();
+
+                        /*if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
                         {
                             ThemeSwitcher.DeleteTheme("THEME");
                             ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
@@ -102,10 +110,41 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
                             Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
                             Activity.Recreate();
-                        }
+                        }*/
+
                     }
                     break;
             }
+        }
+
+        private async void OpenSettingsPage()
+        {
+            /* Find the current theme                                        */
+            TypedValue attrValue = new TypedValue();
+            Activity.Theme.ResolveAttribute(
+                Resource.Attribute.modThemeName, attrValue, true);
+
+            /* Create the dialog box based on the current theme              */
+            if (attrValue.String.ToString() == "ModAppCompatLightTheme")
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatLightTheme);
+            else
+                _dialogBox = new Dialog(Activity, Resource.Style.ModAppCompatDarkTheme);
+
+            _dialogBox.Window.SetContentView(Resource.Layout.SettingsLayout);
+
+            _dialogBox.Window.SetWindowAnimations(Resource.Style.Base_Animation_AppCompat_DropDownUp);
+            dialogToolbar = _dialogBox.Window.FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            dialogToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+            dialogToolbar.Title = "Settings";
+            dialogToolbar.NavigationClick += async (navSender, navEvent) =>
+            {
+                await Task.Delay(150);
+                _dialogBox.Dismiss();
+            };
+
+            await Task.Delay(150);
+            _dialogBox.Show();
+            await Task.Delay(400);
         }
     }
 }
