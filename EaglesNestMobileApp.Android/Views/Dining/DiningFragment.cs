@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using System.IO;
 using Android.Util;
 using EaglesNestMobileApp.Core.Contracts;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
