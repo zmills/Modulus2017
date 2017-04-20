@@ -176,7 +176,12 @@ namespace EaglesNestMobileApp.Android.Views.Campus_Life
             else
                 Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
 
-            Activity.Recreate();
+            //Activity.Recreate();
+            Intent intent = new Intent(Activity, Activity.Class);
+            Activity.Finish();
+            StartActivity(intent);
+            Activity.OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
+
         }
 
         private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)
