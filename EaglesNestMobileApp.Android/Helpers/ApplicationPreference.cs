@@ -37,5 +37,23 @@ namespace EaglesNestMobileApp.Android.Helpers
         {
             _preferences.Edit().Remove(key).Apply();
         }
+
+        public void SaveTheme(string key, string value)
+        {
+            _preferencesEditor = _preferences.Edit();
+
+            _preferencesEditor.PutString(key, value);
+            _preferencesEditor.Apply();
+        }
+
+        public string GetTheme(string key)
+        {
+            return _preferences.GetString(key, null);
+        }
+
+        public void DeleteTheme(string key)
+        {
+            _preferences.Edit().Remove(key).Apply();
+        }
     }
 }

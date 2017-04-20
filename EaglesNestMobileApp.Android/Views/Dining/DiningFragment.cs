@@ -13,6 +13,9 @@ using Uri = Android.Net.Uri;
 using Android.Content;
 using Android.Support.V7.Widget;
 using System.IO;
+using Android.Util;
+using EaglesNestMobileApp.Core.Contracts;
+using System.Threading.Tasks;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -21,6 +24,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         TabLayout TabLayout { get; set; }
         View CurrentView { get; set; }
         ViewPager CurrentPager { get; set; }
+        ICheckLogin ThemeSwitcher = App.Locator.CheckLogin;
 
         Fragment[] DiningFragments =
         {
@@ -34,9 +38,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            //Activity.RunOnUiThread(() => App.Locator.FourWinds.InitializeVm());
-            //Activity.RunOnUiThread(() => App.Locator.GrabAndGo.InitializeVm());
-            //Activity.RunOnUiThread(() => App.Locator.Varsity.InitializeVm());
         }
 
         public override View OnCreateView(LayoutInflater inflater, 
@@ -58,7 +59,6 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
             Toolbar toolbar = CurrentView.FindViewById<Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.toolbar_menu);
-
 
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
 
@@ -86,6 +86,24 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
 
                         App.Locator.Main.Logout();
+                    }
+                    break;
+                case Resource.Id.settings_button:
+                    {
+                        if (ThemeSwitcher.GetTheme("THEME") == "ModAppCompatLightTheme")
+                        {
+                            ThemeSwitcher.DeleteTheme("THEME");
+                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatDarkTheme");
+                            Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
+                            Activity.Recreate();
+                        }
+                        else
+                        {
+                            ThemeSwitcher.DeleteTheme("THEME");
+                            ThemeSwitcher.SaveTheme("THEME", "ModAppCompatLightTheme");
+                            Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
+                            Activity.Recreate();
+                        }
                     }
                     break;
             }

@@ -88,16 +88,12 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
             _parentView = ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner);
 
-        
-           // _parentView.Visibility = ViewStates.Visible;
-
             _recyclerview = _scheduleFragmentView.FindViewById<RecyclerView>(Resource.Id.StudentScheduleRecyclerview);
 
             _adapter = ViewModel.Schedule[0].GetRecyclerAdapter
                 (
                     BindViewHolder, Resource.Layout.StudentScheduleRecyclerViewLayout
                 );
-
             
             _title = _scheduleFragmentView.FindViewById<TextView>(Resource.Id.StudentScheduleDay);
 
@@ -112,7 +108,57 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
         private void DayClicked(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            switch ((sender as Spinner).GetItemAtPosition(e.Position).ToString())
+            SelectDay((sender as Spinner).GetItemAtPosition(e.Position).ToString());
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+            SelectDay(ParentFragment.View.FindViewById<Spinner>(Resource.Id.DaySpinner).SelectedItem.ToString());
+        }
+
+        private void BindViewHolder(CachingViewHolder holder, StudentEvent studentEvent, int position)
+        {
+            TextView _time     = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTime);
+            TextView _title    = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTitle);
+            TextView _location = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventDescription);
+
+            holder.DeleteBinding(_time    );
+            holder.DeleteBinding(_title   );
+            holder.DeleteBinding(_location);
+
+            var _timeBinding = new Binding<string, string>
+                (
+                    studentEvent,
+                    ()=> studentEvent.EventTime,
+                    _time,
+                    ()=>_time.Text
+                );
+
+            var _titleBinding = new Binding<string, string>
+                (
+                    studentEvent,
+                    () => studentEvent.Title,
+                    _title,
+                    () => _title.Text
+                );
+
+            var _locationBinding = new Binding<string, string>
+                (
+                     studentEvent,
+                    () => studentEvent.Location,
+                    _location,
+                    () => _location.Text
+                );
+
+            holder.SaveBinding(_time    ,_timeBinding);
+            holder.SaveBinding(_title   ,_titleBinding);
+            holder.SaveBinding(_location,_locationBinding);
+        }
+
+        private void SelectDay(string day)
+        {
+            switch (day)
             {
                 case App.Days.Sunday:
                     {
@@ -160,45 +206,6 @@ namespace EaglesNestMobileApp.Android.Views.Account
                     }
                     break;
             }
-        }
-
-        private void BindViewHolder(CachingViewHolder holder, StudentEvent studentEvent, int position)
-        {
-            TextView _time     = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTime);
-            TextView _title    = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventTitle);
-            TextView _location = holder.FindCachedViewById<TextView>(Resource.Id.studentScheduleEventDescription);
-
-            holder.DeleteBinding(_time    );
-            holder.DeleteBinding(_title   );
-            holder.DeleteBinding(_location);
-
-            var _timeBinding = new Binding<string, string>
-                (
-                    studentEvent,
-                    ()=> studentEvent.EventTime,
-                    _time,
-                    ()=>_time.Text
-                );
-
-            var _titleBinding = new Binding<string, string>
-                (
-                    studentEvent,
-                    () => studentEvent.Title,
-                    _title,
-                    () => _title.Text
-                );
-
-            var _locationBinding = new Binding<string, string>
-                (
-                     studentEvent,
-                    () => studentEvent.Location,
-                    _location,
-                    () => _location.Text
-                );
-
-            holder.SaveBinding(_time    ,_timeBinding);
-            holder.SaveBinding(_title   ,_titleBinding);
-            holder.SaveBinding(_location,_locationBinding);
         }
     }
 }

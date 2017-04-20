@@ -62,12 +62,11 @@ namespace EaglesNestMobileApp.Core.ViewModel
             Database = database;
         }
 
-
         public async Task AttemptLoginAsync()
         {
-            Dialog = _locator.Dialog;
-            Dialog.StartProgressDialog("Logging in", "Please wait . . .", false);
             EnableLoginButton = false;
+            Dialog = _locator.Dialog;
+            Dialog.StartProgressDialog("The Nest", "Logging in...", false);
 
             try
             {
@@ -77,7 +76,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
 
                     _locator.User = "118965";
 
-                    Dialog.ChangeDialogText("Loading", "Please wait. . .");
+                    Dialog.ChangeDialogText("The Nest", "Loading...");
 
                     await _locator.Main.InitializeNewUserAsync();
 
@@ -105,7 +104,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                                 LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
                                 _locator.User = CurrentUser.Id;
 
-                                Dialog.ChangeDialogText("Loading", "Please wait. . .");
+                                Dialog.ChangeDialogText("The Nest", "Loading...");
 
                                 await _locator.Main.InitializeNewUserAsync();
                                 Dialog.DismissProgressDialog();
@@ -119,7 +118,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
                                 await Dialog.StartDialogAsync("Error:",
                                     "\nIncorrect username or password.\n", true, 0);
                             }
-
                         }
                         else
                         {
@@ -127,13 +125,6 @@ namespace EaglesNestMobileApp.Core.ViewModel
                             await Dialog.StartDialogAsync("Error:", 
                                 "\nIncorrect username or password.\n", true, 0);
                         }
-                    }
-                    catch (System.Net.Http.HttpRequestException internetConnectionEx)
-                    {
-                        Debug.WriteLine($"\n\n\n{internetConnectionEx.Message}");
-                        Dialog.DismissProgressDialog();
-                        await Dialog.StartToastAsync("Please check your Internet connection.",
-                            Android.Widget.ToastLength.Long, 150);
                     }
 
                     catch (System.Net.WebException internetConnectionEx)
@@ -150,6 +141,14 @@ namespace EaglesNestMobileApp.Core.ViewModel
                         Dialog.DismissProgressDialog();
                         await Dialog.StartDialogAsync("Error:",
                             "Incorrect username or password.\n", true, 0);
+                    }
+
+                    catch (Exception UnkownError)
+                    {
+                        Debug.WriteLine($"\n\n\n{UnkownError.Message}");
+                        Dialog.DismissProgressDialog();
+                        await Dialog.StartDialogAsync(null,
+                            "An error occured while logging in.\nPlease try again.", true, 0);
                     }
                     EnableLoginButton = true;
                 }

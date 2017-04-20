@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
@@ -6,7 +15,7 @@
     android:layout_height="match_parent"
     android:paddingTop="16dp"
     >
-    
+  
     <!-- This is the 7 day layout that is always going to be there -->
   
     <!-- The is going to be the date header-->
@@ -35,7 +44,6 @@
         style="@style/ModTextViewUnderline"
         android:layout_marginBottom="8dp"
         />-->
-  
     <!-- This is to be recycled -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/StudentScheduleRecyclerview"
@@ -50,7 +58,7 @@
         android:layout_below="@+id/StudentScheduleDay"
         />
 </RelativeLayout>
-
+</android.support.v4.widget.NestedScrollView>
 
 
   
