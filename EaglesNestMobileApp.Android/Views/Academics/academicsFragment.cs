@@ -166,21 +166,12 @@ namespace EaglesNestMobileApp.Android.Views.Academics
                 SetTheme(_themeToChange);
         }
 
-        private async void SetTheme(string newTheme)
+        private void SetTheme(string newTheme)
         {
-            if (newTheme == "ModAppCompatLightTheme")
-                Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
-            else
-                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
-
-            //Activity.Recreate();
-            
             Intent intent = new Intent(Activity, Activity.Class);
             Activity.Finish();
-            await Task.Delay(100);
             StartActivity(intent);
-            Activity.OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
-
+            Activity.OverridePendingTransition(Resource.Animation.mod_fadein, Resource.Animation.mod_fadeout);
         }
 
         private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)

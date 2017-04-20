@@ -20,6 +20,8 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using System.Threading.Tasks;
 using Switch = Android.Widget.Switch;
 using System;
+using Android.Transitions;
+using Android.Views.Animations;
 
 namespace EaglesNestMobileApp.Android.Views.Dining
 {
@@ -32,6 +34,7 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         Dialog _dialogBox;
         SupportToolbar dialogToolbar;
         string _theme;
+        public TransitionSet transitionSet;
 
 
         Fragment[] DiningFragments =
@@ -170,17 +173,10 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
         private void SetTheme(string newTheme)
         {
-            if(newTheme == "ModAppCompatLightTheme")
-                Activity.SetTheme(Resource.Style.ModAppCompatLightTheme);
-            else
-                Activity.SetTheme(Resource.Style.ModAppCompatDarkTheme);
-
-            //Activity.Recreate();
             Intent intent = new Intent(Activity, Activity.Class);
             Activity.Finish();
             StartActivity(intent);
-            Activity.OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
-
+            Activity.OverridePendingTransition(Resource.Animation.mod_fadein, Resource.Animation.mod_fadeout);
         }
 
         private void ChangeTheme(object sender, global::Android.Widget.CompoundButton.CheckedChangeEventArgs e)
@@ -194,3 +190,4 @@ namespace EaglesNestMobileApp.Android.Views.Dining
         }
     }
 }
+ 

@@ -82,10 +82,19 @@ namespace EaglesNestMobileApp.Android
 			public const int design_snackbar_out = 2130968591;
 			
 			// aapt resource value: 0x7f040010
-			public const int move_fab = 2130968592;
+			public const int hold = 2130968592;
 			
 			// aapt resource value: 0x7f040011
-			public const int rotate_180_overshoot = 2130968593;
+			public const int mod_fadein = 2130968593;
+			
+			// aapt resource value: 0x7f040012
+			public const int mod_fadeout = 2130968594;
+			
+			// aapt resource value: 0x7f040013
+			public const int move_fab = 2130968595;
+			
+			// aapt resource value: 0x7f040014
+			public const int rotate_180_overshoot = 2130968596;
 			
 			static Animation()
 			{
