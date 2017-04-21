@@ -36,13 +36,10 @@ namespace EaglesNestMobileApp.Android.Views.Account
             get { return App.Locator.StudentInfo; }
         }
 
-        private string userIdNumber;
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            userIdNumber = App.Locator.CheckLogin.GetLogin("USERNAME");
         }
 
 
@@ -67,7 +64,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
 
             RoundedBitmapDrawable _drawable = null;
 
-            switch (userIdNumber)
+            switch (ViewModel.CurrentUser.Id)
             {
                 case "130000":
                     {

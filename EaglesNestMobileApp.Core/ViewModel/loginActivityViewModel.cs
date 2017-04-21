@@ -101,7 +101,7 @@ namespace EaglesNestMobileApp.Core.ViewModel
                             if (Authenticator.VerifyPassword(CurrentUser.Password,
                                 Remote.HashedPassword, Remote.Salt))
                             {
-                                LoginAuthenticator.SaveLogin("USERNAME", Remote.Id);
+                                LoginAuthenticator.SaveLogin("USERNAME", CurrentUser.Id);
                                 _locator.User = CurrentUser.Id;
 
                                 Dialog.ChangeDialogText("The Nest", "Loading...");

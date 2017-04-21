@@ -132,6 +132,9 @@ namespace EaglesNestMobileApp.Core.Services
                     await _fourWindsTable.PullAsync("allFourWindsItems",
                        _fourWindsTable.CreateQuery(), data);
 
+                    var foodlist = await _fourWindsTable.ToListAsync();
+                    Debug.WriteLine($"\n\n\nStudent events: {foodlist.Count}");
+
                     await _varsityTable.PullAsync("allVarsityItems",
                         _varsityTable.CreateQuery());
 

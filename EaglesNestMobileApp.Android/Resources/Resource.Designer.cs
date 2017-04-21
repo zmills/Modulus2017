@@ -3782,6 +3782,9 @@ namespace EaglesNestMobileApp.Android
 			// aapt resource value: 0x7f07013a
 			public const int llExpandArea = 2131165498;
 			
+			// aapt resource value: 0x7f0701b5
+			public const int logout_menu = 2131165621;
+			
 			// aapt resource value: 0x7f0701aa
 			public const int masked = 2131165610;
 			
