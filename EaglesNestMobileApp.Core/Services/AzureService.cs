@@ -84,7 +84,7 @@ namespace EaglesNestMobileApp.Core.Services
         {
             /* Local token is being used to make calls for "personal" data   */
             /* Try to sync the local store with the remote database          */
-            
+
             try
             {
                 await _client.SyncContext.PushAsync();
@@ -143,6 +143,7 @@ namespace EaglesNestMobileApp.Core.Services
 
                     await _eventsTable.PullAsync("allEvents",
                         _eventsTable.CreateQuery());
+
 
                     var list = await _studentEventTable.ToCollectionAsync();
                     Debug.WriteLine($"\n\n\nStudent events: {list.Count}");
