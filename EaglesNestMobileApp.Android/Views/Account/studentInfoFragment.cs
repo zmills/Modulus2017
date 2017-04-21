@@ -42,7 +42,7 @@ namespace EaglesNestMobileApp.Android.Views.Account
         {
             base.OnCreate(savedInstanceState);
             RetainInstance = true;
-            userIdNumber = ViewModel.CurrentUser.Id;
+            userIdNumber = App.Locator.CheckLogin.GetLogin("USERNAME");
         }
 
 

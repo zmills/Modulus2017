@@ -85,16 +85,16 @@ namespace EaglesNestMobileApp.Android.Views.Account
                 case Resource.Id.email_button:
                     StartActivity(new Intent(Intent.ActionView, Uri.Parse("https://students.pcci.edu/owa/")));
                     break;
-                case Resource.Id.logout_menu:
-                    {
-                        App.Locator.Main.Purge();
+                //case Resource.Id.logout_menu:
+                //    {
+                //        App.Locator.Main.Purge();
 
-                        File.Delete(System.Environment.GetFolderPath(
-                            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
+                //        File.Delete(System.Environment.GetFolderPath(
+                //            System.Environment.SpecialFolder.Personal) + "/" + App.DatabaseName);
 
-                        App.Locator.Main.Logout();
-                    }
-                    break;
+                //        App.Locator.Main.Logout();
+                //    }
+                //    break;
                 case Resource.Id.settings_button:
                     {
                         OpenSettingsPage();

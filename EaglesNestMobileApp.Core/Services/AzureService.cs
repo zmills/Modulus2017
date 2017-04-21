@@ -69,7 +69,7 @@ namespace EaglesNestMobileApp.Core.Services
             /* Get references to the tables                              */
             GetReferences();
 
-            CurrentUser = App.Locator.User;
+            CurrentUser = App.Locator.CheckLogin.GetLogin("USERNAME");
         }
 
         public async Task InitExistingLocalStore()

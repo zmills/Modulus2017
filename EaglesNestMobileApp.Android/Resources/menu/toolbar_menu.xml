@@ -12,7 +12,7 @@
           android:title="Settings"
           app:showAsAction="never"/>
     
-      <item android:id="@+id/logout_menu"
+      <!--<item android:id="@+id/logout_menu"
           android:title="Log Out"
-          app:showAsAction="never" />
+          app:showAsAction="never" />-->
 </menu>
