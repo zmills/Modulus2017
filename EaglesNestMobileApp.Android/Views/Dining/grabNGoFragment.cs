@@ -97,7 +97,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
 
                 /* Set Click Event */
                 LineList[count].Click += LineClick;
-                LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
+                if (ViewModel.GrabAndGoMenu.LunchMenu[count][0] != null)
+                    LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
 
             }
         }
@@ -164,7 +165,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.GrabAndGoMenu.LunchMenu[count];
-                                LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
+                                if (ViewModel.GrabAndGoMenu.LunchMenu[count][0] != null)
+                                    LineList[count].Text = ViewModel.GrabAndGoMenu.LunchMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
@@ -178,7 +180,8 @@ namespace EaglesNestMobileApp.Android.Views.Dining
                             {
                                 _adapter = RecyclerviewList[count].GetAdapter() as ObservableRecyclerAdapter<GrabAndGoItem, CachingViewHolder>;
                                 _adapter.DataSource = ViewModel.GrabAndGoMenu.DinnerMenu[count];
-                                LineList[count].Text = ViewModel.GrabAndGoMenu.DinnerMenu[count][0].MealTheme;
+                                if (ViewModel.GrabAndGoMenu.DinnerMenu[count][0] != null)
+                                    LineList[count].Text = ViewModel.GrabAndGoMenu.DinnerMenu[count][0].MealTheme;
                                 _adapter.NotifyDataSetChanged();
                             }
                         });
